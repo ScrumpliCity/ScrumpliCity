@@ -5,19 +5,22 @@
       <a href="ziele">Ziele</a>
       <a href="team">Team</a>
     </header>
-    <main class="flex flex-col items-center mt-28">
+    <main class="flex flex-col items-center mt-28 bg-[url('/assets/img/bg-houses.svg')] bg-no-repeat" style="background-position: center 380px;">
       <h1 class="text-3xl font-logo">
         Willkommen bei
       </h1>
       <img src="assets/img/schriftlogo.svg" class="mx-12 my-2"
            alt="Schriftlogo des Projekts ScrumpliCity, es zeigt den Schriftzug ScrumpliCity mit einer Illustration von 3 Häusern welche von einem Kreis, welcher an Scrum erinnert, umkreist sind">
+
       <p class="text-sc-orange mt-12 text-2xl mb-6 font-heading" id="projektbeschreibung">
         Unser Projekt
       </p>
       <p class="text-justify text-sm leading-6 mx-8">
         Im Rahmen dieser Diplomarbeit wird von uns eine Web-Applikation entwickelt, welche spielerisch die
-        Projektmanagementmethode Scrum vermitteln soll. Lernende sollen in Kleingruppen Städte aus Papier bauen können
-        und währenddessen Einblicke in die verschiedenen Phasen eines Scrum-Projekts bekommen. Dabei werden sie durch
+        Projektmanagementmethode Scrum vermitteln soll. Lernende sollen in Kleingruppen Städte aus Papier bauen
+        können
+        und währenddessen Einblicke in die verschiedenen Phasen eines Scrum-Projekts bekommen. Dabei werden sie
+        durch
         vorgefertigte Bastelvorlagen und das Anleiten der Website im Lernprozess unterstützt.
       </p>
       <p class="mt-36 text-sc-orange text-2xl mb-6 font-heading" id="ziele">
