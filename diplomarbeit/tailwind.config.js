@@ -68,7 +68,9 @@ export default {
                 },
             },
             fontFamily: {
-                sans: ["Montserrat", "sans-serif"]
+                sans: ["Manrope", "sans-serif"],
+                heading: ['Montserrat-ExtraBold', 'sans-serif'],
+                logo: ['Montserrat-ExtraLight', 'sans-serif'],
             }
         }
     },
