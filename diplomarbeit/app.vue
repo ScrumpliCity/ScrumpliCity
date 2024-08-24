@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-sc-white flex flex-col">
+  <div class="bg-sc-white flex flex-col scroll-smooth">
     <header class="text-xs flex items-end w-screen h-12 mb-14 bg-sc-white justify-between underline px-24 fixed pb-2.5">
-      <a href="projektbeschreibung">Projekt</a>
-      <a href="ziele">Ziele</a>
-      <a href="team">Team</a>
+      <a href="#projektbeschreibung">Projekt</a>
+      <a href="#ziele">Ziele</a>
+      <a href="#team">Team</a>
     </header>
     <main class="flex flex-col items-center mt-28 bg-[url('/assets/img/bg-houses.svg')] bg-no-repeat" style="background-position: center 380px;">
       <h1 class="text-3xl font-logo">
