@@ -19,10 +19,10 @@ jobs:
         with:
           node-version: 18
 
-      - name: cd into frontend
-        run: cd frontend
-
       - name: Install dependencies
         run: npm clean-install --include=dev
+        working-directory: ./frontend
+
       - name: Check formatting with Prettier
         run: npm run check
+        working-directory: ./frontend
