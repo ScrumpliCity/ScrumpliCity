@@ -71,6 +71,9 @@ export default {
                 sans: ["Manrope", "sans-serif"],
                 heading: ['Kelson-ExtraBold', 'sans-serif'],
                 logo: ['Kelson-Thin', 'sans-serif'],
+            },
+            dropShadow: {
+                'header': '0px 4px 8px rgba(0, 0, 0, 0.25)',
             }
         }
     },
