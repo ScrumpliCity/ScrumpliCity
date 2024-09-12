@@ -55,7 +55,7 @@
       </p>
       <div class="sm:flex sm:flex-row sm:mt-4 text-base sm:text-xl text-center font-bold">
         <div class="sm:flex-col">
-          <div class="relative w-40 sm:w-44 sm:mx-6 mb-1.5">
+          <div class="relative w-40 sm:w-44 sm:mx-6 mb-1.5 text-base">
             <img src="assets/img/Team/felix.jpg" class="w-full rounded-full" alt="Ein Foto des Teammitglieds Felix">
             <div
                 class="absolute rounded-full inset-0 flex flex-col items-center justify-center bg-sc-white/50 text-sc-black opacity-0 hover:opacity-100 transition-opacity duration-300">
@@ -86,7 +86,7 @@
               <div class="flex justify-center mt-2">
                 <a href="mailto:lisa-marie.hoermann@scrumplicity.app"><img src="assets/icons/VectoriconMail.svg"
                                                                            class="w-8 mx-1"></a>
-                <NuxtLink to="https://www.linkedin.com/in/lisa-marie-hörmann-607525316/" target="_blank"><img
+                <NuxtLink to="https://www.linkedin.com/in/lisa-marie-hörmann/" target="_blank"><img
                     src="./assets/icons/VectoriconLinkedIn.svg"
                     class="w-8 mx-1"></NuxtLink>
                 <NuxtLink to="https://github.com/dasechtelima" target="_blank"><img
@@ -100,7 +100,7 @@
         </div>
         <div class="sm:flex-col place-items-center">
           <div class="relative w-40 sm:w-44 sm:mx-6 mb-1.5 text-base">
-            <img src="assets/img/Team/marco.png" class="w-full rounded-full" alt="Ein Foto des Teammitglieds Marco">
+            <img src="assets/img/Team/marco.jpg" class="w-full rounded-full" alt="Ein Foto des Teammitglieds Marco">
             <div
                 class="absolute rounded-full inset-0 flex flex-col items-center justify-center bg-sc-white/50 text-sc-black opacity-0 hover:opacity-100 transition-opacity duration-300">
               <p>Projektmitglied</p>
@@ -108,7 +108,7 @@
               <div class="flex justify-center mt-2">
                 <a href="mailto:marco.janderka@scrumplicity.app"><img src="assets/icons/VectoriconMail.svg"
                                                                       class="w-8 mx-1"></a>
-                <NuxtLink to="https://www.linkedin.com/in/felixwollmann/ " target="_blank"><img
+                <NuxtLink to="https://www.linkedin.com/in/marco-janderka/" target="_blank"><img
                     src="./assets/icons/VectoriconLinkedIn.svg"
                     class="w-8 mx-1"></NuxtLink>
                 <NuxtLink to="https://github.com/Pycxtv" target="_blank"><img
