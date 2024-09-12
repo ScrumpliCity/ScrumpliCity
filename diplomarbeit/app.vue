@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-sc-white flex flex-col scroll-smooth">
+  <div class="bg-sc-white flex flex-col scroll-smooth bg-[url('/assets/img/bg-houses.svg')] bg-no-repeat bg-[center_top_20rem] sm:bg-[url('/assets/img/bg-houses-desktop.svg')] sm:bg-[center_top_18rem] sm:bg-contain">
     <header
         class="invisible sm:visible flex items-center text-xs sm:text-xl w-screen flex-row h-12 sm:h-28 bg-sc-white text-center justify-center sm:justify-between sm:px-9 fixed pb-2.5 drop-shadow-header">
       <a href="/">
@@ -13,18 +13,17 @@
       </div>
     </header>
     <main
-        class="flex flex-col items-center mt-16 sm:mt-40 bg-[url('/assets/img/bg-houses.svg')] bg-no-repeat bg-[center_top_24rem] sm:bg-[url('/assets/img/bg-houses-big.svg')] sm:bg-[center_top_10rem]">
+        class="flex flex-col items-center mt-16 sm:mt-40">
       <h1 class="sm:scroll-mt-36 text-3xl font-logo sm:text-6xl" id="/">
         Willkommen bei
       </h1>
-      <img src="assets/img/schriftlogo.svg" class="mx-12 my-2 sm:h-32"
+      <img src="assets/img/schriftlogo.svg" class="mx-12 my-2 sm:h-24 sm:mt-3 sm:mb-28"
            alt="Schriftlogo des Projekts ScrumpliCity, es zeigt den Schriftzug ScrumpliCity mit einer Illustration von 3 Häusern welche von einem Kreis, welcher an Scrum erinnert, umkreist sind">
-
-      <p class="sm:scroll-mt-36 text-sc-orange mt-12 sm:mt-44 text-2xl sm:text-4xl mb-6 sm:mb-7 font-heading"
+      <p class="sm:scroll-mt-36 text-sc-orange mt-12 sm:mt-16 text-2xl sm:text-4xl mb-6 sm:mb-7 font-heading"
          id="projektbeschreibung">
         Unser Projekt
       </p>
-      <p class="text-justify text-sm sm:text-xl leading-6 sm:leading-9 mx-8 sm:mx-[497px]">
+      <p class="text-justify sm:mb-20 text-sm sm:text-xl leading-6 sm:leading-9 mx-8 sm:mx-[400px]">
         Im Rahmen dieser Diplomarbeit wird von uns eine Web-Applikation entwickelt, welche spielerisch die
         Projektmanagementmethode Scrum vermitteln soll. Lernende sollen in Kleingruppen Städte aus Papier bauen
         können
@@ -32,7 +31,7 @@
         durch
         vorgefertigte Bastelvorlagen und das Anleiten der Website im Lernprozess unterstützt.
       </p>
-      <p class="sm:scroll-mt-36 mt-28 sm:mt-32 text-sc-orange text-2xl sm:text-4xl mb-6 sm:mb-7 font-heading"
+      <p class="sm:scroll-mt-36 mt-28 sm:mt-0 text-sc-orange text-2xl sm:text-4xl mb-6 sm:mb-7 font-heading"
          id="ziele">
         Unsere Ziele
       </p>
@@ -86,7 +85,7 @@
               <p>& Developer</p>
               <div class="flex justify-center mt-2">
                 <a href="mailto:lisa-marie.hoermann@scrumplicity.app"><img src="assets/icons/VectoriconMail.svg"
-                                                                      class="w-8 mx-1"></a>
+                                                                           class="w-8 mx-1"></a>
                 <NuxtLink to="https://www.linkedin.com/in/lisa-marie-hörmann-607525316/" target="_blank"><img
                     src="./assets/icons/VectoriconLinkedIn.svg"
                     class="w-8 mx-1"></NuxtLink>
