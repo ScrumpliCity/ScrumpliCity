@@ -1,5 +1,6 @@
 <template>
-  <div class="bg-sc-white flex flex-col scroll-smooth bg-[url('/assets/img/bg-houses.svg')] bg-no-repeat bg-[center_top_20rem] sm:bg-[url('/assets/img/bg-houses-desktop.svg')] sm:bg-[center_top_18rem] sm:bg-contain">
+  <div
+      class="bg-sc-white flex flex-col scroll-smooth bg-[url('/assets/img/bg-houses.svg')] bg-no-repeat bg-[center_top_20rem] sm:bg-[url('/assets/img/bg-houses-desktop.svg')] sm:bg-[center_top_18rem] sm:bg-contain min-h-[100svh]">
     <header
         class="invisible sm:visible flex items-center text-xs sm:text-xl w-screen flex-row h-12 sm:h-28 bg-sc-white text-center justify-center sm:justify-between sm:px-9 fixed pb-2.5 drop-shadow-header">
       <a href="/">
@@ -14,7 +15,7 @@
     </header>
     <main
         class="flex flex-col items-center mt-16 sm:mt-40">
-      <h1 class="sm:scroll-mt-36 text-3xl font-logo sm:text-6xl" id="/">
+      <h1 class="sm:scroll-mt-36 text-3xl font-logo sm:text-6xl">
         Willkommen bei
       </h1>
       <img src="assets/img/schriftlogo.svg" class="mx-12 my-2 sm:h-24 sm:mt-3 sm:mb-28"
@@ -23,7 +24,7 @@
          id="projektbeschreibung">
         Unser Projekt
       </p>
-      <p class="text-justify sm:mb-20 text-sm sm:text-xl leading-6 sm:leading-9 mx-8 sm:mx-[400px]">
+      <p class="text-justify sm:mb-20 text-sm sm:text-xl leading-6 sm:leading-9 mx-8 sm:mx-[400px] max-w-[80ch]">
         Im Rahmen dieser Diplomarbeit wird von uns eine Web-Applikation entwickelt, welche spielerisch die
         Projektmanagementmethode Scrum vermitteln soll. Lernende sollen in Kleingruppen Städte aus Papier bauen
         können
