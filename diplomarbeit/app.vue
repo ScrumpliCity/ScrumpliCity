@@ -26,11 +26,9 @@
       </p>
       <p class="text-justify sm:mb-20 text-sm sm:text-xl leading-6 sm:leading-9 mx-8 sm:mx-[400px] max-w-[80ch]">
         Im Rahmen dieser Diplomarbeit wird von uns eine Web-Applikation entwickelt, welche spielerisch die
-        Projektmanagementmethode Scrum vermitteln soll. Lernende sollen in Kleingruppen Städte aus Papier bauen
-        können
-        und währenddessen Einblicke in die verschiedenen Phasen eines Scrum-Projekts bekommen. Dabei werden sie
-        durch
-        vorgefertigte Bastelvorlagen und das Anleiten der Website im Lernprozess unterstützt.
+        Projektmanagementmethode Scrum vermitteln soll. Lernende bauen in Kleingruppen Städte aus Papier und erlangen
+        währenddessen Einblicke in den Ablauf eines Scrum-Projekts. Unsere Web-Applikation leitet parallel dazu die
+        verschiedenen Phasen von Scrum. Unterstützt werden die Lernenden auch durch vorgefertigte Bastelvorlagen.
       </p>
       <p class="sm:scroll-mt-36 mt-28 sm:mt-0 text-sc-orange text-2xl sm:text-4xl mb-6 sm:mb-7 font-heading"
          id="ziele">
