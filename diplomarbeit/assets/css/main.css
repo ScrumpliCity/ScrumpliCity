@@ -9,10 +9,10 @@
 
 @font-face {
     font-family: "Kelson-ExtraBold";
-    src: url("../fonts/Kelson-ExtraBold.otf");
+    src: url("../fonts/ignored/Kelson-ExtraBold.otf");
 }
 
 @font-face {
     font-family: "Kelson-Thin";
-    src: url("../fonts/Kelson-Thin.otf");
+    src: url("../fonts/ignored/Kelson-Thin.otf");
 }
