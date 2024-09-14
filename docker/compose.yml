@@ -1,0 +1,16 @@
+name: scrumplicity
+
+services:
+  diplomarbeit:
+    build: ../diplomarbeit
+    restart: unless-stopped
+  web:
+    build: ./nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+    restart: unless-stopped
+    depends_on:
+      - diplomarbeit
