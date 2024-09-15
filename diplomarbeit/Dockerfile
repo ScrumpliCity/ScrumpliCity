@@ -1,10 +1,12 @@
+# syntax=docker/dockerfile:1.7-labs
+
 FROM node:lts as build-stage
 WORKDIR /app
 
 COPY package*.json ./
 RUN npm ci
 
-COPY . .
+COPY --exclude=nginx.conf . .
 RUN npm run generate
 
 FROM nginx:stable-alpine as production-stage
