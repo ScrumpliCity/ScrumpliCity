@@ -149,4 +149,10 @@
   </div>
 </template>
 <script setup lang="ts">
+useSeoMeta({
+  title: 'ScrumpliCity',
+  ogTitle: 'ScrumpliCity',
+  description: 'Welcome to ScrumpliCity - Build Your Scrum Knowledge',
+  ogDescription: 'Welcome to ScrumpliCity - Build Your Scrum Knowledge'
+})
 </script>
