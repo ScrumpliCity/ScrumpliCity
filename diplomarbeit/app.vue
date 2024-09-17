@@ -156,7 +156,7 @@ useSeoMeta({
   ogDescription: 'Lerne spielerisch die Projektmanagementmethode Scrum mit ScrumpliCity. ScrumpliCity entsteht im Rahmen einer Diplomarbeit an der HTL Rennweg.',
   ogUrl: 'https://diplomarbeit.scrumplicity.app',
   ogType: 'website',
-  ogImage: 'https://diplomarbeit.scrumplicity.app/og-image.png',
+  ogImage: '/og-image.png',
   ogImageAlt: 'Willkommen bei ScrumpliCity. Unser Logo besteht aus dem Schriftzug ScrumpliCity und einer Illustration von 3 Häusern. Diese Häuser sind auch im Hintergrund dieses Bildes zu finden und haben die Farben Orange, Gelb und Grün.',
   ogImageWidth: '1200',
   ogImageHeight: '600',
