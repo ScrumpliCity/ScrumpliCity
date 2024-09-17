@@ -150,9 +150,18 @@
 </template>
 <script setup lang="ts">
 useSeoMeta({
-  title: 'ScrumpliCity',
-  ogTitle: 'ScrumpliCity',
-  description: 'Welcome to ScrumpliCity - Build Your Scrum Knowledge',
-  ogDescription: 'Welcome to ScrumpliCity - Build Your Scrum Knowledge'
+  title: 'ScrumpliCity - Build Your Scrum Knowledge',
+  ogTitle: 'ScrumpliCity - Build Your Scrum Knowledge',
+  description: 'Lerne spielerisch die Projektmanagementmethode Scrum mit ScrumpliCity. ScrumpliCity entsteht im Rahmen einer Diplomarbeit an der HTL Rennweg.',
+  ogDescription: 'Lerne spielerisch die Projektmanagementmethode Scrum mit ScrumpliCity. ScrumpliCity entsteht im Rahmen einer Diplomarbeit an der HTL Rennweg.',
+  ogUrl: 'https://diplomarbeit.scrumplicity.app',
+  ogType: 'website',
+  ogImage: 'https://diplomarbeit.scrumplicity.app/og-image.png',
+  ogImageAlt: 'Willkommen bei ScrumpliCity. Unser Logo besteht aus dem Schriftzug ScrumpliCity und einer Illustration von 3 Häusern. Diese Häuser sind auch im Hintergrund dieses Bildes zu finden und haben die Farben Orange, Gelb und Grün.',
+  ogImageWidth: '1200',
+  ogImageHeight: '600',
+  twitterCard: 'summary_large_image',
+  viewport: 'width=device-width, initial-scale=1.0',
+  colorScheme: 'only light',
 })
 </script>
