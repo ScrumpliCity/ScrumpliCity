@@ -25,8 +25,8 @@
         Unser Projekt
       </p>
       <p class="text-justify sm:mb-20 text-sm sm:text-xl leading-6 sm:leading-9 mx-8 sm:mx-[400px] max-w-[80ch] hyphens-manual">
-        ScrumpliCity entsteht im Rahmen einer Diplomarbeit an der HTL Rennweg. Als Projekt wird von uns eine
-        Web-Applikation entwickelt, welche spielerisch die
+        ScrumpliCity entsteht im Rahmen einer Diplomarbeit an der HTL Rennweg. Wir entwickeln eine
+        Webanwendung, welche spielerisch die
         Projektmanagement&shy;methode Scrum vermitteln soll. Lernende bauen in Kleingruppen Städte aus Papier und erlangen
         währenddessen Einblicke in den Ablauf eines Scrum-Projekts. Unsere Web-Applikation leitet parallel dazu die
         verschiedenen Phasen von Scrum. Unterstützt werden die Lernenden auch durch vorgefertigte Bastelvorlagen.
