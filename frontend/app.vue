@@ -8,12 +8,6 @@ const onBeforeEnter = async () => {
 
 <template>
   <NuxtLayout>
-    <NuxtPage
-      :transition="{
-        name: 'my',
-        mode: 'out-in',
-        onBeforeEnter,
-      }"
-    />
+    <NuxtPage />
   </NuxtLayout>
 </template>
