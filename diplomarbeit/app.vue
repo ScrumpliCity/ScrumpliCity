@@ -37,15 +37,15 @@
          id="features">
         Features unserer Website
       </p>
-      <ul class="list-disc list-inside text-sm lg:text-xl leading-7 lg:leading-10 mx-8">
+      <ul class="list-disc list-inside text-sm lg:text-xl leading-7 lg:leading-10 ml-4">
         <li>Lehrkraftprofile inkl. Registrierung & Login</li>
         <li>Einfache Raumübersicht für die Lehrkraft</li>
         <li>Erstes Scrum-Projekt spielerisch vermitteln und begleiten
-          <ul class="list-disc list-inside ml-4">
+          <ul class="list-inside ml-8" style="list-style: circle">
             <li>Online zu verfassende Sprint-Backlogs</li>
             <li>Sprint-Plannings</li>
             <li>Bauphase mit Timer
-              <ul class="list-disc list-inside ml-4">
+              <ul class="list-inside ml-8" style="list-style: square">
                 <li>Physische Stadt aus Papiervorlagen wird von Schülern gebaut</li>
               </ul>
             </li>
