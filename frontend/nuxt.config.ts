@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  compatibilityDate: "2024-04-03",
+  compatibilityDate: "2024-10-10",
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n"],
   i18n: {
@@ -20,5 +20,8 @@ export default defineNuxtConfig({
       },
       // Hier weitere Seiten definieren
     },
+  },
+  tailwindcss: {
+    cssPath: "~/assets/css/style.css",
   },
 });
