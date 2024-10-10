@@ -21,4 +21,7 @@ export default defineNuxtConfig({
       // Hier weitere Seiten definieren
     },
   },
+  tailwindcss: {
+    cssPath: "~/assets/css/style.css",
+  },
 });
