@@ -25,7 +25,7 @@
          id="projektbeschreibung">
         Unser Projekt
       </p>
-      <p class="text-justify text-sm lg:text-xl leading-6 lg:leading-9 mx-8 lg:mx-[400px] max-w-[80ch] hyphens-manual">
+      <p class="text-justify text-sm lg:text-xl leading-6 lg:leading-9 mx-8 lg:mx-64 xl:mx-[400px] max-w-[80ch] hyphens-manual">
         ScrumpliCity entsteht im Rahmen einer Diplomarbeit an der HTL Rennweg. Wir entwickeln eine
         Webanwendung, welche spielerisch die
         Projektmanagement&shy;methode Scrum vermitteln soll. Lernende bauen in Kleingruppen Städte aus Papier und
@@ -37,19 +37,19 @@
          id="features">
         Features unserer Website
       </p>
-      <ul class="list-disc list-inside text-sm lg:text-xl leading-7 lg:leading-10 ml-4">
+      <ul class="list-disc list-inside text-sm lg:text-xl leading-7 lg:leading-10 mx-6">
         <li>Lehrkraftprofile inkl. Registrierung & Login</li>
         <li>Einfache Raumübersicht für die Lehrkraft</li>
         <li>Erstes Scrum-Projekt spielerisch vermitteln und begleiten
-          <ul class="list-inside ml-8" style="list-style: circle">
+          <ul class="list-inside ml-8 list-[circle]">
             <li>Online zu verfassende Sprint-Backlogs</li>
             <li>Sprint-Plannings</li>
             <li>Bauphase mit Timer
-              <ul class="list-inside ml-8" style="list-style: square">
+              <ul class="list-inside ml-8 list-[square]">
                 <li>Physische Stadt aus Papiervorlagen wird von Schülern gebaut</li>
               </ul>
             </li>
-            <li>Review-Meetings inkl. Velocity Berechnung</li>
+            <li>Review-Meetings inkl. Velocity-Berechnung</li>
           </ul>
         </li>
         <li>Bastelvorlagen zum Downloaden</li>
