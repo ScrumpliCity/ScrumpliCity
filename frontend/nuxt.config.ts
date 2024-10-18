@@ -29,6 +29,6 @@ export default defineNuxtConfig({
     redirect: {
       onLogin: false,
       onLogout: false,
-    }
+    },
   },
 });

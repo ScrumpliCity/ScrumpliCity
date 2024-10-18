@@ -1,10 +1,8 @@
 <script setup>
 definePageMeta({
-    middleware: ['sanctum:auth'],
+  middleware: ["sanctum:auth"],
 });
 
 const user = useSanctumUser();
 </script>
-<template>
-    logged in! User: {{ user }}
-</template>
+<template>logged in! User: {{ user }}</template>

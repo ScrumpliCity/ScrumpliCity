@@ -6,7 +6,6 @@
 
 const { login, user, logout, isAuthenticated } = useSanctumAuth();
 
-
 // temporary example credentials
 const userCredentials = {
   email: "test@example.com",
