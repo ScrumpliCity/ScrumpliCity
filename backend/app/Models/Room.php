@@ -16,4 +16,13 @@ class Room extends Model
         'number_of_sprints',
         'sprint_duration',
     ];
+
+    /**
+     * Get the user that owns the room.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
+

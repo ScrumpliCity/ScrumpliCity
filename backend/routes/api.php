@@ -8,4 +8,4 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('rooms', RoomController::class)->only(['index', 'store', 'show', 'update', 'destroy']);
+Route::resource('rooms', RoomController::class)->only(['index', 'store', 'show', 'update', 'destroy'])->middleware('auth:sanctum');
