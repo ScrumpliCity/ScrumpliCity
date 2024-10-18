@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-10-10",
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n", "nuxt-auth-sanctum"],
   i18n: {
     defaultLocale: "de",
     locales: [
@@ -23,5 +23,12 @@ export default defineNuxtConfig({
   },
   tailwindcss: {
     cssPath: "~/assets/css/style.css",
+  },
+  sanctum: {
+    baseUrl: "http://localhost:8000", // Laravel API
+    redirect: {
+      onLogin: false,
+      onLogout: false,
+    },
   },
 });
