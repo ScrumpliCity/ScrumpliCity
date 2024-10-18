@@ -5,15 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Room;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class RoomController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): \Illuminate\Database\Eloquent\Collection
+    public function index(Request $request): \Illuminate\Database\Eloquent\Collection
     {
-        return Room::all(); // tbd on finishing login: showing only the users rooms
+        $user = $request->user();
+        return $user->rooms;
     }
 
     /**
@@ -29,6 +31,8 @@ class RoomController extends Controller
      */
     public function store(Request $request): Room
     {
+        Gate::authorize('create', Room::class);
+
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'number_of_sprints' => 'required|integer|max:99|min:1',
@@ -36,14 +40,16 @@ class RoomController extends Controller
         ]);
 
         $room = Room::create($validated);
+        $room->user()->associate($request->user());
         return $room;
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Room $room): Room
+    public function show(Request $request, Room $room): Room
     {
+        Gate::authorize('view', $room);
         return $room;
     }
 
@@ -60,6 +66,7 @@ class RoomController extends Controller
      */
     public function update(Request $request, Room $room): Room
     {
+        Gate::authorize('update', $room);
 
         $validated = $request->validate([
             'name' => 'required|string|max:255',
@@ -74,8 +81,10 @@ class RoomController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Room $room): JsonResponse
+    public function destroy(Request $request, Room $room): JsonResponse
     {
+        Gate::authorize('delete', $room);
+
         $room->delete();
         return response()->json(null, 204);
     }
