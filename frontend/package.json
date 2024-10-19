@@ -16,6 +16,7 @@
     "@nuxtjs/tailwindcss": "^6.12.1",
     "nuxt": "^3.13.0",
     "nuxt-auth-sanctum": "^0.5.0",
+    "nuxt-svgo": "^4.0.6",
     "vue": "latest",
     "vue-router": "latest"
   },

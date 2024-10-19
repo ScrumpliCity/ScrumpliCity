@@ -1,7 +1,12 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-10-10",
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n", "nuxt-auth-sanctum"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/i18n",
+    "nuxt-auth-sanctum",
+    "nuxt-svgo",
+  ],
   i18n: {
     defaultLocale: "de",
     locales: [
@@ -30,5 +35,9 @@ export default defineNuxtConfig({
       onLogin: false,
       onLogout: false,
     },
+  },
+  svgo: {
+    componentPrefix: "Svg",
+    autoImportPath: "~/assets/svg",
   },
 });
