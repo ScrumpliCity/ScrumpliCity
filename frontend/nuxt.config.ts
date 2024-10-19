@@ -1,12 +1,7 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-10-10",
   devtools: { enabled: true },
-  modules: [
-    "@nuxtjs/tailwindcss",
-    "@nuxtjs/i18n",
-    "nuxt-auth-sanctum",
-    "nuxt-svgo",
-  ],
+  modules: ["@nuxtjs/i18n", "nuxt-auth-sanctum", "nuxt-svgo", "@nuxt/ui"],
   i18n: {
     defaultLocale: "de",
     locales: [
@@ -23,6 +18,10 @@ export default defineNuxtConfig({
         de: "/beitreten",
         en: "/join",
       },
+      rooms: {
+        de: "/räume",
+        en: "/rooms",
+      },
       // Hier weitere Seiten definieren
     },
   },
@@ -37,7 +36,10 @@ export default defineNuxtConfig({
     },
   },
   svgo: {
-    componentPrefix: "Svg",
+    componentPrefix: "Svg", // prefix (eg. assets/svg/Mainlogo.svg -> SvgMainlogo)
     autoImportPath: "~/assets/svg",
+  },
+  colorMode: {
+    preference: "light", // without this, Nuxt UI uses it's dark mode
   },
 });
