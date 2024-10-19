@@ -7,7 +7,9 @@ function switchLocale() {
 </script>
 
 <template>
-  <header class="flex h-28 items-center bg-sc-white px-14">
+  <header
+    class="flex h-28 items-center bg-sc-white px-14 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.25)]"
+  >
     <NuxtLinkLocale to="/">
       <SvgMainlogo :font-controlled="false" class="h-12"> </SvgMainlogo>
     </NuxtLinkLocale>
