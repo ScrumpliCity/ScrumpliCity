@@ -43,7 +43,10 @@ function switchLocale() {
         :ui="{ rounded: 'rounded-full', icon: { size: { sm: 'size-10' } } }"
       ></UButton>
       <!-- Random image till we have an actual image -->
-      <img class="size-10 rounded-full bg-slate-300" src="https://picsum.photos/40/40"></img>
+      <img
+        class="size-10 rounded-full bg-slate-300"
+        src="https://picsum.photos/40/40"
+      />
     </div>
   </header>
 </template>

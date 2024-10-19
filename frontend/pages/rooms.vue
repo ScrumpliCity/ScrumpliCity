@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <AppHeader/>
+  <AppHeader />
   <!-- Slot for room creation popup -->
-  <NuxtPage/>
+  <NuxtPage />
 </template>
