@@ -1,5 +1,12 @@
 {
   "welcome": "Willkommen",
   "join": "Runde beitreten",
-  "welcome_message": "Willkommen zum Spiel"
+  "welcome_message": "Willkommen zum Spiel",
+  "create_room_heading": "Projekt-Raum erstellen",
+  "roomname": "Name des Raums",
+  "max_value_reached": "Wert zu groß!",
+  "sprint_count": "Anzahl an Sprints",
+  "sprint_duration": "Dauer eines Sprints (in Minuten)",
+  "edit_number": "Wert bearbeiten",
+  "create": "Erstellen"
 }

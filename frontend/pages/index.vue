@@ -4,7 +4,7 @@ const { locale, setLocale } = useI18n();
 const localeRoute = useLocaleRoute();
 
 // Demo Data fetching vom Server
-const { data } = await useFetch("http://localhost:8000/");
+// const { data } = await useFetch("http://localhost:8000/");
 </script>
 
 <template>
@@ -15,7 +15,9 @@ const { data } = await useFetch("http://localhost:8000/");
       <button @click="setLocale('en')">en</button>
       <p>{{ $t("welcome") }}</p>
       <NuxtLink :to="localeRoute('join', locale)">{{ $t("join") }}</NuxtLink>
-      <p>Laravel Version: {{ data.Laravel }}</p>
+      <!-- <p>Laravel Version: {{ data.Laravel }}</p> -->
+      // Test:
+      <!-- <NuxtLink :to="localeRoute('CreateRoom', locale)">Raumerstellung</NuxtLink> -->
     </div>
   </div>
 </template>
