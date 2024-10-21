@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  compatibilityDate: "2024-10-10",
+  compatibilityDate: "2024-10-21",
   devtools: { enabled: true },
   modules: ["@nuxtjs/i18n", "nuxt-auth-sanctum", "nuxt-svgo", "@nuxt/ui"],
   i18n: {
@@ -42,4 +42,9 @@ export default defineNuxtConfig({
   colorMode: {
     preference: "light", // without this, Nuxt UI uses it's dark mode
   },
+  $production: {
+    sanctum: {
+      baseUrl: "https://api.scrumplicity.app/",
+    }
+  }
 });

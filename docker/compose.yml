@@ -14,3 +14,6 @@ services:
     restart: unless-stopped
     depends_on:
       - diplomarbeit
+      - frontend
+  frontend:
+    build: ../frontend
