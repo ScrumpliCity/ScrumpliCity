@@ -8,33 +8,45 @@
 }
 
 @font-face {
-  font-family: "Kelson-Regular";
+  font-family: "Kelson";
   src: url("../fonts/ignored/Kelson.otf");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: "Kelson-Bold";
+  font-family: "Kelson";
   src: url("../fonts/ignored/Kelson-Bold.otf");
+  font-weight: bold;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: "Kelson-ExtraBold";
+  font-family: "Kelson";
   src: url("../fonts/ignored/Kelson-ExtraBold.otf");
+  font-weight: 800;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: "Kelson-Light";
+  font-family: "Kelson";
   src: url("../fonts/ignored/Kelson-Light.otf");
+  font-weight: 300;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: "Kelson-Medium";
+  font-family: "Kelson";
   src: url("../fonts/ignored/Kelson-Medium.otf");
+  font-weight: 500;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: "Kelson-Thin";
+  font-family: "Kelson";
   src: url("../fonts/ignored/Kelson-Thin.otf");
+  font-weight: 100;
+  font-style: normal;
 }
 
 /* To disable spin buttons in input type=text tags */

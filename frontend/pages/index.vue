@@ -13,11 +13,13 @@ const localeRoute = useLocaleRoute();
       <button @click="setLocale('de')">de</button>
       <br />
       <button @click="setLocale('en')">en</button>
-      <p>{{ $t("welcome") }}</p>
-      <NuxtLink :to="localeRoute('join', locale)">{{ $t("join") }}</NuxtLink>
-      <!-- <p>Laravel Version: {{ data.Laravel }}</p> -->
-      // Test:
-      <!-- <NuxtLink :to="localeRoute('CreateRoom', locale)">Raumerstellung</NuxtLink> -->
+      <p class="font-heading font-black">{{ $t("welcome") }}</p>
+      <NuxtLink
+        :to="localeRoute('join', locale)"
+        class="font-heading font-thin"
+        >{{ $t("join") }}</NuxtLink
+      >
+      <p>Laravel Version: {{ data.Laravel }}</p>
     </div>
   </div>
 </template>
