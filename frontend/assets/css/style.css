@@ -3,23 +3,23 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Manrope";
-  src: url("../fonts/Manrope-VariableFont_wght.ttf");
+    font-family: "Manrope";
+    src: url("../fonts/Manrope-VariableFont_wght.ttf");
 }
 
 @font-face {
-  font-family: "Kelson-Regular";
-  src: url("../fonts/ignored/Kelson.otf");
+    font-family: "Kelson-Regular";
+    src: url("../fonts/ignored/Kelson.otf");
 }
 
 @font-face {
-  font-family: "Kelson-Bold";
-  src: url("../fonts/ignored/Kelson-Bold.otf");
+    font-family: "Kelson-Bold";
+    src: url("../fonts/ignored/Kelson-Bold.otf");
 }
 
 @font-face {
-  font-family: "Kelson-ExtraBold";
-  src: url("../fonts/ignored/Kelson-ExtraBold.otf");
+    font-family: "Kelson-ExtraBold";
+    src: url("../fonts/ignored/Kelson-ExtraBold.otf");
 }
 
 @font-face {
@@ -33,6 +33,6 @@
 }
 
 @font-face {
-  font-family: "Kelson-Thin";
-  src: url("../fonts/ignored/Kelson-Thin.otf");
+    font-family: "Kelson-Thin";
+    src: url("../fonts/ignored/Kelson-Thin.otf");
 }
