@@ -11,63 +11,24 @@ RUN install-php-extensions \
 RUN cp $PHP_INI_DIR/php.ini-production $PHP_INI_DIR/php.ini
 
 # install composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+COPY --link --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # copy composer files
-COPY composer.* .
+COPY --link composer.* .
 
-# install dependencies so they can be cached by docker
-RUN composer install --no-dev --no-scripts
+# install dependencies so they can be cached by docker (but don't
+# execute scripts as those require artisan)
+RUN composer install --no-dev --no-scripts --no-autoloader && rm -rf /root/.cache /data/composer /config/composer
 
 # copy source code
-COPY . /app
+COPY --link --exclude=composer.* . /app
 
 # run scripts that depend on the source code that were previously not run
-RUN composer install --optimize-autoloader --no-dev
+RUN composer install --optimize-autoloader --no-dev && rm -rf /root/.cache /data/composer /config/composer
 
-# clear optimization and cache files
-RUN php artisan optimize:clear
-
-# cache everything except config
+# cache everything except config (config is cached on startup in start.sh)
 RUN php artisan event:cache
 RUN php artisan route:cache
 RUN php artisan view:cache
 
 CMD ["./start.sh"]
-
-
-
-
-
-# FROM php:8.2-fpm-alpine
-
-# WORKDIR /app
-
-# # Use the default production configuration # see https://hub.docker.com/_/php
-# RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
-
-# COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
-# COPY composer.* /app
-
-# RUN composer install --optimize-autoloader --no-dev
-
-# COPY . /app
-
-
-
-
-
-
-
-
-
-# FROM dunglas/frankenphp
- 
-# RUN install-php-extensions \
-#     pcntl
-#     # Add other PHP extensions here...
- 
-# COPY . /app
- 
-# ENTRYPOINT ["php", "artisan", "octane:frankenphp"]
