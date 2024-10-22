@@ -14,7 +14,11 @@ const { data } = await useFetch("http://localhost:8000/");
       <br />
       <button @click="setLocale('en')">en</button>
       <p class="font-heading font-black">{{ $t("welcome") }}</p>
-      <NuxtLink :to="localeRoute('join', locale)" class="font-heading font-thin">{{ $t("join") }}</NuxtLink>
+      <NuxtLink
+        :to="localeRoute('join', locale)"
+        class="font-heading font-thin"
+        >{{ $t("join") }}</NuxtLink
+      >
       <p>Laravel Version: {{ data.Laravel }}</p>
     </div>
   </div>
