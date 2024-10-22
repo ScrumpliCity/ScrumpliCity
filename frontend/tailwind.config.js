@@ -1,7 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  theme: {},
-  plugins: [],
   content: [
     `components/**/*.{vue,js,ts}`,
     `layouts/**/*.vue`,
@@ -74,8 +72,12 @@ export default {
       },
       fontFamily: {
         sans: ["Manrope", "sans-serif"],
-        heading: ["Kelson-ExtraBold", "sans-serif"],
-        logo: ["Kelson-Thin", "sans-serif"],
+        KelsonRegular: ["Kelson-Regular", "sans-serif"],
+        KelsonBold: ["Kelson-Bold", "sans-serif"],
+        KelsonExtraBold: ["Kelson-ExtraBold", "sans-serif"],
+        KelsonLight: ["Kelson-Light", "sans-serif"],
+        KelsonMedium: ["Kelson-Medium", "sans-serif"],
+        KelsonThin: ["Kelson-Thin", "sans-serif"],
       },
     },
   },
