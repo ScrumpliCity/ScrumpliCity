@@ -72,12 +72,7 @@ export default {
       },
       fontFamily: {
         sans: ["Manrope", "sans-serif"],
-        KelsonRegular: ["Kelson-Regular", "sans-serif"],
-        KelsonBold: ["Kelson-Bold", "sans-serif"],
-        KelsonExtraBold: ["Kelson-ExtraBold", "sans-serif"],
-        KelsonLight: ["Kelson-Light", "sans-serif"],
-        KelsonMedium: ["Kelson-Medium", "sans-serif"],
-        KelsonThin: ["Kelson-Thin", "sans-serif"],
+        heading: ["Kelson", "sans-serif"],
       },
     },
   },
