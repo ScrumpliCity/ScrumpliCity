@@ -20,7 +20,7 @@ services:
 
   frontend:
     build:
-      target: ../frontend
+      context: ../frontend
       args:
         - SCRUMPLICITY_LARAVEL_API_URL=${SCRUMPLICITY_LARAVEL_API_URL}
     restart: unless-stopped
