@@ -18,13 +18,15 @@ COPY --link composer.* .
 
 # install dependencies so they can be cached by docker (but don't
 # execute scripts as those require artisan)
-RUN composer install --no-dev --no-scripts --no-autoloader && rm -rf /root/.cache /data/composer /config/composer
+RUN --mount=type=cache,target=/root/.cache \
+    COMPOSER_HTACCESS_PROTECT=0 \
+    composer install --no-dev --no-scripts --no-autoloader
 
 # copy source code
 COPY --link --exclude=composer.* . /app
 
 # run scripts that depend on the source code that were previously not run
-RUN composer install --optimize-autoloader --no-dev && rm -rf /root/.cache /data/composer /config/composer
+RUN COMPOSER_HTACCESS_PROTECT=0 composer install --optimize-autoloader --no-dev
 
 # cache everything except config (config is cached on startup in start.sh)
 RUN php artisan event:cache
