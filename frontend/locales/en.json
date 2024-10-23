@@ -2,11 +2,12 @@
   "welcome": "Welcome",
   "join": "Join round",
   "welcome_message": "Welcome to the game",
-  "create_room_heading": "Create Project room",
+  "create_room_heading": "Create a project room",
   "roomname": "Room name",
   "max_value_reached": "Value too large!",
   "sprint_count": "Number of sprints",
   "sprint_duration": "Duration of a sprint (in minutes)",
   "edit_number": "Edit value",
-  "create": "Create"
+  "create": "Create",
+  "new": "New"
 }

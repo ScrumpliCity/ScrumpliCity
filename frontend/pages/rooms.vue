@@ -1,17 +1,15 @@
-<script lang="ts" setup>
+<script setup>
+const { locale } = useI18n();
+const localeRoute = useLocaleRoute();
 const roomCreationIsOpen = ref(false);
 </script>
 
 <template>
   <AppHeader />
   <!-- Slot for room creation popup -->
-  <NuxtPage page-key="create-room" v-if="roomCreationIsOpen" />
-  <UButton
-    @click="
-      roomCreationIsOpen = true;
-      console.log(roomCreationIsOpen);
-    "
-    >Raum erstellen</UButton
+  <NuxtLink :to="localeRoute('rooms-create', locale)"
+    >{{ $t("new") }} +</NuxtLink
   >
-  <!-- <NuxtPage /> -->
+  <!-- @Felix-->
+  <NuxtPage />
 </template>

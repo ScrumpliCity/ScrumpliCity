@@ -75,16 +75,16 @@ let chooseVal = (num) => {
 
 <template>
   <div
-    class="flex overflow-hidden rounded-xl border border-sc-black-400 text-2xl text-sc-black-400"
+    class="flex overflow-hidden rounded-lg border border-sc-black-400 bg-sc-white text-2xl font-semibold text-sc-black-400"
   >
     <button
       v-for="count in choices"
       @click="chooseVal(count)"
       :key="count"
+      class="h-11 w-11 border-r border-sc-black-400"
       :class="{
         'bg-sc-orange bg-opacity-50 text-sc-black': chosenNum === count,
       }"
-      class="h-14 w-14 border-r border-sc-black-400"
     >
       {{ count }}
     </button>
@@ -93,7 +93,7 @@ let chooseVal = (num) => {
     <!-- <UTooltip :text="useNuxtApp().$i18n.t('edit_number')" :popper="{ placement: 'top', offsetDistance: 0 }">-->
     <div
       v-if="isEditing"
-      class="justify-centerborder-sc-black-400 flex h-14 w-14 flex-col"
+      class="justify-centerborder-sc-black-400 flex h-11 w-11 flex-col"
     >
       <input
         id="customAdd"
@@ -107,7 +107,7 @@ let chooseVal = (num) => {
     </div>
     <button
       v-else
-      class="flex h-14 w-14 flex-col justify-center"
+      class="flex h-11 w-11 flex-col justify-center"
       :class="{
         'bg-sc-orange bg-opacity-50 text-sc-black': chosenNum === customValue,
       }"
@@ -127,7 +127,7 @@ let chooseVal = (num) => {
 
 <style scoped>
 .placeholder-style::placeholder {
-  /* moves the placeholder a bit lower for better visibility*/
-  padding: 5px 20px;
+  /* moves the placeholder a bit lower for better positioning*/
+  padding: 5px 11px;
 }
 </style>

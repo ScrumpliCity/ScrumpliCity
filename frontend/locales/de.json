@@ -8,5 +8,6 @@
   "sprint_count": "Anzahl an Sprints",
   "sprint_duration": "Dauer eines Sprints (in Minuten)",
   "edit_number": "Wert bearbeiten",
-  "create": "Erstellen"
+  "create": "Erstellen",
+  "new": "Neu"
 }
