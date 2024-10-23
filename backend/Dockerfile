@@ -31,4 +31,6 @@ RUN php artisan event:cache
 RUN php artisan route:cache
 RUN php artisan view:cache
 
+HEALTHCHECK CMD [ "curl", "-f", "http://localhost:80/up" ]
+
 CMD ["./start.sh"]
