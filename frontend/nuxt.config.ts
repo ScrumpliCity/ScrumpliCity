@@ -29,7 +29,7 @@ export default defineNuxtConfig({
     cssPath: "~/assets/css/style.css",
   },
   sanctum: {
-    baseUrl: "http://localhost:8000", // Laravel API
+    baseUrl: process.env.SCRUMPLICITY_LARAVEL_API_URL, // Laravel API
     redirect: {
       onLogin: false,
       onLogout: false,
@@ -42,9 +42,4 @@ export default defineNuxtConfig({
   colorMode: {
     preference: "light", // without this, Nuxt UI uses it's dark mode
   },
-  $production: {
-    sanctum: {
-      baseUrl: "https://api.scrumplicity.app/",
-    }
-  }
 });

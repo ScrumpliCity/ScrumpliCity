@@ -4,6 +4,7 @@ services:
   diplomarbeit:
     build: ../diplomarbeit
     restart: unless-stopped
+
   web:
     build: ./nginx
     ports:
@@ -15,5 +16,37 @@ services:
     depends_on:
       - diplomarbeit
       - frontend
+
   frontend:
-    build: ../frontend
+    build:
+      target: ../frontend
+      args:
+        - SCRUMPLICITY_LARAVEL_API_URL=${SCRUMPLICITY_LARAVEL_API_URL}
+    restart: unless-stopped
+
+  backend:
+    build: ../backend
+    restart: unless-stopped
+    environment:
+      - APP_URL=${SCRUMPLICITY_LARAVEL_API_URL}
+      - FRONTEND_URL=${SCRUMPLICITY_FRONTEND_URL}
+      - APP_KEY=${APP_KEY}
+      - DB_CONNECTION=mysql
+      - DB_HOST=db
+      - DB_DATABASE=${MYSQL_DATABASE}
+      - DB_USERNAME=${MYSQL_USER}
+      - DB_PASSWORD=${MYSQL_PASSWORD}
+  db:
+    image: mariadb:latest
+    pull_policy: always
+    restart: unless-stopped
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+
+volumes:
+  dbdata:
