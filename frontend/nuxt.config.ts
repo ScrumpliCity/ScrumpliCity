@@ -29,7 +29,7 @@ export default defineNuxtConfig({
     cssPath: "~/assets/css/style.css",
   },
   sanctum: {
-    baseUrl: process.env.SCRUMPLICITY_LARAVEL_API_URL, // Laravel API
+    baseUrl: process.env.SCRUMPLICITY_LARAVEL_API_URL ?? 'http://localhost:8000', // Laravel API
     redirect: {
       onLogin: false,
       onLogout: false,
