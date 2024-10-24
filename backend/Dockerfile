@@ -10,6 +10,10 @@ RUN install-php-extensions \
 
 RUN cp $PHP_INI_DIR/php.ini-production $PHP_INI_DIR/php.ini
 
+# set env vars for composer
+ENV COMPOSER_ALLOW_SUPERUSER=1
+ENV COMPOSER_HTACCESS_PROTECT=0
+
 # install composer
 COPY --link --from=composer:latest /usr/bin/composer /usr/bin/composer
 
@@ -19,16 +23,16 @@ COPY --link composer.* .
 # install dependencies so they can be cached by docker (but don't
 # execute scripts as those require artisan)
 RUN --mount=type=cache,target=/root/.cache \
-    COMPOSER_HTACCESS_PROTECT=0 \
     composer install --no-dev --no-scripts --no-autoloader
 
 # copy source code
 COPY --link --exclude=composer.* . /app
 
+# allow execution of the start script
 RUN chmod u+x /app/start.sh
 
 # run scripts that depend on the source code that were previously not run
-RUN COMPOSER_HTACCESS_PROTECT=0 composer install --optimize-autoloader --no-dev
+RUN composer install --optimize-autoloader --no-dev
 
 # cache everything except config (config is cached on startup in start.sh)
 RUN php artisan event:cache
