@@ -25,6 +25,8 @@ RUN --mount=type=cache,target=/root/.cache \
 # copy source code
 COPY --link --exclude=composer.* . /app
 
+RUN chmod u+x /app/start.sh
+
 # run scripts that depend on the source code that were previously not run
 RUN COMPOSER_HTACCESS_PROTECT=0 composer install --optimize-autoloader --no-dev
 
