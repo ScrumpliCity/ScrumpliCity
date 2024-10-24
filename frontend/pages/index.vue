@@ -3,8 +3,10 @@
 const { locale, setLocale } = useI18n();
 const localeRoute = useLocaleRoute();
 
-// Demo Data fetching vom Server
-const { data } = await useFetch("http://localhost:8000/");
+// demo for data fetching
+const client = useSanctumClient();
+
+const { data } = await useAsyncData("rooms", () => client("/"));
 </script>
 
 <template>

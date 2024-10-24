@@ -2,8 +2,10 @@
 README.md
 **/.gitignore
 Dockerfile
+.prettierrc
 
-## copied from .gitginore execpt for the fonts part
+# the rest is copied from ./.gitignore
+# (fonts are hidden from git by another .gitignore ./assets/fonts/ignored/.gitignore)
 
 # Nuxt dev/build outputs
 .output
