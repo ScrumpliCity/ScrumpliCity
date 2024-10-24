@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('rooms', function (Blueprint $table) {
-            $table->ulid('id');
+            $table->ulid('id')->primary();
             $table->timestamps();
             $table->tinyText('name');
             $table->unsignedTinyInteger('number_of_sprints');
             $table->unsignedTinyInteger('sprint_duration');
-            $table->foreignUlid('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
         });
     }
 
