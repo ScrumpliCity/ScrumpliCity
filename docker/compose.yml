@@ -39,6 +39,7 @@ services:
       - DB_DATABASE=${MYSQL_DATABASE}
       - DB_USERNAME=${MYSQL_USER}
       - DB_PASSWORD=${MYSQL_PASSWORD}
+      - SESSION_DOMAIN=${SESSION_DOMAIN}
     depends_on:
       - db
 
