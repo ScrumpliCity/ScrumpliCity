@@ -75,7 +75,7 @@ let chooseVal = (num) => {
 
 <template>
   <div
-    class="flex overflow-hidden rounded-lg border border-sc-black-400 bg-sc-white text-2xl font-semibold text-sc-black-400"
+    class="flex overflow-hidden rounded-lg border border-sc-black-400 bg-sc-white text-2xl font-semibold text-sc-black-400 drop-shadow-md"
   >
     <button
       v-for="count in choices"

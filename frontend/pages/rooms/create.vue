@@ -56,7 +56,7 @@ const createRoomFunction = () => {
             <div class="flex flex-col items-center gap-3">
               <label for="room-name" class="text-xl font-bold">{{ $t("roomname") }}</label>
               <input type="text" id="room-name" v-model="roomName"
-                class="w-60 rounded-lg border border-sc-black-400 p-2 text-center text-xl drop-shadow-md" />
+                class="w-64 rounded-lg border border-sc-black-400 bg-sc-white p-2 text-center text-xl drop-shadow-md" />
             </div>
 
             <div class="flex flex-col items-center gap-3">
@@ -82,7 +82,7 @@ const createRoomFunction = () => {
             <!-- TODO: once mockup is done add positioning-->
             <strong class="text-xl font-bold">{{ $t('total_duration') }}: {{ totalDuration === 0 ?
               "" :
-              totalDuration + " " + $t("minute") + (totalDuration > 1 ? "s" : "") }}</strong> <!-- Adjust i18n for more languages by adding singular and plural forms of word-->
+              totalDuration + " " + $t("minute", totalDuration) }}</strong>
           </div>
         </div>
       </div>
