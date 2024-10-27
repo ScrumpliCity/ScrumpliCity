@@ -12,5 +12,6 @@
   "edit_number": "Edit value",
   "create": "Create",
   "new": "New",
-  "minute": "minute | minutes"
+  "minute": "minute | minutes",
+  "room_created": "Room created!"
 }

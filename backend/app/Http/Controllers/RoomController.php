@@ -37,10 +37,15 @@ class RoomController extends Controller
             'name' => 'required|string|max:255',
             'number_of_sprints' => 'required|integer|max:99|min:1',
             'sprint_duration' => 'required|integer|max:99|min:1',
+            'build_phase_duration' => 'required|integer|max:98|min:1',
+            'planning_duration' => 'required|integer|max:97|min:1',
+            'review_duration' => 'required|integer|max:97|min:1',
         ]);
 
-        $room = Room::create($validated);
+        // Not using ::create() because the user_id is not nullable and needs to be associated before saving
+        $room = new Room($validated);
         $room->user()->associate($request->user());
+        $room->save();
         return $room;
     }
 

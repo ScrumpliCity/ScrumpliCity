@@ -1,5 +1,4 @@
 <script setup>
-// const { locale } = useI18n();
 const localeRoute = useLocaleRoute();
 
 // Values to be used in the room creation form
@@ -22,18 +21,22 @@ let totalDuration = computed(() => {
   return sprintCount.value * (buildPhaseDuration.value + 2 * meetingDuration.value); // 2 meetings: Sprint planning and Sprint review
 });
 
-const createRoomFunction = () => {
+const createRoomFunction = async () => {
   if (allSet.value) {
-    // Dummy code to be replaced with DB call
-    console.log(
-      "Room created with " +
-      sprintCount.value +
-      " sprints of " +
-      buildPhaseDuration.value +
-      " weeks each.",
-    );
+    // TODO: Inform user if room creation was successful in /rooms (toast)
+    navigateTo(localeRoute("rooms"));
+    await useApiFetch("rooms", {
+      method: "POST",
+      body: {
+        name: roomName.value,
+        number_of_sprints: sprintCount.value,
+        sprint_duration: (buildPhaseDuration.value + 2 * meetingDuration.value),
+        build_phase_duration: buildPhaseDuration.value,
+        planning_duration: meetingDuration.value,
+        review_duration: meetingDuration.value
+      }
+    });
   }
-  navigateTo(localeRoute("rooms"));
 };
 </script>
 
@@ -62,7 +65,7 @@ const createRoomFunction = () => {
             <div class="flex flex-col items-center gap-3">
               <label for="sprints" class="block text-xl font-medium">{{
                 $t("sprint_count")
-                }}</label>
+              }}</label>
               <Chooser :choices="[2, 3, 4, 5, 6]" @update:chosen-num="(n) => (sprintCount = n)" />
             </div>
           </div>
@@ -70,13 +73,13 @@ const createRoomFunction = () => {
             <div class="flex flex-col items-center gap-3">
               <label for="sprints" class="block text-xl font-medium">{{
                 $t("build_phase_duration")
-              }}</label>
+                }}</label>
               <Chooser :choices="[3, 5, 8, 10, 15]" @update:chosen-num="(n) => (buildPhaseDuration = n)" />
             </div>
             <div class="flex flex-col items-center gap-3">
               <label for="sprints" class="block text-xl font-medium">{{
                 $t("meeting_duration")
-                }}</label>
+              }}</label>
               <Chooser :choices="[1, 2, 3, 4, 5]" @update:chosen-num="(n) => (meetingDuration = n)" />
             </div>
             <!-- TODO: once mockup is done add positioning-->

@@ -1,7 +1,9 @@
 <script setup>
-const { locale } = useI18n();
-const localeRoute = useLocaleRoute();
-const roomCreationIsOpen = ref(false);
+definePageMeta({
+  middleware: ['sanctum:auth'],
+});
+// console.log(await useApiFetch("rooms"));
+
 </script>
 
 <template>
