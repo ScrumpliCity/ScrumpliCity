@@ -4,13 +4,56 @@ services:
   diplomarbeit:
     build: ../diplomarbeit
     restart: unless-stopped
+
   web:
     build: ./nginx
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - /etc/letsencrypt:/etc/letsencrypt
+      - /etc/letsencrypt:/etc/letsencrypt:ro # mount ssl keys
     restart: unless-stopped
     depends_on:
       - diplomarbeit
+      - frontend
+      - backend
+
+  frontend:
+    build:
+      context: ../frontend
+      args:
+        - SCRUMPLICITY_LARAVEL_API_URL=${SCRUMPLICITY_LARAVEL_API_URL} # set API URL for Sanctum
+    restart: unless-stopped
+    depends_on:
+      - backend
+
+  backend:
+    build: ../backend
+    restart: unless-stopped
+    environment:
+      - APP_URL=${SCRUMPLICITY_LARAVEL_API_URL} # API URL
+      - FRONTEND_URL=${SCRUMPLICITY_FRONTEND_URL} # Frontend URL for Sanctum (CORS)
+      - APP_KEY=${APP_KEY}
+      - DB_CONNECTION=mysql
+      - DB_HOST=db
+      - DB_DATABASE=${MYSQL_DATABASE}
+      - DB_USERNAME=${MYSQL_USER}
+      - DB_PASSWORD=${MYSQL_PASSWORD}
+      - SESSION_DOMAIN=${SESSION_DOMAIN}
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:latest
+    pull_policy: always
+    restart: unless-stopped
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+
+volumes:
+  dbdata:

@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  compatibilityDate: "2024-10-10",
+  compatibilityDate: "2024-10-21",
   devtools: { enabled: true },
   modules: ["@nuxtjs/i18n", "nuxt-auth-sanctum", "nuxt-svgo", "@nuxt/ui"],
   i18n: {
@@ -29,7 +29,8 @@ export default defineNuxtConfig({
     cssPath: "~/assets/css/style.css",
   },
   sanctum: {
-    baseUrl: "http://localhost:8000", // Laravel API
+    baseUrl:
+      process.env.SCRUMPLICITY_LARAVEL_API_URL ?? "http://localhost:8000", // Laravel API
     redirect: {
       onLogin: false,
       onLogout: false,
