@@ -24,7 +24,7 @@ export default defineNuxtConfig({
         de: "/räume",
         en: "/rooms",
       },
-      "rooms-create": {
+      "rooms/create": {
         de: "/räume/erstellen",
         en: "/rooms/create",
       },

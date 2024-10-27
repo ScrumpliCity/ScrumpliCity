@@ -6,8 +6,11 @@
   "roomname": "Room name",
   "max_value_reached": "Value too large!",
   "sprint_count": "Number of sprints",
-  "sprint_duration": "Duration of a sprint (in minutes)",
+  "build_phase_duration": "Build phase duration (min)",
+  "total_duration": "Total duration",
+  "meeting_duration": "Meeting duration (min)",
   "edit_number": "Edit value",
   "create": "Create",
-  "new": "New"
+  "new": "New",
+  "minute": "minute"
 }

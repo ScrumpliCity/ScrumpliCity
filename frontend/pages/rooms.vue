@@ -7,7 +7,7 @@ const roomCreationIsOpen = ref(false);
 <template>
   <AppHeader />
   <!-- Slot for room creation popup -->
-  <NuxtLink :to="localeRoute('rooms-create', locale)"
+  <NuxtLink :to="localePath('rooms-create')"
     >{{ $t("new") }} +</NuxtLink
   >
   <!-- @Felix-->
