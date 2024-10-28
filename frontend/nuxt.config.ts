@@ -45,5 +45,5 @@ export default defineNuxtConfig({
   },
   colorMode: {
     preference: "light", // without this, Nuxt UI uses it's dark mode
-  }
+  },
 });
