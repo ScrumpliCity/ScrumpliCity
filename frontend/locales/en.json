@@ -13,5 +13,6 @@
   "create": "Create",
   "new": "New",
   "minute": "minute | minutes",
-  "room_created": "Room created!"
+  "room_created": "Room created!",
+  "room_creation_error": "Room creation failed!"
 }

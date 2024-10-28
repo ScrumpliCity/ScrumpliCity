@@ -74,6 +74,9 @@ export default {
         sans: ["Manrope", "sans-serif"],
         heading: ["Kelson", "sans-serif"],
       },
+      animation: {
+        "spin-reverse": "spin 1s reverse linear infinite",
+      },
     },
   },
   plugins: [],
