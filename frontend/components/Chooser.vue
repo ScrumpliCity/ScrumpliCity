@@ -22,6 +22,7 @@ function addCustomValue() {
   // Throw an error toast if the custom value is higher than the max value
   if (customValue.value > props.max) {
     customValue.value = props.max;
+    chosenNum.value = props.max;
     isEditing.value = false;
     toast.add({
       title: useNuxtApp().$i18n.t("max_value_reached"),
@@ -81,7 +82,7 @@ let chooseVal = (num) => {
       v-for="count in choices"
       @click="chooseVal(count)"
       :key="count"
-      class="h-11 w-11 border-r border-sc-black-400"
+      class="h-10 w-10 border-r border-sc-black-400"
       :class="{
         'bg-sc-orange bg-opacity-50 text-sc-black': chosenNum === count,
       }"
@@ -93,7 +94,7 @@ let chooseVal = (num) => {
     <!-- <UTooltip :text="useNuxtApp().$i18n.t('edit_number')" :popper="{ placement: 'top', offsetDistance: 0 }">-->
     <div
       v-if="isEditing"
-      class="justify-centerborder-sc-black-400 flex h-11 w-11 flex-col"
+      class="justify-centerborder-sc-black-400 flex h-10 w-10 flex-col"
     >
       <input
         id="customAdd"
@@ -101,13 +102,14 @@ let chooseVal = (num) => {
         :max="max"
         v-model="customValue"
         @focusout="addCustomValue"
+        @keydown.enter="addCustomValue"
         class="placeholder-style h-full w-full bg-sc-orange bg-opacity-50 text-center text-sc-black caret-transparent placeholder:text-sc-black focus:outline-none"
         placeholder="_"
       />
     </div>
     <button
       v-else
-      class="flex h-11 w-11 flex-col justify-center"
+      class="flex h-10 w-10 flex-col justify-center"
       :class="{
         'bg-sc-orange bg-opacity-50 text-sc-black': chosenNum === customValue,
       }"
