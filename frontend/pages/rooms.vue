@@ -2,7 +2,6 @@
 definePageMeta({
   middleware: ["sanctum:auth"],
 });
-// console.log(await useApiFetch("rooms"));
 </script>
 
 <template>

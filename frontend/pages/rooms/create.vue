@@ -1,6 +1,7 @@
 <script setup>
 const localeRoute = useLocaleRoute();
 const toast = useToast();
+const client = useSanctumClient();
 
 // Room attributes
 let sprintCount = ref(0);
@@ -28,7 +29,7 @@ const createRoomFunction = async () => {
   if (allSet.value) {
     loading.value = true;
     try {
-      const response = await useApiFetch("rooms", {
+      const response = await client("/api/rooms", {
         method: "POST",
         body: {
           name: roomName.value,
