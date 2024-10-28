@@ -74,6 +74,9 @@ export default {
         sans: ["Manrope", "sans-serif"],
         heading: ["Kelson", "sans-serif"],
       },
+      dropShadow: {
+        "sc-48025": "0 4px 8px rgba(0,0,0,0.25)"
+      }
     },
   },
   plugins: [],
