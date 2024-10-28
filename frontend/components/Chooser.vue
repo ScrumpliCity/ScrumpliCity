@@ -35,7 +35,7 @@ function addCustomValue() {
     chosenNum.value = Number(customValue.value);
 
     // Switch to the field that equals the custom value and close the input field
-    if (props.choices.includes(chosenNum.value)) {
+    if (props.choices.includes(chosenNum.value) || chosenNum.value === 0) {
       customValue.value = "";
     }
     isEditing.value = false;
