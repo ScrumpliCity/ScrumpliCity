@@ -1,5 +1,3 @@
-import { fileURLToPath } from "url";
-
 export default defineNuxtConfig({
   compatibilityDate: "2024-10-21",
   devtools: { enabled: true },
@@ -47,8 +45,5 @@ export default defineNuxtConfig({
   },
   colorMode: {
     preference: "light", // without this, Nuxt UI uses it's dark mode
-  },
-  alias: {
-    graphic: fileURLToPath(new URL("./assets/graphic", import.meta.url)),
-  },
+  }
 });
