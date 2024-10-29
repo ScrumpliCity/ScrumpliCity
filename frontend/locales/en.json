@@ -18,6 +18,7 @@
     "running_for": "running for: {0}",
     "last_played": "last played: {0}",
     "created_on": "created on: {0}",
-    "completed_on": "completed on: {0}"
+    "completed_on": "completed on: {0}",
+    "new": "New +"
   }
 }
