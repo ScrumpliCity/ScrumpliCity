@@ -22,6 +22,10 @@ export default defineNuxtConfig({
         de: "/räume",
         en: "/rooms",
       },
+      name_team: {
+        de: "/beitreten/teamname",
+        en: "/join/teamname",
+      },
       // Hier weitere Seiten definieren
     },
   },
