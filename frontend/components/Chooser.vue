@@ -59,8 +59,6 @@ watch(chosenNum, () => {
   }
 });
 
-
-
 function edit() {
   if (customValue.value !== chosenNum.value) {
     chosenNum.value = 0;
@@ -71,12 +69,12 @@ function edit() {
     // If edit field is not open (isEditing) it can't be focused on and raises an error
     if (isEditing.value) document.getElementById("customAdd").focus();
   });
-};
+}
 
 function chooseVal(num) {
   chosenNum.value = num;
   customValue.value = "";
-};
+}
 </script>
 
 <template>
@@ -97,7 +95,7 @@ function chooseVal(num) {
 
     <div
       v-if="isEditing"
-      class="justify-center border-sc-black-400 flex h-10 w-10 flex-col"
+      class="flex h-10 w-10 flex-col justify-center border-sc-black-400"
     >
       <input
         id="customAdd"

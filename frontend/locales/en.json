@@ -12,7 +12,7 @@
     "total_duration": "Total duration",
     "minute": "minute | minutes",
     "create": "Create",
-    "room_created":"Room created!",
+    "room_created": "Room created!",
     "creation_error": "Room creation failed!"
   },
   "chooser": {
