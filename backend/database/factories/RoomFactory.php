@@ -38,6 +38,12 @@ class RoomFactory extends Factory
         });
     }
 
+    public function withTeams(int $count = 3): Factory {
+        return $this->afterCreating(function (\App\Models\Room $room) use ($count) {
+            \App\Models\Team::factory()->count($count)->create(['room_id' => $room->id]);
+        });
+    }
+    
     public function played(): Factory {
         return $this->state(function (array $attributes) {
             return [

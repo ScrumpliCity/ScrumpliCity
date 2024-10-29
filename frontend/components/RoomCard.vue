@@ -107,9 +107,12 @@ const lastPlayedAgoMinutes = computed(() => {
   >
     <div
       :style="{ 'background-color': color.background }"
-      class="relative h-[176px] rounded-t-lg border-b-[3px] border-b-black"
+      class="relative h-[176px] rounded-t-lg border-b-[3px] border-b-sc-black"
     >
-      <h2 class="relative z-10 p-4 text-2xl font-bold">{{ room.name }}</h2>
+      <div class="relative z-10 p-4">
+        <h2 class="text-2xl font-bold">{{ props.room.name }}</h2>
+        <p class="text-xl font-bold" v-if="props.room.last_play_start"> {{ $t('rooms.teams', props.room.team_count) }}</p>
+      </div>
 
       <svg
         width="112"

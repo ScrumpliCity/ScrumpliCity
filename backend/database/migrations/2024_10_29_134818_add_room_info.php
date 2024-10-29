@@ -19,7 +19,11 @@ return new class extends Migration
             $table->timestamp('last_play_end')->nullable();
         });
 
-
+        Schema::create('teams', function (Blueprint $table) {
+            $table->ulid('id')->primary();
+            $table->timestamps();
+            $table->foreignUlid('room_id')->constrained()->onDelete('cascade');
+        });
     }
 
     /**
@@ -34,5 +38,7 @@ return new class extends Migration
             $table->dropColumn('last_play_start');
             $table->dropColumn('last_play_end');
         });
+
+        Schema::dropIfExists('teams');
     }
 };

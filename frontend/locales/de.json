@@ -19,6 +19,7 @@
     "last_played": "zuletzt gespielt am: {0}",
     "created_on": "erstellt am: {0}",
     "completed_on": "abgeschlossen am: {0}",
-    "new": "Neu +"
+    "new": "Neu +",
+    "teams": "{n} Team | {n} Teams"
   }
 }

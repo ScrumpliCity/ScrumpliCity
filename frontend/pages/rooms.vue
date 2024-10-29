@@ -71,7 +71,7 @@ const completedRooms = computed(() => {
 
 <template>
   <AppHeader />
-  <div class="relative flex flex-col gap-6 pl-20 pr-14 pt-14">
+  <div class="relative flex flex-col gap-6 p-14 pl-20">
     <RoomDivider
       iconClass="text-sc-green"
       :text="$t('rooms.started')"

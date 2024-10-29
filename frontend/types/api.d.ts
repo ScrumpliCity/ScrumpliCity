@@ -10,4 +10,5 @@ export interface Room {
   is_playing: boolean;
   last_play_start: string?;
   last_play_end: string?;
+  team_count: number;
 }
