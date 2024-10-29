@@ -85,6 +85,7 @@ const colors = [
 ];
 
 const color = computed(() => {
+  if (props.room.completed_at) return colors[9];
   const base32 = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
   // get the last character of the random part of the ulid and decode it
   const index = base32.indexOf(props.room.id[25]?.toUpperCase() ?? "0");
@@ -137,7 +138,7 @@ const lastPlayedAgoMinutes = computed(() => {
       >
         <UIcon
           name="material-symbols:cycle"
-          class="size-10 text-sc-green-500 group-hover:animate-spin"
+          class="size-10 text-sc-green-500 group-hover:animate-[spin_2s_linear_infinite]"
         ></UIcon>
       </UTooltip>
       <div class="flex-1 text-right font-medium leading-5">
