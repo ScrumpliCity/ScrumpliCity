@@ -2,17 +2,20 @@
   "welcome": "Willkommen",
   "join": "Runde beitreten",
   "welcome_message": "Willkommen zum Spiel",
-  "create_room_heading": "Projekt-Raum erstellen",
-  "roomname": "Name des Raums",
-  "max_value_reached": "Wert zu groß!",
-  "sprint_count": "Anzahl an Sprints",
-  "total_duration": "Gesamtdauer",
-  "build_phase_duration": "Dauer der Bauphase (min)",
-  "meeting_duration": "Planning- & Review-Dauer",
-  "edit_number": "Wert bearbeiten",
-  "create": "Erstellen",
   "new": "Neu",
-  "minute": "Minute | Minuten",
-  "room_created": "Raum erstellt!",
-  "room_creation_error": "Raumerstellung fehlgeschlagen!"
+  "create_room": {
+    "heading": "Projekt-Raum erstellen",
+    "room_name": "Name des Raums",
+    "sprint_count": "Anzahl an Sprints",
+    "build_phase_duration": "Dauer der Bauphase (min)",
+    "meeting_duration": "Planning- & Review-Dauer",
+    "total_duration": "Gesamtdauer",
+    "minute": "Minute | Minuten",
+    "create": "Erstellen",
+    "room_created": "Raum erstellt!",
+    "creation_error": "Raumerstellung fehlgeschlagen!"
+  },
+  "chooser": {
+    "max_value_reached": "Wert zu groß!"
+  }
 }

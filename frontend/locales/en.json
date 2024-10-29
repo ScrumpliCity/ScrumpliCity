@@ -2,17 +2,20 @@
   "welcome": "Welcome",
   "join": "Join round",
   "welcome_message": "Welcome to the game",
-  "create_room_heading": "Create a project room",
-  "roomname": "Room name",
-  "max_value_reached": "Value too large!",
-  "sprint_count": "Number of sprints",
-  "build_phase_duration": "Build phase duration (min)",
-  "total_duration": "Total duration",
-  "meeting_duration": "Planning & Review duration",
-  "edit_number": "Edit value",
-  "create": "Create",
   "new": "New",
-  "minute": "minute | minutes",
-  "room_created": "Room created!",
-  "room_creation_error": "Room creation failed!"
+  "create_room": {
+    "heading": "Create a project room",
+    "room_name": "Room name",
+    "sprint_count": "Number of sprints",
+    "build_phase_duration": "Build phase duration (min)",
+    "meeting_duration": "Planning & Review duration",
+    "total_duration": "Total duration",
+    "minute": "minute | minutes",
+    "create": "Create",
+    "room_created":"Room created!",
+    "creation_error": "Room creation failed!"
+  },
+  "chooser": {
+    "max_value_reached": "Value too large!"
+  }
 }

@@ -13,10 +13,10 @@ const props = defineProps({
 const emit = defineEmits(["update:chosenNum"]);
 const toast = useToast();
 
-let customValue = ref("");
-let isEditing = ref(false);
+const customValue = ref("");
+const isEditing = ref(false);
 
-let chosenNum = ref(0);
+const chosenNum = ref(0);
 
 function addCustomValue() {
   // Throw an error toast if the custom value is higher than the max value
@@ -25,7 +25,7 @@ function addCustomValue() {
     chosenNum.value = props.max;
     isEditing.value = false;
     toast.add({
-      title: useNuxtApp().$i18n.t("max_value_reached"),
+      title: useNuxtApp().$i18n.t("chooser.max_value_reached"),
       variant: "error",
     });
     return;
@@ -42,6 +42,9 @@ function addCustomValue() {
     isEditing.value = false;
     return;
   }
+  // Reset the custom value if it's empty
+  isEditing.value = false;
+  chosenNum.value = 0;
 }
 
 // Emit the chosen number to the parent component
@@ -56,7 +59,9 @@ watch(chosenNum, () => {
   }
 });
 
-let edit = () => {
+
+
+function edit() {
   if (customValue.value !== chosenNum.value) {
     chosenNum.value = 0;
   }
@@ -68,7 +73,7 @@ let edit = () => {
   });
 };
 
-let chooseVal = (num) => {
+function chooseVal(num) {
   chosenNum.value = num;
   customValue.value = "";
 };
@@ -90,11 +95,9 @@ let chooseVal = (num) => {
       {{ count }}
     </button>
 
-    <!-- Position really off-->
-    <!-- <UTooltip :text="useNuxtApp().$i18n.t('edit_number')" :popper="{ placement: 'top', offsetDistance: 0 }">-->
     <div
       v-if="isEditing"
-      class="justify-centerborder-sc-black-400 flex h-10 w-10 flex-col"
+      class="justify-center border-sc-black-400 flex h-10 w-10 flex-col"
     >
       <input
         id="customAdd"
@@ -103,7 +106,7 @@ let chooseVal = (num) => {
         v-model="customValue"
         @focusout="addCustomValue"
         @keydown.enter="addCustomValue"
-        class="placeholder-style h-full w-full bg-sc-orange bg-opacity-50 text-center text-sc-black caret-transparent placeholder:text-sc-black focus:outline-none"
+        class="h-full w-full bg-sc-orange bg-opacity-50 text-center text-sc-black caret-transparent placeholder:text-sc-black focus:outline-none"
         placeholder="_"
       />
     </div>
@@ -122,14 +125,6 @@ let chooseVal = (num) => {
         v-else
       />
     </button>
-    <!--</UTooltip>-->
   </div>
   <UNotifications />
 </template>
-
-<style scoped>
-.placeholder-style::placeholder {
-  /* moves the placeholder a bit lower for better positioning*/
-  padding: 5px 11px;
-}
-</style>
