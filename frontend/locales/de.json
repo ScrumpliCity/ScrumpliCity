@@ -2,15 +2,17 @@
   "welcome": "Willkommen",
   "join": "Runde beitreten",
   "welcome_message": "Willkommen zum Spiel",
-  "rj-title": "Projekt-Raum beitreten",
-  "rj-code": "Raumcode",
-  "rj-join": "Beitreten",
-  "rj-team-title": "Gebt eurem Team einen Namen!",
-  "rj-team-name": "Teamname",
-  "rj-team-join": "Los geht's!",
-  "rj-team-member-enter": "Teammitglied hinzufügen",
-  "rj-team-ready": "Bereit",
-  "rj-waiting": "Warten auf Start...",
-  "rj-team-members": "Teammitglieder",
-  "rj-project-settings": "Raumeinstellungen"
+  "join-room": {
+    "title": "Projekt-Raum beitreten",
+    "code": "Raumcode",
+    "join": "Beitreten",
+    "team-title": "Gebt eurem Team einen Namen!",
+    "team-name": "Teamname",
+    "team-join": "Los geht's!",
+    "team-member-enter": "Teammitglied hinzufügen",
+    "team-ready": "Bereit",
+    "waiting": "Warten auf Start...",
+    "team-members": "Teammitglieder",
+    "room-settings": "Raumeinstellungen"
+  }
 }
