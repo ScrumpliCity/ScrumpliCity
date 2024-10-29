@@ -128,7 +128,7 @@ const completedRooms = computed(() => {
           viewBox="0 0 615 628"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <g opacity="0.25">
+          <g opacity="0.5">
             <path
               d="M146.908 307.143V0H427.957V216.539H364.126V629H260.643V307.724L146.908 307.24V307.143Z"
               fill="#CE6326"
