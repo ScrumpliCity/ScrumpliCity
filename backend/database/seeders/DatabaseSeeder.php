@@ -13,9 +13,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->has(Room::factory()->count(5))->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        User::factory()
+            ->has(Room::factory()->count(8))
+            ->has(Room::factory()->currentlyPlaying()->withTeams()->count(2))
+            ->has(Room::factory()->completed()->withTeams()->count(15))
+            ->has(Room::factory()->played()->withTeams()->count(5))
+            ->create([
+                'name' => 'Test User',
+                'email' => 'test@example.com',
+            ]);
     }
 }

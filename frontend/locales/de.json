@@ -1,5 +1,25 @@
 {
   "welcome": "Willkommen",
   "join": "Runde beitreten",
-  "welcome_message": "Willkommen zum Spiel"
+  "welcome_message": "Willkommen zum Spiel",
+  "rooms": {
+    "started": "Gestartet",
+    "ready": "Startklar",
+    "completed": "Abgeschlossen",
+    "currently_playing": "Wird gerade gespielt",
+    "delete": {
+      "are_you_sure": "Bist du sicher, dass du den Raum {name} löschen möchtest?",
+      "success": "Erfolgreich gelöscht",
+      "error": "Ein Fehler ist aufgetreten",
+      "delete_room": "Diesen Raum löschen",
+      "delete_forever": "Für immer löschen"
+    },
+    "sprint_display": "{current_sprint}/{number_of_sprints} Sprints",
+    "running_for": "läuft seit: {0}",
+    "last_played": "zuletzt gespielt am: {0}",
+    "created_on": "erstellt am: {0}",
+    "completed_on": "abgeschlossen am: {0}",
+    "new": "Neu +",
+    "teams": "{n} Team | {n} Teams"
+  }
 }
