@@ -13,6 +13,8 @@
     "team-ready": "Bereit",
     "waiting": "Warten auf Start...",
     "team-members": "Teammitglieder",
-    "room-settings": "Raumeinstellungen"
+    "room-settings": "Raumeinstellungen",
+    "add-team-member": "Teammitglied hinzufügen",
+    "add-members-ready": "Bereit"
   }
 }

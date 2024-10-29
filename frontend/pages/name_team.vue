@@ -52,7 +52,7 @@ const teamName = ref('');
       />
     </div>
     <NuxtLink
-        :to="localeRoute('')">
+        :to="localeRoute('add_team_members', locale)">
       <button
           :disabled="(teamName === '')"
           class="w-72 rounded-lg py-6 text-center text-4xl font-bold drop-shadow-sc-48025"

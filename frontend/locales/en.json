@@ -13,6 +13,8 @@
     "team-ready": "Ready",
     "waiting": "Waiting to start...",
     "team-members": "Team members",
-    "room-settings": "Room settings"
+    "room-settings": "Room settings",
+    "add-team-member": "Add team member",
+    "add-members-ready": "Ready"
   }
 }
