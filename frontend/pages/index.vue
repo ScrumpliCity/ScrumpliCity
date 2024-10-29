@@ -6,7 +6,7 @@ const localeRoute = useLocaleRoute();
 // demo for data fetching
 const client = useSanctumClient();
 
-const { data } = await useAsyncData("rooms", () => client("/"));
+const { data } = await useAsyncData("laravel", () => client("/"));
 </script>
 
 <template>

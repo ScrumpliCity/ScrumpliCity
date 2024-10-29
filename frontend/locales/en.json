@@ -2,7 +2,26 @@
   "welcome": "Welcome",
   "join": "Join round",
   "welcome_message": "Welcome to the game",
-  "new": "New",
+  "rooms": {
+    "started": "Started",
+    "ready": "Ready",
+    "completed": "Completed",
+    "currently_playing": "Currently being played",
+    "delete": {
+      "are_you_sure": "Are you sure you want do delete room {name}?",
+      "success": "Sucessfully deleted",
+      "error": "An error occured",
+      "delete_room": "Delete this room",
+      "delete_forever": "Delete forever"
+    },
+    "sprint_display": "{current_sprint}/{number_of_sprints} Sprints",
+    "running_for": "running for: {0}",
+    "last_played": "last played: {0}",
+    "created_on": "created on: {0}",
+    "completed_on": "completed on: {0}",
+    "new": "New +",
+    "teams": "{n} Team | {n} Teams"
+  },
   "create_room": {
     "heading": "Create a project room",
     "room_name": "Room name",

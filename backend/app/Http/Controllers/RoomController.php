@@ -15,7 +15,7 @@ class RoomController extends Controller
     public function index(Request $request): \Illuminate\Database\Eloquent\Collection
     {
         $user = $request->user();
-        return $user->rooms;
+        return $user->rooms->load('teams')->append('team_count')->makeHidden('teams');
     }
 
     /**
