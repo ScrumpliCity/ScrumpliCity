@@ -21,5 +21,20 @@
     "completed_on": "completed on: {0}",
     "new": "New +",
     "teams": "{n} Team | {n} Teams"
+  },
+  "create_room": {
+    "heading": "Create a project room",
+    "room_name": "Room name",
+    "sprint_count": "Number of sprints",
+    "build_phase_duration": "Build phase duration (min)",
+    "meeting_duration": "Planning & Review duration",
+    "total_duration": "Total duration",
+    "minute": "minute | minutes",
+    "create": "Create",
+    "room_created": "Room created!",
+    "creation_error": "Room creation failed!"
+  },
+  "chooser": {
+    "max_value_reached": "Value too large!"
   }
 }

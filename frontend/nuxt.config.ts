@@ -22,7 +22,10 @@ export default defineNuxtConfig({
         de: "/räume",
         en: "/rooms",
       },
-      // Hier weitere Seiten definieren
+      "rooms/create": {
+        de: "/räume/erstellen",
+        en: "/rooms/create",
+      },
     },
   },
   tailwindcss: {

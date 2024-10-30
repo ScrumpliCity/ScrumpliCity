@@ -17,6 +17,9 @@ class Room extends Model
         'name',
         'number_of_sprints',
         'sprint_duration',
+        'build_phase_duration',
+        'planning_duration',
+        'review_duration',
     ];
 
     /**

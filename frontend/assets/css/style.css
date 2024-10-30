@@ -48,3 +48,18 @@
   font-weight: 100;
   font-style: normal;
 }
+
+/* For Chooser.vue: disable spin buttons in input number input fields */
+@layer base {
+  /* Chrome */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
