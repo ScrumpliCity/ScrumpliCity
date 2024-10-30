@@ -2,10 +2,12 @@ name: scrumplicity
 
 services:
   diplomarbeit:
+    image: ghcr.io/scrumplicity/diplomarbeit
     build: ../diplomarbeit
     restart: unless-stopped
 
   web:
+    image: ghcr.io/scrumplicity/web
     build: ./nginx
     ports:
       - "80:80"
@@ -19,6 +21,7 @@ services:
       - backend
 
   frontend:
+    image: ghcr.io/scrumplicity/frontend
     build:
       context: ../frontend
       args:
@@ -28,6 +31,7 @@ services:
       - backend
 
   backend:
+    image: ghcr.io/scrumplicity/backend
     build: ../backend
     restart: unless-stopped
     environment:
