@@ -9,9 +9,26 @@ const localePath = useLocalePath();
 
 const client = useSanctumClient();
 
+const route = useRoute();
+
 const { data, refresh } = await useAsyncData("rooms", () =>
   client("/api/rooms"),
 );
+
+onMounted(() => {
+  // Refresh the rooms list when coming back from the create room page
+  watch(
+    () => route.path,
+    (newPath, oldPath) => {
+      if (
+        oldPath === localePath("rooms-create") &&
+        newPath === localePath("rooms")
+      ) {
+        refresh();
+      }
+    },
+  );
+});
 
 const toast = useToast();
 
@@ -143,9 +160,5 @@ const completedRooms = computed(() => {
       </div>
     </div>
   </div>
-
-  <!-- Slot for room creation popup -->
-  <NuxtLink :to="localePath('rooms-create')">{{ $t("new") }} +</NuxtLink>
-  <!-- @Felix-->
   <NuxtPage />
 </template>
