@@ -111,10 +111,12 @@ const completedRooms = computed(() => {
       >
       </RoomCard>
     </div>
-    <div class="fixed bottom-16 right-16 z-10 overflow-hidden pt-44">
+    <div
+      class="pointer-events-none fixed bottom-16 right-16 z-10 overflow-hidden pt-44"
+    >
       <div class="relative">
         <UButton
-          class="peer relative z-10 h-20 w-44 items-center justify-center text-4xl font-bold transition-colors hover:bg-sc-orange-700"
+          class="peer pointer-events-auto relative z-10 h-20 w-44 items-center justify-center text-4xl font-bold transition-colors hover:bg-sc-orange-700"
           size="xl"
           :to="localePath('rooms-create')"
         >
