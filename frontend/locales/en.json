@@ -51,5 +51,12 @@
     "room-settings": "Room settings",
     "add-team-member": "Add team member",
     "add-members-ready": "Ready"
+  },
+  "infobox": {
+    "startup": {
+      "title": "Hey, I'm an info box!",
+      "description": "The info box contains information on the current phase of the project. You will always find it in the bottom right-hand corner, fold-out with the (i)",
+      "button": "Got it!"
+    }
   }
 }
