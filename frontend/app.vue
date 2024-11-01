@@ -1,10 +1,8 @@
 <script setup></script>
 
 <template>
-  <div>
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
-    <UNotifications />
-  </div>
+  <NuxtLayout>
+    <NuxtPage/>
+    <UNotifications/>
+  </NuxtLayout>
 </template>

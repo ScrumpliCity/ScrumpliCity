@@ -14,10 +14,6 @@ export default defineNuxtConfig({
     strategy: "prefix_except_default",
     customRoutes: "config",
     pages: {
-      join: {
-        de: "/beitreten",
-        en: "/join",
-      },
       rooms: {
         de: "/räume",
         en: "/rooms",
@@ -26,12 +22,16 @@ export default defineNuxtConfig({
         de: "/räume/erstellen",
         en: "/rooms/create",
       },
-      name_team: {
-        de: "/beitreten/team",
-        en: "/join/team",
+      "play": {
+        de: "/play",
+        en: "/play",
+      },
+      "play-[roomcode]": {
+        de: "/play/[roomcode]",
+        en: "/play/[roomcode]",
       },
       add_team_members: {
-        de: `/beitreten/team/mitglieder`,
+        de: `/play/mitglieder`,
         en: "/join/team/members",
       },
       // Hier weitere Seiten definieren
@@ -54,5 +54,5 @@ export default defineNuxtConfig({
   },
   colorMode: {
     preference: "light", // without this, Nuxt UI uses it's dark mode
-  },
+  }
 });
