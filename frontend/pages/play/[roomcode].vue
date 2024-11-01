@@ -19,9 +19,7 @@ const route = useRoute();
 console.log(route.params.roomcode);
 </script>
 <template>
-  <div
-    class="flex h-screen w-full flex-col items-center bg-[url('/assets/svg/join-room/join.svg')] bg-contain bg-bottom bg-no-repeat"
-  >
+  <div class="flex h-screen w-full flex-col items-center">
     <div class="mb-[4%] flex w-full place-content-end pr-11 pt-11">
       <UButton
         @click="switchLocale()"
@@ -74,4 +72,5 @@ console.log(route.params.roomcode);
       </button>
     </NuxtLink>
   </div>
+  <MovingBus :bus-starting-position="-29" :bus-ending-position="260" />
 </template>

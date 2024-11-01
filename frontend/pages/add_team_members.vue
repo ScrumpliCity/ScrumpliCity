@@ -97,9 +97,8 @@ function isReady() {
 }
 </script>
 <template>
-  <div
-    class="flex h-screen w-full flex-col bg-[url('/assets/svg/join-room/add_team_members.svg')] bg-contain bg-bottom bg-no-repeat"
-  >
+  <MovingBus :bus-starting-position="260" :bus-ending-position="540" />
+  <div class="flex h-screen w-full flex-col">
     <div class="flex w-full place-content-end pr-11 pt-11">
       <UButton
         @click="switchLocale()"

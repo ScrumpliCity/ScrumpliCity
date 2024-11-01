@@ -9,10 +9,10 @@ function switchLocale() {
 //@TODO: check with room code from backend
 const roomCode = ref("");
 </script>
+
 <template>
-  <div
-    class="flex h-screen w-full flex-col items-center bg-[url('/assets/svg/join-room/join.svg')] bg-contain bg-bottom bg-no-repeat"
-  >
+  <MovingBus :bus-starting-position="-282" :bus-ending-position="-29" />
+  <div class="flex h-screen w-full flex-col items-center">
     <div class="mb-[4%] flex w-full place-content-end pr-11 pt-11">
       <UButton
         @click="switchLocale()"
