@@ -19,6 +19,7 @@ const route = useRoute();
 console.log(route.params.roomcode);
 </script>
 <template>
+  <MovingBus :bus-starting-position="-29" :bus-ending-position="260" />
   <div class="flex h-screen w-full flex-col items-center">
     <div class="mb-[4%] flex w-full place-content-end pr-11 pt-11">
       <UButton
@@ -72,5 +73,4 @@ console.log(route.params.roomcode);
       </button>
     </NuxtLink>
   </div>
-  <MovingBus :bus-starting-position="-29" :bus-ending-position="260" />
 </template>
