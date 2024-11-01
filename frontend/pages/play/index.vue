@@ -51,9 +51,13 @@ const roomCode = ref("");
         v-if="roomCode !== ''"
       />
     </div>
-    <NuxtLink :to="localeRoute({ name: 'play-roomcode', params: { roomcode: roomCode } })">
+    <NuxtLink
+      :to="
+        localeRoute({ name: 'play-roomcode', params: { roomcode: roomCode } })
+      "
+    >
       <button
-          :disabled="roomCode === ''"
+        :disabled="roomCode === ''"
         class="w-72 rounded-lg py-6 text-center text-4xl font-bold drop-shadow-sc-48025"
         :class="
           roomCode !== ''

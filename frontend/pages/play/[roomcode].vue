@@ -4,10 +4,10 @@ const localeRoute = useLocaleRoute();
 
 defineI18nRoute({
   paths: {
-    de: '/play/[roomcode]',
-    en: '/play/[roomcode]'
-  }
-})
+    de: "/play/[roomcode]",
+    en: "/play/[roomcode]",
+  },
+});
 
 function switchLocale() {
   setLocale(locale.value === "de" ? "en" : "de");
@@ -15,9 +15,7 @@ function switchLocale() {
 
 //@TODO: send name to backend
 const teamName = ref("");
-const route
-    = useRoute
-()
+const route = useRoute();
 console.log(route.params.roomcode);
 </script>
 <template>
