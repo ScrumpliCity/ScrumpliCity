@@ -9,7 +9,8 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "format": "prettier . --write",
-    "check": "prettier . --check"
+    "check": "prettier . --check",
+    "prepare": "cd .. && husky frontend/.husky"
   },
   "dependencies": {
     "@nuxt/ui": "^2.18.7",
@@ -21,7 +22,14 @@
     "vue-router": "latest"
   },
   "devDependencies": {
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "prettier": "3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.6"
+  },
+  "lint-staged": {
+    "*": [
+      "prettier --write --ignore-unknown"
+    ]
   }
 }
