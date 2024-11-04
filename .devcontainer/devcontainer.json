@@ -7,7 +7,18 @@
   "service": "dev",
   "workspaceFolder": "/workspaces/scrumplicity",
   // Configure tool-specific properties.
-  // "customizations": {},
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "-mrmlnc.vscode-apache",
+        "xdebug.php-debug",
+        "bmewburn.vscode-intelephense-client",
+        "ms-azuretools.vscode-docker",
+        "Nuxtr.nuxt-vscode-extentions",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [8000, 3000],
