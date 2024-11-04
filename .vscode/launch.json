@@ -27,6 +27,7 @@
             ],
             "runtimeExecutable": "npm",
             "console": "internalConsole",
+            "outputCapture": "std"
         }
     ]
 }
