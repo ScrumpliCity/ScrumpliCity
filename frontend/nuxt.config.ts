@@ -26,13 +26,13 @@ export default defineNuxtConfig({
         de: "/play",
         en: "/play",
       },
-      "play-[roomcode]": {
+      "play/[roomcode]": {
         de: "/play/[roomcode]",
         en: "/play/[roomcode]",
       },
-      add_team_members: {
-        de: `/play/mitglieder`,
-        en: "/join/team/members",
+      "play/members": {
+        de: "/play/mitglieder",
+        en: "/play/members",
       },
       // Hier weitere Seiten definieren
     },

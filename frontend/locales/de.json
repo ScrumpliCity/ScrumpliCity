@@ -44,19 +44,11 @@
     "team-title": "Gebt eurem Team einen Namen!",
     "team-name": "Teamname",
     "team-join": "Los geht's!",
-    "team-member-enter": "Teammitglied hinzufügen",
     "team-ready": "Bereit",
     "waiting": "Warten auf Start...",
     "team-members": "Teammitglieder",
     "room-settings": "Raumeinstellungen",
     "add-team-member": "Teammitglied hinzufügen",
     "add-members-ready": "Bereit"
-  },
-  "infobox": {
-    "startup": {
-      "title": "Hey, ich bin ein Infokästchen!",
-      "description": "In Infokästchen werden Inhalte zur derzeitigen  Phase des Projekts vermittelt. Du findest sie immer rechts unten in der Ecke, ausklappbar mit dem (i)",
-      "button": "Verstanden!"
-    }
   }
 }
