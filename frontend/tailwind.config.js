@@ -78,7 +78,7 @@ export default {
         "spin-reverse": "spin 1s reverse linear infinite",
       },
       dropShadow: {
-        "sc-48025": "0 4px 8px rgba(0,0,0,0.25)",
+        "sc-shadow": "0 4px 8px rgba(0,0,0,0.25)",
       },
     },
   },
