@@ -1,0 +1,25 @@
+name: scrumplicity-dev
+
+services:
+  db:
+    image: mariadb:latest
+    pull_policy: always
+    restart: unless-stopped
+    volumes:
+      - scrumplicity-dev-data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+
+  dev:
+    image: mcr.microsoft.com/devcontainers/php:1-8.2-bullseye
+    restart: unless-stopped
+    volumes:
+      - ../:/workspaces/scrumplicity
+      - /workspaces/scrumplicity/frontend/node_modules
+      - /workspaces/scrumplicity/backend/vendor
+
+volumes:
+  scrumplicity-dev-data:
