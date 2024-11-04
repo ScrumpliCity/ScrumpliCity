@@ -14,7 +14,8 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
 
   dev:
-    image: mcr.microsoft.com/devcontainers/php:1-8.2-bullseye
+    image: ghcr.io/scrumplicity/devcontainer
+    build: .
     restart: unless-stopped
     volumes:
       - ../:/workspaces/scrumplicity
