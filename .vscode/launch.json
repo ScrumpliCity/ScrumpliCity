@@ -26,8 +26,7 @@
                 "dev"
             ],
             "runtimeExecutable": "npm",
-            // "console": "integratedTerminal",
-            // "internalConsoleOptions": "neverOpen"
+            "console": "internalConsole",
         }
     ]
 }
