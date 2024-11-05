@@ -6,7 +6,7 @@ services:
     pull_policy: always
     restart: unless-stopped
     volumes:
-      - scrumplicity-dev-data:/var/lib/mysql
+      - scrumplicity-dev-db-data:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
@@ -18,9 +18,7 @@ services:
     build: .
     restart: unless-stopped
     volumes:
-      - ../:/workspaces/scrumplicity
-      - /workspaces/scrumplicity/frontend/node_modules
-      - /workspaces/scrumplicity/backend/vendor
+      - ..:/workspaces/scrumplicity
 
 volumes:
-  scrumplicity-dev-data:
+  scrumplicity-dev-db-data:
