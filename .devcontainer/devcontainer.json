@@ -30,10 +30,9 @@
     }
   },
 
-  // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html"
-  "postCreateCommand": "sudo chown -R 1000:1000 /workspaces/scrumplicity;"
-
+  "postCreateCommand": "sudo chown -R 1000:1000 /workspaces/scrumplicity;",
+  "postAttachCommand": "cd backend && composer install && cd ../frontend && npm install && cd ../diplomarbeit && npm install"
+  
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
   // "remoteUser": "root"
 }
