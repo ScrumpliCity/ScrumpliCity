@@ -44,7 +44,6 @@ function switchLocale() {
         :ui="{
           padding: { sm: 'p-[0.15em]' },
           rounded: 'rounded-full',
-          icon: { size: { sm: 'size-10' } },
         }"
       >
         <SvgDownload :font-controlled="false" class="h-14 w-14" />
