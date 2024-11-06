@@ -31,7 +31,6 @@ const defineBusStartEnd = () => {
 watch(
   routeName,
   () => {
-    console.log("Routename:", routeName.value);
     defineBusStartEnd();
   },
   { immediate: true },
