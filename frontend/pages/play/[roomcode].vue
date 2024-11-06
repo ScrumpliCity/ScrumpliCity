@@ -1,4 +1,7 @@
 <script setup>
+definePageMeta({
+  layout: "empty",
+});
 const { locale, setLocale } = useI18n();
 const localeRoute = useLocaleRoute();
 

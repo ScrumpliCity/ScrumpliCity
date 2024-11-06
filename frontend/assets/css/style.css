@@ -63,3 +63,10 @@
     appearance: textfield;
   }
 }
+
+/* For Moving Bus Animation */
+:root {
+  --bus-start-position: -282px;
+  --bus-end-position: 2%;
+  --bus-animation-duration: 5s;
+}
