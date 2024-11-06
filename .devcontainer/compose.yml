@@ -1,0 +1,24 @@
+name: scrumplicity-dev
+
+services:
+  db:
+    image: mariadb:latest
+    pull_policy: always
+    restart: unless-stopped
+    volumes:
+      - scrumplicity-dev-db-data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+
+  dev:
+    image: ghcr.io/scrumplicity/devcontainer
+    build: .
+    restart: unless-stopped
+    volumes:
+      - ..:/workspaces/scrumplicity
+
+volumes:
+  scrumplicity-dev-db-data:
