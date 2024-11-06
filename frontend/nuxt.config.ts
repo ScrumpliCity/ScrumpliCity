@@ -22,14 +22,6 @@ export default defineNuxtConfig({
         de: "/räume/erstellen",
         en: "/rooms/create",
       },
-      play: {
-        de: "/play",
-        en: "/play",
-      },
-      "play/[roomcode]": {
-        de: "/play/[roomcode]",
-        en: "/play/[roomcode]",
-      },
       "play/members": {
         de: "/play/mitglieder",
         en: "/play/members",
