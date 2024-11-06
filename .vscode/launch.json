@@ -1,0 +1,33 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "ScrumpliCity: Backend",
+            "type": "php",
+            "request": "launch",
+            "program": "${workspaceFolder}/backend/artisan",
+            "cwd": "${workspaceFolder}/backend",
+            "port": 9000,
+            "args": [
+                "serve"
+            ],
+            "env": {
+                "XDEBUG_MODE": "debug,develop",
+                "XDEBUG_CONFIG": "client_port=${port}"
+            }
+        },
+        {
+            "name" : "ScrumpliCity: Frontend",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/frontend",
+            "args": [
+                "run",
+                "dev"
+            ],
+            "runtimeExecutable": "npm",
+            "console": "internalConsole",
+            "outputCapture": "std"
+        }
+    ]
+}
