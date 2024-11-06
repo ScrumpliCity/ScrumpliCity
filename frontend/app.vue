@@ -1,6 +1,4 @@
-<script setup>
-const layout = "play-default";
-</script>
+<script setup></script>
 
 <template>
   <NuxtLayout>

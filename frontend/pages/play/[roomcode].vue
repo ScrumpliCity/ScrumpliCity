@@ -1,9 +1,7 @@
 <script setup>
 definePageMeta({
-  layout: "empty",
+  layout: "play-default",
 });
-const { locale, setLocale } = useI18n();
-const localeRoute = useLocaleRoute();
 
 defineI18nRoute({
   paths: {
@@ -12,41 +10,11 @@ defineI18nRoute({
   },
 });
 
-function switchLocale() {
-  setLocale(locale.value === "de" ? "en" : "de");
-}
-
 //@TODO: send name to backend
 const teamName = ref("");
-const route = useRoute();
-console.log(route.params.roomcode);
 </script>
 <template>
-  <MovingBus :bus-starting-position="-29" :bus-ending-position="260" />
   <div class="flex h-screen w-full flex-col items-center">
-    <div class="mb-[4%] flex w-full place-content-end pr-11 pt-11">
-      <UButton
-        @click="switchLocale()"
-        :padded="false"
-        variant="ghost"
-        class="hover:bg-transparent"
-      >
-        <template #leading>
-          <LazySvgI18nDe
-            v-if="locale === 'de'"
-            :font-controlled="false"
-            class="size-14"
-            filled
-          />
-          <LazySvgI18nEn
-            v-else
-            :font-controlled="false"
-            class="size-14"
-            filled
-          />
-        </template>
-      </UButton>
-    </div>
     <h1 class="font-heading text-6xl font-bold text-sc-orange">
       {{ $t("join-room.team-title") }}
     </h1>
