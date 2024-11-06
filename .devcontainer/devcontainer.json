@@ -1,0 +1,38 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/php
+{
+  "name": "ScrumpliCity Dev",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "dockerComposeFile": "compose.yml",
+  "service": "dev",
+  "workspaceFolder": "/workspaces/scrumplicity",
+  // Configure tool-specific properties.
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "-mrmlnc.vscode-apache",
+        "xdebug.php-debug",
+        "bmewburn.vscode-intelephense-client",
+        "ms-azuretools.vscode-docker",
+        "Nuxtr.nuxt-vscode-extentions",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [8000, 3000],
+
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    }
+  },
+
+  "postCreateCommand": "sudo chown -R 1000:1000 /workspaces/scrumplicity;",
+  "postAttachCommand": "cd backend && composer install && cd ../frontend && npm install && cd ../diplomarbeit && npm install"
+  
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  // "remoteUser": "root"
+}
