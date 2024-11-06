@@ -37,13 +37,18 @@ function switchLocale() {
         </template>
       </UButton>
       <UButton
-        icon="mdi:file-download-outline"
         class="hover:bg-sc-black-100"
         variant="ghost"
         color="black"
         :padded="true"
-        :ui="{ rounded: 'rounded-full', icon: { size: { sm: 'size-10' } } }"
-      ></UButton>
+        :ui="{
+          padding: { sm: 'p-[0.15em]' },
+          rounded: 'rounded-full',
+          icon: { size: { sm: 'size-10' } },
+        }"
+      >
+        <SvgDownload :font-controlled="false" class="h-14 w-14" />
+      </UButton>
       <!-- Random image till we have an actual image -->
       <img
         class="size-10 rounded-full bg-slate-300"
