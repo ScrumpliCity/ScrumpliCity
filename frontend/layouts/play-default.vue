@@ -18,10 +18,16 @@ const busOffsetVw = computed(() =>
       : -2,
 );
 
-watch(busOffsetVw, () => {
-  bus?.value?.$el.style.setProperty(
-    "--bus-translate-x",
-    `${busOffsetVw.value}vw`,
+onMounted(() => {
+  watch(
+    busOffsetVw,
+    () => {
+      bus.value.$el.style.setProperty(
+        "--bus-translate-x",
+        `${busOffsetVw.value}vw`,
+      );
+    },
+    { immediate: true },
   );
 });
 </script>
