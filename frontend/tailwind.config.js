@@ -77,6 +77,9 @@ export default {
       animation: {
         "spin-reverse": "spin 1s reverse linear infinite",
       },
+      dropShadow: {
+        "sc-shadow": "0 4px 8px rgba(0,0,0,0.25)",
+      },
     },
   },
   plugins: [],

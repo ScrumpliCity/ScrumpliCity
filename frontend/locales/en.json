@@ -36,5 +36,19 @@
   },
   "chooser": {
     "max_value_reached": "Value too large!"
+  },
+  "join-room": {
+    "title": "Join a project room",
+    "code": "Room code",
+    "join": "Join",
+    "team-title": "Name your team!",
+    "team-name": "Team name",
+    "team-join": "Let's go!",
+    "team-ready": "Ready",
+    "waiting": "Waiting to start...",
+    "team-members": "Team members",
+    "room-settings": "Room settings",
+    "add-team-member": "Add team member",
+    "add-members-ready": "Ready"
   }
 }

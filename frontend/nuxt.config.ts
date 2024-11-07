@@ -14,10 +14,6 @@ export default defineNuxtConfig({
     strategy: "prefix_except_default",
     customRoutes: "config",
     pages: {
-      join: {
-        de: "/beitreten",
-        en: "/join",
-      },
       rooms: {
         de: "/räume",
         en: "/rooms",
@@ -26,6 +22,11 @@ export default defineNuxtConfig({
         de: "/räume/erstellen",
         en: "/rooms/create",
       },
+      "play/members": {
+        de: "/play/mitglieder",
+        en: "/play/members",
+      },
+      // Hier weitere Seiten definieren
     },
   },
   tailwindcss: {
