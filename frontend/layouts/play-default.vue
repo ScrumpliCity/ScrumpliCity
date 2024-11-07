@@ -12,10 +12,10 @@ const bus: Ref<any> = useTemplateRef("bus");
 
 const busOffsetVw = computed(() =>
   route.fullPath.startsWith("play__")
-    ? 10
+    ? -2
     : routeName.value?.toString().startsWith("play-roomcode__")
-      ? 20
-      : 10,
+      ? 12
+      : -2,
 );
 
 watch(busOffsetVw, () => {
@@ -60,7 +60,7 @@ watch(busOffsetVw, () => {
         filled
       />
       <SvgJoinRoomBgBus
-        class="bus-animation absolute bottom-[3.1vw] h-[10vw] translate-x-[var(--bus-translate-x,10vw)] transition-transform duration-500"
+        class="absolute bottom-[3.1vw] h-[8.5vw] translate-x-[var(--bus-translate-x,-15vw)] transition-transform duration-1000"
         :fontControlled="false"
         filled
         ref="bus"
