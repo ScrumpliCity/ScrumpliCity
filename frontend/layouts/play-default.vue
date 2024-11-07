@@ -8,33 +8,22 @@ function switchLocale() {
   setLocale(locale.value === "de" ? "en" : "de");
 }
 
-const busMovement = reactive({
-  "--bus-start-position": "-282px",
-  "--bus-end-position": "2%",
-  "--bus-animation-duration": "3s",
-});
+const bus: Ref<any> = useTemplateRef("bus");
 
-const defineBusStartEnd = () => {
-  switch (true) {
-    case routeName.value?.toString().startsWith("play__"):
-      busMovement["--bus-start-position"] = "-282px";
-      busMovement["--bus-end-position"] = "2%";
-      break;
-    case routeName.value?.toString().startsWith("play-roomcode__"):
-      busMovement["--bus-start-position"] = "2%";
-      busMovement["--bus-end-position"] = "8%";
-      break;
-    // Add more routes here
-  }
-};
-
-watch(
-  routeName,
-  () => {
-    defineBusStartEnd();
-  },
-  { immediate: true },
+const busOffsetVw = computed(() =>
+  route.fullPath.startsWith("play__")
+    ? 10
+    : routeName.value?.toString().startsWith("play-roomcode__")
+      ? 20
+      : 10,
 );
+
+watch(busOffsetVw, () => {
+  bus?.value?.$el.style.setProperty(
+    "--bus-translate-x",
+    `${busOffsetVw.value}vw`,
+  );
+});
 </script>
 
 <template>
@@ -71,28 +60,12 @@ watch(
         filled
       />
       <SvgJoinRoomBgBus
-        id="bus"
-        class="bus-animation absolute bottom-[6.7%] size-[17%]"
+        class="bus-animation absolute bottom-[3.1vw] h-[10vw] translate-x-[var(--bus-translate-x,10vw)] transition-transform duration-500"
         :fontControlled="false"
         filled
-        :style="busMovement"
+        ref="bus"
       />
     </div>
     <slot />
   </div>
 </template>
-
-<style scoped>
-@keyframes moveBus {
-  from {
-    left: var(--bus-start-position);
-  }
-  to {
-    left: var(--bus-end-position);
-  }
-}
-
-.bus-animation {
-  animation: moveBus var(--bus-animation-duration) ease-in-out forwards;
-}
-</style>
