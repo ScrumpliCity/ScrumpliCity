@@ -5,6 +5,10 @@ definePageMeta({
 
 //@TODO: check with room code from backend
 const roomCode = ref("");
+
+function navigateToTeamname() {
+  navigateTo({ path: "/play/" + roomCode.value });
+}
 </script>
 
 <template>
@@ -14,6 +18,7 @@ const roomCode = ref("");
     </h1>
     <div class="relative mb-12 mt-16">
       <input
+        @keydown.enter="navigateToTeamname"
         class="rounded-lg border-2 border-sc-black-400 py-8 text-center text-5xl font-medium drop-shadow-sc-shadow"
         :placeholder="$t('join-room.code')"
         v-model="roomCode"
@@ -24,8 +29,8 @@ const roomCode = ref("");
         v-if="roomCode"
       />
     </div>
-    <NuxtLinkLocale
-      :to="{ name: 'play-roomcode', params: { roomcode: roomCode } }"
+    <button
+      @click="navigateToTeamname"
       class="w-72 rounded-lg py-6 text-center text-4xl font-bold drop-shadow-sc-shadow"
       :class="{
         'cursor-pointer bg-sc-green text-sc-black hover:bg-sc-green-400':
@@ -34,6 +39,6 @@ const roomCode = ref("");
       }"
     >
       {{ $t("join-room.join") }}
-    </NuxtLinkLocale>
+    </button>
   </div>
 </template>
