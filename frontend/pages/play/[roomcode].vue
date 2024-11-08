@@ -12,14 +12,19 @@ defineI18nRoute({
 
 //@TODO: send name to backend
 const teamName = ref("");
+
+function navigateToMembers() {
+  navigateTo({ path: "/play/members" });
+}
 </script>
 <template>
-  <div class="flex h-screen w-full flex-col items-center">
+  <div class="flex h-full w-full flex-col items-center">
     <h1 class="font-heading text-6xl font-bold text-sc-orange">
       {{ $t("join-room.team-title") }}
     </h1>
     <div class="relative mb-12 mt-16">
       <input
+        @keydown.enter="navigateToMembers"
         class="rounded-lg border-2 border-sc-black-400 py-8 text-center text-5xl font-medium drop-shadow-sc-shadow"
         :placeholder="$t('join-room.team-name')"
         v-model="teamName"
@@ -30,16 +35,12 @@ const teamName = ref("");
         v-if="teamName"
       />
     </div>
-    <NuxtLinkLocale
-      :to="{ name: 'play-members' }"
-      class="w-72 rounded-lg py-6 text-center text-4xl font-bold drop-shadow-sc-shadow"
-      :class="{
-        'cursor-pointer bg-sc-green text-sc-black hover:bg-sc-green-400':
-          teamName,
-        'cursor-not-allowed bg-sc-black-400 text-sc-white': !teamName,
-      }"
+    <button
+      @click="navigateToMembers"
+      :disabled="!teamName"
+      class="w-72 cursor-pointer rounded-lg bg-sc-green py-6 text-center text-4xl font-bold text-sc-black drop-shadow-sc-shadow hover:bg-sc-green-400 disabled:cursor-not-allowed disabled:bg-sc-black-400 disabled:text-sc-white"
     >
       {{ $t("join-room.team-join") }}
-    </NuxtLinkLocale>
+    </button>
   </div>
 </template>
