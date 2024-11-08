@@ -37,12 +37,8 @@ function navigateToMembers() {
     </div>
     <button
       @click="navigateToMembers"
-      class="w-72 rounded-lg py-6 text-center text-4xl font-bold drop-shadow-sc-shadow"
-      :class="{
-        'cursor-pointer bg-sc-green text-sc-black hover:bg-sc-green-400':
-          teamName,
-        'cursor-not-allowed bg-sc-black-400 text-sc-white': !teamName,
-      }"
+      :disabled="!teamName"
+      class="w-72 cursor-pointer rounded-lg bg-sc-green py-6 text-center text-4xl font-bold text-sc-black drop-shadow-sc-shadow hover:bg-sc-green-400 disabled:cursor-not-allowed disabled:bg-sc-black-400 disabled:text-sc-white"
     >
       {{ $t("join-room.team-join") }}
     </button>
