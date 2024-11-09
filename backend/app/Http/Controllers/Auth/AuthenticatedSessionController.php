@@ -7,6 +7,8 @@ use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Http\JsonResponse;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -34,5 +36,15 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         return response()->noContent();
+    }
+
+    public function getMicrosoftURL(): JsonResponse
+    {
+
+
+        // Socialite::driver('microsoft')->redirect();
+        return response()->json([
+            'url' => Socialite::driver('microsoft')->stateless()->redirect()->getTargetUrl()
+        ]);
     }
 }
