@@ -19,12 +19,10 @@ function loginWithMicrosoft() {}
 
     <UButton
       @click="loginWithMicrosoft"
-      color="gray"
-      variant="solid"
       icon="logos:microsoft-icon"
       block
       size="xl"
-      class="w-64 text-center text-xl font-bold"
+      class="w-64 bg-sc-black-300 text-center text-xl font-bold text-white transition hover:bg-sc-black-400"
       >{{ $t("login.microsoft") }}</UButton
     >
 
