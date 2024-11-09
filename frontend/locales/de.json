@@ -50,5 +50,14 @@
     "room-settings": "Raumeinstellungen",
     "add-team-member": "Teammitglied hinzufügen",
     "add-members-ready": "Bereit"
+  },
+  "login": {
+    "log_in_to_scrumplicity": "Einloggen bei ScrumpliCity",
+    "log_in_with": "Logge dich ein mit",
+    "google": "Google",
+    "microsoft": "Microsoft"
+  },
+  "common": {
+    "imprint": "Impressum"
   }
 }
