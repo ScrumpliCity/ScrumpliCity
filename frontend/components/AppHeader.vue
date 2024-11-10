@@ -1,10 +1,4 @@
-<script lang="ts" setup>
-const { locale, setLocale } = useI18n();
-
-function switchLocale() {
-  setLocale(locale.value === "de" ? "en" : "de");
-}
-</script>
+<script lang="ts" setup></script>
 
 <template>
   <header
@@ -15,27 +9,7 @@ function switchLocale() {
     </NuxtLinkLocale>
     <div class="flex-1"></div>
     <div class="flex items-center gap-4">
-      <UButton
-        @click="switchLocale()"
-        :padded="false"
-        variant="ghost"
-        class="hover:bg-transparent"
-      >
-        <template #leading>
-          <LazySvgI18nDe
-            v-if="locale === 'de'"
-            :font-controlled="false"
-            class="size-12"
-            filled
-          />
-          <LazySvgI18nEn
-            v-else
-            :font-controlled="false"
-            class="size-12"
-            filled
-          />
-        </template>
-      </UButton>
+      <ChangeLangButton />
       <UButton
         class="hover:bg-sc-black-100"
         variant="ghost"

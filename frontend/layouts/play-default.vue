@@ -2,12 +2,6 @@
 const route = useRoute();
 const routeName = computed(() => route.name);
 
-const { locale, setLocale } = useI18n();
-
-function switchLocale() {
-  setLocale(locale.value === "de" ? "en" : "de");
-}
-
 const bus: Ref<any> = useTemplateRef("bus");
 
 const busOffsetVw = computed(() =>
@@ -36,27 +30,7 @@ onMounted(() => {
   <div>
     <header>
       <div class="mb-[4%] flex w-full place-content-end pr-11 pt-11">
-        <UButton
-          @click="switchLocale()"
-          :padded="false"
-          variant="ghost"
-          class="hover:bg-transparent"
-        >
-          <template #leading>
-            <LazySvgI18nDe
-              v-if="locale === 'de'"
-              :font-controlled="false"
-              class="size-14"
-              filled
-            />
-            <LazySvgI18nEn
-              v-else
-              :font-controlled="false"
-              class="size-14"
-              filled
-            />
-          </template>
-        </UButton>
+        <ChangeLangButton />
       </div>
     </header>
     <div class="absolute inset-0 -z-10 flex items-end">
