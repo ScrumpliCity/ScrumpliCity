@@ -24,7 +24,7 @@
   },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [8000, 3000],
+  "forwardPorts": [8000], // 3000 is forwarded by docker compose for speeding things up
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   "features": {
