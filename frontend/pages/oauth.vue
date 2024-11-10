@@ -26,7 +26,9 @@ function loginWithMicrosoft() {}
       >{{ $t("login.microsoft") }}</UButton
     >
 
-    <p class="absolute bottom-[1vw] left-[50vw] -translate-x-1/2 bg-sc-white font-bold text-sc-black-500 text-2xl">
+    <p
+      class="absolute bottom-[1vw] left-[50vw] -translate-x-1/2 bg-sc-white text-2xl font-bold text-sc-black-500"
+    >
       {{ $t("common.imprint") }}
     </p>
   </div>
