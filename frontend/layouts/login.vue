@@ -15,7 +15,7 @@
         filled
       />
       <SvgJoinRoomBgBus
-        class="absolute bottom-[3.1vw] left-[10vw] h-[8.5vw] transition-transform duration-1000"
+        class="absolute bottom-[3.1vw] left-[-1.5vw] h-[8.5vw] transition-transform duration-1000"
         :fontControlled="false"
         filled
       />
