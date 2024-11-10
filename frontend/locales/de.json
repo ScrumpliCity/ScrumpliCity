@@ -49,7 +49,31 @@
     "team-members": "Teammitglieder",
     "room-settings": "Raumeinstellungen",
     "add-team-member": "Teammitglied hinzufügen",
-    "add-members-ready": "Bereit"
+    "add-members-ready": "Bereit",
+    "role_taken": {
+      "title": "Rolle war bereits vergeben!",
+      "description": "{member} wurde wieder Developer."
+    },
+    "infoBox": {
+      "title": "Scrum Rollen",
+      "content": "In einem Scrum-Team gibt es drei Hauptrollen:",
+      "roles": [
+        "Product Owner",
+        "Scrum Master",
+        "Entwicklungsteam (Developer)"
+      ],
+      "description": {
+        "productOwner": "Der Product Owner definiert Anforderungen und priorisiert Aufgaben.",
+        "scrumMaster": "Der Scrum Master sorgt für die Einhaltung des Scrum-Prozesses und beseitigt Hindernisse.",
+        "developmentTeam": "Das Entwicklungsteam setzt die Anforderungen um und liefert funktionsfähige Produkte in Sprints."
+      }
+    },
+    "confirmation_modal": {
+      "are_you_sure": "Bist du sicher, dass du bereit bist?",
+      "description": "Die Mitglieder dieses Teams können nach diesem Schritt nicht mehr geändert werden!",
+      "yes": "Ja",
+      "cancel": "Abbrechen"
+    }
   },
   "login": {
     "log_in_to_scrumplicity": "Einloggen bei ScrumpliCity",

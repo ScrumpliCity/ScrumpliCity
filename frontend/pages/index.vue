@@ -17,7 +17,7 @@ const { data } = await useAsyncData("laravel", () => client("/"));
       <button @click="setLocale('en')">en</button>
       <p class="font-heading font-black">{{ $t("welcome") }}</p>
       <NuxtLink
-        :to="localeRoute('join', locale)"
+        :to="localeRoute('play', locale)"
         class="font-heading font-thin"
         >{{ $t("join") }}</NuxtLink
       >

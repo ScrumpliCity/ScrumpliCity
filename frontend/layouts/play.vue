@@ -29,7 +29,7 @@ onMounted(() => {
 <template>
   <div>
     <header>
-      <div class="mb-[4%] flex w-full place-content-end pr-11 pt-11">
+      <div class="mb-[2%] flex w-full place-content-end pr-9 pt-9">
         <ChangeLangButton />
       </div>
     </header>

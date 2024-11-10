@@ -49,7 +49,31 @@
     "team-members": "Team members",
     "room-settings": "Room settings",
     "add-team-member": "Add team member",
-    "add-members-ready": "Ready"
+    "add-members-ready": "Ready",
+    "role_taken": {
+      "title": "Role was already taken!",
+      "description": "{member} has become a developer again."
+    },
+    "infoBox": {
+      "title": "Scrum Roles",
+      "content": "In a Scrum team, there are three main roles:",
+      "roles": [
+        "Product Owner",
+        "Scrum Master",
+        "Development Team (Developer)"
+      ],
+      "description": {
+        "productOwner": "The Product Owner defines requirements and prioritizes tasks.",
+        "scrumMaster": "The Scrum Master ensures adherence to the Scrum process and removes obstacles.",
+        "developmentTeam": "The Development Team implements the requirements and delivers functional products in sprints."
+      }
+    },
+    "confirmation_modal": {
+      "are_you_sure": "Are you sure you are ready?",
+      "description": "It is not possible to change this team's members after this step!",
+      "yes": "Yes",
+      "cancel": "Cancel"
+    }
   },
   "login": {
     "log_in_to_scrumplicity": "Log in to ScrumpliCity",

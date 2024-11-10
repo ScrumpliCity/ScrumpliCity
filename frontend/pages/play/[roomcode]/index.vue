@@ -1,20 +1,16 @@
 <script setup>
 definePageMeta({
-  layout: "play-default",
+  layout: "play",
 });
 
-defineI18nRoute({
-  paths: {
-    de: "/play/[roomcode]",
-    en: "/play/[roomcode]",
-  },
-});
+const localRoute = useLocaleRoute();
+const { locale } = useI18n();
 
 //@TODO: send name to backend
 const teamName = ref("");
 
 function navigateToMembers() {
-  navigateTo({ path: "/play/members" });
+  navigateTo(localRoute("play-roomcode-members"));
 }
 </script>
 <template>

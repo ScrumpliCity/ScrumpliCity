@@ -1,18 +1,18 @@
 <script setup>
 definePageMeta({
-  layout: "play-default",
+  layout: "play",
 });
 
-//@TODO: check with room code from backend
 const roomCode = ref("");
 
 function navigateToTeamname() {
-  navigateTo({ path: "/play/" + roomCode.value });
+  //@TODO: check with room code from backend
+  navigateTo({ path: `/play/${roomCode.value}` });
 }
 </script>
 
 <template>
-  <div class="flex h-full w-full flex-col items-center">
+  <div class="mt-10 flex h-full w-full flex-col items-center">
     <h1 class="font-heading text-6xl font-bold text-sc-orange">
       {{ $t("join-room.title") }}
     </h1>
