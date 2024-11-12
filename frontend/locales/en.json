@@ -37,6 +37,13 @@
   "chooser": {
     "max_value_reached": "Value too large!"
   },
+  "generate-room-code": {
+    "generate-code": "Generate code",
+    "title": "Join the ScrumpliCity project room!",
+    "visit": "Visit",
+    "link": "www.scrumplicity.app/play",
+    "enter-code": "and enter this code:"
+  },
   "join-room": {
     "title": "Join a project room",
     "code": "Room code",

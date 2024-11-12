@@ -24,6 +24,8 @@ function navigateToRoomCode() {
   <div>
     <h2>welcome to the manage page</h2>
     <p>Room id: {{ manageRoom.id }}</p>
-    <UButton @click="navigateToRoomCode">Generate Rooom Code</UButton>
+    <UButton @click="navigateToRoomCode">{{
+      $t("generate-room-code.generate-code")
+    }}</UButton>
   </div>
 </template>
