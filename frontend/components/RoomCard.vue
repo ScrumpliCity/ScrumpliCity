@@ -1,6 +1,8 @@
 <script lang="ts" setup>
-import Rooms from "~/pages/rooms.vue";
+import Rooms from "~/pages/rooms/index.vue";
 import type { Room } from "~/types/api";
+
+const localeRoute = useLocaleRoute();
 
 const props = defineProps({
   room: {
@@ -100,10 +102,21 @@ const lastPlayedAgoMinutes = computed(() => {
       60,
   );
 });
+
+function navigateToManage() {
+  const route = localeRoute({
+    name: "rooms-id-manage",
+    params: { id: props.room.id },
+  });
+  if (route) {
+    return navigateTo(route.fullPath);
+  }
+}
 </script>
 <template>
   <div
-    class="group flex h-[294px] w-[362px] flex-col gap-4 rounded-lg bg-sc-black-100 p-7 transition-colors hover:bg-sc-black-200"
+    @click="navigateToManage"
+    class="group flex h-[294px] w-[362px] cursor-pointer flex-col gap-4 rounded-lg bg-sc-black-100 p-7 transition-colors hover:bg-sc-black-200"
   >
     <div
       :style="{ 'background-color': color.background }"
