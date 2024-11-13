@@ -19,6 +19,8 @@ services:
     restart: unless-stopped
     volumes:
       - ..:/workspaces/scrumplicity
+    ports:
+      - 3000:3000
 
 volumes:
   scrumplicity-dev-db-data:
