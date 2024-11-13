@@ -26,7 +26,7 @@ export default defineNuxtConfig({
         de: "/play/mitglieder",
         en: "/play/members",
       },
-      // Hier weitere Seiten definieren
+      // define more pages here
     },
   },
   tailwindcss: {
@@ -36,10 +36,10 @@ export default defineNuxtConfig({
     baseUrl:
       process.env.SCRUMPLICITY_LARAVEL_API_URL ?? "http://localhost:8000", // Laravel API
     redirect: {
-      onLogin: false,
+      onLogin: false, // don't redirect after login or logout
       onLogout: false,
-      onGuestOnly: false,
-      onAuthOnly: "/login",
+      onGuestOnly: false, // throw an error on guest only
+      onAuthOnly: "/login", // used by our own custom middleware "auth" for locale-aware redirection to loggin page
     },
   },
   svgo: {
