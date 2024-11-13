@@ -1,4 +1,9 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import type { User } from "~/types/api";
+
+const sanctumConfig = useSanctumConfig();
+const user = useSanctumUser() as Ref<User>;
+</script>
 
 <template>
   <header
@@ -22,10 +27,11 @@
       >
         <SvgDownload :font-controlled="false" class="h-14 w-14" />
       </UButton>
-      <!-- Random image till we have an actual image -->
-      <img
-        class="size-10 rounded-full bg-slate-300"
-        src="https://picsum.photos/40/40"
+      <UAvatar
+        class="bg-sc-black-100"
+        :alt="user.name"
+        size="md"
+        :src="`${sanctumConfig.baseUrl}/api/user/profile-picture`"
       />
     </div>
   </header>
