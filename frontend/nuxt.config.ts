@@ -38,6 +38,8 @@ export default defineNuxtConfig({
     redirect: {
       onLogin: false,
       onLogout: false,
+      onGuestOnly: false,
+      onAuthOnly: "/login",
     },
   },
   svgo: {
