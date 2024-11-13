@@ -15,14 +15,12 @@ const roomcode = "789012";
 <template>
   <div class="flex h-full flex-col items-center">
     <h1 class="m-[1%] font-heading text-6xl font-bold text-sc-orange">
-      {{ $t("generate-room-code.title") }}
+      {{ $t("generate_room_code.title") }}
     </h1>
     <p class="text-5xl font-medium">
-      {{ $t("generate-room-code.visit") }}
-      <b
-        ><u>{{ $t("generate-room-code.link") }}</u></b
-      >
-      {{ $t("generate-room-code.enter-code") }}
+      {{ $t("generate_room_code.visit") }}
+      <b><u>www.scrumplicity.app/play</u></b>
+      {{ $t("generate_room_code.enter_code") }}
     </p>
     <div class="relative flex h-[25%] w-full items-end justify-center">
       <SvgCraneHook
