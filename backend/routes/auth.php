@@ -38,3 +38,5 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
 
 
 Route::get('/oauth/microsoft', [AuthenticatedSessionController::class, 'getMicrosoftURL'])->name('microsoft.login');
+
+Route::get('/oauth/microsoft/callback', [AuthenticatedSessionController::class, 'handleMicrosoftToken']);
