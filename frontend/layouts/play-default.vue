@@ -27,8 +27,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
-    <header class="z-10 mb-[4%] flex w-full place-content-end pr-11 pt-11">
+  <div class="flex h-screen flex-col">
+    <header class="z-10 mb-[4%] flex w-full justify-end pr-11 pt-11">
       <ChangeLangButton />
     </header>
     <div class="absolute inset-0 flex items-end">
