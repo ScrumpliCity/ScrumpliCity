@@ -38,8 +38,8 @@ export default defineNuxtConfig({
     redirect: {
       onLogin: false, // don't redirect after login or logout
       onLogout: false,
-      onGuestOnly: false, // throw an error on guest only
-      onAuthOnly: "/login", // used by our own custom middleware "auth" for locale-aware redirection to loggin page
+      onAuthOnly: "login", // used by our own custom middleware "auth" for locale-aware redirection to login page
+      onGuestOnly: "rooms", // used by our own "guest" middlware for locale-aware redirection to rooms
     },
   },
   svgo: {

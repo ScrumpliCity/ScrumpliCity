@@ -1,7 +1,7 @@
 <script setup lang="ts">
 definePageMeta({
   layout: "login",
-  middleware: ["sanctum:guest"],
+  middleware: ["guest"],
 });
 
 const client = useSanctumClient();
