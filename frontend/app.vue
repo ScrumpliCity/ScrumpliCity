@@ -1,8 +1,8 @@
 <script setup></script>
 
 <template>
-  <div>
-    <NuxtLayout class="bg-sc-white">
+  <div class="bg-sc-white">
+    <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
     <UNotifications />
