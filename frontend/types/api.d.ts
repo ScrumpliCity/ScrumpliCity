@@ -12,3 +12,12 @@ export interface Room {
   last_play_end: string?;
   team_count: number;
 }
+
+export interface User {
+  id: number;
+  name: string;
+  email: string;
+  created_at: string;
+  updated_at: string;
+  microsoft_id: string;
+}

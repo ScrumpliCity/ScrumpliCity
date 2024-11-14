@@ -44,11 +44,12 @@ services:
       - DB_USERNAME=${MYSQL_USER}
       - DB_PASSWORD=${MYSQL_PASSWORD}
       - SESSION_DOMAIN=${SESSION_DOMAIN}
+      - CACHE_STORE=file
     depends_on:
       - db
 
   db:
-    image: mariadb:latest
+    image: mariadb:11@sha256:4a1de8fa2a929944373d7421105500ff6f889ce90dcb883fbb2fdb070e4d427e
     pull_policy: always
     restart: unless-stopped
     volumes:
