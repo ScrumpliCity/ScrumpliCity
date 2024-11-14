@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <NuxtLayout>
+    <NuxtLayout class="bg-sc-white">
       <NuxtPage />
     </NuxtLayout>
     <UNotifications />
