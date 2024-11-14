@@ -40,8 +40,8 @@
   "generate_room_code": {
     "generate_code": "Code generieren",
     "title": "Tritt dem ScrumpliCity-Projekt-Raum bei!",
-    "visit": "Gehe auf",
-    "enter_code": "und gib diesen Code ein:"
+    "description": "Gehe auf {url} und gib diesen Code ein:",
+    "url": "www.scrumplicity.app/play"
   },
   "join_room": {
     "title": "Projekt-Raum beitreten",

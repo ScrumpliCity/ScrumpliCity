@@ -17,11 +17,17 @@ const roomcode = "789012";
     <h1 class="z-10 m-[1vw] font-heading text-6xl font-bold text-sc-orange">
       {{ $t("generate_room_code.title") }}
     </h1>
-    <p class="z-10 text-5xl font-medium">
-      {{ $t("generate_room_code.visit") }}
-      <b><u>www.scrumplicity.app/play</u></b>
-      {{ $t("generate_room_code.enter_code") }}
-    </p>
+    <i18n-t
+      keypath="generate_room_code.description"
+      tag="p"
+      class="z-10 text-5xl font-medium"
+    >
+      <template #url>
+        <b
+          ><u>{{ $t("generate_room_code.url") }}</u></b
+        >
+      </template>
+    </i18n-t>
     <div class="relative flex h-[25vw] w-full items-center justify-center">
       <SvgCraneHook class="h-full w-auto" :fontControlled="false" filled />
       <p class="absolute text-7xl font-bold">{{ roomcode }}</p>
