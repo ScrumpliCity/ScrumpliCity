@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import Rooms from "~/pages/rooms/index.vue";
 import type { Room } from "~/types/api";
 
 const localeRoute = useLocaleRoute();
@@ -102,21 +101,15 @@ const lastPlayedAgoMinutes = computed(() => {
       60,
   );
 });
-
-function navigateToManage() {
-  const route = localeRoute({
-    name: "rooms-id-manage",
-    params: { id: props.room.id },
-  });
-  if (route) {
-    return navigateTo(route.fullPath);
-  }
-}
 </script>
 <template>
-  <div
-    @click="navigateToManage"
-    class="group flex h-[294px] w-[362px] cursor-pointer flex-col gap-4 rounded-lg bg-sc-black-100 p-7 transition-colors hover:bg-sc-black-200"
+  <button
+    @click="
+      navigateTo(
+        localeRoute({ name: 'rooms-id-manage', params: { id: props.room.id } }),
+      )
+    "
+    class="group flex h-[294px] w-[362px] cursor-pointer flex-col gap-4 rounded-lg bg-sc-black-100 p-7 text-left transition-colors hover:bg-sc-black-200 focus:outline focus:outline-sc-orange"
   >
     <div
       :style="{ 'background-color': color.background }"
@@ -200,7 +193,7 @@ function navigateToManage() {
         </p>
       </div>
       <UButton
-        @click="emit('delete')"
+        @click.stop="emit('delete')"
         icon="mdi:trash-can-outline"
         class="size-8 justify-center hover:bg-sc-black-100"
         :padded="false"
@@ -210,5 +203,5 @@ function navigateToManage() {
       >
       </UButton>
     </div>
-  </div>
+  </button>
 </template>

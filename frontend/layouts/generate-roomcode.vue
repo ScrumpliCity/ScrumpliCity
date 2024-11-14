@@ -5,14 +5,14 @@
     <header class="z-10 flex w-full items-center justify-end p-7">
       <ChangeLangButton />
     </header>
-    <div class="absolute inset-0 flex items-end">
+    <div class="absolute inset-0 flex items-end overflow-x-clip">
       <SvgJoinRoomBgTreesHouses
         class="w-screen"
         :fontControlled="false"
         filled
       />
       <SvgJoinRoomBgBus
-        class="animate-drive absolute bottom-[3.1vw] h-[8.5vw] transition-transform duration-1000"
+        class="animate-drive absolute bottom-[3.1vw] h-[8.5vw]"
         :fontControlled="false"
         filled
       />
