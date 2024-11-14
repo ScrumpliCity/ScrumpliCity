@@ -22,13 +22,18 @@ const roomcode = "789012";
       <b><u>www.scrumplicity.app/play</u></b>
       {{ $t("generate_room_code.enter_code") }}
     </p>
-    <div class="relative flex h-[25%] w-full items-end justify-center">
+    <div class="relative flex h-[25%] w-full items-center justify-center">
       <SvgCraneHook
         class="-z-10 h-full w-auto"
         :fontControlled="false"
         filled
       />
-      <p class="absolute mb-[1%] text-8xl font-bold">{{ roomcode }}</p>
+      <p class="absolute text-7xl font-bold">{{ roomcode }}</p>
     </div>
   </div>
 </template>
+<style>
+body {
+  overflow: hidden;
+}
+</style>
