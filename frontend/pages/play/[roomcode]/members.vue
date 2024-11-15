@@ -10,7 +10,7 @@ const { t } = useI18n();
 const route = useRoute();
 const localRoute = useLocaleRoute();
 
-//@TODO: get name from backend and store members
+//@TODO: get name from backend
 
 const roomCode = ref(route.params.roomcode);
 const newMember = ref("");
@@ -19,7 +19,6 @@ const focusOnInput = ref(false);
 const teamMembers = ref([]);
 const modalIsOpen = ref(false);
 
-// Later optional: Let the tutor choose the available roles
 const roles = [
   { label: "Developer" },
   { label: "Scrum Master" },
@@ -46,7 +45,7 @@ async function addMember() {
   });
   newMember.value = "";
 
-  // Always scroll to the bottom of the list when a new member is added
+  // Scroll to the bottom of the list when a new member is added
   await nextTick();
   const lastEntry = teamMembers.value[teamMembers.value.length - 1];
   if (lastEntry) {
@@ -69,10 +68,10 @@ function updateRole(memberId, newRole) {
       }),
       icon: "mdi:alert-circle",
     });
-
     originalMember.role = "Developer";
   }
 
+  // Set chosen role to member
   if (member) {
     member.role = newRole;
   }
