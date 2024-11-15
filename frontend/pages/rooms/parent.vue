@@ -21,8 +21,8 @@ onMounted(() => {
     () => route.path,
     (newPath, oldPath) => {
       if (
-        oldPath === localePath("rooms-create") &&
-        newPath === localePath("rooms")
+        oldPath === localePath("rooms-parent-create") &&
+        newPath === localePath("rooms-parent")
       ) {
         refresh();
       }
@@ -135,7 +135,7 @@ const completedRooms = computed(() => {
         <UButton
           class="peer pointer-events-auto relative z-10 h-20 w-44 items-center justify-center text-4xl font-bold transition-colors hover:bg-sc-orange-700"
           size="xl"
-          :to="localePath('rooms-create')"
+          :to="localePath('rooms-parent-create')"
         >
           {{ $t("rooms.new") }}
         </UButton>

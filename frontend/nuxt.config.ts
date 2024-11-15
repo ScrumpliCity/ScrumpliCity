@@ -14,11 +14,11 @@ export default defineNuxtConfig({
     strategy: "prefix_except_default",
     customRoutes: "config",
     pages: {
-      "rooms/index": {
+      "rooms/parent": {
         de: "/räume",
         en: "/rooms",
       },
-      "rooms/create": {
+      "rooms/parent/create": {
         de: "/räume/erstellen",
         en: "/rooms/create",
       },
