@@ -12,12 +12,23 @@ function navigateToTeamname() {
 </script>
 
 <template>
-  <Infobox
-    title="Hey, ich bin ein Infokästchen!"
-    content="In Infokästchen werden Inhalte zur derzeitigen  Phase des Projekts vermittelt. Du findest sie immer rechts unten in der Ecke, ausklappbar mit dem i"
-    button="Verstanden"
-    :progress-bar="false"
-  />
+  <Infobox>
+    <template #title>
+      <h2 class="font-heading text-2xl font-medium text-sc-black-900">
+        {{ $t("infobox.welcome.title") }}
+      </h2>
+    </template>
+    <template #content>
+      <p class="my-2 text-xl text-sc-black-500">
+        {{ $t("infobox.welcome.content") }}
+      </p>
+    </template>
+    <template #button="{ close }">
+      <UButton @click="close" class="bg-[#2B7FFF] font-heading text-lg">{{
+        $t("infobox.welcome.button")
+      }}</UButton>
+    </template>
+  </Infobox>
   <div class="flex h-full w-full flex-col items-center">
     <h1 class="font-heading text-6xl font-bold text-sc-orange">
       {{ $t("join-room.title") }}

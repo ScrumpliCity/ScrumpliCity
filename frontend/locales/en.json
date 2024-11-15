@@ -60,5 +60,12 @@
   },
   "common": {
     "imprint": "Imprint"
+  },
+  "infobox": {
+    "welcome": {
+      "title": "Hey, I am an infobox!",
+      "content": "Info boxes provide information on the current phase of the project. You will always find them in the bottom right-hand corner, foldable with the i",
+      "button": "Got it!"
+    }
   }
 }

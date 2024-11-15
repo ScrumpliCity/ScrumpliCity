@@ -60,5 +60,12 @@
   },
   "common": {
     "imprint": "Impressum"
+  },
+  "infobox": {
+    "welcome": {
+      "title": "Hey, ich bin ein Infokästchen!",
+      "content": "In Infokästchen werden Inhalte zur derzeitigen Phase des Projekts vermittelt. Du findest sie immer rechts unten in der Ecke, ausklappbar mit dem i",
+      "button": "Verstanden!"
+    }
   }
 }
