@@ -106,7 +106,7 @@ function routeToReadyScreen() {
       <div
         class="mb-4 flex h-[45vh] flex-grow-0 flex-col justify-between rounded-lg border-2 border-sc-black-400 bg-sc-white p-7 drop-shadow-sc-shadow"
       >
-        <div class="mx-8 mt-4 flex h-full overflow-y-scroll">
+        <div class="mx-8 mt-4 flex h-full overflow-y-auto">
           <table class="w-full font-semibold">
             <tbody>
               <tr

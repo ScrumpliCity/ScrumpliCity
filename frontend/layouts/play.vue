@@ -9,7 +9,11 @@ const busOffsetVw = computed(() =>
     ? -2
     : routeName.value?.toString().startsWith("play-roomcode__")
       ? 12
-      : -2,
+      : routeName.value?.toString().startsWith("play-roomcode-members__")
+        ? 24
+        : routeName.value?.toString().startsWith("play-roomcode-ready__")
+          ? 32
+          : -2,
 );
 
 onMounted(() => {
@@ -29,7 +33,7 @@ onMounted(() => {
 <template>
   <div>
     <header>
-      <div class="mb-[2%] flex w-full place-content-end pr-9 pt-9">
+      <div class="mb-[2.5%] flex w-full place-content-end pr-9 pt-9">
         <ChangeLangButton />
       </div>
     </header>

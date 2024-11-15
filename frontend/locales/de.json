@@ -73,6 +73,15 @@
       "description": "Die Mitglieder dieses Teams können nach diesem Schritt nicht mehr geändert werden!",
       "yes": "Ja",
       "cancel": "Abbrechen"
+    },
+    "ready": {
+      "waiting_for_start": "Warten auf Start...",
+      "team_members": "Teammitglieder",
+      "room_settings": "Raumeinstellungen",
+      "sprint_count": "Sprintanzahl",
+      "sprint_duration": "Sprintdauer",
+      "meeting_duration": "Meetingdauer",
+      "minutes": "min"
     }
   },
   "login": {
