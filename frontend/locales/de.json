@@ -55,7 +55,8 @@
     "log_in_to_scrumplicity": "Einloggen bei ScrumpliCity",
     "log_in_with": "Logge dich ein mit",
     "google": "Google",
-    "microsoft": "Microsoft"
+    "microsoft": "Microsoft",
+    "error": "Beim Einloggen ist ein Fehler aufgetreten."
   },
   "common": {
     "imprint": "Impressum"

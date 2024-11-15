@@ -55,7 +55,8 @@
     "log_in_to_scrumplicity": "Log in to ScrumpliCity",
     "log_in_with": "Log in with",
     "google": "Google",
-    "microsoft": "Microsoft"
+    "microsoft": "Microsoft",
+    "error": "An error occured while logging in."
   },
   "common": {
     "imprint": "Imprint"
