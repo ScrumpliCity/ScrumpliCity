@@ -14,7 +14,7 @@ function navigateToMembers() {
 }
 </script>
 <template>
-  <div class="flex h-full w-full flex-col items-center">
+  <div class="mt-10 flex h-full w-full flex-col items-center">
     <h1 class="font-heading text-6xl font-bold text-sc-orange">
       {{ $t("join-room.team-title") }}
     </h1>

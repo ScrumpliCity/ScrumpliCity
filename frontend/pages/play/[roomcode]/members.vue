@@ -94,7 +94,7 @@ function routeToReadyScreen() {
 
 <template>
   <div class="flex w-full flex-col">
-    <div class="ml-[10%] mr-[40%]">
+    <div class="-mt-8 ml-[10%] mr-[40%]">
       <p class="ml-[3%] font-heading text-3xl font-medium">{{ roomCode }}</p>
       <h1
         class="mb-[3%] ml-[3%] font-heading text-6xl font-bold text-sc-orange"
