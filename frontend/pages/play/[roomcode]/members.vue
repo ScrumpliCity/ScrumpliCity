@@ -88,7 +88,6 @@ function isReady() {
 }
 
 function routeToReadyScreen() {
-  alert("Ready to go to the next screen");
   navigateTo(localRoute("play-roomcode-ready"));
 }
 </script>
