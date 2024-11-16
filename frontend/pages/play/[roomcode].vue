@@ -18,6 +18,18 @@ function navigateToMembers() {
 }
 </script>
 <template>
+  <Infobox>
+    <template #title>
+      <h2 class="font-heading text-2xl font-medium text-sc-black-900">
+        {{ $t("infobox.welcome.title") }}
+      </h2>
+    </template>
+    <template #content>
+      <p class="my-2 text-xl text-sc-black-500">
+        {{ $t("infobox.welcome.content") }}
+      </p>
+    </template>
+  </Infobox>
   <div class="flex h-full w-full flex-col items-center">
     <h1 class="font-heading text-6xl font-bold text-sc-orange">
       {{ $t("join-room.team-title") }}

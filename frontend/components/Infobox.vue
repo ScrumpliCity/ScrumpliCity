@@ -1,13 +1,40 @@
 <script lang="ts" setup>
+const props = defineProps({
+  progressBarExists: {
+    type: Boolean,
+    default: true,
+  },
+  duration: {
+    type: Number,
+    default: 5000,
+  },
+});
 const infoboxIsOpen = ref(true);
 
-const progress = computed(() => {
-  return 100;
+const progress = reactive({
+  value: 0,
 });
 
-const closeInfobox = () => {
-  infoboxIsOpen.value = false;
+const toggleInfobox = () => {
+  infoboxIsOpen.value = !infoboxIsOpen.value;
 };
+
+const startTimer = () => {
+  progress.value = 0;
+  const interval = setInterval(() => {
+    progress.value += 100 / (props.duration / 10);
+    if (progress.value >= 100) {
+      clearInterval(interval);
+      toggleInfobox();
+    }
+  }, 10);
+};
+
+onMounted(() => {
+  if (props.progressBarExists) {
+    startTimer();
+  }
+});
 </script>
 
 <template>
@@ -23,20 +50,24 @@ const closeInfobox = () => {
         </div>
         <slot name="content" />
         <div class="flex justify-end">
-          <slot name="button" :close="closeInfobox" />
+          <slot name="button" :close="toggleInfobox" />
         </div>
-        <slot name="progressBar" />
+        <UProgress
+          v-if="props.progressBarExists"
+          :value="progress.value"
+          color="blue"
+        />
       </div>
     </transition>
     <div v-if="!infoboxIsOpen">
       <UButton
         class="fixed bottom-5 right-5 rounded-full bg-sc-blue-light p-0 drop-shadow-sc-shadow hover:bg-sc-blue"
-        @click="infoboxIsOpen = true"
+        @click="toggleInfobox"
       >
         <UIcon
-          name="bitcoin-icons:info-filled"
+          name="material-symbols-light:info-i"
           class="bg-sc-black"
-          size="5vw"
+          size="4.5vw"
         />
       </UButton>
     </div>

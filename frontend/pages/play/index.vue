@@ -12,7 +12,7 @@ function navigateToTeamname() {
 </script>
 
 <template>
-  <Infobox>
+  <Infobox :progressBarExists="false">
     <template #title>
       <h2 class="font-heading text-2xl font-medium text-sc-black-900">
         {{ $t("infobox.welcome.title") }}
