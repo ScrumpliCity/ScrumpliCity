@@ -24,9 +24,11 @@ function navigateToTeamname() {
       </p>
     </template>
     <template #button="{ close }">
-      <UButton @click="close" class="bg-[#2B7FFF] font-heading text-lg">{{
-        $t("infobox.welcome.button")
-      }}</UButton>
+      <UButton
+        @click="close"
+        class="bg-sc-blue font-heading text-lg hover:bg-sc-blue-dark"
+        >{{ $t("infobox.welcome.button") }}</UButton
+      >
     </template>
   </Infobox>
   <div class="flex h-full w-full flex-col items-center">
