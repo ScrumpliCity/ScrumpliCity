@@ -2,13 +2,13 @@
 
 <template>
   <div class="flex h-screen flex-col">
-    <header class="flex w-full items-center justify-between p-7">
+    <header class="z-10 flex w-full items-center justify-between p-7">
       <NuxtLinkLocale to="/">
         <SvgMainLogo :font-controlled="false" class="h-12" />
       </NuxtLinkLocale>
       <ChangeLangButton />
     </header>
-    <div class="absolute inset-0 -z-10 flex items-end">
+    <div class="absolute inset-0 flex items-end">
       <SvgJoinRoomBgTreesHouses
         class="w-screen"
         :fontControlled="false"

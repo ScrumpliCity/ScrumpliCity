@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 definePageMeta({
-  middleware: ["sanctum:auth"],
+  middleware: ["auth"],
 });
 
 import type { Room } from "~/types/api";

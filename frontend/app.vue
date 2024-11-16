@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div>
+  <div class="h-screen bg-sc-white">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

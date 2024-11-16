@@ -31,13 +31,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
-    <header>
-      <div class="mb-[2.5%] flex w-full place-content-end pr-9 pt-9">
-        <ChangeLangButton />
-      </div>
+  <div class="flex h-screen flex-col">
+    <header class="z-10 mb-[4vw] flex w-full justify-end pr-11 pt-11">
+      <ChangeLangButton />
     </header>
-    <div class="absolute inset-0 -z-10 flex items-end">
+    <div class="absolute inset-0 flex items-end">
       <SvgJoinRoomBgTreesHouses
         class="w-screen"
         :fontControlled="false"

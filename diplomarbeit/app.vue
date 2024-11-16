@@ -73,7 +73,7 @@
       <div class="lg:flex lg:flex-row lg:mt-4 text-base lg:text-xl text-center font-bold">
         <div class="flex-col">
           <div class="relative w-40 lg:w-44 lg:mx-6 mb-1.5 text-base">
-            <img src="assets/img/Team/felix.jpg" class="w-full rounded-full" alt="Ein Foto des Teammitglieds Felix">
+            <NuxtImg src="/img/Team/felix.jpg" class="w-full rounded-full" sizes="160px lg:176px" alt="Ein Foto des Teammitglieds Felix"/>
             <div
                 class="absolute rounded-full inset-0 flex flex-col items-center justify-center bg-sc-white/50 text-sc-black opacity-0 hover:opacity-100 transition-opacity duration-300">
               <p>Scrum Master</p>
@@ -95,7 +95,7 @@
         </div>
         <div class="flex-col">
           <div class="relative w-40 lg:w-44 lg:mx-6 mb-1.5 text-base">
-            <img src="assets/img/Team/lisa.jpg" class="w-full rounded-full" alt="Ein Foto des Teammitglieds Lisa-Marie">
+            <NuxtImg src="/img/Team/lisa.jpg" class="w-full rounded-full" sizes="160px lg:176px" alt="Ein Foto des Teammitglieds Lisa-Marie"/>
             <div
                 class="absolute rounded-full inset-0 flex flex-col items-center justify-center bg-sc-white/50 text-sc-black opacity-0 hover:opacity-100 transition-opacity duration-300">
               <p>Product Owner</p>
@@ -117,7 +117,7 @@
         </div>
         <div class="lg:flex-col place-items-center">
           <div class="relative w-40 lg:w-44 lg:mx-6 mb-1.5 text-base">
-            <img src="assets/img/Team/marco.jpg" class="w-full rounded-full" alt="Ein Foto des Teammitglieds Marco">
+            <NuxtImg src="/img/Team/marco.jpg" class="w-full rounded-full" sizes="160px lg:176px" alt="Ein Foto des Teammitglieds Marco"/>
             <div
                 class="absolute rounded-full inset-0 flex flex-col items-center justify-center bg-sc-white/50 text-sc-black opacity-0 hover:opacity-100 transition-opacity duration-300">
               <p>Projektmitglied</p>
@@ -139,7 +139,7 @@
         </div>
         <div class="flex-col">
           <div class="relative w-40 lg:w-44 lg:mx-6 mb-1.5 text-base">
-            <img src="assets/img/Team/sophie.jpg" class="w-full rounded-full" alt="Ein Foto des Teammitglieds Sophie">
+            <NuxtImg src="/img/Team/sophie.jpg" class="w-full rounded-full" sizes="160px lg:176px" alt="Ein Foto des Teammitglieds Sophie"/>
             <div
                 class="absolute rounded-full inset-0 flex flex-col items-center justify-center bg-sc-white/50 text-sc-black opacity-0 hover:opacity-100 transition-opacity duration-300">
               <p>Projektmitglied</p>
