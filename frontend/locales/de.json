@@ -37,19 +37,25 @@
   "chooser": {
     "max_value_reached": "Wert zu groß!"
   },
-  "join-room": {
+  "generate_room_code": {
+    "generate_code": "Code generieren",
+    "title": "Tritt dem ScrumpliCity-Projekt-Raum bei!",
+    "description": "Gehe auf {url} und gib diesen Code ein:",
+    "url": "www.scrumplicity.app/play"
+  },
+  "join_room": {
     "title": "Projekt-Raum beitreten",
     "code": "Raumcode",
     "join": "Beitreten",
-    "team-title": "Gebt eurem Team einen Namen!",
-    "team-name": "Teamname",
-    "team-join": "Los geht's!",
-    "team-ready": "Bereit",
+    "team_title": "Gebt eurem Team einen Namen!",
+    "team_name": "Teamname",
+    "team_join": "Los geht's!",
+    "team_ready": "Bereit",
     "waiting": "Warten auf Start...",
-    "team-members": "Teammitglieder",
-    "room-settings": "Raumeinstellungen",
-    "add-team-member": "Teammitglied hinzufügen",
-    "add-members-ready": "Bereit"
+    "team_members": "Teammitglieder",
+    "room_settings": "Raumeinstellungen",
+    "add_team_member": "Teammitglied hinzufügen",
+    "add_members_ready": "Bereit"
   },
   "login": {
     "log_in_to_scrumplicity": "Einloggen bei ScrumpliCity",
