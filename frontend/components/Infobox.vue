@@ -45,8 +45,13 @@ onMounted(() => {
         class="fixed bottom-10 right-10 h-fit max-w-[23vw] rounded-xl border-sc-black-200 bg-sc-blue-light p-4 drop-shadow-sc-shadow"
       >
         <div class="flex items-center">
-          <UIcon name="ic:outline-info" class="mr-2 bg-sc-blue" size="5vw" />
+          <UIcon name="ic:outline-info" class="mr-2 bg-sc-blue" size="3vw" />
           <slot name="title" />
+          <div v-if="progressBarExists" class="flex flex-grow justify-end">
+            <button @click="toggleInfobox" class="bg-transparent">
+              <SvgClose class="w-5" :fontControlled="false" filled />
+            </button>
+          </div>
         </div>
         <slot name="content" />
         <div class="flex justify-end">
