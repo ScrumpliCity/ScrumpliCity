@@ -6,6 +6,7 @@ const route = useRoute();
 
 const { data } = await useAsyncData("rooms", () => client("/api/rooms"));
 
+// TODO: handle non-existence of room
 const manageRoom = data.value.find((room: Room) => room.id === route.params.id);
 </script>
 <template>
