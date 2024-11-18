@@ -90,10 +90,52 @@ const isReady = computed(() => {
 function routeToReadyScreen() {
   navigateTo(localRoute("play-roomcode-ready"));
 }
+
+const showWelcomeInfobox = ref(false);
+
+function welcomeInfoboxShown() {
+  showWelcomeInfobox.value = false;
+  if (typeof localStorage !== "undefined") {
+    localStorage.setItem("welcomeInfoboxShown", "true");
+  }
+}
+
+onMounted(() => {
+  if (typeof localStorage !== "undefined") {
+    const localStorageValue = localStorage.getItem("welcomeInfoboxShown");
+    if (localStorageValue === null) {
+      showWelcomeInfobox.value = true;
+    } else {
+      showWelcomeInfobox.value = false;
+    }
+  }
+});
 </script>
 
 <template>
-  <Infobox>
+  <Infobox v-if="showWelcomeInfobox" :progressBarExists="false">
+    <template #title>
+      <h2 class="font-heading text-2xl font-medium text-sc-black-900">
+        {{ $t("infobox.welcome.title") }}
+      </h2>
+    </template>
+    <template #content>
+      <p class="my-2 text-sc-black-500">
+        {{ $t("infobox.welcome.content") }}
+      </p>
+    </template>
+    <template #button="{ close }">
+      <UButton
+        @click="
+          close();
+          welcomeInfoboxShown();
+        "
+        class="bg-sc-blue font-heading text-lg hover:bg-sc-blue-dark"
+        >{{ $t("infobox.welcome.button") }}</UButton
+      >
+    </template>
+  </Infobox>
+  <Infobox v-if="!showWelcomeInfobox">
     <template #title>
       <h2 class="font-heading text-2xl font-medium text-sc-black-900">
         {{ $t("infobox.scrum_roles.title") }}

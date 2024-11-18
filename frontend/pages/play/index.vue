@@ -12,25 +12,6 @@ function navigateToTeamname() {
 </script>
 
 <template>
-  <Infobox :progressBarExists="false">
-    <template #title>
-      <h2 class="font-heading text-2xl font-medium text-sc-black-900">
-        {{ $t("infobox.welcome.title") }}
-      </h2>
-    </template>
-    <template #content>
-      <p class="my-2 text-sc-black-500">
-        {{ $t("infobox.welcome.content") }}
-      </p>
-    </template>
-    <template #button="{ close }">
-      <UButton
-        @click="close"
-        class="bg-sc-blue font-heading text-lg hover:bg-sc-blue-dark"
-        >{{ $t("infobox.welcome.button") }}</UButton
-      >
-    </template>
-  </Infobox>
   <div class="mt-10 flex h-full w-full flex-col items-center">
     <h1 class="font-heading text-6xl font-bold text-sc-orange">
       {{ $t("join_room.title") }}

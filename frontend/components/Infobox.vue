@@ -6,7 +6,7 @@ const props = defineProps({
   },
   duration: {
     type: Number,
-    default: 5000,
+    default: 10000,
   },
 });
 const infoboxIsOpen = ref(true);
@@ -15,16 +15,26 @@ const progress = reactive({
   value: 0,
 });
 
+const intervalId = ref();
+
 const toggleInfobox = () => {
   infoboxIsOpen.value = !infoboxIsOpen.value;
+  if (intervalId.value) {
+    clearInterval(intervalId.value);
+    intervalId.value = "";
+    progress.value = 0;
+  } else if (infoboxIsOpen.value) {
+    startTimer();
+  }
 };
 
 const startTimer = () => {
   progress.value = 0;
-  const interval = setInterval(() => {
+  intervalId.value = setInterval(() => {
     progress.value += 100 / (props.duration / 10);
     if (progress.value >= 100) {
-      clearInterval(interval);
+      clearInterval(intervalId.value);
+      intervalId.value = "";
       toggleInfobox();
     }
   }, 10);
