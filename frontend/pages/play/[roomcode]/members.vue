@@ -77,15 +77,15 @@ function updateRole(memberId, newRole) {
   }
 }
 
-function isReady() {
+const isReady = computed(() => {
   const scrumMasters = teamMembers.value.filter(
     (member) => member.role === "Scrum Master",
   ).length;
   const productOwners = teamMembers.value.filter(
     (member) => member.role === "Product Owner",
   ).length;
-  return scrumMasters === 1 && productOwners >= 1;
-}
+  return scrumMasters === 1 && productOwners === 1;
+});
 
 function routeToReadyScreen() {
   navigateTo(localRoute("play-roomcode-ready"));
@@ -94,7 +94,7 @@ function routeToReadyScreen() {
 
 <template>
   <div class="flex w-full flex-col">
-    <div class="-mt-8 ml-[10%] mr-[40%]">
+    <div class="-mt-10 ml-[10vw] mr-[40vw]">
       <p class="ml-[3%] font-heading text-3xl font-medium">{{ roomCode }}</p>
       <h1
         class="mb-[3%] ml-[3%] font-heading text-6xl font-bold text-sc-orange"
@@ -120,7 +120,7 @@ function routeToReadyScreen() {
                 <td class="flex-grow p-2 text-2xl">{{ member.name }}</td>
                 <td class="flex items-center">
                   <select
-                    class="mr-4 rounded-md p-1"
+                    class="mr-4 rounded-md bg-sc-white p-1"
                     v-model="member.role"
                     @change="updateRole(member.id, $event.target.value)"
                   >
@@ -129,7 +129,6 @@ function routeToReadyScreen() {
                       :key="role.label"
                       :value="role.label"
                     >
-                      <!-- :disabled="roleIsTaken(role.label)"> -->
                       {{ role.label }}
                     </option>
                   </select>
@@ -154,7 +153,7 @@ function routeToReadyScreen() {
         <div class="relative mt-6">
           <input
             class="w-full cursor-pointer rounded-lg bg-sc-yellow/70 p-3 text-center text-2xl font-bold drop-shadow-sc-shadow placeholder:text-sc-black focus:cursor-auto focus:placeholder:text-transparent"
-            :placeholder="$t('join-room.add-team-member')"
+            :placeholder="$t('join_room.add_team_member')"
             v-model="newMember"
             @keydown.enter="addMember"
             @focus="focusOnInput = true"
@@ -171,11 +170,11 @@ function routeToReadyScreen() {
       </div>
       <div class="flex w-full justify-end">
         <button
-          :disabled="!isReady()"
+          :disabled="!isReady"
           @click="modalIsOpen = true"
           class="w-72 rounded-lg bg-sc-green py-6 text-center text-4xl font-bold text-sc-black drop-shadow-sc-shadow hover:bg-sc-green-400 disabled:bg-sc-black-400 disabled:text-sc-white"
         >
-          {{ $t("join-room.add-members-ready") }}
+          {{ $t("join_room.add_members_ready") }}
         </button>
       </div>
     </div>
@@ -190,21 +189,21 @@ function routeToReadyScreen() {
   >
     <div class="p-6">
       <h2 class="mb-4 text-2xl font-bold">
-        {{ $t("join-room.confirmation_modal.are_you_sure") }}
+        {{ $t("join_room.confirmation_modal.are_you_sure") }}
       </h2>
-      <p class="mb-6">{{ $t("join-room.confirmation_modal.description") }}</p>
+      <p class="mb-6">{{ $t("join_room.confirmation_modal.description") }}</p>
       <div class="flex justify-end">
         <button
           @click="modalIsOpen = false"
-          class="mr-4 rounded-lg bg-sc-black-400 px-6 py-2 text-sc-white hover:bg-gray-400"
+          class="mr-4 rounded-lg bg-sc-black-400 px-6 py-2 text-sc-white hover:bg-sc-black-500"
         >
-          {{ $t("join-room.confirmation_modal.cancel") }}
+          {{ $t("join_room.confirmation_modal.cancel") }}
         </button>
         <button
           @click="routeToReadyScreen"
           class="rounded-lg bg-sc-green px-6 py-2 font-bold text-sc-black hover:bg-sc-green-400"
         >
-          {{ $t("join-room.confirmation_modal.yes") }}
+          {{ $t("join_room.confirmation_modal.yes") }}
         </button>
       </div>
     </div>
