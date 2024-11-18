@@ -62,8 +62,8 @@ function updateRole(memberId, newRole) {
   );
   if (originalMember) {
     toast.add({
-      title: t("join-room.role_taken.title"),
-      description: t("join-room.role_taken.description", {
+      title: t("join_room.role_taken.title"),
+      description: t("join_room.role_taken.description", {
         member: originalMember.name,
       }),
       icon: "mdi:alert-circle",
