@@ -2,20 +2,17 @@
 
 <template>
   <div class="flex h-screen flex-col">
-    <header class="z-10 flex w-full items-center justify-between p-7">
-      <NuxtLinkLocale to="/">
-        <SvgMainLogo :font-controlled="false" class="h-12" />
-      </NuxtLinkLocale>
+    <header class="z-10 flex w-full items-center justify-end p-7">
       <ChangeLangButton />
     </header>
-    <div class="absolute inset-0 flex items-end">
+    <div class="absolute inset-0 flex items-end overflow-x-clip">
       <SvgJoinRoomBgTreesHouses
         class="w-screen"
         :fontControlled="false"
         filled
       />
       <SvgJoinRoomBgBus
-        class="absolute bottom-[3.1vw] left-[-1.5vw] h-[8.5vw]"
+        class="animate-drive absolute bottom-[3.1vw] h-[8.5vw]"
         :fontControlled="false"
         filled
       />
@@ -25,3 +22,17 @@
     </div>
   </div>
 </template>
+<style scoped>
+@keyframes drive {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+.animate-drive {
+  animation: drive 30s linear infinite;
+}
+</style>

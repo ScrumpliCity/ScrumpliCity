@@ -37,10 +37,20 @@
   "chooser": {
     "max_value_reached": "Wert zu groß!"
   },
+  "generate_room_code": {
+    "generate_code": "Code generieren",
+    "title": "Tritt dem ScrumpliCity-Projekt-Raum bei!",
+    "description": "Gehe auf {url} und gib diesen Code ein:",
+    "url": "www.scrumplicity.app/play"
+  },
   "join_room": {
     "title": "Projekt-Raum beitreten",
     "code": "Raumcode",
     "join": "Beitreten",
+    "team_title": "Gebt eurem Team einen Namen!",
+    "team_name": "Teamname",
+    "team_join": "Los geht's!",
+    "team_ready": "Bereit",
     "team_title": "Gebt eurem Team einen Namen!",
     "team_name": "Teamname",
     "team_join": "Los geht's!",

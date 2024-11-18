@@ -14,13 +14,23 @@ export default defineNuxtConfig({
     strategy: "prefix_except_default",
     customRoutes: "config",
     pages: {
-      rooms: {
+      //route for room overview
+      "rooms/parent": {
         de: "/räume",
         en: "/rooms",
       },
-      "rooms/create": {
+      //route for create room modal
+      "rooms/parent/create": {
         de: "/räume/erstellen",
         en: "/rooms/create",
+      },
+      "rooms/id/manage": {
+        de: "/räume/[id]/verwalten",
+        en: "/rooms/[id]/manage",
+      },
+      "rooms/id/roomcode": {
+        de: "/räume/[id]/verwalten/raumcode",
+        en: "/rooms/[id]/manage/roomcode",
       },
       "play/roomcode/members": {
         de: "/play/[roomcode]/mitglieder",

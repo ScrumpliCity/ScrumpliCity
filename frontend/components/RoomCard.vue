@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-import Rooms from "~/pages/rooms.vue";
 import type { Room } from "~/types/api";
+
+const localeRoute = useLocaleRoute();
 
 const props = defineProps({
   room: {
@@ -103,7 +104,19 @@ const lastPlayedAgoMinutes = computed(() => {
 </script>
 <template>
   <div
-    class="group flex h-[294px] w-[362px] flex-col gap-4 rounded-lg bg-sc-black-100 p-7 transition-colors hover:bg-sc-black-200"
+    @click="
+      navigateTo(
+        localeRoute({ name: 'rooms-id-manage', params: { id: props.room.id } }),
+      )
+    "
+    @keydown.enter="
+      navigateTo(
+        localeRoute({ name: 'rooms-id-manage', params: { id: props.room.id } }),
+      )
+    "
+    tabindex="0"
+    role="button"
+    class="group flex h-[294px] w-[362px] cursor-pointer flex-col gap-4 rounded-lg bg-sc-black-100 p-7 transition-colors hover:bg-sc-black-200 focus:outline focus:outline-sc-orange"
   >
     <div
       :style="{ 'background-color': color.background }"
@@ -187,7 +200,8 @@ const lastPlayedAgoMinutes = computed(() => {
         </p>
       </div>
       <UButton
-        @click="emit('delete')"
+        @click.stop="emit('delete')"
+        @keydown.enter.stop="emit('delete')"
         icon="mdi:trash-can-outline"
         class="size-8 justify-center hover:bg-sc-black-100"
         :padded="false"

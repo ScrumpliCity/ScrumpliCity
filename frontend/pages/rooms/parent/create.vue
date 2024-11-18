@@ -52,7 +52,7 @@ const createRoomFunction = async () => {
       icon: "clarity:success-line",
       variant: "success",
     });
-    navigateTo(localeRoute("rooms"));
+    navigateTo(localeRoute("rooms-parent"));
   } catch (error) {
     toast.add({
       title: useNuxtApp().$i18n.t("create_room.creation_error"),
@@ -151,7 +151,7 @@ const createRoomFunction = async () => {
     </div>
     <div class="flex justify-center">
       <button
-        @click="navigateTo(localeRoute('rooms', locale))"
+        @click="navigateTo(localeRoute('rooms-parent', locale))"
         class="absolute right-5 top-5 bg-transparent"
       >
         <SvgClose class="w-[2.25em]" :fontControlled="false" filled />
