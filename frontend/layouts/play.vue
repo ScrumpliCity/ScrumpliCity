@@ -8,8 +8,12 @@ const busOffsetVw = computed(() =>
   route.fullPath.startsWith("play__")
     ? -2
     : routeName.value?.toString().startsWith("play-roomcode__")
-      ? 12
-      : -2,
+      ? 13
+      : routeName.value?.toString().startsWith("play-roomcode-members__")
+        ? 28
+        : routeName.value?.toString().startsWith("play-roomcode-ready__")
+          ? 43
+          : -2,
 );
 
 onMounted(() => {

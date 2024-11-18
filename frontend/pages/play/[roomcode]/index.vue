@@ -1,50 +1,20 @@
 <script setup>
 definePageMeta({
-  layout: "play-default",
+  layout: "play",
 });
 
-defineI18nRoute({
-  paths: {
-    de: "/play/[roomcode]",
-    en: "/play/[roomcode]",
-  },
-});
+const localRoute = useLocaleRoute();
+const { locale } = useI18n();
 
 //@TODO: send name to backend
 const teamName = ref("");
 
 function navigateToMembers() {
-  navigateTo({ path: "/play/members" });
+  navigateTo(localRoute("play-roomcode-members"));
 }
 </script>
 <template>
-  <Infobox>
-    <template #title>
-      <h2 class="font-heading text-2xl font-medium text-sc-black-900">
-        {{ $t("infobox.scrum_roles.title") }}
-      </h2>
-    </template>
-    <template #content>
-      <i18n-t
-        keypath="infobox.scrum_roles.content"
-        tag="p"
-        class="my-2 text-sc-black-500"
-      >
-        <template #roles>
-          <ul class="ml-6 list-disc font-bold">
-            <li>{{ $t("infobox.scrum_roles.roles.scrum_master") }}</li>
-            <li>
-              {{ $t("infobox.scrum_roles.roles.product_owner") }}
-            </li>
-            <li>
-              {{ $t("infobox.scrum_roles.roles.development_team") }}
-            </li>
-          </ul>
-        </template>
-      </i18n-t>
-    </template>
-  </Infobox>
-  <div class="flex h-full w-full flex-col items-center">
+  <div class="mt-10 flex h-full w-full flex-col items-center">
     <h1 class="font-heading text-6xl font-bold text-sc-orange">
       {{ $t("join_room.team_title") }}
     </h1>
