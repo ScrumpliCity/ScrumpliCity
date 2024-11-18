@@ -12,7 +12,7 @@ const props = defineProps({
 const infoboxIsOpen = ref(true);
 
 const progress = reactive({
-  value: 0,
+  value: 100,
 });
 
 const intervalId = ref();
@@ -22,17 +22,17 @@ const toggleInfobox = () => {
   if (intervalId.value) {
     clearInterval(intervalId.value);
     intervalId.value = "";
-    progress.value = 0;
+    progress.value = 100;
   } else if (infoboxIsOpen.value) {
     startTimer();
   }
 };
 
 const startTimer = () => {
-  progress.value = 0;
+  progress.value = 100;
   intervalId.value = setInterval(() => {
-    progress.value += 100 / (props.duration / 10);
-    if (progress.value >= 100) {
+    progress.value -= 100 / (props.duration / 10);
+    if (progress.value <= 0) {
       clearInterval(intervalId.value);
       intervalId.value = "";
       toggleInfobox();
