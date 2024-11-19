@@ -3,14 +3,16 @@ definePageMeta({
   layout: "generate-roomcode",
 });
 
-import type { Room } from "~/types/api";
 const client = useSanctumClient();
 const route = useRoute();
 
-const { data } = await useAsyncData("rooms", () => client("/api/rooms"));
+const { data: roomcodeData } = await useAsyncData("roomcode", () =>
+  client(`/api/rooms/${route.params.id}/roomcode`, {
+    method: "POST",
+  }),
+);
 
-const manageRoom = data.value.find((room: Room) => room.id === route.params.id);
-const roomcode = "789012";
+let roomcode = roomcodeData.value.roomcode || "";
 </script>
 <template>
   <div class="flex h-full flex-col items-center text-center">
