@@ -100,14 +100,17 @@ class RoomController extends Controller
      */
     public function generateRoomCode(Room $room): JsonResponse
     {
+
+        Gate::authorize('update', $room);
+
         if ($room->roomcode) {
             return response()->json(['roomcode' => $room->roomcode]);
         }
 
         do {
             $code = str_pad(random_int(0, 99999), 5, '0', STR_PAD_LEFT);
+            $code .= array_sum(str_split($code)) % 10;
         } while (Room::where('roomcode', $code)->exists());
-        $code .= array_sum(str_split($code)) % 10;
         $room->roomcode = $code;
         $room->save();
         return response()->json(['roomcode' => $code]);

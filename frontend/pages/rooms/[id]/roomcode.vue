@@ -12,7 +12,7 @@ const { data: roomcodeData } = await useAsyncData("roomcode", () =>
   }),
 );
 
-let roomcode = roomcodeData.value.roomcode || "";
+let roomcode = ref(roomcodeData.value.roomcode || "");
 </script>
 <template>
   <div class="flex h-full flex-col items-center text-center">
@@ -23,6 +23,7 @@ let roomcode = roomcodeData.value.roomcode || "";
       keypath="generate_room_code.description"
       tag="p"
       class="z-10 text-5xl font-medium"
+      useScope="global"
     >
       <template #url>
         <b
