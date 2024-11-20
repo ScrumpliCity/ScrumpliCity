@@ -20,6 +20,12 @@ const manageRoom = data.value.find((room: Room) => room.id === route.params.id);
             name: 'rooms-id-roomcode',
             params: { id: manageRoom.id },
           }),
+          {
+            open: {
+              target: '_blank',
+              windowFeatures: { popup: true },
+            },
+          },
         )
       "
       >{{ $t("generate_room_code.generate_code") }}</UButton
