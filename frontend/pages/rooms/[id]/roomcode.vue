@@ -12,7 +12,7 @@ const { data: roomcodeData } = await useAsyncData("roomcode", () =>
   }),
 );
 
-let roomcode = ref(roomcodeData.value.roomcode || "");
+const roomcode = ref(roomcodeData.value.roomcode || "");
 </script>
 <template>
   <div class="flex h-full flex-col items-center text-center">
