@@ -11,9 +11,7 @@ const props = defineProps({
 });
 const infoboxIsOpen = ref(true);
 
-const progress = reactive({
-  value: 100,
-});
+const progress = ref(100);
 
 const intervalId = ref();
 
@@ -41,7 +39,7 @@ const startTimer = () => {
 };
 
 onMounted(() => {
-  if (props.progressBarExists) {
+  if (props.progressBarExists && infoboxIsOpen.value) {
     startTimer();
   }
 });
@@ -69,7 +67,7 @@ onMounted(() => {
         </div>
         <UProgress
           v-if="props.progressBarExists"
-          :value="progress.value"
+          :value="progress"
           color="blue"
         />
       </div>
