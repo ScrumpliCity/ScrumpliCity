@@ -102,12 +102,8 @@ function welcomeInfoboxShown() {
 
 onMounted(() => {
   if (typeof localStorage !== "undefined") {
-    const localStorageValue = localStorage.getItem("welcomeInfoboxShown");
-    if (localStorageValue === null) {
-      showWelcomeInfobox.value = true;
-    } else {
-      showWelcomeInfobox.value = false;
-    }
+    showWelcomeInfobox.value =
+      localStorage?.getItem("welcomeInfoboxShown") === null;
   }
 });
 </script>
