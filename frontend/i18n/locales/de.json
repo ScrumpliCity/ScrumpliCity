@@ -73,6 +73,22 @@
       "sprint_duration": "Sprintdauer",
       "meeting_duration": "Meetingdauer",
       "minutes": "min"
+    },
+    "infobox": {
+      "welcome": {
+        "title": "Hey, ich bin ein Infokästchen!",
+        "content": "In Infokästchen werden Inhalte zur derzeitigen Phase des Projekts vermittelt. Du findest sie immer rechts unten in der Ecke, ausklappbar mit dem i",
+        "button": "Verstanden!"
+      },
+      "scrum_roles": {
+        "title": "Scrum Rollen",
+        "content": "In einem Scrum-Team gibt es drei Hauptrollen:\n {roles} Der Product Owner definiert Anforderungen und priorisiert Aufgaben. Der Scrum Master sorgt für die Einhaltung des Scrum-Prozesses und beseitigt Hindernisse. Das Entwicklungsteam setzt die Anforderungen um und liefert funktionsfähige Produkte in Sprints.",
+        "roles": {
+          "product_owner": "Product Owner",
+          "scrum_master": "Scrum Master",
+          "development_team": "Entwicklungsteam (Developer)"
+        }
+      }
     }
   },
   "login": {
@@ -84,21 +100,5 @@
   },
   "common": {
     "imprint": "Impressum"
-  },
-  "infobox": {
-    "welcome": {
-      "title": "Hey, ich bin ein Infokästchen!",
-      "content": "In Infokästchen werden Inhalte zur derzeitigen Phase des Projekts vermittelt. Du findest sie immer rechts unten in der Ecke, ausklappbar mit dem i",
-      "button": "Verstanden!"
-    },
-    "scrum_roles": {
-      "title": "Scrum Rollen",
-      "content": "In einem Scrum-Team gibt es drei Hauptrollen:\n {roles} Der Product Owner definiert Anforderungen und priorisiert Aufgaben. Der Scrum Master sorgt für die Einhaltung des Scrum-Prozesses und beseitigt Hindernisse. Das Entwicklungsteam setzt die Anforderungen um und liefert funktionsfähige Produkte in Sprints.",
-      "roles": {
-        "product_owner": "Product Owner",
-        "scrum_master": "Scrum Master",
-        "development_team": "Entwicklungsteam (Developer)"
-      }
-    }
   }
 }

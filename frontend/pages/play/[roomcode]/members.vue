@@ -116,12 +116,12 @@ onMounted(() => {
   <Infobox v-if="showWelcomeInfobox" :progressBarExists="false">
     <template #title>
       <h2 class="font-heading text-2xl font-medium text-sc-black-900">
-        {{ $t("infobox.welcome.title") }}
+        {{ $t("join_room.infobox.welcome.title") }}
       </h2>
     </template>
     <template #content>
       <p class="my-2 text-sc-black-500">
-        {{ $t("infobox.welcome.content") }}
+        {{ $t("join_room.infobox.welcome.content") }}
       </p>
     </template>
     <template #button="{ close }">
@@ -131,30 +131,32 @@ onMounted(() => {
           welcomeInfoboxShown();
         "
         class="bg-sc-blue font-heading text-lg hover:bg-sc-blue-dark"
-        >{{ $t("infobox.welcome.button") }}</UButton
+        >{{ $t("join_room.infobox.welcome.button") }}</UButton
       >
     </template>
   </Infobox>
   <Infobox v-if="!showWelcomeInfobox">
     <template #title>
       <h2 class="font-heading text-2xl font-medium text-sc-black-900">
-        {{ $t("infobox.scrum_roles.title") }}
+        {{ $t("join_room.infobox.scrum_roles.title") }}
       </h2>
     </template>
     <template #content>
       <i18n-t
-        keypath="infobox.scrum_roles.content"
+        keypath="join_room.infobox.scrum_roles.content"
         tag="p"
         class="my-2 text-sc-black-500"
       >
         <template #roles>
           <ul class="ml-6 list-disc font-bold">
-            <li>{{ $t("infobox.scrum_roles.roles.scrum_master") }}</li>
             <li>
-              {{ $t("infobox.scrum_roles.roles.product_owner") }}
+              {{ $t("join_room.infobox.scrum_roles.roles.scrum_master") }}
             </li>
             <li>
-              {{ $t("infobox.scrum_roles.roles.development_team") }}
+              {{ $t("join_room.infobox.scrum_roles.roles.product_owner") }}
+            </li>
+            <li>
+              {{ $t("join_room.infobox.scrum_roles.roles.development_team") }}
             </li>
           </ul>
         </template>
