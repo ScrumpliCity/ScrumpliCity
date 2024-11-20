@@ -53,7 +53,7 @@ async function handleCallback(event: MessageEvent) {
       },
     });
     await auth.refreshIdentity();
-    await navigateTo(localeRoute("rooms"));
+    await navigateTo(localeRoute("rooms-parent"));
   } catch {
     showErrorMessage();
   }

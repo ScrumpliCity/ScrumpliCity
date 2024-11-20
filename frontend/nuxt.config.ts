@@ -24,19 +24,19 @@ export default defineNuxtConfig({
         de: "/räume/erstellen",
         en: "/rooms/create",
       },
-      "rooms/id/manage": {
+      "rooms/[id]/manage": {
         de: "/räume/[id]/verwalten",
         en: "/rooms/[id]/manage",
       },
-      "rooms/id/roomcode": {
+      "rooms/[id]/roomcode": {
         de: "/räume/[id]/verwalten/raumcode",
         en: "/rooms/[id]/manage/roomcode",
       },
-      "play/roomcode/members": {
+      "play/[roomcode]/members": {
         de: "/play/[roomcode]/mitglieder",
         en: "/play/[roomcode]/members",
       },
-      "play/roomcode/ready": {
+      "play/[roomcode]/ready": {
         de: "/play/[roomcode]/bereit",
         en: "/play/[roomcode]/ready",
       },
@@ -53,7 +53,7 @@ export default defineNuxtConfig({
       onLogin: false, // don't redirect after login or logout
       onLogout: false,
       onAuthOnly: "login", // used by our own custom middleware "auth" for locale-aware redirection to login page
-      onGuestOnly: "rooms", // used by our own "guest" middlware for locale-aware redirection to rooms
+      onGuestOnly: "rooms-parent", // used by our own "guest" middlware for locale-aware redirection to rooms
     },
   },
   svgo: {

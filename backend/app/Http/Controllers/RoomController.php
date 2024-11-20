@@ -21,10 +21,7 @@ class RoomController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        
-    }
+    public function create() {}
 
     /**
      * Store a newly created resource in storage.
@@ -73,7 +70,8 @@ class RoomController extends Controller
     {
         Gate::authorize('update', $room);
 
-        $validated = $request->validate(['name' => 'required|string|max:255',
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
             'number_of_sprints' => 'required|integer|max:12|min:1',
             'sprint_duration' => 'required|integer|max:120|min:1',
             'build_phase_duration' => 'required|integer|max:60|min:1',
@@ -94,5 +92,27 @@ class RoomController extends Controller
 
         $room->delete();
         return response()->json(null, 204);
+    }
+
+
+    /**
+     * Generate a random temporary room code for this room. 
+     */
+    public function generateRoomCode(Room $room): JsonResponse
+    {
+
+        Gate::authorize('update', $room);
+
+        if ($room->roomcode) {
+            return response()->json(['roomcode' => $room->roomcode]);
+        }
+
+        do {
+            $code = str_pad(random_int(0, 99999), 5, '0', STR_PAD_LEFT);
+            $code .= array_sum(str_split($code)) % 10;
+        } while (Room::where('roomcode', $code)->exists());
+        $room->roomcode = $code;
+        $room->save();
+        return response()->json(['roomcode' => $code]);
     }
 }
