@@ -53,7 +53,7 @@ export default defineNuxtConfig({
       onLogin: false, // don't redirect after login or logout
       onLogout: false,
       onAuthOnly: "login", // used by our own custom middleware "auth" for locale-aware redirection to login page
-      onGuestOnly: "rooms", // used by our own "guest" middlware for locale-aware redirection to rooms
+      onGuestOnly: "rooms-parent", // used by our own "guest" middlware for locale-aware redirection to rooms
     },
   },
   svgo: {
