@@ -15,8 +15,8 @@
   "dependencies": {
     "@nuxt/ui": "^2.18.7",
     "@nuxtjs/i18n": "^9.0.0",
-    "nuxt": "^3.13.0",
-    "nuxt-auth-sanctum": "^0.5.1",
+    "nuxt": "^3.14.1592",
+    "nuxt-auth-sanctum": "^0.5.2",
     "nuxt-svgo": "^4.0.8",
     "vue": "latest",
     "vue-router": "latest"
