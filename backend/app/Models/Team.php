@@ -18,4 +18,11 @@ class Team extends Model
     {
         return $this->belongsTo(Room::class);
     }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = ['name'];
 }

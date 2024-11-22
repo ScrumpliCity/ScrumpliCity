@@ -18,4 +18,6 @@ Route::post('/team/join', [TeamController::class, 'join']);
 
 Route::get('/team/me', [TeamController::class, 'show']);
 
+Route::post('/team/{team}', [TeamController::class, 'update']);
+
 Route::get('/user/profile-picture', [UserController::class, 'profilePicture'])->middleware('auth:sanctum');

@@ -4,8 +4,6 @@ definePageMeta({
   middleware: "ensure-playing",
 });
 
-import { ref } from "vue";
-
 const toast = useToast();
 const { t } = useI18n();
 const route = useRoute();
@@ -15,9 +13,7 @@ const game = useGameStore();
 
 //@TODO: get name from backend
 
-const roomCode = ref(route.params.roomcode);
 const newMember = ref("");
-const teamName = ref("Testteam");
 const focusOnInput = ref(false);
 const teamMembers = ref([]);
 const modalIsOpen = ref(false);
@@ -91,18 +87,20 @@ const isReady = computed(() => {
 });
 
 function routeToReadyScreen() {
-  navigateTo(localRoute("play-roomcode-ready"));
+  navigateTo(localRoute("play-ready"));
 }
 </script>
 
 <template>
   <div class="flex w-full flex-col">
     <div class="-mt-10 ml-[10vw] mr-[40vw]">
-      <p class="ml-[3%] font-heading text-3xl font-medium">{{ roomCode }}</p>
+      <p class="ml-[3%] font-heading text-3xl font-medium">
+        {{ game.joinCode }}
+      </p>
       <h1
         class="mb-[3%] ml-[3%] font-heading text-6xl font-bold text-sc-orange"
       >
-        {{ teamName }}
+        {{ game.team.name }}
       </h1>
       <div
         class="mb-4 flex h-[45vh] flex-grow-0 flex-col justify-between rounded-lg border-2 border-sc-black-400 bg-sc-white p-7 drop-shadow-sc-shadow"

@@ -28,6 +28,16 @@ export const useGameStore = defineStore("game", () => {
     team.value = data;
   }
 
+  async function changeName(newName: string) {
+    const data = await client(`/api/team/${team.value?.id}`, {
+      body: {
+        name: newName,
+      },
+      method: "POST",
+    });
+    team.value = data;
+  }
+
   const isInTeam = computed(() => !!team.value);
-  return { team, joinCode, joinRoom, isInTeam, refresh };
+  return { team, joinCode, joinRoom, isInTeam, refresh, changeName };
 });
