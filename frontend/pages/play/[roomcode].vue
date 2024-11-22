@@ -1,7 +1,38 @@
 <script setup>
 definePageMeta({
   layout: "play",
+  middleware: (to, from) => {
+    const code = to.params.roomcode;
+    if (!isRoomCodeCheckDigitValid(code)) {
+      const localeRoute = useLocaleRoute();
+      return navigateTo(localeRoute("play"), {
+        replace: true,
+        redirectCode: 404,
+      });
+    }
+  },
 });
+
+const localeRoute = useLocaleRoute();
+
+const game = useGameStore();
+
+const { data: joinSuccess } = useAsyncData("team-join", async () => {
+  try {
+    const route = useRoute();
+    await game.joinRoom(route.params.roomcode);
+    return true;
+  } catch (error) {
+    return false;
+  }
+});
+
+if (!joinSuccess.value) {
+  await navigateTo(localeRoute("play"), {
+    replace: true,
+    redirectCode: 404,
+  });
+}
 
 const localRoute = useLocaleRoute();
 const { locale } = useI18n();
@@ -10,7 +41,7 @@ const { locale } = useI18n();
 const teamName = ref("");
 
 function navigateToMembers() {
-  navigateTo(localRoute("play-roomcode-members"));
+  navigateTo(localRoute("play-members"));
 }
 </script>
 <template>

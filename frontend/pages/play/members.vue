@@ -1,6 +1,7 @@
 <script setup>
 definePageMeta({
   layout: "play",
+  middleware: "ensure-playing",
 });
 
 import { ref } from "vue";
@@ -9,6 +10,8 @@ const toast = useToast();
 const { t } = useI18n();
 const route = useRoute();
 const localRoute = useLocaleRoute();
+
+const game = useGameStore();
 
 //@TODO: get name from backend
 

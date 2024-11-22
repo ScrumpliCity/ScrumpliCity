@@ -16,6 +16,6 @@ Route::post('/rooms/{room}/roomcode', [RoomController::class, 'generateRoomCode'
 
 Route::post('/team/join', [TeamController::class, 'join']);
 
-Route::get('/team/{team}', [TeamController::class], 'get');
+Route::get('/team/me', [TeamController::class, 'show']);
 
 Route::get('/user/profile-picture', [UserController::class, 'profilePicture'])->middleware('auth:sanctum');

@@ -9,25 +9,25 @@ use Illuminate\Http\Request;
 
 class TeamController extends Controller
 {
-    public function join(Request $request): JsonResponse {
+    public function join(Request $request): JsonResponse
+    {
         $roomcode = $request->input('code');
-        $room = Room::find('roomcode', $roomcode)->first();
-        $team = new Team();
-        $team->room = $room;
+        $room = Room::where('roomcode', $roomcode)->firstOrFail();
+        $team = $room->teams()->create();
         $team->save();
-        $request->session->put('team', $team->id);
-        return response()->json($room);
-    }
-
-    public function show(Request $request, Team $team): JsonResponse {
-        if ($request->session->get('team') != $team->id) {
-            return  response()->noContent(403);
-        }
+        $request->session()->put('team', $team->id);
         return response()->json($team);
     }
 
-    public function update(Request $request, Team $team): JsonResponse {
-        if ($request->session->get('team') != $team->id) {
+    public function show(Request $request): JsonResponse
+    {
+        $teamId = $request->session()->get('team');
+        return response()->json(Team::findOrFail($teamId));
+    }
+
+    public function update(Request $request, Team $team): JsonResponse
+    {
+        if ($request->session()->get('team') != $team->id) {
             return  response()->noContent(403);
         }
 
@@ -38,5 +38,4 @@ class TeamController extends Controller
         $team->update($validated);
         return response()->json($team);
     }
-
 }
