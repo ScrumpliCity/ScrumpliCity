@@ -1,5 +1,9 @@
 type Team = {
   id: string;
+  created_at: string;
+  updated_at: string;
+  name: string | null;
+  room_id: string;
 };
 
 export const useGameStore = defineStore("game", () => {

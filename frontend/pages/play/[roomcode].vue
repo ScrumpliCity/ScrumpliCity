@@ -19,20 +19,29 @@ const game = useGameStore();
 
 const { data: joinSuccess } = useAsyncData("team-join", async () => {
   try {
+    const game = useGameStore();
     const route = useRoute();
     await game.joinRoom(route.params.roomcode);
-    return true;
+    return "success";
   } catch (error) {
-    return false;
+    return "failure";
   }
 });
 
-if (!joinSuccess.value) {
-  await navigateTo(localeRoute("play"), {
-    replace: true,
-    redirectCode: 404,
-  });
-}
+watch(
+  joinSuccess,
+  async () => {
+    if (joinSuccess.value === "failure") {
+      await navigateTo(localeRoute("play"), {
+        replace: true,
+        redirectCode: 404,
+      });
+    }
+  },
+  {
+    immediate: true,
+  },
+);
 
 const localRoute = useLocaleRoute();
 const { locale } = useI18n();

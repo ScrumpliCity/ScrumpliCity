@@ -7,7 +7,7 @@ const bus: Ref<any> = useTemplateRef("bus");
 const busOffsetVw = computed(() =>
   route.fullPath.startsWith("play__")
     ? -2
-    : routeName.value?.toString().startsWith("play-__")
+    : routeName.value?.toString().startsWith("play-roomcode__")
       ? 13
       : routeName.value?.toString().startsWith("play-members__")
         ? 28
