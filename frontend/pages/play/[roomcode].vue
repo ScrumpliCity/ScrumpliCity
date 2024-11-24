@@ -57,19 +57,12 @@ async function submit() {
     <h1 class="font-heading text-6xl font-bold text-sc-orange">
       {{ $t("join_room.team_title") }}
     </h1>
-    <div class="relative mb-12 mt-16">
-      <input
-        @keydown.enter="submit"
-        class="rounded-lg border-2 border-sc-black-400 py-8 text-center text-5xl font-medium drop-shadow-sc-shadow"
-        :placeholder="$t('join_room.team_name')"
-        v-model="teamName"
-      />
-      <UIcon
-        name="ic:round-check"
-        class="absolute right-14 top-1/2 -translate-y-1/2 transform p-12 text-sc-green transition-opacity"
-        :class="{ 'opacity-0': !teamName }"
-      />
-    </div>
+    <input
+      @keydown.enter="submit"
+      class="mb-12 mt-16 rounded-lg border-2 border-sc-black-400 py-8 text-center text-5xl font-medium drop-shadow-sc-shadow"
+      :placeholder="$t('join_room.team_name')"
+      v-model="teamName"
+    />
     <button
       @click="submit"
       :disabled="!teamName"
