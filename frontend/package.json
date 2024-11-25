@@ -17,7 +17,7 @@
     "@nuxtjs/i18n": "^9.0.0",
     "nuxt": "^3.14.1592",
     "nuxt-auth-sanctum": "^0.5.2",
-    "nuxt-svgo": "^4.0.8",
+    "nuxt-svgo": "^4.0.9",
     "vue": "latest",
     "vue-router": "latest"
   },
