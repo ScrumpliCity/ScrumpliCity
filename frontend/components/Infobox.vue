@@ -30,7 +30,7 @@ const startTimer = () => {
   progress.value = 100;
   intervalId.value = setInterval(() => {
     progress.value -= 100 / (props.duration / 10);
-    if (progress.value <= 0) {
+    if (progress.value <= -1) {
       clearInterval(intervalId.value);
       intervalId.value = "";
       toggleInfobox();
@@ -54,14 +54,22 @@ onMounted(() => {
       >
         <div class="flex items-center">
           <UIcon name="ic:outline-info" class="mr-2 bg-sc-blue" size="3vw" />
-          <slot name="title" />
+          <slot name="title">
+            <h2 class="font-heading text-2xl font-medium text-sc-black-900">
+              {{ $t("join_room.infobox.welcome.title") }}
+            </h2>
+          </slot>
           <div v-if="progressBarExists" class="flex flex-grow justify-end">
             <button @click="toggleInfobox" class="bg-transparent">
               <SvgClose class="w-5" :fontControlled="false" filled />
             </button>
           </div>
         </div>
-        <slot name="content" />
+        <slot name="content">
+          <p class="my-2 text-sc-black-500">
+            {{ $t("join_room.infobox.welcome.content") }}
+          </p>
+        </slot>
         <div class="flex justify-end">
           <slot name="button" :close="toggleInfobox" />
         </div>

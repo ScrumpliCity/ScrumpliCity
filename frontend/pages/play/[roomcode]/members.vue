@@ -110,16 +110,6 @@ onMounted(() => {
 
 <template>
   <Infobox v-if="showWelcomeInfobox" :progressBarExists="false">
-    <template #title>
-      <h2 class="font-heading text-2xl font-medium text-sc-black-900">
-        {{ $t("join_room.infobox.welcome.title") }}
-      </h2>
-    </template>
-    <template #content>
-      <p class="my-2 text-sc-black-500">
-        {{ $t("join_room.infobox.welcome.content") }}
-      </p>
-    </template>
     <template #button="{ close }">
       <UButton
         @click="
@@ -131,7 +121,7 @@ onMounted(() => {
       >
     </template>
   </Infobox>
-  <Infobox v-if="!showWelcomeInfobox">
+  <Infobox v-else>
     <template #title>
       <h2 class="font-heading text-2xl font-medium text-sc-black-900">
         {{ $t("join_room.infobox.scrum_roles.title") }}
@@ -142,6 +132,7 @@ onMounted(() => {
         keypath="join_room.infobox.scrum_roles.content"
         tag="p"
         class="my-2 text-sc-black-500"
+        scope="global"
       >
         <template #roles>
           <ul class="ml-6 list-disc font-bold">
