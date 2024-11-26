@@ -1,7 +1,13 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-10-21",
   devtools: { enabled: true },
-  modules: ["@nuxtjs/i18n", "nuxt-auth-sanctum", "nuxt-svgo", "@nuxt/ui"],
+  modules: [
+    "@nuxtjs/i18n",
+    "nuxt-auth-sanctum",
+    "nuxt-svgo",
+    "@nuxt/ui",
+    "@pinia/nuxt",
+  ],
   i18n: {
     defaultLocale: "de",
     locales: [
@@ -32,13 +38,13 @@ export default defineNuxtConfig({
         de: "/räume/[id]/verwalten/raumcode",
         en: "/rooms/[id]/manage/roomcode",
       },
-      "play/[roomcode]/members": {
-        de: "/play/[roomcode]/mitglieder",
-        en: "/play/[roomcode]/members",
+      "play/members": {
+        de: "/play/mitglieder",
+        en: "/play/members",
       },
-      "play/[roomcode]/ready": {
-        de: "/play/[roomcode]/bereit",
-        en: "/play/[roomcode]/ready",
+      "play/ready": {
+        de: "/play/bereit",
+        en: "/play/ready",
       },
       // define more pages here
     },

@@ -1,6 +1,7 @@
 <script setup>
 definePageMeta({
   layout: "play",
+  middleware: "ensure-playing",
 });
 
 const route = useRoute();
