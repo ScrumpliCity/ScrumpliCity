@@ -50,7 +50,7 @@ onMounted(() => {
     <transition name="infobox">
       <div
         v-if="infoboxIsOpen"
-        class="fixed bottom-10 right-10 h-fit max-w-[23vw] rounded-xl border-sc-black-200 bg-sc-blue-light p-4 drop-shadow-sc-shadow"
+        class="fixed bottom-10 right-10 h-fit max-w-[23vw] rounded-xl border-sc-black-200 bg-sc-blue-background p-4 drop-shadow-sc-shadow"
       >
         <div class="flex items-center">
           <UIcon name="ic:outline-info" class="mr-2 bg-sc-blue" size="3vw" />
@@ -82,7 +82,7 @@ onMounted(() => {
     </transition>
     <div v-if="!infoboxIsOpen">
       <UButton
-        class="fixed bottom-5 right-5 rounded-full bg-sc-blue-light p-0 drop-shadow-sc-shadow hover:bg-sc-blue"
+        class="fixed bottom-5 right-5 rounded-full bg-sc-blue-background p-0 drop-shadow-sc-shadow hover:bg-sc-blue"
         @click="toggleInfobox"
       >
         <UIcon

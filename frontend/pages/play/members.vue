@@ -115,7 +115,7 @@ onMounted(() => {
           close();
           welcomeInfoboxShown();
         "
-        class="bg-sc-blue font-heading text-lg hover:bg-sc-blue-dark"
+        class="bg-sc-blue font-heading text-lg hover:bg-sc-blue-default-hover"
         >{{ $t("join_room.infobox.welcome.button") }}</UButton
       >
     </template>

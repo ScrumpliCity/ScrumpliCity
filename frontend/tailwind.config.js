@@ -70,9 +70,9 @@ export default {
         },
         "sc-white": { DEFAULT: "#FCFCFC" },
         "sc-blue": {
-          light: "#DCE9FE",
+          background: "#DCE9FE",
           DEFAULT: "#2B7FFF",
-          dark: "#2266CC",
+          "default-hover": "#2266CC",
         },
       },
       fontFamily: {
