@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
@@ -13,4 +14,10 @@ Route::resource('rooms', RoomController::class)->only(['index', 'store', 'show',
 
 Route::post('/rooms/{room}/roomcode', [RoomController::class, 'generateRoomCode'])->middleware('auth:sanctum');
 
-Route::get('/user/profile-picture', [UserController::class, 'profilePicture']);
+Route::post('/team/join', [TeamController::class, 'join']);
+
+Route::get('/team/me', [TeamController::class, 'show']);
+
+Route::post('/team/{team}', [TeamController::class, 'update']);
+
+Route::get('/user/profile-picture', [UserController::class, 'profilePicture'])->middleware('auth:sanctum');
