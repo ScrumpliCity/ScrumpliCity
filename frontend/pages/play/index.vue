@@ -29,7 +29,7 @@ async function navigateToTeamname() {
       <UIcon
         name="ic:round-check"
         class="absolute right-14 top-1/2 -translate-y-1/2 transform p-12 text-sc-green transition-opacity"
-        :class="{ 'opacity-0': !teamName }"
+        :class="{ 'opacity-0': !roomCodeIsValid }"
         v-if="roomCodeIsValid"
       />
     </div>
