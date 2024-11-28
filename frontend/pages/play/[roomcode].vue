@@ -68,7 +68,7 @@ async function submit() {
       :disabled="!teamName"
       class="w-72 cursor-pointer rounded-lg bg-sc-green py-6 text-center text-4xl font-bold text-sc-black drop-shadow-sc-shadow transition-colors hover:bg-sc-green-400 disabled:cursor-not-allowed disabled:bg-sc-black-400 disabled:text-sc-white"
     >
-      {{ $t("join_room.team_ready") }}
+      {{ $t("join_room.team_join") }}
     </button>
   </div>
 </template>
