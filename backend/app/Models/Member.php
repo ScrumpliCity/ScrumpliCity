@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\Team;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Model;
 
-class TeamMember extends Model
+class Member extends Model
 {
     use HasUlids;
 

@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\MemberController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\UserController;
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
@@ -19,5 +21,13 @@ Route::post('/team/join', [TeamController::class, 'join']);
 Route::get('/team/me', [TeamController::class, 'show']);
 
 Route::post('/team/{team}', [TeamController::class, 'update']);
+
+Route::post('/team/{team}/members', [MemberController::class, 'setMembers']);
+
+Route::get('/team/members', [MemberController::class, 'index']);
+
+Route::get('/rooms/{room}/roomcode', [RoomController::class, 'showRoomCode']);
+
+Route::get('/rooms/{room}/details', [RoomController::class, 'showDetails']);
 
 Route::get('/user/profile-picture', [UserController::class, 'profilePicture'])->middleware('auth:sanctum');

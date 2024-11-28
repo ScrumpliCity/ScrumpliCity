@@ -19,6 +19,12 @@ class Team extends Model
         return $this->belongsTo(Room::class);
     }
 
+
+    public function members()
+    {
+        return $this->hasMany(Member::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

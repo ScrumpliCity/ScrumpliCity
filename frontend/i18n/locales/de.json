@@ -50,10 +50,7 @@
     "team_title": "Gebt eurem Team einen Namen!",
     "team_name": "Teamname",
     "team_ready": "Bereit",
-    "team_title": "Gebt eurem Team einen Namen!",
-    "team_name": "Teamname",
     "team_join": "Los geht's!",
-    "team_ready": "Bereit",
     "waiting": "Warten auf Start...",
     "team_members": "Teammitglieder",
     "room_settings": "Raumeinstellungen",
@@ -70,12 +67,13 @@
       "cancel": "Abbrechen"
     },
     "ready": {
-      "waiting_for_start": "Warten auf Start...",
+      "waiting_for_start": "Warten auf Start",
       "team_members": "Teammitglieder",
       "room_settings": "Raumeinstellungen",
       "sprint_count": "Sprintanzahl",
       "sprint_duration": "Sprintdauer",
-      "meeting_duration": "Meetingdauer",
+      "planning_duration": "Planningdauer",
+      "review_duration": "Reviewdauer",
       "minutes": "min"
     }
   },

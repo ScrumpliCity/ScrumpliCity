@@ -4,22 +4,17 @@ definePageMeta({
   middleware: "ensure-playing",
 });
 
-const route = useRoute();
+const game = useGameStore();
 
-// @TODO: fetch from backend
-const teamMembers = ref([
-  { id: 1, name: "Max Mustermann", role: "Developer" },
-  { id: 2, name: "Erika Mustermann", role: "Scrum Master" },
-  { id: 3, name: "Hans Mustermann", role: "Product Owner" },
-  { id: 4, name: "Anna Schmidt", role: "Developer" },
-  { id: 5, name: "John Doe", role: "Developer" },
-  { id: 6, name: "Jane Doe", role: "Developer" },
-]);
-const sprintCount = ref(5);
-const sprintDuration = ref(10);
-const meetingDuration = ref(5);
-const roomCode = ref(route.params.roomcode);
-const teamName = ref("Scrumplicity Team");
+const { data: teamMembers } = await useAsyncData("teamMembers", () =>
+  game.getMembers(),
+);
+const { data: roomSettings } = await useAsyncData("roomSettings", () =>
+  game.showRoomDetails(),
+);
+
+const roomCode = ref(game.joinCode);
+const teamName = ref(game.team.name);
 </script>
 
 <template>
@@ -32,6 +27,15 @@ const teamName = ref("Scrumplicity Team");
   <div class="mr-[14.5vw] flex flex-col items-center gap-12">
     <h1 class="font-heading text-5xl font-bold text-sc-orange">
       {{ $t("join_room.ready.waiting_for_start") }}
+      <span
+        class="animate-pulse [animation-delay:-0.5s] [animation-duration:1.4s]"
+        >.</span
+      >
+      <span
+        class="animate-pulse [animation-delay:-0.25s] [animation-duration:1.4s]"
+        >.</span
+      >
+      <span class="animate-pulse [animation-duration:1.4s]">.</span>
     </h1>
     <div class="flex items-start gap-20">
       <div
@@ -65,19 +69,28 @@ const teamName = ref("Scrumplicity Team");
               <strong class="font-semibold text-gray-800"
                 >{{ $t("join_room.ready.sprint_count") }}:
               </strong>
-              {{ sprintCount }}
+              {{ roomSettings.number_of_sprints }}
             </li>
             <li>
               <strong class="font-semibold text-gray-800"
                 >{{ $t("join_room.ready.sprint_duration") }}:
               </strong>
-              {{ sprintDuration }} {{ $t("join_room.ready.minutes") }}
+              {{ roomSettings.sprint_duration }}
+              {{ $t("join_room.ready.minutes") }}
             </li>
             <li>
               <strong class="font-semibold text-gray-800"
-                >{{ $t("join_room.ready.meeting_duration") }}:
+                >{{ $t("join_room.ready.planning_duration") }}:
               </strong>
-              {{ meetingDuration }} {{ $t("join_room.ready.minutes") }}
+              {{ roomSettings.planning_duration }}
+              {{ $t("join_room.ready.minutes") }}
+            </li>
+            <li>
+              <strong class="font-semibold text-gray-800"
+                >{{ $t("join_room.ready.review_duration") }}:
+              </strong>
+              {{ roomSettings.review_duration }}
+              {{ $t("join_room.ready.minutes") }}
             </li>
           </ul>
         </div>

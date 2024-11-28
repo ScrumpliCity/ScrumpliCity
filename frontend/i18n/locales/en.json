@@ -67,12 +67,13 @@
       "cancel": "Cancel"
     },
     "ready": {
-      "waiting_for_start": "Waiting to start...",
+      "waiting_for_start": "Waiting to start",
       "team_members": "Team members",
       "room_settings": "Room settings",
       "sprint_count": "Sprint count",
       "sprint_duration": "Sprint duration",
-      "meeting_duration": "Meeting duration",
+      "planning_duration": "Planning duration",
+      "review_duration": "Review duration",
       "minutes": "min"
     }
   },

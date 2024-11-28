@@ -25,7 +25,6 @@ const roles = [
 ];
 
 function deleteMember(memberId) {
-  // @TODO: Remove member from backend
   teamMembers.value = teamMembers.value.filter(
     (member) => member.id !== memberId,
   );
@@ -35,7 +34,6 @@ async function addMember() {
   if (newMember.value === "") {
     return;
   }
-  // @TODO: Add member to backend
   teamMembers.value.push({
     id: teamMembers.value.length,
     name: newMember.value,
@@ -86,7 +84,14 @@ const isReady = computed(() => {
   return scrumMasters === 1 && productOwners === 1;
 });
 
-function routeToReadyScreen() {
+async function routeToReadyScreen() {
+  await game.addMembers(
+    teamMembers.value.map((member) => ({
+      name: member.name,
+      role: member.role,
+    })),
+  );
+
   navigateTo(localRoute("play-ready"));
 }
 </script>
