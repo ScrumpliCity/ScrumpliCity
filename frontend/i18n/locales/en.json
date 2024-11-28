@@ -74,6 +74,22 @@
       "sprint_duration": "Sprint duration",
       "meeting_duration": "Meeting duration",
       "minutes": "min"
+    },
+    "infobox": {
+      "welcome": {
+        "title": "Hey, I am an infobox!",
+        "content": "Info boxes provide information on the current phase of the project. You will always find them in the bottom right-hand corner, foldable with the i",
+        "button": "Got it!"
+      },
+      "scrum_roles": {
+        "title": "Scrum Roles",
+        "content": "There are three main roles in a Scrum team:\n {roles} The Product Owner defines requirements and prioritises tasks. The Scrum Master ensures compliance with the Scrum process and removes obstacles. The development team implements the requirements and delivers functional products in sprints.",
+        "roles": {
+          "product_owner": "Product Owner",
+          "scrum_master": "Scrum Master",
+          "development_team": "Development Team"
+        }
+      }
     }
   },
   "login": {
