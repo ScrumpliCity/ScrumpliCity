@@ -69,6 +69,11 @@ export default {
           DEFAULT: "#030303",
         },
         "sc-white": { DEFAULT: "#FCFCFC" },
+        "sc-blue": {
+          background: "#DCE9FE",
+          DEFAULT: "#2B7FFF",
+          "default-hover": "#2266CC",
+        },
       },
       fontFamily: {
         sans: ["Manrope", "sans-serif"],
