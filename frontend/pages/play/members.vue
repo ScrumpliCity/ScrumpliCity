@@ -108,7 +108,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <Infobox v-if="showWelcomeInfobox" :progressBarExists="false">
+  <Infobox v-if="showWelcomeInfobox" :withTimeout="false">
     <template #button="{ close }">
       <UButton
         @click="

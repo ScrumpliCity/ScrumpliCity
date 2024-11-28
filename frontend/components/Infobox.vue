@@ -1,17 +1,17 @@
 <script lang="ts" setup>
 const props = defineProps({
-  progressBarExists: {
+  withTimeout: {
     type: Boolean,
     default: true,
   },
-  duration: {
+  durationInS: {
     type: Number,
-    default: 10000,
+    default: 10,
   },
 });
 const infoboxIsOpen = ref(true);
 
-const progress = ref(100);
+const duration = ref(props.durationInS);
 
 const intervalId = ref();
 
@@ -20,26 +20,26 @@ const toggleInfobox = () => {
   if (intervalId.value) {
     clearInterval(intervalId.value);
     intervalId.value = "";
-    progress.value = 100;
+    duration.value = props.durationInS;
   } else if (infoboxIsOpen.value) {
     startTimer();
   }
 };
 
 const startTimer = () => {
-  progress.value = 100;
+  duration.value = props.durationInS;
   intervalId.value = setInterval(() => {
-    progress.value -= 100 / (props.duration / 10);
-    if (progress.value <= -1) {
+    duration.value -= 1;
+    if (duration.value <= 0) {
       clearInterval(intervalId.value);
       intervalId.value = "";
       toggleInfobox();
     }
-  }, 10);
+  }, 1000);
 };
 
 onMounted(() => {
-  if (props.progressBarExists && infoboxIsOpen.value) {
+  if (props.withTimeout && infoboxIsOpen.value) {
     startTimer();
   }
 });
@@ -59,7 +59,7 @@ onMounted(() => {
               {{ $t("join_room.infobox.welcome.title") }}
             </h2>
           </slot>
-          <div v-if="progressBarExists" class="flex flex-grow justify-end">
+          <div v-if="withTimeout" class="flex flex-grow justify-end">
             <button @click="toggleInfobox" class="bg-transparent">
               <SvgClose class="w-5" :fontControlled="false" filled />
             </button>
@@ -73,11 +73,6 @@ onMounted(() => {
         <div class="flex justify-end">
           <slot name="button" :close="toggleInfobox" />
         </div>
-        <UProgress
-          v-if="props.progressBarExists"
-          :value="progress"
-          color="blue"
-        />
       </div>
     </transition>
     <div v-if="!infoboxIsOpen">
