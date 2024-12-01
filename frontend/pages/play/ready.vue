@@ -9,19 +9,17 @@ const game = useGameStore();
 const { data: teamMembers } = await useAsyncData("teamMembers", () =>
   game.getMembers(),
 );
-const { data: roomSettings } = await useAsyncData("roomSettings", () =>
-  game.showRoomDetails(),
-);
-
-const roomCode = ref(game.joinCode);
-const teamName = ref(game.team.name);
 </script>
 
 <template>
   <Teleport to="#teleports">
     <div class="absolute left-11 top-11 text-3xl">
-      <span class="font-heading font-bold text-sc-black">{{ roomCode }}/</span>
-      <span class="font-heading font-bold text-sc-orange">{{ teamName }} </span>
+      <span class="font-heading font-bold text-sc-black"
+        >{{ game.roomDetails.roomcode }}/</span
+      >
+      <span class="font-heading font-bold text-sc-orange"
+        >{{ game.team.name }}
+      </span>
     </div>
   </Teleport>
   <div class="mr-[14.5vw] flex flex-col items-center gap-12">
@@ -69,27 +67,27 @@ const teamName = ref(game.team.name);
               <strong class="font-semibold text-gray-800"
                 >{{ $t("join_room.ready.sprint_count") }}:
               </strong>
-              {{ roomSettings.number_of_sprints }}
+              {{ game.roomDetails.number_of_sprints }}
             </li>
             <li>
               <strong class="font-semibold text-gray-800"
                 >{{ $t("join_room.ready.sprint_duration") }}:
               </strong>
-              {{ roomSettings.sprint_duration }}
+              {{ game.roomDetails.sprint_duration }}
               {{ $t("join_room.ready.minutes") }}
             </li>
             <li>
               <strong class="font-semibold text-gray-800"
                 >{{ $t("join_room.ready.planning_duration") }}:
               </strong>
-              {{ roomSettings.planning_duration }}
+              {{ game.roomDetails.planning_duration }}
               {{ $t("join_room.ready.minutes") }}
             </li>
             <li>
               <strong class="font-semibold text-gray-800"
                 >{{ $t("join_room.ready.review_duration") }}:
               </strong>
-              {{ roomSettings.review_duration }}
+              {{ game.roomDetails.review_duration }}
               {{ $t("join_room.ready.minutes") }}
             </li>
           </ul>

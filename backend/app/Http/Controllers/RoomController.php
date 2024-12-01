@@ -116,14 +116,8 @@ class RoomController extends Controller
         return response()->json(['roomcode' => $code]);
     }
 
-
-    public function showRoomCode(Room $room): JsonResponse
-    {
-        return response()->json(['roomcode' => $room->roomcode]);
-    }
-
     public function showDetails(Room $room): JsonResponse
     {
-        return response()->json($room->only(['number_of_sprints', 'sprint_duration', 'planning_duration', 'review_duration']));
+        return response()->json($room->only(['number_of_sprints', 'sprint_duration', 'planning_duration', 'review_duration', 'roomcode']));
     }
 }

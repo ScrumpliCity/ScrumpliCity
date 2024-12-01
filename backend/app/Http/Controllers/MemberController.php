@@ -9,8 +9,12 @@ use Illuminate\Http\JsonResponse;
 
 class MemberController extends Controller
 {
-    public function setMembers(Request $request): JsonResponse
+    public function setMembers(Request $request, Team $team): JsonResponse
     {
+        if ($request->session()->get('team') != $team->id) {
+            return  response()->noContent(403);
+        }
+
         $validated = $request->validate([
             'newMembers' => 'required|array',
             'newMembers.*.name' => 'required|string|max:255',

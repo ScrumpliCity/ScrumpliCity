@@ -56,6 +56,10 @@
     "room_settings": "Room settings",
     "add_team_member": "Add team member",
     "add_members_ready": "Ready",
+    "add_members_error": {
+      "title": "Error adding members!",
+      "description": "Please try again."
+    },
     "role_taken": {
       "title": "Role was already taken!",
       "description": "{member} has become a developer again."

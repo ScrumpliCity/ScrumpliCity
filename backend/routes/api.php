@@ -16,6 +16,8 @@ Route::resource('rooms', RoomController::class)->only(['index', 'store', 'show',
 
 Route::post('/rooms/{room}/roomcode', [RoomController::class, 'generateRoomCode'])->middleware('auth:sanctum');
 
+Route::get('/rooms/{room}/details', [RoomController::class, 'showDetails']);
+
 Route::post('/team/join', [TeamController::class, 'join']);
 
 Route::get('/team/me', [TeamController::class, 'show']);
@@ -24,10 +26,6 @@ Route::post('/team/{team}', [TeamController::class, 'update']);
 
 Route::post('/team/{team}/members', [MemberController::class, 'setMembers']);
 
-Route::get('/team/members', [MemberController::class, 'index']);
-
-Route::get('/rooms/{room}/roomcode', [RoomController::class, 'showRoomCode']);
-
-Route::get('/rooms/{room}/details', [RoomController::class, 'showDetails']);
+Route::get('/team/me/members', [MemberController::class, 'index']);
 
 Route::get('/user/profile-picture', [UserController::class, 'profilePicture'])->middleware('auth:sanctum');

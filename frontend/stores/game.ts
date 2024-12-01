@@ -7,9 +7,16 @@ type Team = {
   roomcode: string;
 };
 
+type RoomDetails = {
+  number_of_sprints: number;
+  sprint_duration: number;
+  planning_duration: number;
+  review_duration: number;
+  roomcode: string;
+};
+
 export const useGameStore = defineStore("game", () => {
   const team: Ref<undefined | Team> = ref(undefined);
-  const joinCode: Ref<undefined | string> = ref(undefined);
   const members: Ref<undefined | Object[]> = ref(undefined);
   const roomDetails: Ref<undefined | Object> = ref(undefined);
 
@@ -22,19 +29,22 @@ export const useGameStore = defineStore("game", () => {
       },
       method: "POST",
     });
+    const roomDetailsData: RoomDetails = await client(
+      `/api/rooms/${data.room_id}/details`,
+    );
+
     team.value = data;
-    joinCode.value = code;
-    roomDetails.value = await client(`/api/rooms/${data.room_id}/details`);
+    roomDetails.value = roomDetailsData;
     return data;
   }
 
   async function refresh() {
     const data = await client(`/api/team/me`);
-    const roomcodeData = await client(`/api/rooms/${data.room_id}/roomcode`);
-    const roomDetailsData = await client(`/api/rooms/${data.room_id}/details`);
+    const roomDetailsData: RoomDetails = await client(
+      `/api/rooms/${data.room_id}/details`,
+    );
 
     team.value = data;
-    joinCode.value = roomcodeData.roomcode;
     roomDetails.value = roomDetailsData;
   }
 
@@ -59,27 +69,20 @@ export const useGameStore = defineStore("game", () => {
   }
 
   async function getMembers() {
-    const data = await client(`/api/team/members`);
+    const data = await client(`/api/team/me/members`);
     members.value = data;
-    return data;
-  }
-
-  async function showRoomDetails() {
-    const data = await client(`/api/rooms/${team.value?.room_id}/details`);
-    roomDetails.value = data;
     return data;
   }
 
   const isInTeam = computed(() => !!team.value);
   return {
     team,
-    joinCode,
+    roomDetails,
     joinRoom,
     isInTeam,
     refresh,
     changeName,
     addMembers,
     getMembers,
-    showRoomDetails,
   };
 });
