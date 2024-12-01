@@ -102,9 +102,66 @@ async function routeToReadyScreen() {
     loading.value = false;
   }
 }
+
+const showWelcomeInfobox = ref(false);
+
+function welcomeInfoboxShown() {
+  showWelcomeInfobox.value = false;
+  if (typeof localStorage !== "undefined") {
+    localStorage.setItem("welcomeInfoboxShown", "true");
+  }
+}
+
+onMounted(() => {
+  if (typeof localStorage !== "undefined") {
+    showWelcomeInfobox.value =
+      localStorage?.getItem("welcomeInfoboxShown") === null;
+  }
+});
 </script>
 
 <template>
+  <Infobox v-if="showWelcomeInfobox" :withTimeout="false">
+    <template #button="{ close }">
+      <UButton
+        @click="
+          close();
+          welcomeInfoboxShown();
+        "
+        class="bg-sc-blue font-heading text-lg hover:bg-sc-blue-default-hover"
+        >{{ $t("join_room.infobox.welcome.button") }}</UButton
+      >
+    </template>
+  </Infobox>
+  <Infobox v-else>
+    <template #title>
+      <h2 class="font-heading text-2xl font-medium text-sc-black-900">
+        {{ $t("join_room.infobox.scrum_roles.title") }}
+      </h2>
+    </template>
+    <template #content>
+      <i18n-t
+        keypath="join_room.infobox.scrum_roles.content"
+        tag="p"
+        class="my-2 text-sc-black-500"
+        scope="global"
+      >
+        <template #roles>
+          <ul class="ml-6 list-disc font-bold">
+            <li>
+              {{ $t("join_room.infobox.scrum_roles.roles.scrum_master") }}
+            </li>
+            <li>
+              {{ $t("join_room.infobox.scrum_roles.roles.product_owner") }}
+            </li>
+            <li>
+              {{ $t("join_room.infobox.scrum_roles.roles.development_team") }}
+            </li>
+          </ul>
+        </template>
+      </i18n-t>
+    </template>
+  </Infobox>
   <div class="flex w-full flex-col">
     <div class="-mt-10 ml-[10vw] mr-[40vw]">
       <p class="ml-[3%] font-heading text-3xl font-medium">
