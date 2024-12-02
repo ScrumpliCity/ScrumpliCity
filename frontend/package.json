@@ -19,7 +19,7 @@
     "nuxt": "^3.14.1592",
     "nuxt-auth-sanctum": "^0.5.2",
     "nuxt-svgo": "^4.0.9",
-    "pinia": "^2.2.6",
+    "pinia": "^2.2.8",
     "vue": "latest",
     "vue-router": "latest"
   },
