@@ -12,7 +12,7 @@ class MemberController extends Controller
     public function setMembers(Request $request, Team $team): JsonResponse
     {
         if ($request->session()->get('team') != $team->id) {
-            return  response()->noContent(403);
+            return response()->noContent(403);
         }
 
         $validated = $request->validate([
