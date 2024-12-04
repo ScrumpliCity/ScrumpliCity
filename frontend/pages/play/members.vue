@@ -167,7 +167,7 @@ onMounted(() => {
   <div class="flex w-full flex-col">
     <div class="-mt-10 ml-[10vw] mr-[40vw]">
       <p class="ml-[3%] font-heading text-3xl font-medium">
-        {{ game.roomDetails.roomcode }}
+        {{ game.team.room.roomcode }}
       </p>
       <h1
         class="mb-[3%] ml-[3%] font-heading text-6xl font-bold text-sc-orange"

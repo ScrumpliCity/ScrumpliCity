@@ -15,7 +15,7 @@ const { data: teamMembers } = await useAsyncData("teamMembers", () =>
   <Teleport to="#teleports">
     <div class="absolute left-11 top-11 text-3xl">
       <span class="font-heading font-bold text-sc-black"
-        >{{ game.roomDetails.roomcode }}/</span
+        >{{ game.team.room.roomcode }}/</span
       >
       <span class="font-heading font-bold text-sc-orange"
         >{{ game.team.name }}
@@ -67,27 +67,27 @@ const { data: teamMembers } = await useAsyncData("teamMembers", () =>
               <strong class="font-semibold text-gray-800"
                 >{{ $t("join_room.ready.sprint_count") }}:
               </strong>
-              {{ game.roomDetails.number_of_sprints }}
+              {{ game.team.room.number_of_sprints }}
             </li>
             <li>
               <strong class="font-semibold text-gray-800"
                 >{{ $t("join_room.ready.sprint_duration") }}:
               </strong>
-              {{ game.roomDetails.sprint_duration }}
+              {{ game.team.room.sprint_duration }}
               {{ $t("join_room.ready.minutes") }}
             </li>
             <li>
               <strong class="font-semibold text-gray-800"
                 >{{ $t("join_room.ready.planning_duration") }}:
               </strong>
-              {{ game.roomDetails.planning_duration }}
+              {{ game.team.room.planning_duration }}
               {{ $t("join_room.ready.minutes") }}
             </li>
             <li>
               <strong class="font-semibold text-gray-800"
                 >{{ $t("join_room.ready.review_duration") }}:
               </strong>
-              {{ game.roomDetails.review_duration }}
+              {{ game.team.room.review_duration }}
               {{ $t("join_room.ready.minutes") }}
             </li>
           </ul>

@@ -11,6 +11,14 @@ class Team extends Model
     use HasFactory;
     use HasUlids;
 
+
+    /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = ['room:id,roomcode,number_of_sprints,sprint_duration,planning_duration,review_duration'];
+
     /**
      * Get the room that the team is in.
      */
