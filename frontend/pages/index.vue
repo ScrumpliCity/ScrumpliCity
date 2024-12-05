@@ -225,7 +225,7 @@ onMounted(() => {
           <UButton
             :disabled="true"
             class="drop-shadow-sc-shadow hover:bg-orange-700"
-            >Scrum Guide</UButton
+            >{{ $t("homepage.scrum_guide") }}</UButton
           ></UTooltip
         >
       </div>
