@@ -103,7 +103,7 @@ onBeforeUnmount(() => {
     <p
       class="absolute bottom-[1vw] left-[50vw] -translate-x-1/2 bg-sc-white text-2xl font-bold text-sc-black-500"
     >
-      {{ $t("common.imprint") }}
+      {{ $t("common.legal_notice") }}
     </p>
     <Teleport to="#teleports">
       <LoadingSpinner
