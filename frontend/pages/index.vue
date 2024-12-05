@@ -21,20 +21,11 @@ onMounted(() => {
         padded
         @click="mobileMenuOpen = false"
       />
-      <div class="my-10 mr-3 flex flex-row">
-        <UButton
-          class="hover:bg-sc-black-100"
-          variant="ghost"
-          color="black"
-          :padded="true"
-          :ui="{
-            padding: { sm: 'p-[0.15em]' },
-            rounded: 'rounded-full',
-          }"
-        >
-          <SvgDownload :font-controlled="false" class="h-10 w-10" />
-        </UButton>
-        <ChangeLangButton class="w-10" />
+      <div class="mb-6 mr-3 mt-9 flex flex-row items-center gap-2">
+        <button class="rounded-full p-1 hover:bg-sc-black-100">
+          <SvgDownload :font-controlled="false" class="size-8" />
+        </button>
+        <ChangeLangButton class="w-8" />
       </div>
     </div>
     <div class="mx-6 flex flex-col text-sm">
