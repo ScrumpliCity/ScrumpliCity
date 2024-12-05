@@ -56,6 +56,10 @@
     "room_settings": "Raumeinstellungen",
     "add_team_member": "Teammitglied hinzufügen",
     "add_members_ready": "Bereit",
+    "add_members_error": {
+      "title": "Fehler beim Hinzufügen von Mitgliedern!",
+      "description": "Bitte versuche es erneut."
+    },
     "role_taken": {
       "title": "Rolle war bereits vergeben!",
       "description": "{member} wurde wieder Developer."
@@ -67,12 +71,13 @@
       "cancel": "Abbrechen"
     },
     "ready": {
-      "waiting_for_start": "Warten auf Start...",
+      "waiting_for_start": "Warten auf Start",
       "team_members": "Teammitglieder",
       "room_settings": "Raumeinstellungen",
       "sprint_count": "Sprintanzahl",
       "sprint_duration": "Sprintdauer",
-      "meeting_duration": "Meetingdauer",
+      "planning_duration": "Planningdauer",
+      "review_duration": "Reviewdauer",
       "minutes": "min"
     },
     "infobox": {

@@ -6,17 +6,15 @@ definePageMeta({
 
 const toast = useToast();
 const { t } = useI18n();
-const route = useRoute();
 const localRoute = useLocaleRoute();
 
 const game = useGameStore();
-
-//@TODO: get name from backend
 
 const newMember = ref("");
 const focusOnInput = ref(false);
 const teamMembers = ref([]);
 const modalIsOpen = ref(false);
+const loading = ref(false);
 
 const roles = [
   { label: "Developer" },
@@ -25,7 +23,6 @@ const roles = [
 ];
 
 function deleteMember(memberId) {
-  // @TODO: Remove member from backend
   teamMembers.value = teamMembers.value.filter(
     (member) => member.id !== memberId,
   );
@@ -35,7 +32,6 @@ async function addMember() {
   if (newMember.value === "") {
     return;
   }
-  // @TODO: Add member to backend
   teamMembers.value.push({
     id: teamMembers.value.length,
     name: newMember.value,
@@ -86,8 +82,25 @@ const isReady = computed(() => {
   return scrumMasters === 1 && productOwners === 1;
 });
 
-function routeToReadyScreen() {
-  navigateTo(localRoute("play-ready"));
+async function routeToReadyScreen() {
+  try {
+    loading.value = true;
+    await game.addMembers(
+      teamMembers.value.map((member) => ({
+        name: member.name,
+        role: member.role,
+      })),
+    );
+    navigateTo(localRoute("play-ready"));
+  } catch (error) {
+    toast.add({
+      title: t("join_room.add_members_error.title"),
+      description: t("join_room.add_members_error.description"),
+      icon: "mdi:alert-circle",
+    });
+  } finally {
+    loading.value = false;
+  }
 }
 
 const showWelcomeInfobox = ref(false);
@@ -154,7 +167,7 @@ onMounted(() => {
   <div class="flex w-full flex-col">
     <div class="-mt-10 ml-[10vw] mr-[40vw]">
       <p class="ml-[3%] font-heading text-3xl font-medium">
-        {{ game.joinCode }}
+        {{ game.team.room.roomcode }}
       </p>
       <h1
         class="mb-[3%] ml-[3%] font-heading text-6xl font-bold text-sc-orange"
@@ -247,6 +260,7 @@ onMounted(() => {
       shadow: 'drop-shadow-md',
     }"
   >
+    <LoadingSpinner class="z-10 rounded-xl backdrop-blur-md" v-if="loading" />
     <div class="p-6">
       <h2 class="mb-4 text-2xl font-bold">
         {{ $t("join_room.confirmation_modal.are_you_sure") }}
