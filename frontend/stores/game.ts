@@ -33,7 +33,6 @@ export const useGameStore = defineStore("game", () => {
     });
 
     team.value = data;
-    console.log(team);
     return data;
   }
 
