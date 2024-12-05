@@ -100,6 +100,46 @@
     "error": "An error occured while logging in."
   },
   "common": {
-    "imprint": "Imprint"
+    "imprint": "Imprint",
+    "legal_matters": "Legal matters",
+    "brand_name": "ScrumpliCity"
+  },
+  "homepage": {
+    "project_description": "Learn the agile project management method Scrum by building a paper city! ScrumpliCity provides a web application, craft templates and explanations about Scrum - so: {build_your_scrum_knowledge}",
+    "build_your_scrum_knowledge": "Build Your Scrum Knowledge",
+    "get_started": "Get started!",
+    "scrum_guide": "Scrum Guide",
+    "diploma_thesis_website": "Diploma thesis website",
+    "crafting_templates_download": "Crafting templates download",
+    "follow_us": "Follow us!",
+    "about_us": "About Us",
+    "features": {
+      "learn_scrum": {
+        "title": "Learn Scrum",
+        "description": "Discover the basics of Scrum and start your first agile project - practical, interactive and easy to understand!"
+      },
+      "craft_your_city": {
+        "title": "Craft your city",
+        "description": "Design your own paper city and bring your project to life step by step!"
+      },
+      "solidify_teamwork": {
+        "title": "Solidify teamwork",
+        "description": "Strengthen team spirit and experience how effective, cooperative collaboration can lead your projects to success!"
+      }
+    },
+    "learning_materials": "Learning materials",
+    "all_you_need_to_know": "Scrum: All you need to know!",
+    "scrum_guide_description": "You would like to learn more about the agile project management method Scrum outside of the game process? You'll find everything you need on our Scrum theory page: from the basics to practical tips. Whether you're new to Scrum or want to deepen your knowledge, you'll find clear, understandable explanations here. Take a look and take your projects to the next level!",
+    "questions": "Any questions?",
+    "here_to_help": "We are here to help you! Feel free to send us an e-mail:",
+    "contact_us": "Contact us!"
+  },
+  "socials": {
+    "social_media": "Social media",
+    "instagram": "Instagram",
+    "facebook": "Facebook"
+  },
+  "tooltip": {
+    "not_available": "Not available yet, come back later! :)"
   }
 }
