@@ -1,16 +1,143 @@
+<script lang="ts" setup>
+const isMobileDevice = ref(false);
+const mobileMenuOpen = ref(false);
+
+onMounted(() => {
+  if (/mobile/i.test(navigator.userAgent)) {
+    isMobileDevice.value = true;
+  }
+});
+</script>
 <template>
-  <div class="absolute top-10 w-screen bg-sc-white px-4">
+  <USlideover v-model="mobileMenuOpen" :ui="{ width: 'max-w-[70vw]' }">
+    <div class="flex flex-col items-end">
+      <UButton
+        color="gray"
+        variant="ghost"
+        size="sm"
+        icon="i-heroicons-x-mark-20-solid"
+        class="absolute right-1 top-1 z-10"
+        square
+        padded
+        @click="mobileMenuOpen = false"
+      />
+      <div class="my-10 mr-3 flex flex-row">
+        <UButton
+          class="hover:bg-sc-black-100"
+          variant="ghost"
+          color="black"
+          :padded="true"
+          :ui="{
+            padding: { sm: 'p-[0.15em]' },
+            rounded: 'rounded-full',
+          }"
+        >
+          <SvgDownload :font-controlled="false" class="h-10 w-10" />
+        </UButton>
+        <ChangeLangButton class="w-10" />
+      </div>
+    </div>
+    <div class="mx-6 flex flex-col text-sm">
+      <NuxtLink class="mb-7 flex items-center justify-between"
+        ><p>Scrum Guide</p>
+        <Icon
+          name="material-symbols:arrow-forward-ios-rounded"
+          class="text-sc-black"
+          size="18px"
+      /></NuxtLink>
+      <NuxtLink
+        class="mb-7 flex items-center justify-between"
+        to="https://diplomarbeit.scrumplicity.app/"
+        ><p>Diplomarbeits-Webseite</p>
+        <Icon
+          name="material-symbols:arrow-forward-ios-rounded"
+          class="text-sc-black"
+          size="18px"
+      /></NuxtLink>
+      <NuxtLink
+        class="flex items-center justify-between"
+        to="https://diplomarbeit.scrumplicity.app/"
+        ><p>Bastelvorlagen-Download</p>
+        <Icon
+          name="material-symbols:arrow-forward-ios-rounded"
+          class="text-sc-black"
+          size="18px"
+      /></NuxtLink>
+    </div>
+    <div class="ml-4 mt-10 flex flex-col gap-1">
+      <p>Folge uns!</p>
+      <div>
+        <NuxtLink
+          to="https://www.instagram.com/scrumplicity.app"
+          external
+          target="_blank"
+        >
+          <Icon name="mdi:instagram" class="text-sc-black" size="28px" />
+        </NuxtLink>
+        <NuxtLink
+          to="https://www.facebook.com/people/Scrumplicityapp/61568992263197/"
+          external
+          target="_blank"
+        >
+          <Icon name="ri:facebook-box-line" class="text-sc-black" size="28px" />
+        </NuxtLink>
+      </div>
+    </div>
+  </USlideover>
+  <div class="absolute top-10 w-screen bg-sc-white px-4 lg:top-16">
     <SvgHomepageMobileBackground
-      class="h-full w-full overflow-y-scroll"
+      class="h-full w-full sm:hidden"
+      :fontControlled="false"
+      filled
+    />
+    <SvgHomepageDesktopBackground
+      class="hidden h-full w-full sm:block"
       :fontControlled="false"
       filled
     />
   </div>
   <div class="relative flex flex-col">
-    <header class="flex h-10 bg-sc-white p-3 drop-shadow-sc-shadow lg:h-16">
+    <header
+      class="lg:h16 flex h-10 bg-sc-white p-3 drop-shadow-sc-shadow lg:h-16"
+    >
       <div class="ml-3 flex flex-grow items-center justify-between">
         <SvgMainLogo class="h-full w-auto" :fontControlled="false" filled />
-        <UIcon name="ic:round-menu" class="text-sc-black" size="20px" />
+        <UButton @click="mobileMenuOpen = !mobileMenuOpen" variant="ghost">
+          <template #leading>
+            <UIcon
+              name="ic:round-menu"
+              class="text-sc-black lg:hidden"
+              size="20px"
+          /></template>
+        </UButton>
+        <div class="hidden items-center gap-6 lg:flex">
+          <NuxtLink to="/" class="">Scrum Guide</NuxtLink>
+          <NuxtLink
+            to="https://diplomarbeit.scrumplicity.app/"
+            target="_blank"
+            class=""
+            >Über uns</NuxtLink
+          >
+          <UButton
+            class="hidden h-8 drop-shadow-sc-shadow hover:bg-orange-700 lg:block"
+            >Loslegen!</UButton
+          >
+          <div class="ml-6 hidden items-center gap-3 lg:flex">
+            <UButton
+              class="hover:bg-sc-black-100"
+              variant="ghost"
+              color="black"
+              :padded="true"
+              :ui="{
+                padding: { sm: 'p-[0.15em]' },
+                rounded: 'rounded-full',
+              }"
+            >
+              <SvgDownload :font-controlled="false" class="h-10 w-10" />
+            </UButton>
+            <ChangeLangButton />
+          </div>
+        </div>
       </div>
     </header>
     <div class="flex flex-col items-center">
@@ -22,8 +149,16 @@
           und Erklärungen zu Scrum zur Verfügung - also:
           <b>Build Your Scrum Knowledge</b>
         </p>
-        <UButton class="drop-shadow-sc-shadow hover:bg-orange-700"
+        <UButton
+          class="hidden drop-shadow-sc-shadow hover:bg-orange-700 lg:block"
           >Loslegen!</UButton
+        >
+        <UTooltip text="Noch nicht verfügbar, komm später wieder! :)">
+          <UButton
+            :disabled="true"
+            class="drop-shadow-sc-shadow hover:bg-orange-700 lg:hidden"
+            >Scrum Guide</UButton
+          ></UTooltip
         >
       </div>
       <div class="mt-14 flex flex-col items-center">
@@ -101,11 +236,15 @@
           Erklärungen. Schau vorbei und bring deine Projekte auf das nächste
           Level!
         </p>
-        <UButton class="drop-shadow-sc-shadow hover:bg-orange-700"
-          >Scrum Guide</UButton
+        <UTooltip text="Noch nicht verfügbar, komm später wieder! :)">
+          <UButton
+            :disabled="true"
+            class="drop-shadow-sc-shadow hover:bg-orange-700"
+            >Scrum Guide</UButton
+          ></UTooltip
         >
       </div>
-      <div class="mx-10 my-28 text-right">
+      <div class="mx-10 mb-14 mt-28 text-right">
         <h5
           class="bg-sc-white/70 font-heading text-xl font-bold text-sc-orange"
         >
@@ -114,8 +253,10 @@
         <p class="mb-5 bg-sc-white/70 text-sm">
           Wir sind da um dir zu helfen! Schreib uns gerne eine E-Mail:
         </p>
-        <UButton class="drop-shadow-sc-shadow hover:bg-orange-700"
-          >Kontaktiere uns!</UButton
+        <a href="mailto:lisa-marie.hoermann@scrumplicity.app">
+          <UButton class="drop-shadow-sc-shadow hover:bg-orange-700"
+            >Kontaktiere uns!</UButton
+          ></a
         >
       </div>
     </div>
