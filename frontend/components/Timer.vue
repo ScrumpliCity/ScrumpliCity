@@ -63,9 +63,10 @@ const offset = computed(() => {
 
     <!-- The text would wobble around if placed in the middle, tabular numbers (Tabellenziffern) are not supported in Kelson font -->
     <text
-      x="15%"
+      x="50%"
+      text-anchor="middle"
       y="240px"
-      class="fill-sc-orange font-heading text-[5rem] font-bold"
+      class="fill-sc-orange font-sans text-[5.625rem] font-extrabold tabular-nums tracking-tighter"
     >
       {{ text }}
     </text>

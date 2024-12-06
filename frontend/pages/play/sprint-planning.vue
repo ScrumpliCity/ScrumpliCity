@@ -22,6 +22,7 @@ onUnmounted(() => {
 </script>
 <template>
   <div class="flex flex-col">
+    <!-- TODO: other header here, we don't have a profile picture -->
     <AppHeader />
     <main class="flex-1 self-end">
       <Timer :total-seconds="120" class="mr-24" :remainingSeconds></Timer>
