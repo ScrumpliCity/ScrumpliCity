@@ -105,6 +105,6 @@
     "error": "An error occured while logging in."
   },
   "common": {
-    "imprint": "Imprint"
+    "legal_notice": "Legal Notice"
   }
 }
