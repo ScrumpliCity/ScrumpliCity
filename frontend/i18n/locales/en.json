@@ -132,7 +132,11 @@
     "scrum_guide_description": "You would like to learn more about the agile project management method Scrum outside of the game process? You'll find everything you need on our Scrum theory page: from the basics to practical tips. Whether you're new to Scrum or want to deepen your knowledge, you'll find clear, understandable explanations here. Take a look and take your projects to the next level!",
     "questions": "Any questions?",
     "here_to_help": "We are here to help you! Feel free to send us an e-mail:",
-    "contact_us": "Contact us!"
+    "contact_us": "Contact us!",
+    "notification": {
+      "title": "Laptop use recommended",
+      "description": "To get the most out of ScrumpliCity, please open it on your laptop!"
+    }
   },
   "socials": {
     "social_media": "Social media",
