@@ -105,6 +105,20 @@
     "error": "Beim Einloggen ist ein Fehler aufgetreten."
   },
   "common": {
-    "imprint": "Impressum"
+    "legal_notice": "Impressum"
+  },
+  "legal_notice": {
+    "title": "Impressum",
+    "media_proprietor": "Medieninhaber",
+    "address": "Anschrift",
+    "contact": "Kontakt",
+    "editorial_policy": {
+      "title": "Blattlinie",
+      "content": "Vermittlung von Grundlagen der agilen Projektmanagementmethode Scrum durch interaktive Übungen und praktische Projekte."
+    },
+    "disclaimer": {
+      "title": "Haftungsausschluss",
+      "content": "Diese Website wurde im Rahmen einer Diplomarbeit entwickelt und ist für die Anwendung in verschiedenen Bildungseinrichtungen vorgesehen. Trotz sorgfältiger Erstellung der Inhalte übernimmt das Projektteam keine Haftung für die Richtigkeit, Vollständigkeit oder Aktualität der Informationen. Die Nutzung der Website und der Materialien erfolgt auf eigene Verantwortung."
+    }
   }
 }
