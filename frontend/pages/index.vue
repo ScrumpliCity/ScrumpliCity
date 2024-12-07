@@ -9,6 +9,20 @@ onMounted(() => {
 });
 </script>
 <template>
+  <div
+    v-if="isMobileDevice"
+    class="absolute top-12 z-50 flex w-screen justify-center"
+  >
+    <UNotification
+      id="mobileDevice"
+      class="w-[90vw]"
+      icon="akar-icons:circle-alert"
+      :title="$t('homepage.notification.title')"
+      :description="$t('homepage.notification.description')"
+      :timeout="0"
+      :close-button="null"
+    />
+  </div>
   <USlideover v-model="mobileMenuOpen" :ui="{ width: 'max-w-[70vw]' }">
     <div class="flex flex-col items-end">
       <UButton
@@ -45,9 +59,7 @@ onMounted(() => {
           class="text-sc-black"
           size="18px"
       /></NuxtLink>
-      <NuxtLink
-        class="flex items-center justify-between"
-        to="https://diplomarbeit.scrumplicity.app/"
+      <NuxtLink class="flex items-center justify-between"
         ><p>{{ $t("homepage.crafting_templates_download") }}</p>
         <Icon
           name="material-symbols:arrow-forward-ios-rounded"
@@ -75,7 +87,7 @@ onMounted(() => {
       </div>
     </div>
   </USlideover>
-  <div class="absolute top-10 w-screen bg-sc-white px-4 lg:top-16">
+  <div class="absolute top-10 w-screen bg-sc-white px-4 lg:top-16 lg:px-[61px]">
     <SvgHomepageMobileBackground
       class="h-full w-full sm:hidden"
       :fontControlled="false"
@@ -88,7 +100,9 @@ onMounted(() => {
     />
   </div>
   <div class="relative flex flex-col">
-    <header class="flex h-10 bg-sc-white p-3 drop-shadow-sc-shadow lg:h-16">
+    <header
+      class="fixed z-30 flex h-10 w-screen bg-sc-white p-3 drop-shadow-sc-shadow lg:h-16"
+    >
       <div class="ml-3 flex flex-grow items-center justify-between">
         <SvgMainLogo class="h-full w-auto" :fontControlled="false" filled />
         <UButton @click="mobileMenuOpen = !mobileMenuOpen" variant="ghost">
@@ -124,15 +138,19 @@ onMounted(() => {
             >
               <SvgDownload :font-controlled="false" class="h-10 w-10" />
             </UButton>
-            <ChangeLangButton />
+            <ChangeLangButton class="w-11" />
           </div>
         </div>
       </div>
     </header>
-    <div class="flex flex-col items-center">
-      <div class="m-10">
-        <SvgMainLogo class="w-[70vw]" :fontControlled="false" filled />
-        <div class="my-3 bg-sc-white/70 text-left text-sm">
+    <div class="mt-28 flex flex-col items-center lg:mt-16">
+      <div class="m-10 lg:ml-28 lg:mt-32">
+        <SvgMainLogo
+          class="w-[70vw] max-w-[650px]"
+          :fontControlled="false"
+          filled
+        />
+        <div class="my-3 bg-sc-white/70 text-left text-sm lg:text-2xl">
           <p v-html="$t('homepage.project_description')"></p>
           <b>{{ $t("homepage.build_your_scrum_knowledge") }}</b>
         </div>
@@ -206,7 +224,7 @@ onMounted(() => {
           </div>
         </div>
       </div>
-      <div class="mx-10 mt-16">
+      <div class="mx-10 mt-20 h-[350px]">
         <h3
           class="mb-2 bg-sc-white/70 font-heading text-sm font-bold text-sc-black-700"
         >
