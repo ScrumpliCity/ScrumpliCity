@@ -53,6 +53,7 @@ onMounted(() => {
       <NuxtLink
         class="mb-7 flex items-center justify-between"
         to="https://diplomarbeit.scrumplicity.app/"
+        target="_blank"
         ><p>{{ $t("homepage.diploma_thesis_website") }}</p>
         <Icon
           name="material-symbols:arrow-forward-ios-rounded"
@@ -231,7 +232,7 @@ onMounted(() => {
         </div>
       </div>
       <div
-        class="mx-10 mt-20 min-h-[350px] lg:ml-56 lg:mt-60 lg:max-w-[1100px]"
+        class="mx-10 mt-20 min-h-[370px] lg:ml-56 lg:mt-60 lg:max-w-[1100px]"
       >
         <h3
           class="mb-2 bg-sc-white/70 font-heading text-sm font-bold text-sc-black-700 lg:text-2xl"
@@ -256,14 +257,16 @@ onMounted(() => {
         >
       </div>
       <div
-        class="mx-10 mb-14 mt-24 text-right lg:mx-0 lg:mb-72 lg:mt-72 lg:w-screen lg:pl-96 lg:pr-48"
+        class="mx-10 mb-14 mt-20 text-right lg:mx-0 lg:mb-64 lg:mt-72 lg:w-screen lg:pr-48"
       >
         <h5
-          class="bg-sc-white/70 font-heading text-xl font-bold text-sc-orange lg:mb-7 lg:text-6xl"
+          class="bg-sc-white/70 font-heading text-xl font-bold text-sc-orange lg:mb-7 lg:bg-none lg:text-6xl"
         >
           {{ $t("homepage.questions") }}
         </h5>
-        <p class="mb-5 bg-sc-white/70 text-sm lg:mb-7 lg:text-2xl">
+        <p
+          class="mb-5 bg-sc-white/70 text-sm lg:mb-7 lg:bg-sc-white/0 lg:text-2xl"
+        >
           {{ $t("homepage.here_to_help") }}
         </p>
         <a href="mailto:lisa-marie.hoermann@scrumplicity.app">
