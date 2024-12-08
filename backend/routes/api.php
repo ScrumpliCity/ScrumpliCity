@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MemberController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
@@ -19,5 +20,9 @@ Route::post('/team/join', [TeamController::class, 'join']);
 Route::get('/team/me', [TeamController::class, 'show']);
 
 Route::post('/team/{team}', [TeamController::class, 'update']);
+
+Route::post('/team/{team}/members', [MemberController::class, 'setMembers']);
+
+Route::get('/team/me/members', [MemberController::class, 'index']);
 
 Route::get('/user/profile-picture', [UserController::class, 'profilePicture'])->middleware('auth:sanctum');

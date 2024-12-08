@@ -21,7 +21,7 @@
       <h4 class="text-sm font-bold lg:text-2xl">
         {{ $t("common.legal_matters") }}
       </h4>
-      <p class="text-xs lg:text-base">{{ $t("common.imprint") }}</p>
+      <p class="text-xs lg:text-base">{{ $t("common.legal_notice") }}</p>
     </div>
     <div class="mx-4">
       <h4 class="text-sm font-bold lg:text-2xl">
