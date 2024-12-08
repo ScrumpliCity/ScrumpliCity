@@ -29,7 +29,7 @@ const user = useSanctumUser() as Ref<User>;
       </UButton>
       <UAvatar
         class="bg-sc-black-100"
-        :alt="user.name"
+        :alt="user?.name"
         size="md"
         :src="`${sanctumConfig.baseUrl}/api/user/profile-picture`"
       />
