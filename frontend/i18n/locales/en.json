@@ -105,7 +105,9 @@
     "error": "An error occured while logging in."
   },
   "common": {
-    "legal_notice": "Legal Notice"
+    "legal_notice": "Legal Notice",
+    "legal_matters": "Legal matters",
+    "brand_name": "ScrumpliCity"
   },
   "legal_notice": {
     "title": "Legal Notice",
@@ -127,5 +129,15 @@
       "title": "Business Purpose",
       "content": "Development of a platform as part of a thesis project to teach the Scrum method through interactive group exercises and projects."
     }
+  },
+  "homepage": {
+    "get_started": "Get started!",
+    "scrum_guide": "Scrum Guide",
+    "about_us": "About Us"
+  },
+  "socials": {
+    "social_media": "Social media",
+    "instagram": "Instagram",
+    "facebook": "Facebook"
   }
 }
