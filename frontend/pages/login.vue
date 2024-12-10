@@ -103,7 +103,9 @@ onBeforeUnmount(() => {
     <p
       class="absolute bottom-[1vw] left-[50vw] -translate-x-1/2 bg-sc-white text-2xl font-bold text-sc-black-500"
     >
-      {{ $t("common.legal_notice") }}
+      <NuxtLink :to="localeRoute('legal_notice')">{{
+        $t("common.legal_notice")
+      }}</NuxtLink>
     </p>
     <Teleport to="#teleports">
       <LoadingSpinner

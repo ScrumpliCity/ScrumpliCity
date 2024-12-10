@@ -46,6 +46,10 @@ export default defineNuxtConfig({
         de: "/play/bereit",
         en: "/play/ready",
       },
+      legal_notice: {
+        de: "/impressum",
+        en: "/legal-notice",
+      },
       // define more pages here
     },
   },
