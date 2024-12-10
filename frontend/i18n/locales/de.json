@@ -105,7 +105,9 @@
     "error": "Beim Einloggen ist ein Fehler aufgetreten."
   },
   "common": {
-    "legal_notice": "Impressum"
+    "legal_notice": "Impressum",
+    "legal_matters": "Rechtliches",
+    "brand_name": "ScrumpliCity"
   },
   "legal_notice": {
     "title": "Impressum",
@@ -127,5 +129,17 @@
       "title": "Unternehmensgegenstand",
       "content": "Entwicklung einer Plattform im Rahmen einer Diplomarbeit zur Vermittlung der Scrum-Methode durch interaktive Gruppenübungen und Projekte."
     }
+  },
+  "homepage": {
+    "get_started": "Loslegen!",
+    "scrum_guide": "Scrum Guide",
+    "diploma_thesis_website": "Diplomarbeits-Webseite",
+    "crafting_templates_download": "Bastelvorlagen-Download",
+    "about_us": "Über uns"
+  },
+  "socials": {
+    "social_media": "Soziale Medien",
+    "instagram": "Instagram",
+    "facebook": "Facebook"
   }
 }
