@@ -99,8 +99,8 @@
     }
   },
   "login": {
-    "log_in_to_scrumplicity": "Log in to ScrumpliCity",
-    "log_in_with": "Log in with",
+    "get_started_with_scrumplicity": "Get started with ScrumpliCity",
+    "get_started_with": "Get started with",
     "google": "Google",
     "microsoft": "Microsoft",
     "error": "An error occured while logging in."
