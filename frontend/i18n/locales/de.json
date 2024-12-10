@@ -51,6 +51,7 @@
     "team_name": "Teamname",
     "team_ready": "Bereit",
     "team_join": "Los geht's!",
+    "product_owner_or_scrum_master_required": "Du brauchst einen Product Owner und einen Scrum Master, um weiterzumachen.",
     "waiting": "Warten auf Start...",
     "team_members": "Teammitglieder",
     "room_settings": "Raumeinstellungen",
