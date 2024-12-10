@@ -30,13 +30,13 @@ export default defineNuxtConfig({
         de: "/räume/erstellen",
         en: "/rooms/create",
       },
-      "rooms/[id]/manage": {
-        de: "/räume/[id]/verwalten",
-        en: "/rooms/[id]/manage",
+      "rooms/[id]/index": {
+        de: "/räume/[id]",
+        en: "/rooms/[id]",
       },
       "rooms/[id]/roomcode": {
-        de: "/räume/[id]/verwalten/raumcode",
-        en: "/rooms/[id]/manage/roomcode",
+        de: "/räume/[id]/raumcode",
+        en: "/rooms/[id]/roomcode",
       },
       "play/members": {
         de: "/play/mitglieder",
