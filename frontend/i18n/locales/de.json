@@ -98,8 +98,8 @@
     }
   },
   "login": {
-    "get_started_with_scrumplicity": "Lege los bei ScrumpliCity",
-    "get_started_with": "Lege los mit",
+    "get_started_with_scrumplicity": "Leg' los bei ScrumpliCity",
+    "get_started_with": "Leg' los mit",
     "google": "Google",
     "microsoft": "Microsoft",
     "error": "Beim Einloggen ist ein Fehler aufgetreten."
