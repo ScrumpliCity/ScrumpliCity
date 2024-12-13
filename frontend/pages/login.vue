@@ -84,10 +84,10 @@ onBeforeUnmount(() => {
     <h1
       class="pb-16 text-center font-heading text-5xl font-bold text-sc-orange"
     >
-      {{ $t("login.log_in_to_scrumplicity") }}
+      {{ $t("login.get_started_with_scrumplicity") }}
     </h1>
     <p class="pb-7 text-center font-heading text-3xl font-medium">
-      {{ $t("login.log_in_with") }}
+      {{ $t("login.get_started_with") }}
     </p>
 
     <UButton
