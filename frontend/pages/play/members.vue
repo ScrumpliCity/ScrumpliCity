@@ -242,13 +242,20 @@ onMounted(() => {
         </div>
       </div>
       <div class="flex w-full justify-end">
-        <button
-          :disabled="!isReady"
-          @click="modalIsOpen = true"
-          class="w-72 rounded-lg bg-sc-green py-6 text-center text-4xl font-bold text-sc-black drop-shadow-sc-shadow hover:bg-sc-green-400 disabled:bg-sc-black-400 disabled:text-sc-white"
-        >
-          {{ $t("join_room.add_members_ready") }}
-        </button>
+        <UPopover mode="hover" :disabled="isReady">
+          <template #panel>
+            <p class="w-80 p-3">
+              {{ $t("join_room.product_owner_or_scrum_master_required") }}
+            </p>
+          </template>
+          <button
+            :disabled="!isReady"
+            @click="modalIsOpen = true"
+            class="w-72 rounded-lg bg-sc-green py-6 text-center text-4xl font-bold text-sc-black drop-shadow-sc-shadow hover:bg-sc-green-400 disabled:cursor-not-allowed disabled:bg-sc-black-400 disabled:text-sc-white"
+          >
+            {{ $t("join_room.add_members_ready") }}
+          </button>
+        </UPopover>
       </div>
     </div>
   </div>

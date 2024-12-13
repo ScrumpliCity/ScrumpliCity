@@ -51,6 +51,7 @@
     "team_name": "Team name",
     "team_join": "Let's go!",
     "team_ready": "Ready",
+    "product_owner_or_scrum_master_required": "You need a Product Owner and a Scrum Master to continue.",
     "waiting": "Waiting to start...",
     "team_members": "Team members",
     "room_settings": "Room settings",
@@ -98,8 +99,8 @@
     }
   },
   "login": {
-    "log_in_to_scrumplicity": "Log in to ScrumpliCity",
-    "log_in_with": "Log in with",
+    "get_started_with_scrumplicity": "Get started with ScrumpliCity",
+    "get_started_with": "Get started with",
     "google": "Google",
     "microsoft": "Microsoft",
     "error": "An error occured while logging in."
