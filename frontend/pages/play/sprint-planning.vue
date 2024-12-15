@@ -75,20 +75,44 @@ onUnmounted(() => {
             class="block h-14 w-80 rounded-lg border border-sc-black-400 bg-sc-white px-4 py-3 font-sans text-xl font-medium text-black outline-sc-orange drop-shadow-md"
           />
           <InfoPopover
-            v-if="!sprintNameInput"
+            v-if="showSprintNameInput"
             step="1"
             :text="$t('planning.set_a_sprint_name')"
           />
         </h1>
         <div class="relative self-start">
-          <UInput
-            v-model="sprintGoalInput"
-            ref="sprintGoalInputField"
-            icon="octicon:goal-16"
-            :placeholder="$t('planning.sprint_goal')"
-            class="w-[46rem]"
+          <div class="w-[46rem]">
+            <input
+              v-model="sprintGoalInput"
+              ref="sprintGoalInputField"
+              icon="octicon:goal-16"
+              :placeholder="$t('planning.sprint_goal')"
+              class="w-full text-ellipsis rounded-md border-0 bg-transparent px-2.5 py-1.5 ps-9 focus:outline-none focus:ring-2 focus:ring-sc-orange"
+              :class="{
+                'cursor-pointer': !showSprintGoalInput,
+                'shadow-sm ring-1 ring-inset ring-gray-300':
+                  showSprintGoalInput,
+              }"
+              @focus="editingSprintGoal = true"
+              @keydown.enter="editingSprintGoal = false"
+              @blur="editingSprintGoal = false"
+            />
+            <span
+              class="pointer-events-none absolute inset-0 flex items-center px-2.5"
+            >
+              <UIcon
+                name="octicon:goal-16"
+                class="size-5"
+                :class="{ 'text-gray-400': showSprintGoalInput }"
+              />
+            </span>
+          </div>
+
+          <InfoPopover
+            :text="$t('planning.define_sprint_goal')"
+            step="2"
+            v-if="showSprintGoalInput"
           />
-          <InfoPopover :text="$t('planning.define_sprint_goal')" step="2" />
         </div>
         <div class="mt-1.5 flex-1 bg-blue-400"></div>
       </div>
