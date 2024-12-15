@@ -128,5 +128,12 @@
       "title": "Unternehmensgegenstand",
       "content": "Entwicklung einer Plattform im Rahmen einer Diplomarbeit zur Vermittlung der Scrum-Methode durch interaktive Gruppenübungen und Projekte."
     }
+  },
+  "planning": {
+    "sprint_goal": "Sprint-Ziel",
+    "sprint_planning": "Sprint Planning",
+    "sprint_name": "Sprintname",
+    "set_a_sprint_name": "Setzt zuerst einen Sprintnamen!",
+    "define_sprint_goal": "Definiert dann euer Sprint-Ziel"
   }
 }

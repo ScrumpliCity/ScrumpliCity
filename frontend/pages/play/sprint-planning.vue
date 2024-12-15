@@ -31,7 +31,7 @@ const sprintGoalInputField = useTemplateRef("sprintGoalInputField");
 async function editSprintGoal() {
   editingSprintGoal.value = true;
   await nextTick();
-  sprintGoalInputField.value?.focus();
+  sprintGoalInputField.value?.$el.focus();
 }
 
 const intervalId: Ref<ReturnType<typeof setInterval> | undefined> =
@@ -51,7 +51,7 @@ onUnmounted(() => {
   <div class="relative h-full">
     <div class="relative z-10 flex h-full gap-12 pb-16 pl-[4.5rem] pr-12 pt-10">
       <div class="flex flex-[7] flex-col gap-1.5">
-        <h1 class="flex h-14 gap-3 self-start">
+        <h1 class="relative flex h-14 gap-3 self-start">
           <span class="font-heading text-5xl font-bold text-sc-orange"
             >Sprint Planning –
             <span
@@ -71,26 +71,26 @@ onUnmounted(() => {
             @focus="editingSprintName = true"
             @keydown.enter="editingSprintName = false"
             @blur="editingSprintName = false"
-            placeholder="Sprintname"
+            :placeholder="$t('planning.sprint_name')"
             class="block h-14 w-80 rounded-lg border border-sc-black-400 bg-sc-white px-4 py-3 font-sans text-xl font-medium text-black outline-sc-orange drop-shadow-md"
           />
-          <div
+          <InfoPopover
             v-if="!sprintNameInput"
-            class="relative flex items-center gap-1 self-center rounded border border-sc-black-200 bg-sc-white px-2 py-1 shadow-sm before:absolute before:left-0 before:-z-10 before:-translate-x-1/2 before:rotate-45 before:rounded-sm before:bg-sc-black-200 before:p-1.5"
-          >
-            <span
-              class="inline-flex size-6 items-center justify-center rounded-full bg-sc-orange text-xl font-bold text-sc-white"
-              >1</span
-            >Setzt zuerst einen Spielnamen!
-          </div>
+            step="1"
+            :text="$t('planning.set_a_sprint_name')"
+          />
         </h1>
-        <UInput
-          v-model="sprintGoalInput"
-          ref="sprintGoalInputField"
-          icon="octicon:goal-16"
-          class="mb-1.5"
-        />
-        <div class="flex-1 bg-blue-400"></div>
+        <div class="relative self-start">
+          <UInput
+            v-model="sprintGoalInput"
+            ref="sprintGoalInputField"
+            icon="octicon:goal-16"
+            :placeholder="$t('planning.sprint_goal')"
+            class="w-[46rem]"
+          />
+          <InfoPopover :text="$t('planning.define_sprint_goal')" step="2" />
+        </div>
+        <div class="mt-1.5 flex-1 bg-blue-400"></div>
       </div>
       <div class="flex flex-[3] flex-col justify-end">
         <div
