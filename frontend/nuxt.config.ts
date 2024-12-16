@@ -30,13 +30,13 @@ export default defineNuxtConfig({
         de: "/räume/erstellen",
         en: "/rooms/create",
       },
-      "rooms/[id]/manage": {
-        de: "/räume/[id]/verwalten",
-        en: "/rooms/[id]/manage",
+      "rooms/[id]/index": {
+        de: "/räume/[id]",
+        en: "/rooms/[id]",
       },
       "rooms/[id]/roomcode": {
-        de: "/räume/[id]/verwalten/raumcode",
-        en: "/rooms/[id]/manage/roomcode",
+        de: "/räume/[id]/raumcode",
+        en: "/rooms/[id]/roomcode",
       },
       "play/members": {
         de: "/play/mitglieder",
@@ -45,6 +45,10 @@ export default defineNuxtConfig({
       "play/ready": {
         de: "/play/bereit",
         en: "/play/ready",
+      },
+      legal_notice: {
+        de: "/impressum",
+        en: "/legal-notice",
       },
       // define more pages here
     },

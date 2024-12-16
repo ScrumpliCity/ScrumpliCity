@@ -106,12 +106,12 @@ const lastPlayedAgoMinutes = computed(() => {
   <div
     @click="
       navigateTo(
-        localeRoute({ name: 'rooms-id-manage', params: { id: props.room.id } }),
+        localeRoute({ name: 'rooms-id', params: { id: props.room.id } }),
       )
     "
     @keydown.enter="
       navigateTo(
-        localeRoute({ name: 'rooms-id-manage', params: { id: props.room.id } }),
+        localeRoute({ name: 'rooms-id', params: { id: props.room.id } }),
       )
     "
     tabindex="0"

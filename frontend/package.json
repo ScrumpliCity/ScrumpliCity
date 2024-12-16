@@ -13,21 +13,21 @@
     "prepare": "cd .. && husky frontend/.husky"
   },
   "dependencies": {
-    "@nuxt/ui": "^2.18.7",
-    "@nuxtjs/i18n": "^9.0.0",
-    "@pinia/nuxt": "^0.7.0",
+    "@nuxt/ui": "^2.20.0",
+    "@nuxtjs/i18n": "^9.1.1",
+    "@pinia/nuxt": "^0.9.0",
     "nuxt": "^3.14.1592",
     "nuxt-auth-sanctum": "^0.5.2",
     "nuxt-svgo": "^4.0.9",
-    "pinia": "^2.2.6",
+    "pinia": "^2.3.0",
     "vue": "latest",
     "vue-router": "latest"
   },
   "devDependencies": {
     "@iconify-json/ic": "^1.2.1",
     "husky": "^9.1.7",
-    "lint-staged": "^15.2.10",
-    "prettier": "3.3.3",
+    "lint-staged": "^15.2.11",
+    "prettier": "3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.9"
   },
   "lint-staged": {

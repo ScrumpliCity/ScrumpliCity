@@ -51,6 +51,7 @@
     "team_name": "Team name",
     "team_join": "Let's go!",
     "team_ready": "Ready",
+    "product_owner_or_scrum_master_required": "You need a Product Owner and a Scrum Master to continue.",
     "waiting": "Waiting to start...",
     "team_members": "Team members",
     "room_settings": "Room settings",
@@ -98,16 +99,34 @@
     }
   },
   "login": {
-    "log_in_to_scrumplicity": "Log in to ScrumpliCity",
-    "log_in_with": "Log in with",
+    "get_started_with_scrumplicity": "Get started with ScrumpliCity",
+    "get_started_with": "Get started with",
     "google": "Google",
     "microsoft": "Microsoft",
     "error": "An error occured while logging in."
   },
-  "common": {
-    "legal_notice": "Legal Notice",
+  "legal_notice": {
+    "title": "Legal Notice",
     "legal_matters": "Legal matters",
-    "brand_name": "ScrumpliCity"
+    "brand_name": "ScrumpliCity",
+    "media_proprietor": "Media Proprietor",
+    "address": {
+      "title": "Address",
+      "vienna": "Vienna, Austria"
+    },
+    "contact": "Contact",
+    "editorial_policy": {
+      "title": "Editorial Policy",
+      "content": "Teaching the fundamentals of the Scrum agile project management method through interactive exercises and hands-on projects."
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "content": "This website was developed as part of a thesis project and is intended for use in various educational institutions. While the content has been created with utmost care, the project team assumes no liability for the accuracy, completeness, or timeliness of the information. The use of the website and materials is at the user's own risk."
+    },
+    "business_purpose": {
+      "title": "Business Purpose",
+      "content": "Development of a platform as part of a thesis project to teach the Scrum method through interactive group exercises and projects."
+    }
   },
   "homepage": {
     "project_description": "Learn the agile project management method Scrum by building a paper city! ScrumpliCity provides a web application, crafting templates and explanations about Scrum - so: {build_your_scrum_knowledge}",

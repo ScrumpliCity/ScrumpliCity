@@ -84,10 +84,10 @@ onBeforeUnmount(() => {
     <h1
       class="pb-16 text-center font-heading text-5xl font-bold text-sc-orange"
     >
-      {{ $t("login.log_in_to_scrumplicity") }}
+      {{ $t("login.get_started_with_scrumplicity") }}
     </h1>
     <p class="pb-7 text-center font-heading text-3xl font-medium">
-      {{ $t("login.log_in_with") }}
+      {{ $t("login.get_started_with") }}
     </p>
 
     <UButton
@@ -103,7 +103,9 @@ onBeforeUnmount(() => {
     <p
       class="absolute bottom-[1vw] left-[50vw] -translate-x-1/2 bg-sc-white text-2xl font-bold text-sc-black-500"
     >
-      {{ $t("common.legal_notice") }}
+      <NuxtLink :to="localeRoute('legal_notice')">{{
+        $t("common.legal_notice")
+      }}</NuxtLink>
     </p>
     <Teleport to="#teleports">
       <LoadingSpinner

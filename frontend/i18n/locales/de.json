@@ -51,6 +51,7 @@
     "team_name": "Teamname",
     "team_ready": "Bereit",
     "team_join": "Los geht's!",
+    "product_owner_or_scrum_master_required": "Du brauchst einen Product Owner und einen Scrum Master, um weiterzumachen.",
     "waiting": "Warten auf Start...",
     "team_members": "Teammitglieder",
     "room_settings": "Raumeinstellungen",
@@ -98,16 +99,34 @@
     }
   },
   "login": {
-    "log_in_to_scrumplicity": "Einloggen bei ScrumpliCity",
-    "log_in_with": "Logge dich ein mit",
+    "get_started_with_scrumplicity": "Leg' los bei ScrumpliCity",
+    "get_started_with": "Leg' los mit",
     "google": "Google",
     "microsoft": "Microsoft",
     "error": "Beim Einloggen ist ein Fehler aufgetreten."
   },
-  "common": {
-    "legal_notice": "Impressum",
+  "legal_notice": {
+    "title": "Impressum",
     "legal_matters": "Rechtliches",
-    "brand_name": "ScrumpliCity"
+    "brand_name": "ScrumpliCity",
+    "media_proprietor": "Medieninhaber",
+    "address": {
+      "title": "Anschrift",
+      "vienna": "Wien, Österreich"
+    },
+    "contact": "Kontakt",
+    "editorial_policy": {
+      "title": "Blattlinie",
+      "content": "Vermittlung von Grundlagen der agilen Projektmanagementmethode Scrum durch interaktive Übungen und praktische Projekte."
+    },
+    "disclaimer": {
+      "title": "Haftungsausschluss",
+      "content": "Diese Website wurde im Rahmen einer Diplomarbeit entwickelt und ist für die Anwendung in verschiedenen Bildungseinrichtungen vorgesehen. Trotz sorgfältiger Erstellung der Inhalte übernimmt das Projektteam keine Haftung für die Richtigkeit, Vollständigkeit oder Aktualität der Informationen. Die Nutzung der Website und der Materialien erfolgt auf eigene Verantwortung."
+    },
+    "business_purpose": {
+      "title": "Unternehmensgegenstand",
+      "content": "Entwicklung einer Plattform im Rahmen einer Diplomarbeit zur Vermittlung der Scrum-Methode durch interaktive Gruppenübungen und Projekte."
+    }
   },
   "homepage": {
     "project_description": "Lerne die agile Projektmanagement&shy;methode Scrum mittels Bau einer Papierstadt! ScrumpliCity stellt eine Web-Applikation, Bastelvorlagen und Erklärungen zu Scrum zur Verfügung - also: {build_your_scrum_knowledge}",
