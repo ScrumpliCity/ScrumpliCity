@@ -26,14 +26,6 @@ const showSprintGoalInput = computed(
   () => editingSprintGoal.value || !sprintGoalInput.value.trim(),
 );
 
-const sprintGoalInputField = useTemplateRef("sprintGoalInputField");
-
-async function editSprintGoal() {
-  editingSprintGoal.value = true;
-  await nextTick();
-  sprintGoalInputField.value?.$el.focus();
-}
-
 const intervalId: Ref<ReturnType<typeof setInterval> | undefined> =
   ref(undefined);
 
@@ -46,6 +38,8 @@ onMounted(() => {
 onUnmounted(() => {
   if (intervalId.value !== undefined) clearInterval(intervalId.value);
 });
+
+const selected = ref("");
 </script>
 <template>
   <div class="relative h-full">
@@ -114,7 +108,35 @@ onUnmounted(() => {
             v-if="showSprintGoalInput"
           />
         </div>
-        <div class="mt-1.5 flex-1 bg-blue-400"></div>
+        <div
+          class="mt-1.5 flex flex-1 flex-col rounded-2xl border-2 border-sc-black-400 bg-sc-white *:gap-6"
+        >
+          <div
+            class="flex h-11 items-center rounded-t-2xl border-b-2 border-sc-black-400 bg-sc-orange-100 px-4 font-semibold *:w-0 *:basis-0"
+          >
+            <h3 class="flex-[19]">Titel</h3>
+            <h3 class="flex-[51]">Beschreibung</h3>
+            <h3 class="flex-[13]">Story Points</h3>
+            <h3 class="flex-[12]">Zuständigkeit</h3>
+            <div class="flex-[4]">asdf</div>
+          </div>
+          <div
+            class="flex h-14 items-center border-b border-sc-black-400 px-4 *:w-0 *:basis-0"
+          >
+            <input
+              class="block flex-[19] p-2 text-sm ring-1 ring-sc-black-400 focus:outline-none"
+            />
+            <textarea class="flex-[51]"></textarea>
+            <input class="flex-[13]" />
+            <USelect
+              :options="['United States', 'Canada', 'Mexico']"
+              v-model="selected"
+              class="flex-[12]"
+            />
+
+            <button class="flex-[4]">assdf</button>
+          </div>
+        </div>
       </div>
       <div class="flex flex-[3] flex-col justify-end">
         <div
