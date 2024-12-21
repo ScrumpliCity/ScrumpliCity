@@ -2,7 +2,7 @@
   <footer class="flex w-screen flex-wrap px-6 lg:justify-center lg:gap-[248px]">
     <div class="mx-4 mb-5">
       <h4 class="text-sm font-bold lg:text-2xl">
-        {{ $t("common.brand_name") }}
+        {{ $t("legal_notice.brand_name") }}
       </h4>
       <p class="text-xs leading-6 lg:text-base">
         {{ $t("homepage.scrum_guide") }}
@@ -19,9 +19,9 @@
     </div>
     <div class="mx-4 mb-5">
       <h4 class="text-sm font-bold lg:text-2xl">
-        {{ $t("common.legal_matters") }}
+        {{ $t("legal_notice.legal_matters") }}
       </h4>
-      <p class="text-xs lg:text-base">{{ $t("common.legal_notice") }}</p>
+      <p class="text-xs lg:text-base">{{ $t("legal_notice.title") }}</p>
     </div>
     <div class="mx-4">
       <h4 class="text-sm font-bold lg:text-2xl">

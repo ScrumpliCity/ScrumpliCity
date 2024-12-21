@@ -69,7 +69,7 @@ onMounted(() => {
         >
           {{ $t("homepage.build_your_scrum_knowledge") }}
         </h2>
-        <div class="lg:flex lg:flex-row lg:gap-16">
+        <div class="md:flex md:flex-row md:gap-16">
           <div
             class="mb-6 w-52 rounded-lg border-2 border-sc-black bg-sc-black-50 p-4 drop-shadow-sc-shadow lg:w-80"
           >
