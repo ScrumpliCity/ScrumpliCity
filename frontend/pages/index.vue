@@ -22,7 +22,9 @@ onMounted(() => {
       :close-button="null"
     />
   </div>
-  <div class="absolute top-10 w-screen bg-sc-white px-4 lg:top-16 lg:px-[61px]">
+  <div
+    class="absolute top-10 w-screen bg-sc-white px-[4.4vw] lg:top-16 lg:px-[61px]"
+  >
     <SvgHomepageMobileBackground
       class="h-full w-full sm:hidden"
       :fontControlled="false"
@@ -44,7 +46,7 @@ onMounted(() => {
           filled
         />
         <p
-          class="my-3 max-w-[835px] bg-sc-white/70 text-left text-sm lg:text-2xl"
+          class="my-3 max-w-[835px] bg-sc-white/70 text-left text-sm xs:text-base lg:text-2xl"
         >
           <span v-html="$t('homepage.project_description')"></span>
           <b>{{ $t("homepage.build_your_scrum_knowledge") }}</b>
@@ -56,13 +58,13 @@ onMounted(() => {
         <UTooltip :text="$t('tooltip.not_available')">
           <UButton
             :disabled="true"
-            class="drop-shadow-sc-shadow hover:bg-orange-700 lg:hidden"
+            class="drop-shadow-sc-shadow hover:bg-orange-700 xs:text-base lg:hidden"
             >{{ $t("homepage.scrum_guide") }}</UButton
           ></UTooltip
         >
       </div>
       <div
-        class="mt-14 flex min-h-[700px] w-screen flex-col items-center lg:mt-80 lg:min-h-0"
+        class="mt-14 flex min-h-[700px] w-screen flex-col items-center xs:mt-[25vw] lg:mt-80 lg:min-h-0"
       >
         <h2
           class="mb-5 bg-sc-white/70 font-heading text-xl font-bold text-sc-orange lg:mb-16 lg:text-6xl"
@@ -76,7 +78,7 @@ onMounted(() => {
             <h3 class="font-heading text-xl lg:mb-3 lg:text-3xl">
               {{ $t("homepage.features.learn_scrum.title") }}
             </h3>
-            <p class="text-xs lg:text-xl">
+            <p class="text-xs min-[400px]:text-sm lg:text-xl">
               {{ $t("homepage.features.learn_scrum.description") }}
             </p>
             <div class="flex justify-end">
@@ -93,7 +95,7 @@ onMounted(() => {
             <h3 class="font-heading text-xl lg:mb-3 lg:text-3xl">
               {{ $t("homepage.features.craft_your_city.title") }}
             </h3>
-            <p class="text-xs lg:mb-6 lg:text-xl">
+            <p class="mb-1 text-xs min-[400px]:text-sm lg:mb-6 lg:text-xl">
               {{ $t("homepage.features.craft_your_city.description") }}
             </p>
             <div class="flex justify-end">
@@ -110,7 +112,7 @@ onMounted(() => {
             <h3 class="font-heading text-xl lg:mb-3 lg:text-3xl">
               {{ $t("homepage.features.solidify_teamwork.title") }}
             </h3>
-            <p class="text-xs lg:text-xl">
+            <p class="text-xs min-[400px]:text-sm lg:text-xl">
               {{ $t("homepage.features.solidify_teamwork.description") }}
             </p>
             <div class="flex justify-end">
@@ -124,10 +126,10 @@ onMounted(() => {
         </div>
       </div>
       <div
-        class="mx-10 mt-20 min-h-[370px] lg:ml-56 lg:mt-60 lg:max-w-[1100px]"
+        class="mx-[11vw] mt-[15vw] min-h-[370px] min-[380px]:mt-[30vw] min-[400px]:mt-[25vw] lg:ml-56 lg:mt-60 lg:max-w-[1100px]"
       >
         <h3
-          class="mb-2 bg-sc-white/70 font-heading text-sm font-bold text-sc-black-700 lg:text-2xl"
+          class="mb-2 bg-sc-white/70 font-heading text-sm font-bold text-sc-black-700 min-[400px]:text-base lg:text-2xl"
         >
           {{ $t("homepage.learning_materials") }}
         </h3>
@@ -137,7 +139,7 @@ onMounted(() => {
           {{ $t("homepage.all_you_need_to_know") }}
         </h4>
         <p
-          class="mb-4 bg-sc-white/70 text-sm lg:mb-6 lg:text-2xl"
+          class="mb-4 bg-sc-white/70 text-sm min-[394px]:text-base lg:mb-6 lg:text-2xl"
           v-html="$t('homepage.scrum_guide_description')"
         ></p>
         <UTooltip :text="$t('tooltip.not_available')">
@@ -149,7 +151,7 @@ onMounted(() => {
         >
       </div>
       <div
-        class="mx-10 mb-14 mt-20 text-right lg:mx-0 lg:mb-64 lg:mt-72 lg:w-screen lg:pr-48"
+        class="mx-10 mb-14 mt-16 text-right xs:mb-[15vw] xs:mt-[23vw] min-[382px]:mt-[35vw] min-[400px]:mb-[20vw] min-[400px]:mt-[20vw] lg:mx-0 lg:mb-64 lg:mt-72 lg:w-screen lg:pr-48"
       >
         <h5
           class="bg-sc-white/70 font-heading text-xl font-bold text-sc-orange lg:mb-7 lg:bg-none lg:text-6xl"
@@ -157,7 +159,7 @@ onMounted(() => {
           {{ $t("homepage.questions") }}
         </h5>
         <p
-          class="mb-5 bg-sc-white/70 text-sm lg:mb-7 lg:bg-sc-white/0 lg:text-2xl"
+          class="mb-5 bg-sc-white/70 text-sm min-[400px]:text-base lg:mb-7 lg:bg-sc-white/0 lg:text-2xl"
         >
           {{ $t("homepage.here_to_help") }}
         </p>

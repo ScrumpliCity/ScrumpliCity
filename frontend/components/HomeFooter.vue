@@ -1,6 +1,6 @@
 <template>
   <footer class="flex w-screen flex-wrap px-6 lg:justify-center lg:gap-[248px]">
-    <div class="mx-4 mb-5">
+    <div class="mx-4 mb-5 bg-sc-white/70">
       <h4 class="text-sm font-bold lg:text-2xl">
         {{ $t("legal_notice.brand_name") }}
       </h4>
@@ -17,13 +17,13 @@
         {{ $t("homepage.crafting_templates_download") }}
       </p>
     </div>
-    <div class="mx-4 mb-5">
+    <div class="mx-4 mb-5 bg-sc-white/70">
       <h4 class="text-sm font-bold lg:text-2xl">
         {{ $t("legal_notice.legal_matters") }}
       </h4>
       <p class="text-xs lg:text-base">{{ $t("legal_notice.title") }}</p>
     </div>
-    <div class="mx-4">
+    <div class="mx-4 bg-sc-white/70">
       <h4 class="text-sm font-bold lg:text-2xl">
         {{ $t("socials.social_media") }}
       </h4>
