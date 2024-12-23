@@ -47,7 +47,7 @@ const selected = ref("");
       <div class="flex flex-[7] flex-col gap-1.5">
         <h1 class="relative flex h-14 gap-3 self-start">
           <span class="font-heading text-5xl font-bold text-sc-orange"
-            >Sprint Planning –
+            >{{ $t("planning.sprint_planning") }} –
             <span
               tabindex="0"
               class="cursor-pointer"
@@ -116,10 +116,10 @@ const selected = ref("");
               <tr
                 class="h-11 rounded-t-2xl bg-sc-orange-100 px-2 font-semibold"
               >
-                <th class="p-2 px-4 text-left">Titel</th>
-                <th class="p-2 text-left">Beschreibung</th>
-                <th class="w-28">Story Points</th>
-                <th>Zuständigkeit</th>
+                <th class="p-2 px-4 text-left">{{ $t("planning.title") }}</th>
+                <th class="p-2 text-left">{{ $t("planning.description") }}</th>
+                <th class="w-28">{{ $t("planning.story_points") }}</th>
+                <th>{{ $t("planning.responsible") }}</th>
                 <th class="w-14"></th>
               </tr>
             </thead>
@@ -174,7 +174,7 @@ const selected = ref("");
               v-if="true"
               step="3"
               position="left"
-              text="Und schreibt dann eure erste User Story!"
+              :text="$t('planning.write_user_story')"
             ></InfoPopover>
           </button>
         </div>
@@ -186,7 +186,10 @@ const selected = ref("");
           <h3 class="text-xl font-semibold">TODO: Teamname</h3>
           <hr class="border-sc-black-300" />
           <p class="text-lg leading-9 *:font-semibold">
-            <span>Sprint 1/4</span><br />
+            <span>{{
+              $t("planning.sprint_out_of_n", { current: 1, total: 4 })
+            }}</span
+            ><br />
             <span>Nächste Phase:</span> TODO
           </p>
           <hr class="border-sc-black-300" />

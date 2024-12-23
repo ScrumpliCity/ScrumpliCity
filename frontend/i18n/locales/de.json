@@ -134,6 +134,12 @@
     "sprint_planning": "Sprint Planning",
     "sprint_name": "Sprintname",
     "set_a_sprint_name": "Setzt zuerst einen Sprintnamen!",
-    "define_sprint_goal": "Definiert dann euer Sprint-Ziel"
+    "define_sprint_goal": "Definiert dann euer Sprint-Ziel",
+    "write_user_story": "Und schreibt dann eure erste User Story!",
+    "title": "Titel",
+    "description": "Beschreibung",
+    "story_points": "Story Points",
+    "responsible": "Zuständigkeit",
+    "sprint_out_of_n": "Sprint {current}/{total}"
   }
 }

@@ -128,5 +128,18 @@
       "title": "Business Purpose",
       "content": "Development of a platform as part of a thesis project to teach the Scrum method through interactive group exercises and projects."
     }
+  },
+  "planning": {
+    "sprint_goal": "Sprint goal",
+    "sprint_planning": "Sprint Planning",
+    "sprint_name": "Sprint name",
+    "set_a_sprint_name": "Set a sprint name first!",
+    "define_sprint_goal": "Then define your sprint goal!",
+    "write_user_story": "Then write your first user story!",
+    "title": "Title",
+    "description": "Description",
+    "story_points": "Story Points",
+    "responsible": "Responsible",
+    "sprint_out_of_n": "Sprint {current}/{total}"
   }
 }
