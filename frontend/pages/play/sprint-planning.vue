@@ -84,7 +84,7 @@ const selected = ref("");
               class="w-full text-ellipsis rounded-md border-0 bg-transparent px-2.5 py-1.5 ps-9 focus:outline-none focus:ring-2 focus:ring-sc-orange"
               :class="{
                 'cursor-pointer': !showSprintGoalInput,
-                'shadow-sm ring-1 ring-inset ring-gray-300':
+                'shadow-sm ring-1 ring-inset ring-sc-black-400':
                   showSprintGoalInput,
               }"
               @focus="editingSprintGoal = true"
@@ -109,33 +109,74 @@ const selected = ref("");
           />
         </div>
         <div
-          class="mt-1.5 flex flex-1 flex-col rounded-2xl border-2 border-sc-black-400 bg-sc-white *:gap-6"
+          class="relative mt-1.5 flex-1 overflow-clip rounded-2xl border-2 border-sc-black-400 bg-sc-white"
         >
-          <div
-            class="flex h-11 items-center rounded-t-2xl border-b-2 border-sc-black-400 bg-sc-orange-100 px-4 font-semibold *:w-0 *:basis-0"
+          <table class="w-full table-fixed divide-y-2 divide-sc-black-400">
+            <thead>
+              <tr
+                class="h-11 rounded-t-2xl bg-sc-orange-100 px-2 font-semibold"
+              >
+                <th class="p-2 px-4 text-left">Titel</th>
+                <th class="p-2 text-left">Beschreibung</th>
+                <th class="w-28">Story Points</th>
+                <th>Zuständigkeit</th>
+                <th class="w-14"></th>
+              </tr>
+            </thead>
+            <tbody class="divide-y">
+              <template v-for="_ in Array(5)">
+                <tr class="h-14 border-b border-sc-black-400">
+                  <td class="p-2">
+                    <input
+                      class="rounded-lg bg-sc-white bg-transparent p-2 text-sm ring-inset focus:outline-none focus:ring-2 focus:ring-sc-orange [&:is(:placeholder-shown,:focus-within)]:shadow [&:is(:placeholder-shown,:focus-within)]:ring-1 [&:is(:placeholder-shown,:focus-within)]:ring-sc-black-400 [&:not(:placeholder-shown,:focus-within)]:cursor-pointer"
+                      placeholder="Titel der US"
+                    />
+                  </td>
+                  <td>
+                    <textarea class="p-2"></textarea>
+                  </td>
+                  <td class="text-center">
+                    <input
+                      class="size-7 rounded-full bg-sc-black-100 text-center text-lg font-semibold text-sc-black placeholder:text-sc-black focus:outline-none focus:ring-2 focus:ring-sc-orange [&:not(:placeholder-shown,:focus-within)]:cursor-pointer"
+                      type="number"
+                      placeholder="_"
+                    />
+                  </td>
+                  <td>
+                    <USelect
+                      :options="['United States', 'Canada', 'Mexico']"
+                      v-model="selected"
+                    />
+                  </td>
+                  <td class="p-2">
+                    <UButton
+                      icon="mdi:trash-can-outline"
+                      class="size-10 justify-center transition-colors hover:bg-sc-black-100"
+                      :padded="false"
+                      variant="ghost"
+                      color="sc-orange"
+                      :ui="{
+                        rounded: 'rounded-full',
+                        icon: { size: { sm: 'size-6' } },
+                      }"
+                    >
+                    </UButton>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+          <button
+            class="absolute bottom-4 right-4 flex size-8 justify-center rounded-lg bg-sc-orange text-3xl font-bold transition-colors hover:bg-sc-orange-700"
           >
-            <h3 class="flex-[19]">Titel</h3>
-            <h3 class="flex-[51]">Beschreibung</h3>
-            <h3 class="flex-[13]">Story Points</h3>
-            <h3 class="flex-[12]">Zuständigkeit</h3>
-            <div class="flex-[4]">asdf</div>
-          </div>
-          <div
-            class="flex h-14 items-center border-b border-sc-black-400 px-4 *:w-0 *:basis-0"
-          >
-            <input
-              class="block flex-[19] p-2 text-sm ring-1 ring-sc-black-400 focus:outline-none"
-            />
-            <textarea class="flex-[51]"></textarea>
-            <input class="flex-[13]" />
-            <USelect
-              :options="['United States', 'Canada', 'Mexico']"
-              v-model="selected"
-              class="flex-[12]"
-            />
-
-            <button class="flex-[4]">assdf</button>
-          </div>
+            <UIcon name="ic:round-plus" class="size-8" />
+            <InfoPopover
+              v-if="true"
+              step="3"
+              position="left"
+              text="Und schreibt dann eure erste User Story!"
+            ></InfoPopover>
+          </button>
         </div>
       </div>
       <div class="flex flex-[3] flex-col justify-end">
