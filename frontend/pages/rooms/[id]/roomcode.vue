@@ -23,7 +23,7 @@ const roomcode = computed(() => roomcodeData.value.roomcode || "");
       keypath="generate_room_code.description"
       tag="p"
       class="z-10 text-5xl font-medium"
-      useScope="global"
+      scope="global"
     >
       <template #url>
         <b

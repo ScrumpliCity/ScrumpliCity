@@ -106,7 +106,11 @@
     "error": "An error occured while logging in."
   },
   "common": {
-    "legal_notice": "Legal Notice"
+    "legal_notice": "Legal Notice",
+    "phases": {
+      "sprint_planning": "Sprint Planning",
+      "build_phase": "Build phase"
+    }
   },
   "legal_notice": {
     "title": "Legal Notice",
@@ -128,5 +132,23 @@
       "title": "Business Purpose",
       "content": "Development of a platform as part of a thesis project to teach the Scrum method through interactive group exercises and projects."
     }
+  },
+  "planning": {
+    "sprint_goal": "Sprint goal",
+    "sprint_planning": "@:common.phases.sprint_planning",
+    "build_phase": "@:common.phases.build_phase",
+    "sprint_name": "Sprint name",
+    "set_a_sprint_name": "Set a sprint name first!",
+    "define_sprint_goal": "Then define your sprint goal!",
+    "write_user_story": "Then write your first user story!",
+    "title": "Title",
+    "description": "Description",
+    "story_points": "Story Points",
+    "responsible": "Responsible",
+    "sprint_out_of_n": "Sprint {current}/{total}",
+    "next_phase": "Next phase:",
+    "story_points_abbreviation": "SP.",
+    "story_points_of_planned_user_stories": "Story points of the planned user stories",
+    "velocity_to_date": "Velocity to date"
   }
 }
