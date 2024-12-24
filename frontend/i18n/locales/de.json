@@ -146,6 +146,9 @@
     "story_points": "Story Points",
     "responsible": "Zuständigkeit",
     "sprint_out_of_n": "Sprint {current}/{total}",
-    "next_phase": "Nächste Phase:"
+    "next_phase": "Nächste Phase:",
+    "story_points_abbreviation": "SP.",
+    "story_points_of_planned_user_stories": "Story Points der geplanten User Stories",
+    "velocity_to_date": "Bisherige Velocity"
   }
 }

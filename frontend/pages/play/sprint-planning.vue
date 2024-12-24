@@ -194,7 +194,46 @@ const selected = ref("");
             {{ $t("planning.build_phase") }}
           </p>
           <hr class="border-sc-black-300" />
-          <hr class="border-sc-black-300" />
+          <div class="flex flex-col items-start gap-1.5 pt-1">
+            <UTooltip
+              :text="$t('planning.story_points_of_planned_user_stories')"
+            >
+              <div
+                class="flex h-8 w-20 items-center justify-between rounded-md bg-sc-black-100 p-1.5"
+              >
+                <UIcon name="lucide:list-todo" class="size-6"> </UIcon>
+
+                <span class="text-lg font-bold">
+                  37<span class="text-xs">{{
+                    $t("planning.story_points_abbreviation")
+                  }}</span>
+                </span>
+              </div>
+            </UTooltip>
+            <UTooltip :text="$t('planning.velocity_to_date')" v-if="true">
+              <div
+                class="flex h-8 w-20 items-center justify-between rounded-md p-1.5"
+                :class="
+                  Math.random() > 0.5 ? 'bg-sc-green-100' : 'bg-sc-orange-100'
+                "
+              >
+                <UIcon
+                  name="mingcute:chart-bar-line"
+                  class="size-6"
+                  :class="
+                    Math.random() > 0.5
+                      ? 'text-sc-green-500'
+                      : 'text-sc-orange-500'
+                  "
+                />
+                <span class="text-lg font-bold">
+                  37<span class="text-xs">{{
+                    $t("planning.story_points_abbreviation")
+                  }}</span>
+                </span>
+              </div>
+            </UTooltip>
+          </div>
         </div>
       </div>
     </div>
