@@ -183,14 +183,15 @@ const selected = ref("");
         <div
           class="flex h-72 flex-col gap-2 rounded-2xl border-2 border-sc-black-400 bg-sc-white p-5"
         >
-          <h3 class="text-xl font-semibold">TODO: Teamname</h3>
+          <h3 class="text-xl font-semibold">{Teamname}</h3>
           <hr class="border-sc-black-300" />
           <p class="text-lg leading-9 *:font-semibold">
             <span>{{
               $t("planning.sprint_out_of_n", { current: 1, total: 4 })
             }}</span
             ><br />
-            <span>Nächste Phase:</span> TODO
+            <span>{{ $t("planning.next_phase") }}</span>
+            {{ $t("planning.build_phase") }}
           </p>
           <hr class="border-sc-black-300" />
           <hr class="border-sc-black-300" />

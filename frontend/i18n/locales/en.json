@@ -106,7 +106,11 @@
     "error": "An error occured while logging in."
   },
   "common": {
-    "legal_notice": "Legal Notice"
+    "legal_notice": "Legal Notice",
+    "phases": {
+      "sprint_planning": "Sprint Planning",
+      "build_phase": "Build phase"
+    }
   },
   "legal_notice": {
     "title": "Legal Notice",
@@ -131,7 +135,8 @@
   },
   "planning": {
     "sprint_goal": "Sprint goal",
-    "sprint_planning": "Sprint Planning",
+    "sprint_planning": "@:common.phases.sprint_planning",
+    "build_phase": "@:common.phases.build_phase",
     "sprint_name": "Sprint name",
     "set_a_sprint_name": "Set a sprint name first!",
     "define_sprint_goal": "Then define your sprint goal!",
@@ -140,6 +145,7 @@
     "description": "Description",
     "story_points": "Story Points",
     "responsible": "Responsible",
-    "sprint_out_of_n": "Sprint {current}/{total}"
+    "sprint_out_of_n": "Sprint {current}/{total}",
+    "next_phase": "Next phase:"
   }
 }

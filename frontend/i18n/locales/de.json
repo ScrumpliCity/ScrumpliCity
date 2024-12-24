@@ -106,7 +106,11 @@
     "error": "Beim Einloggen ist ein Fehler aufgetreten."
   },
   "common": {
-    "legal_notice": "Impressum"
+    "legal_notice": "Impressum",
+    "phases": {
+      "sprint_planning": "Sprint Planning",
+      "build_phase": "Bauphase"
+    }
   },
   "legal_notice": {
     "title": "Impressum",
@@ -131,7 +135,8 @@
   },
   "planning": {
     "sprint_goal": "Sprint-Ziel",
-    "sprint_planning": "Sprint Planning",
+    "sprint_planning": "@:common.phases.sprint_planning",
+    "build_phase": "@:common.phases.build_phase",
     "sprint_name": "Sprintname",
     "set_a_sprint_name": "Setzt zuerst einen Sprintnamen!",
     "define_sprint_goal": "Definiert dann euer Sprint-Ziel",
@@ -140,6 +145,7 @@
     "description": "Beschreibung",
     "story_points": "Story Points",
     "responsible": "Zuständigkeit",
-    "sprint_out_of_n": "Sprint {current}/{total}"
+    "sprint_out_of_n": "Sprint {current}/{total}",
+    "next_phase": "Nächste Phase:"
   }
 }
