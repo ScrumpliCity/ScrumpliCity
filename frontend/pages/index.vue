@@ -30,8 +30,13 @@ onMounted(() => {
       :fontControlled="false"
       filled
     />
+    <SvgHomepageTabletBackground
+      class="top-5 hidden h-full w-full sm:block"
+      :fontControlled="false"
+      filled
+    />
     <SvgHomepageDesktopBackground
-      class="hidden h-full w-full sm:block"
+      class="hidden h-full w-full lg:block"
       :fontControlled="false"
       filled
     />
@@ -41,7 +46,7 @@ onMounted(() => {
     <div class="mt-28 flex flex-col items-center lg:mt-16 lg:items-start">
       <div class="m-10 h-56 lg:ml-28 lg:mt-32">
         <SvgMainLogo
-          class="w-[70vw] max-w-[650px]"
+          class="w-[70vw] sm:w-[300px]"
           :fontControlled="false"
           filled
         />
@@ -64,7 +69,7 @@ onMounted(() => {
         >
       </div>
       <div
-        class="mt-14 flex min-h-[700px] w-screen flex-col items-center xs:mt-[25vw] lg:mt-80 lg:min-h-0"
+        class="mt-14 flex min-h-[700px] w-screen flex-col items-center xs:mt-[25vw] min-[415px]:mt-[33vw] min-[455px]:mt-[40vw] min-[480px]:mt-[45vw] lg:mt-80 lg:min-h-0"
       >
         <h2
           class="mb-5 bg-sc-white/70 font-heading text-xl font-bold text-sc-orange lg:mb-16 lg:text-6xl"
@@ -126,7 +131,7 @@ onMounted(() => {
         </div>
       </div>
       <div
-        class="mx-[11vw] mt-[15vw] min-h-[370px] min-[380px]:mt-[30vw] min-[400px]:mt-[25vw] lg:ml-56 lg:mt-60 lg:max-w-[1100px]"
+        class="mx-[11vw] mt-[15vw] min-h-[370px] max-w-80 min-[380px]:mt-[30vw] min-[400px]:mt-[25vw] min-[425px]:mt-[35vw] min-[444px]:mt-[45vw] min-[470px]:mt-[55vw] lg:ml-56 lg:mt-60 lg:max-w-[1100px]"
       >
         <h3
           class="mb-2 bg-sc-white/70 font-heading text-sm font-bold text-sc-black-700 min-[400px]:text-base lg:text-2xl"
@@ -151,7 +156,7 @@ onMounted(() => {
         >
       </div>
       <div
-        class="mx-10 mb-14 mt-16 text-right xs:mb-[15vw] xs:mt-[23vw] min-[382px]:mt-[35vw] min-[400px]:mb-[20vw] min-[400px]:mt-[20vw] lg:mx-0 lg:mb-64 lg:mt-72 lg:w-screen lg:pr-48"
+        class="mx-10 mb-16 mt-20 text-right xs:mb-[15vw] xs:mt-[23vw] min-[370px]:mt-[35vw] min-[400px]:mb-[20vw] min-[400px]:mt-[20vw] min-[410px]:mt-[27vw] min-[435px]:mt-[34vw] min-[440px]:mb-[30vw] lg:mx-0 lg:mb-64 lg:mt-72 lg:w-screen lg:pr-48"
       >
         <h5
           class="bg-sc-white/70 font-heading text-xl font-bold text-sc-orange lg:mb-7 lg:bg-none lg:text-6xl"
