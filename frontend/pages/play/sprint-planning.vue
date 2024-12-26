@@ -225,18 +225,12 @@ const selected = ref("");
             <UTooltip :text="$t('planning.velocity_to_date')" v-if="true">
               <div
                 class="flex h-8 w-20 items-center justify-between rounded-md p-1.5"
-                :class="
-                  Math.random() > 0.5 ? 'bg-sc-green-100' : 'bg-sc-orange-100'
-                "
+                :class="true ? 'bg-sc-green-100' : 'bg-sc-orange-100'"
               >
                 <UIcon
                   name="mingcute:chart-bar-line"
                   class="size-6"
-                  :class="
-                    Math.random() > 0.5
-                      ? 'text-sc-green-500'
-                      : 'text-sc-orange-500'
-                  "
+                  :class="true ? 'text-sc-green-500' : 'text-sc-orange-500'"
                 />
                 <span class="text-lg font-bold">
                   37<span class="text-xs">{{
@@ -259,5 +253,27 @@ const selected = ref("");
       filled
       class="absolute bottom-0 z-0 h-auto w-[100vw]"
     ></SvgMeetingScreenTrees>
+    <Infobox
+      class="relative z-20"
+      :text="[
+        {
+          title: $t('planning.infobox.sprint_names.title'),
+          content: $t('planning.infobox.sprint_names.content'),
+        },
+        {
+          title: $t('planning.infobox.sprint_goal.title'),
+          content: $t('planning.infobox.sprint_goal.content'),
+        },
+        {
+          title: $t('planning.infobox.user_stories.title'),
+          content: $t('planning.infobox.user_stories.content'),
+        },
+        {
+          title: $t('planning.infobox.story_points.title'),
+          content: $t('planning.infobox.story_points.content'),
+        },
+      ]"
+    >
+    </Infobox>
   </div>
 </template>

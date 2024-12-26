@@ -151,6 +151,27 @@
     "story_points_of_planned_user_stories": "Story Points der geplanten User Stories",
     "velocity_to_date": "Bisherige Velocity",
     "description_of_us": "Beschreibung der US",
-    "title_of_us": "Titel der US"
+    "title_of_us": "Titel der US",
+    "infobox": {
+      "sprint_names": {
+        "title": "Sprintnamen",
+        "content": "Sprintnamen helfen, Sprints eindeutig zu identifizieren und sie sinnvoll einzuordnen. Sie können beispielsweise numerisch (z. B. \"Sprint 1\", \"Sprint 2\"), nach inhaltlichem Fokus (z. B. \"Sprint Häuserbau\") oder mit weiterführendem alphabetischem Anfangsbuchstaben (z.B. \"Amsterdam\", \"Berlin\") benannt werden."
+      },
+      "sprint_goal": {
+        "title": "Sprint-Ziel",
+        "content": "Das Sprint-Ziel ist das Hauptziel, welches das Team im aktuellen Sprint erreichen möchte. Es bietet eine klare Orientierung und hilft dabei, den Fokus während des gesamten Sprints auf das Wichtigste zu lenken. Ein gutes Sprint Ziel ist prägnant, realistisch und für das gesamte Team nachvollziehbar, z. B. \"Grundriss der Stadt skizzieren.\""
+      },
+      "user_stories": {
+        "title": "User Stories",
+        "content": "User Stories sollten klar und präzise formuliert sein und die Perspektive des Nutzers widerspiegeln. Sie folgen dem Format: \"Als [Rolle] möchte ich [Ziel], um [Nutzen].\" (z.B. \"Als Bewohner möchte ich eine Straße haben, um von meinem Haus zur Arbeit zu gelangen.\") Ebenfalls sollten Akzeptanzkriterien vorhanden sein. Das sind Bedingungen, die zeigen, wann eine Aufgabe fertiggestellt ist. (z.B. \"Die Straße hat 2 Fahrstreifen.\")"
+      },
+      "story_points": {
+        "title": "Story Points",
+        "content": "Story Points geben die Komplexität der User Story an. Häufig wird die Fibonacci-Folge (1, 2, 3, 5, 8, 13 …) genutzt, um relative Unterschiede zwischen den Stories zu erfassen. Alternative Schätzmethoden für User Stories sind T-Shirt-Größen (S, M, L, XL) oder die zeitbasierte Schätzung."
+      }
+    }
+  },
+  "infobox": {
+    "current_of_total": "{current} von {total}"
   }
 }
