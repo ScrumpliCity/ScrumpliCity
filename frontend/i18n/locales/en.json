@@ -149,6 +149,8 @@
     "next_phase": "Next phase:",
     "story_points_abbreviation": "SP.",
     "story_points_of_planned_user_stories": "Story points of the planned user stories",
-    "velocity_to_date": "Velocity to date"
+    "velocity_to_date": "Velocity to date",
+    "description_of_us": "Description",
+    "title_of_us": "Title"
   }
 }

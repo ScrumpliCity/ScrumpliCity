@@ -116,24 +116,36 @@ const selected = ref("");
               <tr
                 class="h-11 rounded-t-2xl bg-sc-orange-100 px-2 font-semibold"
               >
-                <th class="p-2 px-4 text-left">{{ $t("planning.title") }}</th>
-                <th class="p-2 text-left">{{ $t("planning.description") }}</th>
+                <th class="w-1/3 p-2 px-4 text-left">
+                  {{ $t("planning.title") }}
+                </th>
+                <th class="w-2/3 p-2 px-4 text-left">
+                  {{ $t("planning.description") }}
+                </th>
                 <th class="w-28">{{ $t("planning.story_points") }}</th>
-                <th>{{ $t("planning.responsible") }}</th>
+                <th class="w-32">{{ $t("planning.responsible") }}</th>
                 <th class="w-14"></th>
               </tr>
             </thead>
             <tbody class="divide-y">
               <template v-for="_ in Array(5)">
-                <tr class="h-14 border-b border-sc-black-400">
-                  <td class="p-2">
+                <tr class="max-h-14 border-b border-sc-black-400">
+                  <td class="p-2 pr-6">
                     <input
-                      class="rounded-lg bg-sc-white bg-transparent p-2 text-sm ring-inset focus:outline-none focus:ring-2 focus:ring-sc-orange [&:is(:placeholder-shown,:focus-within)]:shadow [&:is(:placeholder-shown,:focus-within)]:ring-1 [&:is(:placeholder-shown,:focus-within)]:ring-sc-black-400 [&:not(:placeholder-shown,:focus-within)]:cursor-pointer"
-                      placeholder="Titel der US"
+                      class="w-full rounded-lg bg-sc-white p-2 text-sm ring-inset focus:outline-none focus:!ring-2 focus:!ring-sc-orange [&:is(:placeholder-shown,:focus-within)]:shadow [&:is(:placeholder-shown,:focus-within)]:ring-1 [&:is(:placeholder-shown,:focus-within)]:ring-sc-black-400 [&:not(:placeholder-shown,:focus-within)]:cursor-pointer [&:not(:placeholder-shown,:focus-within)]:text-ellipsis [&:not(:placeholder-shown,:focus-within)]:py-0 [&:not(:placeholder-shown,:focus-within)]:text-lg [&:not(:placeholder-shown,:focus-within)]:font-medium"
+                      @keydown.enter="
+                        ($event.target as HTMLInputElement)?.blur()
+                      "
+                      :placeholder="$t('planning.title_of_us')"
                     />
                   </td>
-                  <td>
-                    <textarea class="p-2"></textarea>
+                  <td class="p-2">
+                    <div class="h-9 w-full">
+                      <textarea
+                        :placeholder="$t('planning.description_of_us')"
+                        class="relative w-full resize-none rounded-lg bg-sc-white p-2 text-sm ring-inset focus-within:z-10 focus-within:h-36 focus-within:transition-[height] focus:outline-none focus:!ring-2 focus:!ring-sc-orange [&:is(:placeholder-shown,:focus-within)]:shadow [&:is(:placeholder-shown,:focus-within)]:ring-1 [&:is(:placeholder-shown,:focus-within)]:ring-sc-black-400 [&:not(:focus-within)]:h-9 [&:not(:focus-within)]:overflow-clip [&:not(:placeholder-shown,:focus-within)]:cursor-pointer"
+                      ></textarea>
+                    </div>
                   </td>
                   <td class="text-center">
                     <input
