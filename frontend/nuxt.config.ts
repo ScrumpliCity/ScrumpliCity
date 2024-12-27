@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     "nuxt-svgo",
     "@nuxt/ui",
     "@pinia/nuxt",
+    "nuxt-laravel-echo",
   ],
   i18n: {
     defaultLocale: "de",
@@ -72,5 +73,23 @@ export default defineNuxtConfig({
   },
   colorMode: {
     preference: "light", // without this, Nuxt UI uses it's dark mode
+  },
+  echo: {
+    host: process.env.REVERB_HOST ?? "localhost", // to be changed
+    port: Number(process.env.REVERB_PORT ?? 8888), // to be changed
+    scheme:
+      (process.env.REVERB_SCHEME as "http" | "https" | undefined) ?? "http",
+    key: process.env.REVERB_APP_KEY,
+    authentication: {
+      mode: "cookie",
+      baseUrl:
+        process.env.SCRUMPLICITY_LARAVEL_API_URL ?? "http://localhost:8000",
+      authEndpoint: "/broadcasting/auth",
+      csrfEndpoint: "/sanctum/csrf-cookie",
+      csrfCookie: "XSRF-TOKEN",
+      csrfHeader: "X-XSRF-TOKEN",
+    },
+    logLevel: 3,
+    properties: undefined,
   },
 });
