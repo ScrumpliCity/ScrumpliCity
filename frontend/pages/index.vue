@@ -149,7 +149,7 @@ onMounted(() => {
       </div>
       <div class="w-screen">
         <div
-          class="mx-[11vw] mt-[15vw] min-h-[370px] max-w-80 min-[377px]:mt-[30vw] min-[394px]:min-h-[420px] min-[400px]:mt-[24vw] min-[425px]:mt-[35vw] min-[440px]:mt-[25vw] min-[450px]:mt-[35vw] min-[470px]:mt-[45vw] min-[480px]:mt-[17vw] min-[480px]:min-h-[508px] min-[484px]:mt-[23vw] min-[494px]:mt-[35vw] min-[520px]:mt-[30vw] min-[540px]:mt-[40vw] min-[620px]:mt-[50vw] lg:ml-56 lg:mt-60 lg:max-w-[1100px]"
+          class="mx-[11vw] mt-[15vw] min-h-[370px] max-w-80 min-[377px]:mt-[30vw] min-[394px]:min-h-[420px] min-[400px]:mt-[24vw] min-[425px]:mt-[35vw] min-[440px]:mt-[25vw] min-[450px]:mt-[35vw] min-[470px]:mt-[45vw] min-[480px]:mt-[17vw] min-[480px]:min-h-[508px] min-[484px]:mt-[23vw] min-[504px]:mt-[30vw] min-[516px]:mt-[33vw] min-[540px]:mt-[40vw] min-[620px]:mt-[50vw] lg:ml-56 lg:mt-60 lg:max-w-[1100px]"
         >
           <h3
             class="mb-2 bg-sc-white/70 font-heading text-sm font-bold text-sc-black-700 min-[400px]:text-base min-[480px]:text-lg lg:text-2xl"

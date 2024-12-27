@@ -1,5 +1,7 @@
 <template>
-  <footer class="flex w-screen flex-wrap px-6 lg:justify-center lg:gap-[248px]">
+  <footer
+    class="flex w-screen flex-wrap px-6 min-[470px]:justify-center lg:gap-[248px]"
+  >
     <div class="mx-4 mb-5 bg-sc-white/70">
       <h4 class="text-sm font-bold lg:text-2xl">
         {{ $t("legal_notice.brand_name") }}
