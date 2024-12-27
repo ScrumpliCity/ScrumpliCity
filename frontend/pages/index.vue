@@ -23,15 +23,15 @@ onMounted(() => {
     />
   </div>
   <div
-    class="absolute top-10 w-screen bg-sc-white px-[4.4vw] min-[440px]:-top-[5vw] min-[480px]:-top-[12vw] min-[500px]:-top-[16vw] min-[530px]:-top-[20vw] min-[550px]:-top-[22vw] lg:top-16 lg:px-[61px]"
+    class="absolute top-10 w-screen bg-sc-white px-[4.4vw] min-[440px]:-top-[5vw] min-[480px]:-top-[12vw] min-[500px]:-top-[16vw] min-[530px]:-top-[20vw] min-[550px]:-top-[22vw] min-[578px]:-top-[25vw] min-[600px]:-top-[27vw] lg:top-16 lg:px-[61px]"
   >
     <SvgHomepageMobileBackground
       class="h-full w-full min-[480px]:hidden"
       :fontControlled="false"
       filled
     />
-    <SvgHomepageMobileBackgroundShorter
-      class="hidden h-full w-full min-[480px]:block"
+    <SvgHomepageMobileBackgroundShorterV2
+      class="hidden h-full w-full min-[480px]:block sm:hidden"
       :fontControlled="false"
       filled
     />
@@ -48,8 +48,8 @@ onMounted(() => {
   </div>
   <div class="relative flex flex-col">
     <HomeHeader />
-    <div class="mt-28 flex flex-col items-center lg:mt-16 lg:items-start">
-      <div class="m-10 h-56 lg:ml-28 lg:mt-32">
+    <div class="mt-28 flex flex-col items-center lg:mt-16">
+      <div class="m-10 h-56 min-[580px]:mr-32 lg:ml-28 lg:mt-32">
         <SvgMainLogo
           class="w-[70vw] sm:w-[300px]"
           :fontControlled="false"
@@ -74,7 +74,7 @@ onMounted(() => {
         >
       </div>
       <div
-        class="mt-14 flex min-h-[700px] w-screen flex-col items-center xs:mt-[25vw] min-[415px]:mt-[33vw] min-[455px]:mt-[40vw] min-[480px]:mt-[25vw] lg:mt-80 lg:min-h-0"
+        class="mt-14 flex min-h-[710px] w-screen flex-col items-center xs:mt-[25vw] min-[394px]:min-h-[705px] min-[400px]:min-h-[782px] min-[415px]:mt-[33vw] min-[455px]:mt-[40vw] min-[480px]:mt-[20vw] min-[480px]:min-h-[820px] min-[520px]:min-h-[872px] min-[570px]:mt-[33vw] lg:mt-80 lg:min-h-0"
       >
         <h2
           class="mb-5 bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl lg:mb-16 lg:text-6xl"
@@ -147,33 +147,35 @@ onMounted(() => {
           </div>
         </div>
       </div>
-      <div
-        class="mx-[11vw] mt-[15vw] min-h-[370px] max-w-80 min-[377px]:mt-[30vw] min-[400px]:mt-[25vw] min-[425px]:mt-[35vw] min-[440px]:mt-[25vw] min-[450px]:mt-[35vw] min-[470px]:mt-[45vw] min-[480px]:mt-[25vw] min-[500px]:mt-[35vw] min-[520px]:mt-[25vw] min-[540px]:mt-[35vw] lg:ml-56 lg:mt-60 lg:max-w-[1100px]"
-      >
-        <h3
-          class="mb-2 bg-sc-white/70 font-heading text-sm font-bold text-sc-black-700 min-[400px]:text-base min-[480px]:text-lg lg:text-2xl"
+      <div class="w-screen">
+        <div
+          class="mx-[11vw] mt-[15vw] min-h-[370px] max-w-80 min-[377px]:mt-[30vw] min-[394px]:min-h-[420px] min-[400px]:mt-[24vw] min-[425px]:mt-[35vw] min-[440px]:mt-[25vw] min-[450px]:mt-[35vw] min-[470px]:mt-[45vw] min-[480px]:mt-[17vw] min-[480px]:min-h-[508px] min-[484px]:mt-[23vw] min-[494px]:mt-[35vw] min-[520px]:mt-[30vw] min-[540px]:mt-[40vw] min-[620px]:mt-[50vw] lg:ml-56 lg:mt-60 lg:max-w-[1100px]"
         >
-          {{ $t("homepage.learning_materials") }}
-        </h3>
-        <h4
-          class="mb-6 bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl lg:text-6xl"
-        >
-          {{ $t("homepage.all_you_need_to_know") }}
-        </h4>
-        <p
-          class="mb-4 bg-sc-white/70 text-sm min-[394px]:text-base min-[480px]:text-lg lg:mb-6 lg:text-2xl"
-          v-html="$t('homepage.scrum_guide_description')"
-        ></p>
-        <UTooltip :text="$t('tooltip.not_available')">
-          <UButton
-            :disabled="true"
-            class="drop-shadow-sc-shadow hover:bg-orange-700 lg:px-10 lg:py-3 lg:text-2xl lg:font-bold"
-            >{{ $t("homepage.scrum_guide") }}</UButton
-          ></UTooltip
-        >
+          <h3
+            class="mb-2 bg-sc-white/70 font-heading text-sm font-bold text-sc-black-700 min-[400px]:text-base min-[480px]:text-lg lg:text-2xl"
+          >
+            {{ $t("homepage.learning_materials") }}
+          </h3>
+          <h4
+            class="mb-6 bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl lg:text-6xl"
+          >
+            {{ $t("homepage.all_you_need_to_know") }}
+          </h4>
+          <p
+            class="mb-4 bg-sc-white/70 text-sm min-[394px]:text-base min-[480px]:text-lg lg:mb-6 lg:text-2xl"
+            v-html="$t('homepage.scrum_guide_description')"
+          ></p>
+          <UTooltip :text="$t('tooltip.not_available')">
+            <UButton
+              :disabled="true"
+              class="drop-shadow-sc-shadow hover:bg-orange-700 lg:px-10 lg:py-3 lg:text-2xl lg:font-bold"
+              >{{ $t("homepage.scrum_guide") }}</UButton
+            ></UTooltip
+          >
+        </div>
       </div>
       <div
-        class="mx-10 mb-16 mt-20 text-right xs:mb-[20vw] xs:mt-[23vw] min-[370px]:mt-[30vw] min-[400px]:mb-[25vw] min-[400px]:mt-[20vw] min-[410px]:mt-[27vw] min-[435px]:mt-[34vw] min-[470px]:mb-[45vw] min-[480px]:mb-[25vw] min-[480px]:mt-[20vw] min-[510px]:mt-[30vw] lg:mx-0 lg:mb-64 lg:mt-72 lg:w-screen lg:pr-48"
+        class="mx-10 mb-16 mt-20 max-w-[475px] text-right xs:mb-[20vw] xs:mt-[23vw] min-[370px]:mt-[30vw] min-[400px]:mb-[25vw] min-[400px]:mt-[20vw] min-[410px]:mt-[27vw] min-[435px]:mt-[34vw] min-[470px]:mb-[45vw] min-[480px]:mb-[28vw] min-[480px]:mt-[13vw] min-[530px]:mt-[18vw] min-[600px]:mt-[30vw] lg:mx-0 lg:mb-64 lg:mt-72 lg:w-screen lg:pr-48"
       >
         <h5
           class="bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl lg:mb-7 lg:bg-none lg:text-6xl"
@@ -181,7 +183,7 @@ onMounted(() => {
           {{ $t("homepage.questions") }}
         </h5>
         <p
-          class="mb-5 bg-sc-white/70 text-sm min-[400px]:text-base min-[480px]:text-lg lg:mb-7 lg:bg-sc-white/0 lg:text-2xl"
+          class="mb-5 bg-sc-white/70 pl-20 text-sm min-[400px]:text-base min-[480px]:text-lg lg:mb-7 lg:bg-sc-white/0 lg:text-2xl"
         >
           {{ $t("homepage.here_to_help") }}
         </p>
