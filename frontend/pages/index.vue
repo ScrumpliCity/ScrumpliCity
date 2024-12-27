@@ -23,7 +23,7 @@ onMounted(() => {
     />
   </div>
   <div
-    class="absolute top-10 w-screen bg-sc-white px-[4.4vw] min-[440px]:-top-[5vw] min-[480px]:-top-[12vw] min-[500px]:-top-[16vw] min-[530px]:-top-[20vw] min-[550px]:-top-[22vw] min-[578px]:-top-[25vw] min-[600px]:-top-[27vw] lg:top-16 lg:px-[61px]"
+    class="absolute top-10 w-screen bg-sc-white px-[4.4vw] min-[440px]:-top-[5vw] min-[480px]:-top-[12vw] min-[500px]:-top-[16vw] min-[530px]:-top-[20vw] min-[550px]:-top-[22vw] min-[578px]:-top-[25vw] min-[600px]:-top-[27vw] sm:top-10 lg:top-16 lg:px-[61px]"
   >
     <SvgHomepageMobileBackground
       class="h-full w-full min-[480px]:hidden"
@@ -36,7 +36,7 @@ onMounted(() => {
       filled
     />
     <SvgHomepageTabletBackground
-      class="top-5 hidden h-full w-full sm:block"
+      class="hidden h-full w-full sm:block"
       :fontControlled="false"
       filled
     />
@@ -62,11 +62,13 @@ onMounted(() => {
           <b>{{ $t("homepage.build_your_scrum_knowledge") }}</b>
         </p>
         <UButton
+          style="opacity: 100"
           class="hidden drop-shadow-sc-shadow hover:bg-orange-700 lg:block lg:px-10 lg:py-3 lg:text-2xl lg:font-bold"
           >{{ $t("homepage.get_started") }}</UButton
         >
         <UTooltip :text="$t('tooltip.not_available')">
           <UButton
+            style="opacity: 100"
             :disabled="true"
             class="drop-shadow-sc-shadow hover:bg-orange-700 xs:text-base lg:hidden"
             >{{ $t("homepage.scrum_guide") }}</UButton
@@ -74,19 +76,21 @@ onMounted(() => {
         >
       </div>
       <div
-        class="mt-14 flex min-h-[710px] w-screen flex-col items-center xs:mt-[25vw] min-[394px]:min-h-[705px] min-[400px]:min-h-[782px] min-[415px]:mt-[33vw] min-[455px]:mt-[40vw] min-[480px]:mt-[20vw] min-[480px]:min-h-[820px] min-[520px]:min-h-[872px] min-[570px]:mt-[33vw] lg:mt-80 lg:min-h-0"
+        class="mt-14 flex min-h-[710px] w-screen flex-col items-center xs:mt-[25vw] min-[394px]:min-h-[705px] min-[400px]:min-h-[782px] min-[415px]:mt-[33vw] min-[455px]:mt-[40vw] min-[480px]:mt-[20vw] min-[480px]:min-h-[820px] min-[520px]:min-h-[872px] min-[570px]:mt-[33vw] sm:mt-[10vw] sm:min-h-[730px] lg:mt-80 lg:min-h-0"
       >
         <h2
           class="mb-5 bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl lg:mb-16 lg:text-6xl"
         >
           {{ $t("homepage.build_your_scrum_knowledge") }}
         </h2>
-        <div class="flex flex-col gap-6 min-[490px]:gap-[6vw] md:flex-row">
+        <div
+          class="flex flex-col justify-center gap-6 min-[490px]:gap-[6vw] sm:mx-10 sm:flex-row sm:flex-wrap"
+        >
           <div
-            class="w-52 max-w-[275px] rounded-lg border-2 border-sc-black bg-sc-black-50 p-4 drop-shadow-sc-shadow min-[480px]:w-[55vw] lg:w-80"
+            class="w-52 max-w-[275px] rounded-lg border-2 border-sc-black bg-sc-black-50 p-4 drop-shadow-sc-shadow min-[480px]:w-[55vw] sm:w-[224px] lg:w-80"
           >
             <h3
-              class="font-heading text-xl min-[520px]:text-2xl lg:mb-3 lg:text-3xl"
+              class="font-heading text-xl min-[520px]:text-2xl sm:text-xl lg:mb-3 lg:text-3xl"
             >
               {{ $t("homepage.features.learn_scrum.title") }}
             </h3>
@@ -97,14 +101,14 @@ onMounted(() => {
             </p>
             <div class="flex justify-end">
               <SvgScrumProcessIllustration
-                class="h-16 min-[520px]:h-20 lg:h-28"
+                class="h-16 min-[520px]:h-20 sm:h-16 lg:h-28"
                 :fontControlled="false"
                 filled
               />
             </div>
           </div>
           <div
-            class="w-52 max-w-[275px] rounded-lg border-2 border-sc-black bg-sc-black-50 p-4 drop-shadow-sc-shadow min-[480px]:w-[55vw] lg:w-80"
+            class="w-52 max-w-[275px] rounded-lg border-2 border-sc-black bg-sc-black-50 p-4 drop-shadow-sc-shadow min-[480px]:w-[55vw] sm:w-[224px] lg:w-80"
           >
             <h3
               class="font-heading text-xl min-[520px]:text-2xl lg:mb-3 lg:text-3xl"
@@ -118,14 +122,14 @@ onMounted(() => {
             </p>
             <div class="flex justify-end">
               <SvgCraftingTemplateIllustration
-                class="h-16 min-[520px]:h-20 lg:h-28"
+                class="h-16 min-[520px]:h-20 sm:h-16 lg:h-28"
                 :fontControlled="false"
                 filled
               />
             </div>
           </div>
           <div
-            class="w-52 max-w-[275px] rounded-lg border-2 border-sc-black bg-sc-black-50 p-4 drop-shadow-sc-shadow min-[480px]:w-[55vw] lg:mb-6 lg:w-80"
+            class="w-52 max-w-[275px] rounded-lg border-2 border-sc-black bg-sc-black-50 p-4 drop-shadow-sc-shadow min-[480px]:w-[55vw] sm:w-[224px] lg:mb-6 lg:w-80"
           >
             <h3
               class="font-heading text-xl min-[520px]:text-2xl lg:mb-3 lg:text-3xl"
@@ -139,7 +143,7 @@ onMounted(() => {
             </p>
             <div class="flex justify-end">
               <SvgTeamworkIllustration
-                class="h-16 min-[520px]:h-20 lg:h-28"
+                class="h-16 min-[520px]:h-20 sm:h-16 lg:h-28"
                 :fontControlled="false"
                 filled
               />
@@ -149,7 +153,7 @@ onMounted(() => {
       </div>
       <div class="w-screen">
         <div
-          class="mx-[11vw] mt-[15vw] min-h-[370px] max-w-80 min-[377px]:mt-[30vw] min-[394px]:min-h-[420px] min-[400px]:mt-[24vw] min-[425px]:mt-[35vw] min-[440px]:mt-[25vw] min-[450px]:mt-[35vw] min-[470px]:mt-[45vw] min-[480px]:mt-[17vw] min-[480px]:min-h-[508px] min-[484px]:mt-[23vw] min-[504px]:mt-[30vw] min-[516px]:mt-[33vw] min-[540px]:mt-[40vw] min-[620px]:mt-[50vw] lg:ml-56 lg:mt-60 lg:max-w-[1100px]"
+          class="mx-[11vw] mt-[15vw] min-h-[370px] max-w-80 min-[377px]:mt-[30vw] min-[394px]:min-h-[420px] min-[400px]:mt-[24vw] min-[425px]:mt-[35vw] min-[440px]:mt-[25vw] min-[450px]:mt-[35vw] min-[470px]:mt-[45vw] min-[480px]:mt-[17vw] min-[480px]:min-h-[508px] min-[484px]:mt-[23vw] min-[504px]:mt-[30vw] min-[516px]:mt-[33vw] min-[540px]:mt-[40vw] min-[620px]:mt-[50vw] sm:mt-[0vw] sm:min-h-[308px] sm:max-w-none lg:ml-56 lg:mt-60 lg:max-w-[1100px]"
         >
           <h3
             class="mb-2 bg-sc-white/70 font-heading text-sm font-bold text-sc-black-700 min-[400px]:text-base min-[480px]:text-lg lg:text-2xl"
@@ -162,12 +166,13 @@ onMounted(() => {
             {{ $t("homepage.all_you_need_to_know") }}
           </h4>
           <p
-            class="mb-4 bg-sc-white/70 text-sm min-[394px]:text-base min-[480px]:text-lg lg:mb-6 lg:text-2xl"
+            class="mb-4 bg-sc-white/70 text-sm min-[394px]:text-base min-[480px]:text-lg sm:text-base lg:mb-6 lg:text-2xl"
             v-html="$t('homepage.scrum_guide_description')"
           ></p>
           <UTooltip :text="$t('tooltip.not_available')">
             <UButton
               :disabled="true"
+              style="opacity: 100"
               class="drop-shadow-sc-shadow hover:bg-orange-700 lg:px-10 lg:py-3 lg:text-2xl lg:font-bold"
               >{{ $t("homepage.scrum_guide") }}</UButton
             ></UTooltip
@@ -175,7 +180,7 @@ onMounted(() => {
         </div>
       </div>
       <div
-        class="mx-10 mb-16 mt-20 max-w-[475px] text-right xs:mb-[20vw] xs:mt-[23vw] min-[370px]:mt-[30vw] min-[400px]:mb-[25vw] min-[400px]:mt-[20vw] min-[410px]:mt-[27vw] min-[435px]:mt-[34vw] min-[470px]:mb-[45vw] min-[480px]:mb-[28vw] min-[480px]:mt-[13vw] min-[530px]:mt-[18vw] min-[600px]:mt-[30vw] lg:mx-0 lg:mb-64 lg:mt-72 lg:w-screen lg:pr-48"
+        class="mx-10 mb-16 mt-20 max-w-[475px] text-right xs:mb-[20vw] xs:mt-[23vw] min-[370px]:mt-[30vw] min-[400px]:mb-[25vw] min-[400px]:mt-[20vw] min-[410px]:mt-[27vw] min-[435px]:mt-[34vw] min-[470px]:mb-[45vw] min-[480px]:mb-[28vw] min-[480px]:mt-[13vw] min-[530px]:mt-[18vw] min-[600px]:mt-[30vw] sm:mb-[8vw] sm:mt-[8vw] lg:mx-0 lg:mb-64 lg:mt-72 lg:w-screen lg:pr-48"
       >
         <h5
           class="bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl lg:mb-7 lg:bg-none lg:text-6xl"
@@ -189,6 +194,7 @@ onMounted(() => {
         </p>
         <a href="mailto:lisa-marie.hoermann@scrumplicity.app">
           <UButton
+            style="opacity: 100"
             class="drop-shadow-sc-shadow hover:bg-orange-700 lg:px-10 lg:py-3 lg:text-2xl lg:font-bold"
           >
             {{ $t("homepage.contact_us") }}</UButton
