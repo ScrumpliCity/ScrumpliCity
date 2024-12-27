@@ -14,7 +14,8 @@ onMounted(() => {
   >
     <UNotification
       id="mobileDevice"
-      class="w-[90vw]"
+      class="w-[85vw]"
+      color="sc-yellow"
       icon="akar-icons:circle-alert"
       :title="$t('homepage.notification.title')"
       :description="$t('homepage.notification.description')"
@@ -49,7 +50,7 @@ onMounted(() => {
   <div class="relative flex flex-col">
     <HomeHeader />
     <div class="mt-28 flex flex-col items-center lg:mt-16">
-      <div class="m-10 h-56 min-[580px]:mr-32 lg:ml-28 lg:mt-32">
+      <div class="m-10 h-56 min-[580px]:mr-32 sm:ml-14 lg:ml-28 lg:mt-32">
         <SvgMainLogo
           class="w-[70vw] sm:w-[300px]"
           :fontControlled="false"
@@ -76,7 +77,7 @@ onMounted(() => {
         >
       </div>
       <div
-        class="mt-14 flex min-h-[710px] w-screen flex-col items-center xs:mt-[25vw] min-[394px]:min-h-[705px] min-[400px]:min-h-[782px] min-[415px]:mt-[33vw] min-[455px]:mt-[40vw] min-[480px]:mt-[20vw] min-[480px]:min-h-[820px] min-[520px]:min-h-[872px] min-[570px]:mt-[33vw] sm:mt-[10vw] sm:min-h-[730px] lg:mt-80 lg:min-h-0"
+        class="mt-14 flex min-h-[710px] w-screen flex-col items-center xs:mt-[25vw] min-[394px]:min-h-[705px] min-[400px]:min-h-[782px] min-[415px]:mt-[33vw] min-[455px]:mt-[40vw] min-[480px]:mt-[20vw] min-[480px]:min-h-[820px] min-[520px]:min-h-[872px] min-[570px]:mt-[33vw] sm:mt-[10vw] sm:min-h-[650px] lg:mt-80 lg:min-h-0"
       >
         <h2
           class="mb-5 bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl lg:mb-16 lg:text-6xl"
@@ -87,7 +88,7 @@ onMounted(() => {
           class="flex flex-col justify-center gap-6 min-[490px]:gap-[6vw] sm:mx-10 sm:flex-row sm:flex-wrap"
         >
           <div
-            class="w-52 max-w-[275px] rounded-lg border-2 border-sc-black bg-sc-black-50 p-4 drop-shadow-sc-shadow min-[480px]:w-[55vw] sm:w-[224px] lg:w-80"
+            class="w-52 max-w-[275px] rounded-lg border border-sc-black bg-sc-black-50 p-4 drop-shadow-sc-shadow min-[480px]:w-[55vw] sm:w-[224px] lg:w-80"
           >
             <h3
               class="font-heading text-xl min-[520px]:text-2xl sm:text-xl lg:mb-3 lg:text-3xl"
@@ -108,7 +109,7 @@ onMounted(() => {
             </div>
           </div>
           <div
-            class="w-52 max-w-[275px] rounded-lg border-2 border-sc-black bg-sc-black-50 p-4 drop-shadow-sc-shadow min-[480px]:w-[55vw] sm:w-[224px] lg:w-80"
+            class="w-52 max-w-[275px] rounded-lg border border-sc-black bg-sc-black-50 p-4 drop-shadow-sc-shadow min-[480px]:w-[55vw] sm:w-[224px] lg:w-80"
           >
             <h3
               class="font-heading text-xl min-[520px]:text-2xl lg:mb-3 lg:text-3xl"
@@ -129,7 +130,7 @@ onMounted(() => {
             </div>
           </div>
           <div
-            class="w-52 max-w-[275px] rounded-lg border-2 border-sc-black bg-sc-black-50 p-4 drop-shadow-sc-shadow min-[480px]:w-[55vw] sm:w-[224px] lg:mb-6 lg:w-80"
+            class="w-52 max-w-[275px] rounded-lg border border-sc-black bg-sc-black-50 p-4 drop-shadow-sc-shadow min-[480px]:w-[55vw] sm:w-[224px] lg:mb-6 lg:w-80"
           >
             <h3
               class="font-heading text-xl min-[520px]:text-2xl lg:mb-3 lg:text-3xl"
@@ -161,7 +162,7 @@ onMounted(() => {
             {{ $t("homepage.learning_materials") }}
           </h3>
           <h4
-            class="mb-6 bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl lg:text-6xl"
+            class="mb-6 bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl sm:mb-2 lg:text-6xl"
           >
             {{ $t("homepage.all_you_need_to_know") }}
           </h4>
@@ -180,7 +181,7 @@ onMounted(() => {
         </div>
       </div>
       <div
-        class="mx-10 mb-16 mt-20 max-w-[475px] text-right xs:mb-[20vw] xs:mt-[23vw] min-[370px]:mt-[30vw] min-[400px]:mb-[25vw] min-[400px]:mt-[20vw] min-[410px]:mt-[27vw] min-[435px]:mt-[34vw] min-[470px]:mb-[45vw] min-[480px]:mb-[28vw] min-[480px]:mt-[13vw] min-[530px]:mt-[18vw] min-[600px]:mt-[30vw] sm:mb-[8vw] sm:mt-[8vw] lg:mx-0 lg:mb-64 lg:mt-72 lg:w-screen lg:pr-48"
+        class="mx-10 mb-16 mt-20 max-w-[475px] text-right xs:mb-[20vw] xs:mt-[23vw] min-[370px]:mt-[30vw] min-[400px]:mb-[25vw] min-[400px]:mt-[20vw] min-[410px]:mt-[27vw] min-[435px]:mt-[34vw] min-[470px]:mb-[45vw] min-[480px]:mb-[28vw] min-[480px]:mt-[13vw] min-[530px]:mt-[18vw] min-[600px]:mt-[30vw] sm:mb-[9vw] sm:mt-[7vw] lg:mx-0 lg:mb-64 lg:mt-72 lg:w-screen lg:pr-48"
       >
         <h5
           class="bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl lg:mb-7 lg:bg-none lg:text-6xl"
