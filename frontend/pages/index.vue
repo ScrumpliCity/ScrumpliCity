@@ -24,7 +24,7 @@ onMounted(() => {
     />
   </div>
   <div
-    class="absolute top-10 w-screen bg-sc-white px-[4.4vw] min-[440px]:-top-[5vw] min-[480px]:-top-[12vw] min-[500px]:-top-[16vw] min-[530px]:-top-[20vw] min-[550px]:-top-[22vw] min-[578px]:-top-[25vw] min-[600px]:-top-[27vw] sm:top-10 min-[684px]:-top-[5vw] min-[720px]:-top-[8vw] lg:top-16 lg:px-[61px]"
+    class="absolute top-10 w-screen bg-sc-white px-[4.4vw] min-[440px]:-top-[5vw] min-[480px]:-top-[12vw] min-[500px]:-top-[16vw] min-[530px]:-top-[20vw] min-[550px]:-top-[22vw] min-[578px]:-top-[25vw] min-[600px]:-top-[27vw] sm:top-10 min-[684px]:-top-[5vw] min-[720px]:-top-[8vw] min-[760px]:-top-[11vw] min-[810px]:-top-[15vw] lg:top-16 lg:px-[61px]"
   >
     <SvgHomepageMobileBackground
       class="h-full w-full min-[480px]:hidden"
@@ -37,7 +37,12 @@ onMounted(() => {
       filled
     />
     <SvgHomepageTabletBackground
-      class="hidden h-full w-full sm:block"
+      class="hidden h-full w-full sm:block md:hidden"
+      :fontControlled="false"
+      filled
+    />
+    <SvgHomepageTabletBackgroundShorter
+      class="hidden h-full w-full md:block lg:hidden"
       :fontControlled="false"
       filled
     />
@@ -154,7 +159,7 @@ onMounted(() => {
       </div>
       <div class="w-screen">
         <div
-          class="mx-[11vw] mt-[15vw] min-h-[370px] max-w-80 min-[377px]:mt-[30vw] min-[394px]:min-h-[420px] min-[400px]:mt-[24vw] min-[425px]:mt-[35vw] min-[440px]:mt-[25vw] min-[450px]:mt-[35vw] min-[470px]:mt-[45vw] min-[480px]:mt-[17vw] min-[480px]:min-h-[508px] min-[484px]:mt-[23vw] min-[504px]:mt-[30vw] min-[516px]:mt-[33vw] min-[540px]:mt-[40vw] min-[620px]:mt-[50vw] sm:mt-[0vw] sm:min-h-[308px] sm:max-w-none min-[650px]:mt-[3vw] min-[675px]:mt-[6vw] min-[695px]:mt-[10vw] lg:ml-56 lg:mt-60 lg:max-w-[1100px]"
+          class="mx-[11vw] mt-[15vw] min-h-[370px] max-w-80 min-[377px]:mt-[30vw] min-[394px]:min-h-[420px] min-[400px]:mt-[24vw] min-[425px]:mt-[35vw] min-[440px]:mt-[25vw] min-[450px]:mt-[35vw] min-[470px]:mt-[45vw] min-[480px]:mt-[17vw] min-[480px]:min-h-[508px] min-[484px]:mt-[23vw] min-[504px]:mt-[30vw] min-[516px]:mt-[33vw] min-[540px]:mt-[40vw] min-[620px]:mt-[50vw] sm:mt-[0vw] sm:min-h-[308px] sm:max-w-none min-[650px]:mt-[3vw] min-[675px]:mt-[6vw] min-[695px]:mt-[10vw] min-[730px]:mt-[12vw] min-[740px]:mt-[17vw] md:mt-[5vw] min-[790px]:mt-[10vw] lg:ml-56 lg:mt-60 lg:max-w-[1100px]"
         >
           <h3
             class="mb-2 bg-sc-white/70 font-heading text-sm font-bold text-sc-black-700 min-[400px]:text-base min-[480px]:text-lg lg:text-2xl"
@@ -180,27 +185,29 @@ onMounted(() => {
           >
         </div>
       </div>
-      <div
-        class="mx-10 mb-16 mt-20 max-w-[475px] text-right xs:mb-[20vw] xs:mt-[23vw] min-[370px]:mt-[30vw] min-[400px]:mb-[25vw] min-[400px]:mt-[20vw] min-[410px]:mt-[27vw] min-[435px]:mt-[34vw] min-[470px]:mb-[45vw] min-[480px]:mb-[28vw] min-[480px]:mt-[13vw] min-[530px]:mt-[18vw] min-[600px]:mt-[30vw] sm:mb-[9vw] sm:mt-[7vw] min-[720px]:mt-[12vw] lg:mx-0 lg:mb-64 lg:mt-72 lg:w-screen lg:pr-48"
-      >
-        <h5
-          class="bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl lg:mb-7 lg:bg-none lg:text-6xl"
+      <div class="flex w-screen flex-col items-end sm:px-5">
+        <div
+          class="mx-10 mb-16 mt-20 max-w-[475px] text-right xs:mb-[20vw] xs:mt-[23vw] min-[370px]:mt-[30vw] min-[400px]:mb-[25vw] min-[400px]:mt-[20vw] min-[410px]:mt-[27vw] min-[435px]:mt-[34vw] min-[470px]:mb-[45vw] min-[480px]:mb-[28vw] min-[480px]:mt-[13vw] min-[530px]:mt-[18vw] min-[600px]:mt-[30vw] sm:mb-[9vw] sm:mt-[7vw] min-[720px]:mt-[12vw] md:mt-[10vw] min-[830px]:mb-[12vw] min-[830px]:mt-[15vw] lg:mx-0 lg:mb-64 lg:mt-72 lg:w-screen lg:pr-48"
         >
-          {{ $t("homepage.questions") }}
-        </h5>
-        <p
-          class="mb-5 bg-sc-white/70 pl-20 text-sm min-[400px]:text-base min-[480px]:text-lg lg:mb-7 lg:bg-sc-white/0 lg:text-2xl"
-        >
-          {{ $t("homepage.here_to_help") }}
-        </p>
-        <a href="mailto:lisa-marie.hoermann@scrumplicity.app">
-          <UButton
-            style="opacity: 100"
-            class="drop-shadow-sc-shadow hover:bg-orange-700 lg:px-10 lg:py-3 lg:text-2xl lg:font-bold"
+          <h5
+            class="bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl lg:mb-7 lg:bg-none lg:text-6xl"
           >
-            {{ $t("homepage.contact_us") }}</UButton
-          ></a
-        >
+            {{ $t("homepage.questions") }}
+          </h5>
+          <p
+            class="mb-5 bg-sc-white/70 pl-20 text-sm min-[400px]:text-base min-[480px]:text-lg lg:mb-7 lg:bg-sc-white/0 lg:text-2xl"
+          >
+            {{ $t("homepage.here_to_help") }}
+          </p>
+          <a href="mailto:lisa-marie.hoermann@scrumplicity.app">
+            <UButton
+              style="opacity: 100"
+              class="drop-shadow-sc-shadow hover:bg-orange-700 lg:px-10 lg:py-3 lg:text-2xl lg:font-bold"
+            >
+              {{ $t("homepage.contact_us") }}</UButton
+            ></a
+          >
+        </div>
       </div>
     </div>
     <HomeFooter />
