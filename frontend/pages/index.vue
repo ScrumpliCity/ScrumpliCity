@@ -23,10 +23,15 @@ onMounted(() => {
     />
   </div>
   <div
-    class="absolute top-10 w-screen bg-sc-white px-[4.4vw] lg:top-16 lg:px-[61px]"
+    class="absolute top-10 w-screen bg-sc-white px-[4.4vw] min-[440px]:-top-[5vw] min-[480px]:-top-[12vw] min-[500px]:-top-[16vw] min-[530px]:-top-[20vw] min-[550px]:-top-[22vw] lg:top-16 lg:px-[61px]"
   >
     <SvgHomepageMobileBackground
-      class="h-full w-full sm:hidden"
+      class="h-full w-full min-[480px]:hidden"
+      :fontControlled="false"
+      filled
+    />
+    <SvgHomepageMobileBackgroundShorter
+      class="hidden h-full w-full min-[480px]:block"
       :fontControlled="false"
       filled
     />
@@ -51,7 +56,7 @@ onMounted(() => {
           filled
         />
         <p
-          class="my-3 max-w-[835px] bg-sc-white/70 text-left text-sm xs:text-base lg:text-2xl"
+          class="my-3 max-w-[835px] bg-sc-white/70 text-left text-sm xs:text-base min-[460px]:text-lg lg:text-2xl"
         >
           <span v-html="$t('homepage.project_description')"></span>
           <b>{{ $t("homepage.build_your_scrum_knowledge") }}</b>
@@ -69,60 +74,72 @@ onMounted(() => {
         >
       </div>
       <div
-        class="mt-14 flex min-h-[700px] w-screen flex-col items-center xs:mt-[25vw] min-[415px]:mt-[33vw] min-[455px]:mt-[40vw] min-[480px]:mt-[45vw] lg:mt-80 lg:min-h-0"
+        class="mt-14 flex min-h-[700px] w-screen flex-col items-center xs:mt-[25vw] min-[415px]:mt-[33vw] min-[455px]:mt-[40vw] min-[480px]:mt-[25vw] lg:mt-80 lg:min-h-0"
       >
         <h2
-          class="mb-5 bg-sc-white/70 font-heading text-xl font-bold text-sc-orange lg:mb-16 lg:text-6xl"
+          class="mb-5 bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl lg:mb-16 lg:text-6xl"
         >
           {{ $t("homepage.build_your_scrum_knowledge") }}
         </h2>
-        <div class="md:flex md:flex-row md:gap-16">
+        <div class="flex flex-col gap-6 min-[490px]:gap-[6vw] md:flex-row">
           <div
-            class="mb-6 w-52 rounded-lg border-2 border-sc-black bg-sc-black-50 p-4 drop-shadow-sc-shadow lg:w-80"
+            class="w-52 max-w-[275px] rounded-lg border-2 border-sc-black bg-sc-black-50 p-4 drop-shadow-sc-shadow min-[480px]:w-[55vw] lg:w-80"
           >
-            <h3 class="font-heading text-xl lg:mb-3 lg:text-3xl">
+            <h3
+              class="font-heading text-xl min-[520px]:text-2xl lg:mb-3 lg:text-3xl"
+            >
               {{ $t("homepage.features.learn_scrum.title") }}
             </h3>
-            <p class="text-xs min-[400px]:text-sm lg:text-xl">
+            <p
+              class="text-xs min-[400px]:text-sm min-[480px]:text-base lg:text-xl"
+            >
               {{ $t("homepage.features.learn_scrum.description") }}
             </p>
             <div class="flex justify-end">
               <SvgScrumProcessIllustration
-                class="h-16 lg:h-28"
+                class="h-16 min-[520px]:h-20 lg:h-28"
                 :fontControlled="false"
                 filled
               />
             </div>
           </div>
           <div
-            class="mb-6 w-52 rounded-lg border-2 border-sc-black bg-sc-black-50 p-4 drop-shadow-sc-shadow lg:w-80"
+            class="w-52 max-w-[275px] rounded-lg border-2 border-sc-black bg-sc-black-50 p-4 drop-shadow-sc-shadow min-[480px]:w-[55vw] lg:w-80"
           >
-            <h3 class="font-heading text-xl lg:mb-3 lg:text-3xl">
+            <h3
+              class="font-heading text-xl min-[520px]:text-2xl lg:mb-3 lg:text-3xl"
+            >
               {{ $t("homepage.features.craft_your_city.title") }}
             </h3>
-            <p class="mb-1 text-xs min-[400px]:text-sm lg:mb-6 lg:text-xl">
+            <p
+              class="mb-1 text-xs min-[400px]:text-sm min-[480px]:text-base lg:mb-6 lg:text-xl"
+            >
               {{ $t("homepage.features.craft_your_city.description") }}
             </p>
             <div class="flex justify-end">
               <SvgCraftingTemplateIllustration
-                class="h-16 lg:h-28"
+                class="h-16 min-[520px]:h-20 lg:h-28"
                 :fontControlled="false"
                 filled
               />
             </div>
           </div>
           <div
-            class="w-52 rounded-lg border-2 border-sc-black bg-sc-black-50 p-4 drop-shadow-sc-shadow lg:mb-6 lg:w-80"
+            class="w-52 max-w-[275px] rounded-lg border-2 border-sc-black bg-sc-black-50 p-4 drop-shadow-sc-shadow min-[480px]:w-[55vw] lg:mb-6 lg:w-80"
           >
-            <h3 class="font-heading text-xl lg:mb-3 lg:text-3xl">
+            <h3
+              class="font-heading text-xl min-[520px]:text-2xl lg:mb-3 lg:text-3xl"
+            >
               {{ $t("homepage.features.solidify_teamwork.title") }}
             </h3>
-            <p class="text-xs min-[400px]:text-sm lg:text-xl">
+            <p
+              class="text-xs min-[400px]:text-sm min-[480px]:text-base lg:text-xl"
+            >
               {{ $t("homepage.features.solidify_teamwork.description") }}
             </p>
             <div class="flex justify-end">
               <SvgTeamworkIllustration
-                class="h-16 lg:h-28"
+                class="h-16 min-[520px]:h-20 lg:h-28"
                 :fontControlled="false"
                 filled
               />
@@ -131,20 +148,20 @@ onMounted(() => {
         </div>
       </div>
       <div
-        class="mx-[11vw] mt-[15vw] min-h-[370px] max-w-80 min-[380px]:mt-[30vw] min-[400px]:mt-[25vw] min-[425px]:mt-[35vw] min-[444px]:mt-[45vw] min-[470px]:mt-[55vw] lg:ml-56 lg:mt-60 lg:max-w-[1100px]"
+        class="mx-[11vw] mt-[15vw] min-h-[370px] max-w-80 min-[377px]:mt-[30vw] min-[400px]:mt-[25vw] min-[425px]:mt-[35vw] min-[440px]:mt-[25vw] min-[450px]:mt-[35vw] min-[470px]:mt-[45vw] min-[480px]:mt-[25vw] min-[500px]:mt-[35vw] min-[520px]:mt-[25vw] min-[540px]:mt-[35vw] lg:ml-56 lg:mt-60 lg:max-w-[1100px]"
       >
         <h3
-          class="mb-2 bg-sc-white/70 font-heading text-sm font-bold text-sc-black-700 min-[400px]:text-base lg:text-2xl"
+          class="mb-2 bg-sc-white/70 font-heading text-sm font-bold text-sc-black-700 min-[400px]:text-base min-[480px]:text-lg lg:text-2xl"
         >
           {{ $t("homepage.learning_materials") }}
         </h3>
         <h4
-          class="mb-6 bg-sc-white/70 font-heading text-xl font-bold text-sc-orange lg:text-6xl"
+          class="mb-6 bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl lg:text-6xl"
         >
           {{ $t("homepage.all_you_need_to_know") }}
         </h4>
         <p
-          class="mb-4 bg-sc-white/70 text-sm min-[394px]:text-base lg:mb-6 lg:text-2xl"
+          class="mb-4 bg-sc-white/70 text-sm min-[394px]:text-base min-[480px]:text-lg lg:mb-6 lg:text-2xl"
           v-html="$t('homepage.scrum_guide_description')"
         ></p>
         <UTooltip :text="$t('tooltip.not_available')">
@@ -156,15 +173,15 @@ onMounted(() => {
         >
       </div>
       <div
-        class="mx-10 mb-16 mt-20 text-right xs:mb-[15vw] xs:mt-[23vw] min-[370px]:mt-[35vw] min-[400px]:mb-[20vw] min-[400px]:mt-[20vw] min-[410px]:mt-[27vw] min-[435px]:mt-[34vw] min-[440px]:mb-[30vw] lg:mx-0 lg:mb-64 lg:mt-72 lg:w-screen lg:pr-48"
+        class="mx-10 mb-16 mt-20 text-right xs:mb-[20vw] xs:mt-[23vw] min-[370px]:mt-[30vw] min-[400px]:mb-[25vw] min-[400px]:mt-[20vw] min-[410px]:mt-[27vw] min-[435px]:mt-[34vw] min-[470px]:mb-[45vw] min-[480px]:mb-[25vw] min-[480px]:mt-[20vw] min-[510px]:mt-[30vw] lg:mx-0 lg:mb-64 lg:mt-72 lg:w-screen lg:pr-48"
       >
         <h5
-          class="bg-sc-white/70 font-heading text-xl font-bold text-sc-orange lg:mb-7 lg:bg-none lg:text-6xl"
+          class="bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl lg:mb-7 lg:bg-none lg:text-6xl"
         >
           {{ $t("homepage.questions") }}
         </h5>
         <p
-          class="mb-5 bg-sc-white/70 text-sm min-[400px]:text-base lg:mb-7 lg:bg-sc-white/0 lg:text-2xl"
+          class="mb-5 bg-sc-white/70 text-sm min-[400px]:text-base min-[480px]:text-lg lg:mb-7 lg:bg-sc-white/0 lg:text-2xl"
         >
           {{ $t("homepage.here_to_help") }}
         </p>
