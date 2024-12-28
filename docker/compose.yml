@@ -60,6 +60,7 @@ services:
       - REVERB_APP_SECRET=${REVERB_APP_SECRET}
     depends_on:
       - db
+      - websocket
 
   websocket:
     image: ghcr.io/scrumplicity/backend
@@ -74,6 +75,8 @@ services:
       - DB_PASSWORD=${MYSQL_PASSWORD}
       - CACHE_STORE=file
       - QUEUE_CONNECTION=sync
+    depends_on:
+      - db
 
   db:
     image: mariadb:11@sha256:4a1de8fa2a929944373d7421105500ff6f889ce90dcb883fbb2fdb070e4d427e
