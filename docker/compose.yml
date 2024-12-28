@@ -75,6 +75,9 @@ services:
       - DB_PASSWORD=${MYSQL_PASSWORD}
       - CACHE_STORE=file
       - QUEUE_CONNECTION=sync
+      - REVERB_APP_ID=${REVERB_APP_ID}
+      - REVERB_APP_KEY=${REVERB_APP_KEY}
+      - REVERB_APP_SECRET=${REVERB_APP_SECRET}
     depends_on:
       - db
 
