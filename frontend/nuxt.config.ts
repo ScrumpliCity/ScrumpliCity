@@ -50,6 +50,10 @@ export default defineNuxtConfig({
         de: "/impressum",
         en: "/legal-notice",
       },
+      role: {
+        de: "/rolle",
+        en: "/role",
+      },
       // define more pages here
     },
   },
