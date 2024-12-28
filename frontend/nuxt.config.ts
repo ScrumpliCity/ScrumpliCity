@@ -75,11 +75,11 @@ export default defineNuxtConfig({
     preference: "light", // without this, Nuxt UI uses its dark mode
   },
   echo: {
-    host: process.env.REVERB_HOST ?? "localhost", // to be changed
-    port: Number(process.env.REVERB_PORT ?? 8888), // to be changed
+    host: process.env.REVERB_HOST ?? "localhost",
+    port: Number(process.env.REVERB_PORT ?? 8888),
     scheme:
       (process.env.REVERB_SCHEME as "http" | "https" | undefined) ?? "http",
-    key: process.env.REVERB_APP_KEY,
+    key: "_", // overriden by runtimeConfig
     authentication: {
       mode: "cookie",
       baseUrl:
@@ -96,6 +96,13 @@ export default defineNuxtConfig({
     // see https://manchenkoff.gitbook.io/nuxt-laravel-echo/getting-started/installation
     optimizeDeps: {
       include: ["pusher-js"],
+    },
+  },
+  runtimeConfig: {
+    public: {
+      echo: {
+        // echo key set by NUXT_PUBLIC_ECHO_KEY env variable
+      },
     },
   },
 });
