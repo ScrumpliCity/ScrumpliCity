@@ -92,4 +92,10 @@ export default defineNuxtConfig({
     logLevel: 3,
     properties: undefined,
   },
+  vite: {
+    // see https://manchenkoff.gitbook.io/nuxt-laravel-echo/getting-started/installation
+    optimizeDeps: {
+      include: ["pusher-js"],
+    },
+  },
 });

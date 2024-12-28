@@ -24,6 +24,33 @@ export const useGameStore = defineStore("game", () => {
 
   const client = useSanctumClient();
 
+  const echo = useEcho();
+
+  watch(team, (newValue, oldValue, onCleanup) => {
+    if (!echo) return; // echo is undefined during SSR
+
+    const oldChannel =
+      oldValue?.id == undefined ? undefined : `team.${oldValue.id}`;
+    const newChannel =
+      newValue?.id == undefined ? undefined : `team.${newValue.id}`;
+
+    console.log(echo);
+
+    if (newChannel) {
+      console.log("subscribing to " + newChannel);
+      echo
+        .channel(newChannel)
+        .listen(".TeamUpdated", (e: object) => console.log(e))
+        .error((e: object) => {
+          console.error("Public channel error", e);
+        });
+    }
+
+    onCleanup(() => {
+      if (oldChannel) echo.leaveChannel(oldChannel);
+    });
+  });
+
   async function joinRoom(code: string) {
     const data: Team = await client(`/api/team/join`, {
       body: {
