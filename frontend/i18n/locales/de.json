@@ -98,6 +98,12 @@
       }
     }
   },
+  "role": {
+    "title": "Was ist deine Rolle?",
+    "description": "Wähle deine Rolle aus, damit ScrumpliCity auf dich zugeschnitten werden kann!",
+    "learner": "Ich bin Lernende*r",
+    "tutor": "Ich bin Tutor*in"
+  },
   "login": {
     "get_started_with_scrumplicity": "Leg' los bei ScrumpliCity",
     "get_started_with": "Leg' los mit",
