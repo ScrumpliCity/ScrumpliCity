@@ -57,7 +57,7 @@
           filled
         />
         <p
-          class="my-3 max-w-[835px] bg-sc-white/70 text-left text-sm xs:text-base min-[460px]:text-lg lg:max-w-[60vw] min-[1190px]:text-xl min-[1330px]:text-2xl"
+          class="my-3 max-w-[835px] bg-sc-white/70 text-left text-sm xs:text-base min-[460px]:text-lg lg:max-w-[60vw] min-[1190px]:text-xl min-[1330px]:text-2xl min-[1700px]:text-3xl"
         >
           <span v-html="$t('homepage.project_description')"></span>
           <b>{{ $t("homepage.build_your_scrum_knowledge") }}</b>
@@ -78,10 +78,10 @@
         >
       </div>
       <div
-        class="mt-14 flex min-h-[710px] w-screen flex-col items-center xs:mt-[25vw] min-[394px]:min-h-[705px] min-[400px]:min-h-[782px] min-[415px]:mt-[33vw] min-[455px]:mt-[40vw] min-[480px]:mt-[20vw] min-[480px]:min-h-[820px] min-[520px]:min-h-[872px] min-[570px]:mt-[33vw] sm:mt-[10vw] sm:min-h-[650px] min-[660px]:mt-[15vw] min-[684px]:mt-[10vw] min-[720px]:mt-[5vw] min-[855px]:min-h-[350px] lg:mt-[15vw] xl:mt-[12vw] min-[1400px]:mt-[15vw]"
+        class="mt-14 flex min-h-[710px] w-screen flex-col items-center xs:mt-[25vw] min-[394px]:min-h-[705px] min-[400px]:min-h-[782px] min-[415px]:mt-[33vw] min-[455px]:mt-[40vw] min-[480px]:mt-[20vw] min-[480px]:min-h-[820px] min-[520px]:min-h-[872px] min-[570px]:mt-[33vw] sm:mt-[10vw] sm:min-h-[650px] min-[660px]:mt-[15vw] min-[684px]:mt-[10vw] min-[720px]:mt-[5vw] min-[855px]:min-h-[350px] lg:mt-[15vw] xl:mt-[12vw] min-[1400px]:mt-[15vw] min-[1400px]:min-h-[430px] min-[1600px]:mt-[20vw]"
       >
         <h2
-          class="mb-5 bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl min-[720px]:mb-8 min-[720px]:text-3xl lg:text-4xl xl:mb-14 xl:text-5xl"
+          class="mb-5 bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl min-[720px]:mb-8 min-[720px]:text-3xl lg:text-4xl xl:mb-14 xl:text-5xl min-[1700px]:text-6xl"
         >
           {{ $t("homepage.build_your_scrum_knowledge") }}
         </h2>
@@ -155,20 +155,20 @@
       </div>
       <div class="w-screen">
         <div
-          class="mx-[11vw] mt-[15vw] min-h-[370px] max-w-80 min-[377px]:mt-[30vw] min-[394px]:min-h-[420px] min-[400px]:mt-[24vw] min-[425px]:mt-[35vw] min-[440px]:mt-[25vw] min-[450px]:mt-[35vw] min-[470px]:mt-[45vw] min-[480px]:mt-[17vw] min-[480px]:min-h-[508px] min-[484px]:mt-[23vw] min-[504px]:mt-[30vw] min-[516px]:mt-[33vw] min-[540px]:mt-[40vw] min-[620px]:mt-[50vw] sm:mt-[0vw] sm:min-h-[308px] sm:max-w-none min-[650px]:mt-[3vw] min-[675px]:mt-[6vw] min-[695px]:mt-[10vw] min-[730px]:mt-[12vw] min-[740px]:mt-[17vw] md:mt-[5vw] min-[790px]:mt-[10vw] min-[844px]:mt-[15vw] min-[855px]:mt-[2vw] min-[870px]:mt-[6vw] min-[970px]:mt-[12vw] lg:mt-[8vw] min-[1060px]:mt-[11vw] min-[1190px]:mt-[15vw] xl:mt-[13vw] min-[1400px]:mt-[15vw] min-[1480px]:mt-[20vw]"
+          class="mx-[11vw] mt-[15vw] min-h-[370px] max-w-80 min-[377px]:mt-[30vw] min-[394px]:min-h-[420px] min-[400px]:mt-[24vw] min-[425px]:mt-[35vw] min-[440px]:mt-[25vw] min-[450px]:mt-[35vw] min-[470px]:mt-[45vw] min-[480px]:mt-[17vw] min-[480px]:min-h-[508px] min-[484px]:mt-[23vw] min-[504px]:mt-[30vw] min-[516px]:mt-[33vw] min-[540px]:mt-[40vw] min-[620px]:mt-[50vw] sm:mt-[0vw] sm:min-h-[308px] sm:max-w-none min-[650px]:mt-[3vw] min-[675px]:mt-[6vw] min-[695px]:mt-[10vw] min-[730px]:mt-[12vw] min-[740px]:mt-[17vw] md:mt-[5vw] min-[790px]:mt-[10vw] min-[844px]:mt-[15vw] min-[855px]:mt-[2vw] min-[870px]:mt-[6vw] min-[970px]:mt-[12vw] lg:mt-[8vw] min-[1060px]:mt-[11vw] min-[1190px]:mt-[15vw] xl:mt-[13vw] xl:max-w-[1170px] min-[1360px]:min-h-[335px] min-[1400px]:mt-[12vw] min-[1400px]:min-h-[375px] min-[1430px]:mt-[16vw] min-[1480px]:mt-[20vw] min-[1800px]:mt-[25vw]"
         >
           <h3
-            class="mb-2 bg-sc-white/70 font-heading text-sm font-bold text-sc-black-700 min-[400px]:text-base min-[480px]:text-lg lg:text-xl xl:text-2xl"
+            class="mb-2 bg-sc-white/70 font-heading text-sm font-bold text-sc-black-700 min-[400px]:text-base min-[480px]:text-lg lg:text-xl xl:text-3xl"
           >
             {{ $t("homepage.learning_materials") }}
           </h3>
           <h4
-            class="mb-6 bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl sm:mb-2 lg:text-4xl xl:text-5xl"
+            class="mb-6 bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl sm:mb-2 lg:text-4xl xl:text-6xl"
           >
             {{ $t("homepage.all_you_need_to_know") }}
           </h4>
           <p
-            class="mb-4 bg-sc-white/70 text-sm min-[394px]:text-base min-[480px]:text-lg sm:text-base min-[720px]:text-lg lg:text-xl xl:text-2xl"
+            class="mb-4 bg-sc-white/70 text-sm min-[394px]:text-base min-[480px]:text-lg sm:text-base min-[720px]:text-lg lg:text-xl xl:text-2xl min-[1400px]:leading-10"
             v-html="$t('homepage.scrum_guide_description')"
           ></p>
           <UTooltip :text="$t('tooltip.not_available')">
@@ -183,10 +183,10 @@
       </div>
       <div class="flex w-screen flex-col items-end sm:px-[5vw]">
         <div
-          class="mx-10 mb-16 mt-20 max-w-[475px] text-right xs:mb-[20vw] xs:mt-[23vw] min-[370px]:mt-[30vw] min-[400px]:mb-[25vw] min-[400px]:mt-[20vw] min-[410px]:mt-[27vw] min-[435px]:mt-[34vw] min-[470px]:mb-[45vw] min-[480px]:mb-[28vw] min-[480px]:mt-[13vw] min-[530px]:mt-[18vw] min-[600px]:mt-[30vw] sm:mb-[9vw] sm:mt-[7vw] min-[720px]:mt-[12vw] md:mt-[10vw] min-[830px]:mb-[12vw] min-[830px]:mt-[15vw] min-[855px]:mt-[12vw] lg:mb-[15vw] min-[1100px]:mt-[15vw] min-[1244px]:mt-[20vw] xl:mt-[15vw] xl:max-w-none min-[1330px]:mt-[20vw]"
+          class="mx-10 mb-16 mt-20 max-w-[475px] text-right xs:mb-[20vw] xs:mt-[23vw] min-[370px]:mt-[30vw] min-[400px]:mb-[25vw] min-[400px]:mt-[20vw] min-[410px]:mt-[27vw] min-[435px]:mt-[34vw] min-[470px]:mb-[45vw] min-[480px]:mb-[28vw] min-[480px]:mt-[13vw] min-[530px]:mt-[18vw] min-[600px]:mt-[30vw] sm:mb-[9vw] sm:mt-[7vw] min-[720px]:mt-[12vw] md:mt-[10vw] min-[830px]:mb-[12vw] min-[830px]:mt-[15vw] min-[855px]:mt-[12vw] lg:mb-[15vw] min-[1100px]:mt-[15vw] min-[1244px]:mt-[20vw] xl:mt-[15vw] xl:max-w-none min-[1560px]:mb-[20vw] min-[1870px]:mt-[20vw]"
         >
           <h5
-            class="bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl lg:text-3xl xl:mb-7 xl:text-6xl"
+            class="bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl lg:text-4xl xl:mb-7 xl:text-6xl"
           >
             {{ $t("homepage.questions") }}
           </h5>
