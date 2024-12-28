@@ -71,8 +71,9 @@ const mobileMenuOpen = ref(false);
     class="fixed z-30 flex h-10 w-screen bg-sc-white p-3 drop-shadow-sc-shadow lg:h-16"
   >
     <div class="ml-3 flex flex-grow items-center justify-between">
-      <SvgMainLogo class="h-full w-auto" :fontControlled="false" filled />
-
+      <NuxtLinkLocale to="/">
+        <SvgMainLogo class="h-10 w-auto" :fontControlled="false" filled />
+      </NuxtLinkLocale>
       <UButton @click="mobileMenuOpen = !mobileMenuOpen" variant="ghost">
         <template #leading>
           <UIcon
