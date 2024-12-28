@@ -1,12 +1,12 @@
 <template>
   <footer
-    class="flex w-screen flex-wrap px-6 min-[470px]:justify-center lg:gap-[248px]"
+    class="flex w-screen flex-wrap px-6 min-[470px]:justify-center xl:gap-[248px]"
   >
     <div class="mx-4 mb-5 bg-sc-white/70">
-      <h4 class="text-sm font-bold lg:text-2xl">
+      <h4 class="text-sm font-bold xl:text-2xl">
         {{ $t("legal_notice.brand_name") }}
       </h4>
-      <p class="text-xs leading-6 lg:text-base">
+      <p class="text-xs leading-6 xl:text-base">
         {{ $t("homepage.scrum_guide") }}
         <br />
         <NuxtLink
@@ -20,16 +20,16 @@
       </p>
     </div>
     <div class="mx-4 mb-5 bg-sc-white/70">
-      <h4 class="text-sm font-bold lg:text-2xl">
+      <h4 class="text-sm font-bold xl:text-2xl">
         {{ $t("legal_notice.legal_matters") }}
       </h4>
-      <p class="text-xs lg:text-base">{{ $t("legal_notice.title") }}</p>
+      <p class="text-xs xl:text-base">{{ $t("legal_notice.title") }}</p>
     </div>
     <div class="mx-4 bg-sc-white/70">
-      <h4 class="text-sm font-bold lg:text-2xl">
+      <h4 class="text-sm font-bold xl:text-2xl">
         {{ $t("socials.social_media") }}
       </h4>
-      <p class="text-xs leading-6 lg:text-base">
+      <p class="text-xs leading-6 xl:text-base">
         <NuxtLink
           to="https://www.instagram.com/scrumplicity.app"
           target="_blank"
