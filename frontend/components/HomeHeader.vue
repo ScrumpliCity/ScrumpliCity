@@ -72,6 +72,7 @@ const mobileMenuOpen = ref(false);
   >
     <div class="ml-3 flex flex-grow items-center justify-between">
       <SvgMainLogo class="h-full w-auto" :fontControlled="false" filled />
+
       <UButton @click="mobileMenuOpen = !mobileMenuOpen" variant="ghost">
         <template #leading>
           <UIcon
