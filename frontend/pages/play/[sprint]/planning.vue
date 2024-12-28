@@ -248,7 +248,7 @@ const selected = ref("");
     </div>
     <Timer
       :total-seconds="120"
-      class="absolute right-2 top-0 z-0 h-52 lg:h-60 xl:right-24 xl:h-max"
+      class="absolute right-2 top-0 z-0 h-52 w-auto lg:h-60 xl:right-24 xl:h-[clamp(13rem,calc(100vh-35rem),20rem)]"
       :remainingSeconds
     ></Timer>
     <SvgMeetingScreenTrees
