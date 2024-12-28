@@ -66,6 +66,14 @@ services:
     build: ../backend
     restart: unless-stopped
     command: php artisan reverb:start --port=8888
+    environment:
+      - DB_CONNECTION=mysql
+      - DB_HOST=db
+      - DB_DATABASE=${MYSQL_DATABASE}
+      - DB_USERNAME=${MYSQL_USER}
+      - DB_PASSWORD=${MYSQL_PASSWORD}
+      - CACHE_STORE=file
+      - QUEUE_CONNECTION=sync
 
   db:
     image: mariadb:11@sha256:4a1de8fa2a929944373d7421105500ff6f889ce90dcb883fbb2fdb070e4d427e
