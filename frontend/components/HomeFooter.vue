@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+const localeRoute = useLocaleRoute();
+</script>
+
 <template>
   <footer>
     <div
@@ -45,7 +49,11 @@
         <h4 class="text-sm font-bold xl:text-2xl">
           {{ $t("legal_notice.legal_matters") }}
         </h4>
-        <p class="text-xs xl:text-base">{{ $t("legal_notice.title") }}</p>
+        <NuxtLink
+          :to="localeRoute('legal_notice')"
+          class="text-xs xl:text-base"
+          >{{ $t("legal_notice.title") }}</NuxtLink
+        >
       </div>
     </div>
     <div
