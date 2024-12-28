@@ -42,11 +42,14 @@ onUnmounted(() => {
 const selected = ref("");
 </script>
 <template>
-  <div class="relative h-full">
-    <div class="relative z-10 flex h-full gap-12 pb-16 pl-[4.5rem] pr-12 pt-10">
-      <div class="flex flex-[7] flex-col gap-1.5">
-        <h1 class="relative flex h-14 gap-3 self-start">
-          <span class="font-heading text-5xl font-bold text-sc-orange"
+  <div class="relative h-full overflow-clip">
+    <div
+      class="relative z-10 flex h-full gap-6 pb-8 pl-9 pr-6 pt-5 xl:gap-12 xl:pb-16 xl:pl-[4.5rem] xl:pr-12 xl:pt-10"
+    >
+      <div class="flex w-0 flex-[7] flex-col gap-1.5">
+        <h1 class="relative flex h-14 gap-3">
+          <span
+            class="font-heading text-4xl font-bold text-sc-orange xl:text-5xl"
             >{{ $t("planning.sprint_planning") }} –
             <span
               tabindex="0"
@@ -66,7 +69,7 @@ const selected = ref("");
             @keydown.enter="editingSprintName = false"
             @blur="editingSprintName = false"
             :placeholder="$t('planning.sprint_name')"
-            class="block h-14 w-80 rounded-lg border border-sc-black-400 bg-sc-white px-4 py-3 font-sans text-xl font-medium text-black outline-sc-orange drop-shadow-md"
+            class="block h-14 w-0 flex-1 rounded-lg border border-sc-black-400 bg-sc-white px-4 py-3 font-sans text-xl font-medium text-black outline-sc-orange drop-shadow-md"
           />
           <InfoPopover
             v-if="showSprintNameInput"
@@ -74,8 +77,8 @@ const selected = ref("");
             :text="$t('planning.set_a_sprint_name')"
           />
         </h1>
-        <div class="relative self-start">
-          <div class="w-[46rem]">
+        <div class="relative">
+          <div class="w-full">
             <input
               v-model="sprintGoalInput"
               ref="sprintGoalInputField"
@@ -191,7 +194,7 @@ const selected = ref("");
           </button>
         </div>
       </div>
-      <div class="flex flex-[3] flex-col justify-end">
+      <div class="flex w-0 flex-[3] flex-col justify-end">
         <div
           class="flex h-72 flex-col gap-2 rounded-2xl border-2 border-sc-black-400 bg-sc-white p-5"
         >
@@ -245,7 +248,7 @@ const selected = ref("");
     </div>
     <Timer
       :total-seconds="120"
-      class="absolute right-24 top-0 z-20"
+      class="absolute right-2 top-0 z-0 h-52 lg:h-60 xl:right-24 xl:h-max"
       :remainingSeconds
     ></Timer>
     <SvgMeetingScreenTrees
