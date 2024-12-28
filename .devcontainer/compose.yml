@@ -21,7 +21,6 @@ services:
       - ..:/workspaces/scrumplicity
     ports:
       - 3000:3000 # Frontend
-      - 8000:8000 # Backend
       - 8888:8888 # Laravel Reverb for Websockets
 
 volumes:

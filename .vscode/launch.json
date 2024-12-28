@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "ScrumpliCity: Backend",
+            "name": "Backend",
             "type": "php",
             "request": "launch",
             "program": "${workspaceFolder}/backend/artisan",
@@ -17,7 +17,22 @@
             }
         },
         {
-            "name" : "ScrumpliCity: Frontend",
+            "name": "Reverb",
+            "type": "php",
+            "request": "launch",
+            "program": "${workspaceFolder}/backend/artisan",
+            "cwd": "${workspaceFolder}/backend",
+            // "port": 9000,
+            "args": [
+                "reverb:start"
+            ],
+            "env": {
+                // "XDEBUG_MODE": "debug,develop",
+                // "XDEBUG_CONFIG": "client_port=${port}"
+            }
+        },
+        {
+            "name" : "Frontend",
             "type": "node",
             "request": "launch",
             "cwd": "${workspaceFolder}/frontend",
