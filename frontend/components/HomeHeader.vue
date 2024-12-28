@@ -88,9 +88,13 @@ const mobileMenuOpen = ref(false);
           class=""
           >{{ $t("homepage.about_us") }}</NuxtLink
         >
-        <UButton
-          class="hidden h-8 drop-shadow-sc-shadow hover:bg-orange-700 lg:block"
-          >{{ $t("homepage.get_started") }}</UButton
+        <UTooltip :text="$t('tooltip.not_available')">
+          <UButton
+            :disabled="true"
+            style="opacity: 100"
+            class="hidden h-8 drop-shadow-sc-shadow hover:bg-orange-700 lg:block"
+            >{{ $t("homepage.get_started") }}</UButton
+          ></UTooltip
         >
         <div class="ml-6 hidden items-center gap-3 lg:flex">
           <UButton
