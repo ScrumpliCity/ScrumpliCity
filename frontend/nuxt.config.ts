@@ -72,7 +72,7 @@ export default defineNuxtConfig({
     autoImportPath: "~/assets/svg",
   },
   colorMode: {
-    preference: "light", // without this, Nuxt UI uses it's dark mode
+    preference: "light", // without this, Nuxt UI uses its dark mode
   },
   echo: {
     host: process.env.REVERB_HOST ?? "localhost", // to be changed
