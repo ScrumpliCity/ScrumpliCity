@@ -55,6 +55,7 @@ services:
       - REVERB_HOST=websocket
       - REVERB_PORT=8888
       - REVERB_SCHEME=http
+      - BROADCAST_CONNECTION=reverb
       - QUEUE_CONNECTION=sync # for our basic requirements of broadcasting events via websockets, sync is good enough
       - REVERB_APP_ID=${REVERB_APP_ID}
       - REVERB_APP_KEY=${REVERB_APP_KEY}
