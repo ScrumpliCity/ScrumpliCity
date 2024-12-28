@@ -54,6 +54,7 @@ services:
       - MICROSOFT_REDIRECT_URI=${MICROSOFT_REDIRECT_URI}
       - REVERB_HOST=websocket
       - REVERB_PORT=8888
+      - REVERB_SCHEME=http
       - QUEUE_CONNECTION=sync # for our basic requirements of broadcasting events via websockets, sync is good enough
       - REVERB_APP_ID=${REVERB_APP_ID}
       - REVERB_APP_KEY=${REVERB_APP_KEY}
@@ -67,6 +68,8 @@ services:
     build: ../backend
     restart: unless-stopped
     command: php artisan reverb:start --port=8888
+    healthcheck:
+      disable: true
     environment:
       - DB_CONNECTION=mysql
       - DB_HOST=db
