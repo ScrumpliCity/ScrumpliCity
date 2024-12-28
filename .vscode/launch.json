@@ -24,7 +24,7 @@
             "cwd": "${workspaceFolder}/backend",
             // "port": 9000,
             "args": [
-                "reverb:start"
+                "reverb:start", "--debug"
             ],
             "env": {
                 // "XDEBUG_MODE": "debug,develop",
