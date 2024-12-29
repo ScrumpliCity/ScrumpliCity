@@ -4,6 +4,8 @@ definePageMeta({
   layout: "in-game",
 });
 
+const game = useGameStore();
+
 const remainingSeconds = ref(120);
 
 const sprintNameInput = ref("");
@@ -198,11 +200,14 @@ const selected = ref("");
         <div
           class="flex h-72 flex-col gap-2 rounded-2xl border-2 border-sc-black-400 bg-sc-white p-5"
         >
-          <h3 class="text-xl font-semibold">{Teamname}</h3>
+          <h3 class="text-xl font-semibold">{{ game.team!.name }}</h3>
           <hr class="border-sc-black-300" />
           <p class="text-lg leading-9 *:font-semibold">
             <span>{{
-              $t("planning.sprint_out_of_n", { current: 1, total: 4 })
+              $t("planning.sprint_out_of_n", {
+                current: game.team!.room.current_sprint,
+                total: game.team!.room.number_of_sprints,
+              })
             }}</span
             ><br />
             <span>{{ $t("planning.next_phase") }}</span>
