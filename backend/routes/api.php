@@ -4,6 +4,7 @@ use App\Http\Controllers\MemberController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\SprintController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 
@@ -25,4 +26,7 @@ Route::post('/team/{team}/members', [MemberController::class, 'setMembers']);
 
 Route::get('/team/me/members', [MemberController::class, 'index']);
 
-Route::get('/user/profile-picture', [UserController::class, 'profilePicture'])->middleware('auth:sanctum');
+Route::post('/team/{team}/sprints/{sprintNumber}', [SprintController::class, 'store']); // create sprint
+Route::patch('/team/{team}/sprints/{sprintNumber}', [SprintController::class, 'update']); // update sprint
+
+Route::get('/user/profile-picture', [UserController::class, 'profilePicture'])->middleware('auth:sanctum'); //
