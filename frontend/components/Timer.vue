@@ -16,6 +16,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  isDisabled: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const emit = defineEmits(["toggle"]);
@@ -23,6 +27,9 @@ const emit = defineEmits(["toggle"]);
 const pathLength = 890; // see path element
 
 const text = computed(() => {
+  if (props.isDisabled) {
+    return "-- : --";
+  }
   const ourSeconds = Math.max(props.remainingSeconds, 0);
   const minutes = Math.floor(ourSeconds / 60);
   const seconds = ourSeconds % 60;
@@ -99,7 +106,7 @@ const offset = computed(() => {
       class="absolute bottom-3 right-3 z-20 text-sc-black-500 hover:bg-transparent"
       :padded="false"
       @click="emit('toggle')"
-      v-if="isControllable"
+      v-if="isControllable && !isDisabled"
       :icon="
         isPaused
           ? 'material-symbols:play-arrow-outline-rounded'

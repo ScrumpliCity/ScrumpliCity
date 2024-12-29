@@ -115,4 +115,28 @@ class RoomController extends Controller
         $room->save();
         return response()->json(['roomcode' => $code]);
     }
+
+    /**
+     * Show the room with all its teams and members.
+     */
+    public function showSingleRoom(Request $request, Room $room): JsonResponse
+    {
+        Gate::authorize('view', $room);
+        $room->load(['teams.members']);
+        return response()->json($room);
+    }
+
+    /**
+     * Toggle the playing status of the room.
+     */
+    public function togglePlaying(Request $request, Room $room): JsonResponse
+    {
+        Gate::authorize('update', $room);
+        error_log('Toggling playing status');
+        $room->is_playing = !$room->is_playing;
+        // TODO: Implement logic for time played
+        // TODO: Implement logic for phase changes
+        $room->save();
+        return response()->json($room);
+    }
 }

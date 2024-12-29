@@ -30,9 +30,13 @@ export default defineNuxtConfig({
         de: "/räume/erstellen",
         en: "/rooms/create",
       },
-      "rooms/[id]/index": {
+      "rooms/[id]/parent": {
         de: "/räume/[id]",
         en: "/rooms/[id]",
+      },
+      "rooms/[id]/parent/edit": {
+        de: "/räume/[id]/bearbeiten",
+        en: "/rooms/[id]/edit",
       },
       "rooms/[id]/roomcode": {
         de: "/räume/[id]/raumcode",
