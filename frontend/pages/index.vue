@@ -30,7 +30,7 @@ watch(y, () => {
     @click="scrollToTopOfPage"
     v-show="scrollToTopButtonIsVisible"
     :ui="{ rounded: 'rounded-full' }"
-    class="transition-color fixed bottom-5 right-5 z-50 flex size-12 items-center justify-center hover:bg-orange-700 lg:size-16"
+    class="fixed bottom-5 right-5 z-50 flex size-12 items-center justify-center transition-colors hover:bg-orange-700 lg:size-16"
   >
     <UIcon name="mdi:arrow-up" size="100" class="bg-sc-black" />
   </UButton>
