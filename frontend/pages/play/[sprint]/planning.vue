@@ -8,7 +8,8 @@ const game = useGameStore();
 
 const remainingSeconds = ref(120);
 
-const sprintNameInput = ref("");
+const sprintNameInput = ref(game.currentSprint?.name ?? "");
+
 const editingSprintName = ref(false);
 const showSprintNameInput = computed(
   () => editingSprintName.value || !sprintNameInput.value.trim(),
@@ -22,10 +23,26 @@ async function editSprintName() {
   sprintNameInputField.value?.focus();
 }
 
-const sprintGoalInput = ref("");
+watchDebounced(
+  sprintNameInput,
+  () => {
+    game.setSprintName(sprintNameInput.value);
+  },
+  { debounce: 3000, maxWait: 10000 },
+);
+
+const sprintGoalInput = ref(game.currentSprint?.goal ?? "");
 const editingSprintGoal = ref(false);
 const showSprintGoalInput = computed(
   () => editingSprintGoal.value || !sprintGoalInput.value.trim(),
+);
+
+watchDebounced(
+  sprintGoalInput,
+  () => {
+    game.setSprintGoal(sprintGoalInput.value);
+  },
+  { debounce: 3000, maxWait: 10000 },
 );
 
 const intervalId: Ref<ReturnType<typeof setInterval> | undefined> =
@@ -230,7 +247,10 @@ const selected = ref("");
                 </span>
               </div>
             </UTooltip>
-            <UTooltip :text="$t('planning.velocity_to_date')" v-if="true">
+            <UTooltip
+              :text="$t('planning.velocity_to_date')"
+              v-if="game.currentSprint?.velocity !== undefined"
+            >
               <div
                 class="flex h-8 w-20 items-center justify-between rounded-md p-1.5"
                 :class="true ? 'bg-sc-green-100' : 'bg-sc-orange-100'"
@@ -241,7 +261,8 @@ const selected = ref("");
                   :class="true ? 'text-sc-green-500' : 'text-sc-orange-500'"
                 />
                 <span class="text-lg font-bold">
-                  37<span class="text-xs">{{
+                  {{ game.currentSprint.velocity
+                  }}<span class="text-xs">{{
                     $t("planning.story_points_abbreviation")
                   }}</span>
                 </span>
