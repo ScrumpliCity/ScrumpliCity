@@ -1,43 +1,38 @@
 <script lang="ts" setup>
-const isVisible = ref(false);
+import { useWindowScroll } from "@vueuse/core";
 
-const handleScroll = () => {
-  isVisible.value = window.scrollY > 200;
-};
-
-const scrollToTop = () => {
+const { y } = useWindowScroll();
+const scrollToTopButtonIsVisible = ref();
+const scrollToTopOfPage = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
-onMounted(() => {
-  window.addEventListener("scroll", handleScroll);
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener("scroll", handleScroll);
+watch(y, () => {
+  scrollToTopButtonIsVisible.value = y.value > 200;
 });
 </script>
 
 <template>
-  <div class="fixed top-12 z-50 flex w-screen justify-center lg:hidden">
-    <UNotification
-      id="mobileDevice"
-      class="w-[85vw]"
-      color="sc-yellow"
-      icon="akar-icons:circle-alert"
-      :title="$t('homepage.notification.title')"
-      :description="$t('homepage.notification.description')"
-      :timeout="0"
-      :close-button="null"
-    />
-  </div>
+  <ClientOnly>
+    <div class="fixed top-12 z-50 flex w-screen justify-center lg:hidden">
+      <UNotification
+        id="mobileDevice"
+        class="w-[85vw]"
+        color="sc-yellow"
+        icon="akar-icons:circle-alert"
+        :title="$t('homepage.notification.title')"
+        :description="$t('homepage.notification.description')"
+        :timeout="0"
+        :close-button="null"
+      /></div
+  ></ClientOnly>
   <UButton
-    @click="scrollToTop"
-    v-show="isVisible"
+    @click="scrollToTopOfPage"
+    v-show="scrollToTopButtonIsVisible"
     :ui="{ rounded: 'rounded-full' }"
-    class="fixed bottom-5 right-5 z-50 flex size-12 items-center justify-center transition hover:bg-orange-700 lg:size-16"
+    class="transition-color fixed bottom-5 right-5 z-50 flex size-12 items-center justify-center hover:bg-orange-700 lg:size-16"
   >
-    <UIcon name="mdi:arrow-up" size="100vw" class="bg-sc-black" />
+    <UIcon name="mdi:arrow-up" size="100" class="bg-sc-black" />
   </UButton>
 
   <div
