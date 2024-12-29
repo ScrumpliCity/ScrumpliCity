@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Broadcasting\Channel;
+use Illuminate\Database\Eloquent\BroadcastsEvents;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
@@ -10,6 +12,7 @@ class Team extends Model
 {
     use HasFactory;
     use HasUlids;
+    use BroadcastsEvents;
 
 
     /**
@@ -39,4 +42,16 @@ class Team extends Model
      * @var array<int, string>
      */
     protected $fillable = ['name'];
+
+    /**
+     * Get the channels that model events should broadcast on.
+     *
+     * @return array<int, \Illuminate\Broadcasting\Channel>
+     */
+    public function broadcastOn(string $event): array
+    {
+        return [
+            new Channel('team.' . $this->id)
+        ];
+    }
 }
