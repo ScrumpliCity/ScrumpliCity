@@ -172,7 +172,7 @@
     "facebook": "Facebook"
   },
   "team_manager": {
-    "missing_roles": "Nicht alle Rollen sind vergeben! \n Bitte vergeben Sie die Rolle {roles}, um fortzufahren.",
+    "missing_roles": "Nicht alle Rollen sind vergeben! \n Bitte vergib die Rolle {roles}, um fortzufahren.",
     "and": "und",
     "add_member_error": "Fehler beim Hinzufügen von Mitgliedern!",
     "delete_member_error": "Fehler beim Löschen von Mitgliedern!",
