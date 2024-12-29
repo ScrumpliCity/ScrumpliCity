@@ -61,7 +61,6 @@ const offset = computed(() => {
       :stroke-dashoffset="offset"
     />
 
-    <!-- The text would wobble around if placed in the middle, tabular numbers (Tabellenziffern) are not supported in Kelson font -->
     <text
       x="50%"
       text-anchor="middle"
