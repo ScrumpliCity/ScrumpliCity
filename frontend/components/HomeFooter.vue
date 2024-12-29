@@ -57,7 +57,7 @@ const localeRoute = useLocaleRoute();
       </div>
     </div>
     <div
-      class="ml-[60vw] flex justify-end bg-sc-white/70 pb-4 pr-4 font-heading text-xs xl:text-base"
+      class="ml-[60vw] flex justify-end bg-sc-white pb-4 pr-4 font-heading text-xs xl:text-base"
     >
       <p>© 2024, ScrumpliCity</p>
     </div>
