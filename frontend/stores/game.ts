@@ -12,28 +12,31 @@ type Team = {
     review_duration: number;
     current_sprint: number;
   };
+  members: Array<Member>;
   sprints: Array<Sprint>;
 };
 
 type Member = {
+  id?: string;
   name: string;
   role: string;
 };
 
 type UserStory = {
-  id: string | undefined;
+  id?: string;
   title: string;
   description: string;
-  member_id: string | undefined;
+  member_id?: string;
   completed: boolean;
+  story_points?: number;
 };
 
 type Sprint = {
-  id: string | undefined;
+  id?: string;
   name: string;
   goal: string;
   sprint_number: number;
-  velocity: number | undefined;
+  velocity?: number;
   user_stories: Array<UserStory>;
 };
 
@@ -115,9 +118,45 @@ export const useGameStore = defineStore("game", () => {
     );
     refresh();
   }
-  async function createUserStory(userStory: UserStory): Promise<void> {}
-  async function updateUserStory(userStories: UserStory): Promise<void> {}
-  async function deleteUserStory(userStories: UserStory): Promise<void> {}
+
+  async function createUserStory(): Promise<UserStory> {
+    const story = await client(
+      `/api/team/${team.value!.id}/sprints/${team.value!.room.current_sprint}/stories`,
+      {
+        method: "POST",
+      },
+    );
+
+    return story as UserStory;
+  }
+
+  async function updateUserStory(userStory: UserStory): Promise<UserStory> {
+    const story = await client(
+      `/api/team/${team.value!.id}/sprints/${team.value!.room.current_sprint}/stories/${userStory.id}`,
+      {
+        method: "PATCH",
+        body: {
+          ...(userStory.title ? { title: userStory.title } : {}),
+          ...(userStory.description
+            ? { description: userStory.description }
+            : {}),
+          member_id: userStory.member_id,
+          story_points: userStory.story_points,
+        },
+      },
+    );
+
+    return story as UserStory;
+  }
+
+  async function deleteUserStory(userStory: UserStory): Promise<void> {
+    const response = await client(
+      `/api/team/${team.value!.id}/sprints/${team.value!.room.current_sprint}/stories/${userStory.id}`,
+      {
+        method: "DELETE",
+      },
+    );
+  }
 
   async function refresh() {
     const data = await client(`/api/team/me`);

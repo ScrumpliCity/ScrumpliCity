@@ -58,7 +58,32 @@ onUnmounted(() => {
   if (intervalId.value !== undefined) clearInterval(intervalId.value);
 });
 
-const selected = ref("");
+const userStories = ref(game.currentSprint?.user_stories ?? []);
+
+const currentStoryPoints = computed(
+  () =>
+    userStories.value
+      .map((v) => v.story_points)
+      .reduce((prev, curr) => (prev ?? 0) + (curr ?? 0), 0) ?? 0,
+);
+
+async function addUserStory() {
+  const story = await game.createUserStory();
+  userStories.value.push(story);
+}
+
+async function deleteUserStory(
+  userStory: Awaited<ReturnType<typeof game.createUserStory>>,
+) {
+  await game.deleteUserStory(userStory);
+  userStories.value = userStories.value.filter((v) => v.id !== userStory.id);
+}
+
+async function updateUserStory(
+  userStory: Awaited<ReturnType<typeof game.createUserStory>>,
+) {
+  const story = await game.updateUserStory(userStory);
+}
 </script>
 <template>
   <div class="relative h-full overflow-clip">
@@ -150,7 +175,7 @@ const selected = ref("");
               </tr>
             </thead>
             <tbody class="divide-y">
-              <template v-for="_ in Array(5)">
+              <template v-for="userStory in userStories" :key="userStory.id">
                 <tr class="max-h-14 border-b border-sc-black-400">
                   <td class="p-2 pr-6">
                     <input
@@ -159,6 +184,8 @@ const selected = ref("");
                         ($event.target as HTMLInputElement)?.blur()
                       "
                       :placeholder="$t('planning.title_of_us')"
+                      v-model="userStory.title"
+                      @blur="updateUserStory(userStory)"
                     />
                   </td>
                   <td class="p-2">
@@ -166,6 +193,8 @@ const selected = ref("");
                       <textarea
                         :placeholder="$t('planning.description_of_us')"
                         class="relative w-full resize-none rounded-lg bg-sc-white p-2 text-sm ring-inset focus-within:z-10 focus-within:h-36 focus-within:transition-[height] focus:outline-none focus:!ring-2 focus:!ring-sc-orange [&:is(:placeholder-shown,:focus-within)]:shadow [&:is(:placeholder-shown,:focus-within)]:ring-1 [&:is(:placeholder-shown,:focus-within)]:ring-sc-black-400 [&:not(:focus-within)]:h-9 [&:not(:focus-within)]:overflow-clip [&:not(:placeholder-shown,:focus-within)]:cursor-pointer"
+                        v-model="userStory.description"
+                        @blur="updateUserStory(userStory)"
                       ></textarea>
                     </div>
                   </td>
@@ -174,12 +203,21 @@ const selected = ref("");
                       class="size-7 rounded-full bg-sc-black-100 text-center text-lg font-semibold text-sc-black placeholder:text-sc-black focus:outline-none focus:ring-2 focus:ring-sc-orange [&:not(:placeholder-shown,:focus-within)]:cursor-pointer"
                       type="number"
                       placeholder="_"
+                      v-model="userStory.story_points"
+                      @blur="updateUserStory(userStory)"
                     />
                   </td>
                   <td>
                     <USelect
-                      :options="['United States', 'Canada', 'Mexico']"
-                      v-model="selected"
+                      :options="
+                        game.team!.members.map((member) => ({
+                          name: member.name,
+                          value: member.id,
+                        }))
+                      "
+                      option-attribute="name"
+                      v-model="userStory.member_id"
+                      @change="updateUserStory(userStory)"
                     />
                   </td>
                   <td class="p-2">
@@ -189,6 +227,7 @@ const selected = ref("");
                       :padded="false"
                       variant="ghost"
                       color="sc-orange"
+                      @click="deleteUserStory(userStory)"
                       :ui="{
                         rounded: 'rounded-full',
                         icon: { size: { sm: 'size-6' } },
@@ -202,10 +241,11 @@ const selected = ref("");
           </table>
           <button
             class="absolute bottom-4 right-4 flex size-8 justify-center rounded-lg bg-sc-orange text-3xl font-bold transition-colors hover:bg-sc-orange-700"
+            @click="addUserStory"
           >
             <UIcon name="ic:round-plus" class="size-8" />
             <InfoPopover
-              v-if="true"
+              v-if="userStories.length === 0"
               step="3"
               position="left"
               :text="$t('planning.write_user_story')"
@@ -253,12 +293,20 @@ const selected = ref("");
             >
               <div
                 class="flex h-8 w-20 items-center justify-between rounded-md p-1.5"
-                :class="true ? 'bg-sc-green-100' : 'bg-sc-orange-100'"
+                :class="
+                  currentStoryPoints <= game.currentSprint.velocity
+                    ? 'bg-sc-green-100'
+                    : 'bg-sc-orange-100'
+                "
               >
                 <UIcon
                   name="mingcute:chart-bar-line"
                   class="size-6"
-                  :class="true ? 'text-sc-green-500' : 'text-sc-orange-500'"
+                  :class="
+                    currentStoryPoints <= game.currentSprint.velocity
+                      ? 'text-sc-green-500'
+                      : 'text-sc-orange-500'
+                  "
                 />
                 <span class="text-lg font-bold">
                   {{ game.currentSprint.velocity

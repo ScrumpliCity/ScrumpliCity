@@ -9,7 +9,14 @@ class UserStory extends Model
 {
     use HasUlids;
 
-    public function sprint() {
+    public function sprint()
+    {
         return $this->belongsTo(Sprint::class);
-    }    
+    }
+
+    protected $fillable = [
+        'title',
+        'description',
+        'story_points'
+    ];
 }

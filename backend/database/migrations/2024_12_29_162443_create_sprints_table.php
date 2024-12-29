@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('title')->default('');
             $table->string('description')->default('');
             $table->foreignUlid('member_id')->nullable()->constrained()->onDelete('set null');
-            $table->unsignedSmallInteger('story_points');
+            $table->unsignedSmallInteger('story_points')->nullable();
             $table->boolean('completed')->default(false);
             $table->foreignUlid('sprint_id')->constrained()->onDelete('cascade');
         });
