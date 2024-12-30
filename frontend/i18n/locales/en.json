@@ -105,6 +105,13 @@
     "microsoft": "Microsoft",
     "error": "An error occured while logging in."
   },
+  "common": {
+    "legal_notice": "Legal Notice",
+    "phases": {
+      "sprint_planning": "Sprint Planning",
+      "build_phase": "Build phase"
+    }
+  },
   "legal_notice": {
     "title": "Legal Notice",
     "legal_matters": "Legal matters",
@@ -127,6 +134,47 @@
       "title": "Business Purpose",
       "content": "Development of a platform as part of a thesis project to teach the Scrum method through interactive group exercises and projects."
     }
+  },
+  "planning": {
+    "sprint_goal": "Sprint goal",
+    "sprint_planning": "@:common.phases.sprint_planning",
+    "build_phase": "@:common.phases.build_phase",
+    "sprint_name": "Sprint name",
+    "set_a_sprint_name": "Set a sprint name first!",
+    "define_sprint_goal": "Then define your sprint goal!",
+    "write_user_story": "Then write your first user story!",
+    "title": "Title",
+    "description": "Description",
+    "story_points": "Story Points",
+    "responsible": "Responsible",
+    "sprint_out_of_n": "Sprint {current}/{total}",
+    "next_phase": "Next phase:",
+    "story_points_abbreviation": "SP.",
+    "story_points_of_planned_user_stories": "Story points of the planned user stories",
+    "velocity_to_date": "Velocity to date",
+    "description_of_us": "User Story description",
+    "title_of_us": "User Story title",
+    "infobox": {
+      "sprint_names": {
+        "title": "Sprint names",
+        "content": "Sprint names help to clearly identify sprints and categorize them in a meaningful way. For example, they can be named numerically (e.g. \"Sprint 1\", \"Sprint 2\"), according to content focus (e.g. \"Sprint house construction\") or with a further alphabetical initial letter (e.g. \"Amsterdam\", \"Berlin\")."
+      },
+      "sprint_goal": {
+        "title": "Sprint Goal",
+        "content": "The sprint goal is the main objective that the team wants to achieve in the current sprint. It provides clear orientation and helps to keep the focus on the most important things during the entire sprint. A good sprint goal is precise, realistic and clear to the entire team, e.g. \"Sketch the layout of the city.\""
+      },
+      "user_stories": {
+        "title": "User stories",
+        "content": "User stories should be formulated clearly and precisely and reflect the user's perspective. They follow the format: \"As a [role], I want [goal] to [benefit].\" (e.g. \"As a resident, I would like to have a road to get from my house to work.\") Acceptance criteria should also be present. These are conditions that show when a task has been completed. (e.g. \"The road has two lanes.\")"
+      },
+      "story_points": {
+        "title": "Story points",
+        "content": "Story points indicate the complexity of the user story. The Fibonacci sequence (1, 2, 3, 5, 8, 13 ...) is often used to record relative differences between the stories. Alternative estimation methods for user stories are T-shirt sizes (S, M, L, XL) or time-based estimation."
+      }
+    }
+  },
+  "infobox": {
+    "current_of_total": "{current} of {total}"
   },
   "homepage": {
     "project_description": "Learn the agile project management method Scrum by building a paper city! ScrumpliCity provides a web application, crafting templates and explanations about Scrum - so: ",
