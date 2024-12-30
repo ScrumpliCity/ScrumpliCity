@@ -5,9 +5,9 @@ const localeRoute = useLocaleRoute();
 <template>
   <footer>
     <div
-      class="flex w-screen flex-wrap px-6 min-[470px]:justify-center xl:gap-[248px]"
+      class="flex w-screen flex-wrap px-6 min-[490px]:justify-center xl:gap-[248px]"
     >
-      <div class="mx-4 bg-sc-white/70 max-[470px]:mb-5">
+      <div class="mx-4 bg-sc-white/70 max-[490px]:mb-5">
         <h4 class="text-sm font-bold xl:text-2xl">
           {{ $t("legal_notice.brand_name") }}
         </h4>

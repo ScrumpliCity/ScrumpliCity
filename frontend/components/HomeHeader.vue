@@ -68,7 +68,7 @@ const mobileMenuOpen = ref(false);
     </div>
   </USlideover>
   <header
-    class="fixed z-30 flex h-10 w-screen bg-sc-white p-3 drop-shadow-sc-shadow lg:h-16"
+    class="fixed z-30 flex h-10 w-full bg-sc-white p-3 drop-shadow-sc-shadow lg:h-16"
   >
     <div class="ml-3 flex flex-grow items-center justify-between">
       <SvgMainLogo class="h-full w-auto" :fontControlled="false" filled />

@@ -36,7 +36,7 @@ watch(y, () => {
   </UButton>
 
   <div
-    class="absolute top-10 w-screen bg-sc-white px-[4.4vw] min-[440px]:-top-[5vw] min-[480px]:-top-[12vw] min-[500px]:-top-[16vw] min-[530px]:-top-[20vw] min-[550px]:-top-[22vw] min-[578px]:-top-[25vw] min-[600px]:-top-[27vw] sm:top-10 min-[684px]:-top-[5vw] min-[720px]:-top-[8vw] min-[760px]:-top-[11vw] min-[810px]:-top-[15vw] min-[900px]:-top-[18vw] min-[930px]:-top-[21vw] min-[1000px]:-top-[23vw] lg:top-10 min-[1120px]:-top-[3vw]"
+    class="absolute top-10 w-full bg-sc-white px-[4.4vw] min-[440px]:-top-[5vw] min-[480px]:-top-[12vw] min-[500px]:-top-[16vw] min-[530px]:-top-[20vw] min-[550px]:-top-[22vw] min-[578px]:-top-[25vw] min-[600px]:-top-[27vw] sm:top-10 min-[684px]:-top-[5vw] min-[720px]:-top-[8vw] min-[760px]:-top-[11vw] min-[810px]:-top-[15vw] min-[900px]:-top-[18vw] min-[930px]:-top-[21vw] min-[1000px]:-top-[23vw] lg:top-10 min-[1120px]:-top-[3vw]"
   >
     <SvgHomepageMobileBackground
       class="h-full w-full min-[480px]:hidden"
@@ -71,7 +71,7 @@ watch(y, () => {
   </div>
   <div class="relative flex flex-col">
     <HomeHeader />
-    <div class="mt-28 flex flex-col lg:mt-20 xl:mt-[8vw]">
+    <div class="mt-32 flex flex-col lg:mt-20 xl:mt-[8vw]">
       <div
         id="introduction"
         class="m-10 h-56 scroll-m-40 min-[580px]:mr-32 sm:ml-14 lg:ml-20 xl:ml-28 min-[1330px]:mr-[38vw]"
@@ -104,7 +104,7 @@ watch(y, () => {
       </div>
       <div
         id="knowledge"
-        class="mt-14 flex min-h-[710px] w-screen flex-col items-center xs:mt-[25vw] min-[394px]:min-h-[705px] min-[400px]:min-h-[782px] min-[415px]:mt-[33vw] min-[455px]:mt-[40vw] min-[480px]:mt-[20vw] min-[480px]:min-h-[820px] min-[520px]:min-h-[872px] min-[570px]:mt-[33vw] sm:mt-[10vw] sm:min-h-[650px] min-[660px]:mt-[15vw] min-[684px]:mt-[10vw] min-[720px]:mt-[5vw] min-[855px]:min-h-[350px] lg:mt-[15vw] xl:mt-[12vw] xl:min-h-[426px] min-[1400px]:mt-[15vw] min-[1400px]:min-h-[430px] min-[1600px]:mt-[20vw]"
+        class="mt-10 flex min-h-[710px] w-screen flex-col items-center xs:mt-[25vw] min-[394px]:min-h-[705px] min-[400px]:min-h-[782px] min-[415px]:mt-[33vw] min-[455px]:mt-[40vw] min-[480px]:mt-[20vw] min-[480px]:min-h-[820px] min-[520px]:min-h-[872px] min-[570px]:mt-[33vw] sm:mt-[10vw] sm:min-h-[650px] min-[660px]:mt-[15vw] min-[684px]:mt-[10vw] min-[720px]:mt-[5vw] min-[855px]:min-h-[350px] lg:mt-[15vw] xl:mt-[12vw] xl:min-h-[426px] min-[1400px]:mt-[15vw] min-[1400px]:min-h-[430px] min-[1600px]:mt-[20vw]"
       >
         <h2
           class="mb-5 bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl min-[720px]:mb-8 min-[720px]:text-3xl lg:text-4xl xl:mb-14 xl:text-5xl min-[1700px]:text-6xl"
@@ -182,7 +182,7 @@ watch(y, () => {
       <div class="w-screen">
         <div
           id="learning-materials"
-          class="mx-[11vw] mt-[15vw] min-h-[370px] max-w-80 min-[377px]:mt-[30vw] min-[394px]:min-h-[420px] min-[400px]:mt-[24vw] min-[425px]:mt-[35vw] min-[440px]:mt-[25vw] min-[450px]:mt-[35vw] min-[470px]:mt-[45vw] min-[480px]:mt-[17vw] min-[480px]:min-h-[508px] min-[484px]:mt-[23vw] min-[504px]:mt-[30vw] min-[516px]:mt-[33vw] min-[540px]:mt-[35vw] min-[560px]:mt-[40vw] min-[620px]:mt-[50vw] sm:mt-[0vw] sm:min-h-[308px] sm:max-w-none min-[650px]:mt-[3vw] min-[675px]:mt-[6vw] min-[695px]:mt-[10vw] min-[730px]:mt-[12vw] min-[740px]:mt-[17vw] md:mt-[5vw] min-[790px]:mt-[10vw] min-[844px]:mt-[15vw] min-[855px]:mt-[2vw] min-[870px]:mt-[6vw] min-[970px]:mt-[12vw] lg:mt-[8vw] min-[1060px]:mt-[11vw] min-[1190px]:mt-[15vw] xl:mt-[10vw] xl:min-h-[392px] xl:max-w-[1170px] min-[1300px]:mt-[13vw] min-[1400px]:mt-[12vw] min-[1400px]:min-h-[375px] min-[1430px]:mt-[16vw] min-[1480px]:mt-[20vw] min-[1800px]:mt-[25vw]"
+          class="mx-[11vw] mt-[10vw] min-h-[370px] max-w-80 min-[377px]:mt-[30vw] min-[394px]:min-h-[420px] min-[400px]:mt-[24vw] min-[425px]:mt-[35vw] min-[440px]:mt-[25vw] min-[450px]:mt-[35vw] min-[470px]:mt-[45vw] min-[480px]:mt-[17vw] min-[480px]:min-h-[508px] min-[484px]:mt-[23vw] min-[504px]:mt-[30vw] min-[516px]:mt-[33vw] min-[540px]:mt-[35vw] min-[560px]:mt-[40vw] min-[620px]:mt-[50vw] sm:mt-[0vw] sm:min-h-[308px] sm:max-w-none min-[650px]:mt-[3vw] min-[675px]:mt-[6vw] min-[695px]:mt-[10vw] min-[730px]:mt-[12vw] min-[740px]:mt-[17vw] md:mt-[5vw] min-[790px]:mt-[10vw] min-[844px]:mt-[15vw] min-[855px]:mt-[2vw] min-[870px]:mt-[6vw] min-[970px]:mt-[12vw] lg:mt-[8vw] min-[1060px]:mt-[11vw] min-[1190px]:mt-[15vw] xl:mt-[10vw] xl:min-h-[392px] xl:max-w-[1170px] min-[1300px]:mt-[13vw] min-[1400px]:mt-[12vw] min-[1400px]:min-h-[375px] min-[1430px]:mt-[16vw] min-[1480px]:mt-[20vw] min-[1800px]:mt-[25vw]"
         >
           <h3
             class="mb-2 bg-sc-white/70 font-heading text-sm font-bold text-sc-black-700 min-[400px]:text-base min-[480px]:text-lg lg:text-xl xl:text-3xl"
@@ -210,7 +210,7 @@ watch(y, () => {
       </div>
       <div class="flex w-screen flex-col items-end sm:px-[5vw]" id="contact">
         <div
-          class="min- mx-10 mb-16 mt-20 max-w-[475px] text-right xs:mb-[19vw] xs:mt-[23vw] min-[370px]:mt-[30vw] min-[400px]:mb-[25vw] min-[400px]:mt-[20vw] min-[410px]:mt-[27vw] min-[435px]:mt-[34vw] min-[470px]:mb-[40vw] min-[480px]:mb-[28vw] min-[480px]:mt-[13vw] min-[530px]:mt-[18vw] min-[550px]:mt-[25vw] min-[600px]:mt-[30vw] min-[610px]:mb-[30vw] sm:mb-[6vw] sm:mt-[7vw] min-[710px]:mb-[10vw] min-[720px]:mt-[12vw] md:mt-[10vw] min-[830px]:mb-[12vw] min-[830px]:mt-[15vw] min-[855px]:mt-[12vw] lg:mb-[13vw] min-[1050px]:mb-[16vw] min-[1060px]:mb-[13vw] min-[1078px]:mt-[15vw] min-[1100px]:mb-[15vw] min-[1120px]:mb-[10vw] min-[1244px]:mt-[20vw] min-[1250px]:mb-[13vw] xl:mt-[12vw] xl:max-w-none min-[1350px]:mb-[17vw] min-[1560px]:mb-[20vw] min-[1700px]:mb-[15vw] min-[1700px]:mt-[20vw] min-[1870px]:mb-[20vw] min-[1870px]:mt-[20vw]"
+          class="mx-10 mb-12 mt-12 max-w-[475px] text-right xs:mb-[19vw] xs:mt-[23vw] min-[370px]:mt-[30vw] min-[400px]:mb-[25vw] min-[400px]:mt-[20vw] min-[410px]:mt-[27vw] min-[435px]:mt-[34vw] min-[480px]:mb-[28vw] min-[480px]:mt-[13vw] min-[530px]:mt-[18vw] min-[550px]:mt-[25vw] min-[600px]:mt-[30vw] min-[610px]:mb-[30vw] sm:mb-[6vw] sm:mt-[7vw] min-[710px]:mb-[10vw] min-[720px]:mt-[12vw] md:mt-[10vw] min-[830px]:mb-[12vw] min-[830px]:mt-[15vw] min-[855px]:mt-[12vw] lg:mb-[13vw] min-[1050px]:mb-[16vw] min-[1060px]:mb-[13vw] min-[1078px]:mt-[15vw] min-[1100px]:mb-[15vw] min-[1120px]:mb-[10vw] min-[1244px]:mt-[20vw] min-[1250px]:mb-[13vw] xl:mt-[12vw] xl:max-w-none min-[1350px]:mb-[17vw] min-[1560px]:mb-[20vw] min-[1700px]:mb-[15vw] min-[1700px]:mt-[20vw] min-[1870px]:mb-[20vw] min-[1870px]:mt-[20vw]"
         >
           <h5
             class="bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl lg:text-4xl xl:mb-7 xl:text-6xl"
