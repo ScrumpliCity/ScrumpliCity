@@ -30,17 +30,10 @@ const mobileMenuOpen = ref(false);
           size="18px"
       /></NuxtLink>
       <NuxtLink
-        class="flex items-center justify-between"
+        class="flex items-center justify-between hover:text-sc-orange"
         to="https://diplomarbeit.scrumplicity.app/"
         target="_blank"
         ><p>{{ $t("homepage.diploma_thesis_website") }}</p>
-        <Icon
-          name="material-symbols:arrow-forward-ios-rounded"
-          class="text-sc-black"
-          size="18px"
-      /></NuxtLink>
-      <NuxtLink class="flex items-center justify-between"
-        ><p>{{ $t("homepage.crafting_templates_download") }}</p>
         <Icon
           name="material-symbols:arrow-forward-ios-rounded"
           class="text-sc-black"
@@ -55,14 +48,22 @@ const mobileMenuOpen = ref(false);
           external
           target="_blank"
         >
-          <Icon name="mdi:instagram" class="text-sc-black" size="28px" />
+          <Icon
+            name="mdi:instagram"
+            class="text-sc-black hover:text-sc-orange"
+            size="28px"
+          />
         </NuxtLink>
         <NuxtLink
           to="https://www.facebook.com/people/Scrumplicityapp/61568992263197/"
           external
           target="_blank"
         >
-          <Icon name="ri:facebook-box-line" class="text-sc-black" size="28px" />
+          <Icon
+            name="ri:facebook-box-line"
+            class="text-sc-black hover:text-sc-orange"
+            size="28px"
+          />
         </NuxtLink>
       </div>
     </div>
@@ -85,7 +86,7 @@ const mobileMenuOpen = ref(false);
         <NuxtLink
           to="https://diplomarbeit.scrumplicity.app/"
           target="_blank"
-          class=""
+          class="hover:text-sc-orange"
           >{{ $t("homepage.about_us") }}</NuxtLink
         >
         <UTooltip :text="$t('homepage.tooltip.not_available')">

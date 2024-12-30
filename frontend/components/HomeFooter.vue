@@ -18,6 +18,7 @@ const localeRoute = useLocaleRoute();
             to="https://diplomarbeit.scrumplicity.app/"
             target="_blank"
             external
+            class="hover:text-sc-orange"
             >{{ $t("homepage.diploma_thesis_website") }}</NuxtLink
           >
           <br />
@@ -33,6 +34,7 @@ const localeRoute = useLocaleRoute();
             to="https://www.instagram.com/scrumplicity.app"
             target="_blank"
             external
+            class="hover:text-sc-orange"
             >{{ $t("homepage.socials.instagram") }}</NuxtLink
           >
           <br />
@@ -40,6 +42,7 @@ const localeRoute = useLocaleRoute();
             to="https://www.facebook.com/people/Scrumplicityapp/61568992263197/"
             target="_blank"
             external
+            class="hover:text-sc-orange"
           >
             {{ $t("homepage.socials.facebook") }}</NuxtLink
           >
@@ -51,7 +54,7 @@ const localeRoute = useLocaleRoute();
         </h4>
         <NuxtLink
           :to="localeRoute('legal_notice')"
-          class="text-xs xl:text-base"
+          class="text-xs hover:text-sc-orange xl:text-base"
           >{{ $t("legal_notice.title") }}</NuxtLink
         >
       </div>
