@@ -104,7 +104,7 @@ watch(y, () => {
       </div>
       <div
         id="knowledge"
-        class="mt-10 flex min-h-[710px] w-screen flex-col items-center xs:mt-[25vw] min-[394px]:min-h-[705px] min-[400px]:min-h-[782px] min-[415px]:mt-[33vw] min-[455px]:mt-[40vw] min-[480px]:mt-[20vw] min-[480px]:min-h-[820px] min-[520px]:min-h-[872px] min-[570px]:mt-[33vw] sm:mt-[10vw] sm:min-h-[650px] min-[660px]:mt-[15vw] min-[684px]:mt-[10vw] min-[720px]:mt-[5vw] min-[855px]:min-h-[350px] lg:mt-[15vw] xl:mt-[12vw] xl:min-h-[426px] min-[1400px]:mt-[15vw] min-[1400px]:min-h-[430px] min-[1600px]:mt-[20vw]"
+        class="mt-10 flex min-h-[710px] w-screen flex-col items-center xs:mt-[25vw] min-[394px]:min-h-[705px] min-[400px]:min-h-[782px] min-[415px]:mt-[33vw] min-[455px]:mt-[40vw] min-[480px]:mt-[20vw] min-[480px]:min-h-[820px] min-[520px]:min-h-[872px] min-[570px]:mt-[33vw] sm:mt-[10vw] sm:min-h-[650px] min-[660px]:mt-[15vw] min-[684px]:mt-[10vw] min-[720px]:mt-[5vw] min-[855px]:mt-[3vw] min-[855px]:min-h-[350px] lg:mt-[15vw] xl:mt-[12vw] xl:min-h-[426px] min-[1400px]:mt-[15vw] min-[1400px]:min-h-[430px] min-[1600px]:mt-[20vw]"
       >
         <h2
           class="mb-5 bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl min-[720px]:mb-8 min-[720px]:text-3xl lg:text-4xl xl:mb-14 xl:text-5xl min-[1700px]:text-6xl"
@@ -123,7 +123,7 @@ watch(y, () => {
               {{ $t("homepage.features.learn_scrum.title") }}
             </h3>
             <p
-              class="text-xs min-[400px]:text-sm min-[480px]:text-base min-[860px]:mb-6 lg:mb-1 lg:text-lg min-[1400px]:text-xl"
+              class="text-xs min-[400px]:text-sm min-[480px]:text-base min-[855px]:mb-6 lg:mb-1 lg:text-lg min-[1400px]:text-xl"
             >
               {{ $t("homepage.features.learn_scrum.description") }}
             </p>
@@ -144,7 +144,7 @@ watch(y, () => {
               {{ $t("homepage.features.craft_your_city.title") }}
             </h3>
             <p
-              class="mb-1 text-xs min-[400px]:text-sm min-[480px]:text-base min-[860px]:mb-6 lg:mb-7 lg:text-lg min-[1400px]:text-xl"
+              class="mb-1 text-xs min-[400px]:text-sm min-[480px]:text-base min-[855px]:mb-6 lg:mb-7 lg:text-lg min-[1400px]:text-xl"
             >
               {{ $t("homepage.features.craft_your_city.description") }}
             </p>
