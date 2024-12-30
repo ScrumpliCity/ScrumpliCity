@@ -14,7 +14,7 @@ watch(y, () => {
 
 <template>
   <ClientOnly>
-    <div class="fixed top-12 z-50 flex w-screen justify-center lg:hidden">
+    <div class="absolute top-12 z-10 flex w-screen justify-center lg:hidden">
       <!--@vue-expect-error-->
       <UNotification
         id="mobileDevice"
