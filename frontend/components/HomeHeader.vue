@@ -91,8 +91,7 @@ const mobileMenuOpen = ref(false);
         <UTooltip :text="$t('homepage.tooltip.not_available')">
           <UButton
             :disabled="true"
-            style="opacity: 100"
-            class="hidden h-8 drop-shadow-sc-shadow hover:bg-orange-700 lg:block"
+            class="hidden h-8 !opacity-100 drop-shadow-sc-shadow hover:bg-orange-700 lg:block"
             >{{ $t("homepage.get_started") }}</UButton
           ></UTooltip
         >

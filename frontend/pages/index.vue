@@ -85,20 +85,18 @@ watch(y, () => {
         <p
           class="my-3 max-w-[835px] bg-sc-white/70 text-left text-sm xs:text-base min-[460px]:text-lg lg:max-w-[60vw] min-[1190px]:text-xl min-[1330px]:text-2xl min-[1700px]:text-3xl"
         >
-          <span v-html="$t('homepage.project_description')"></span>
+          <span>{{ $t("homepage.project_description") }}</span>
           <b>{{ $t("homepage.build_your_scrum_knowledge") }}</b>
         </p>
         <UTooltip :text="$t('homepage.tooltip.not_available')">
           <UButton
             :disabled="true"
-            style="opacity: 100"
-            class="hidden drop-shadow-sc-shadow hover:bg-orange-700 lg:block lg:px-5 lg:py-2 lg:text-base lg:font-bold xl:text-xl"
+            class="hidden !opacity-100 drop-shadow-sc-shadow hover:bg-orange-700 lg:block lg:px-5 lg:py-2 lg:text-base lg:font-bold xl:text-xl"
             >{{ $t("homepage.get_started") }}</UButton
           >
           <UButton
-            style="opacity: 100"
             :disabled="true"
-            class="drop-shadow-sc-shadow hover:bg-orange-700 xs:text-base lg:hidden"
+            class="!opacity-100 drop-shadow-sc-shadow hover:bg-orange-700 xs:text-base lg:hidden"
             >{{ $t("homepage.scrum_guide") }}</UButton
           ></UTooltip
         >
@@ -202,8 +200,7 @@ watch(y, () => {
           <UTooltip :text="$t('homepage.tooltip.not_available')">
             <UButton
               :disabled="true"
-              style="opacity: 100"
-              class="drop-shadow-sc-shadow hover:bg-orange-700 lg:px-5 lg:py-2 lg:text-base lg:font-bold xl:text-xl"
+              class="!opacity-100 drop-shadow-sc-shadow hover:bg-orange-700 lg:px-5 lg:py-2 lg:text-base lg:font-bold xl:text-xl"
               >{{ $t("homepage.scrum_guide") }}</UButton
             ></UTooltip
           >
@@ -225,8 +222,7 @@ watch(y, () => {
           </p>
           <a href="mailto:lisa-marie.hoermann@scrumplicity.app">
             <UButton
-              style="opacity: 100"
-              class="drop-shadow-sc-shadow hover:bg-orange-700 lg:px-5 lg:py-2 lg:text-base lg:font-bold xl:text-xl"
+              class="!opacity-100 drop-shadow-sc-shadow hover:bg-orange-700 lg:px-5 lg:py-2 lg:text-base lg:font-bold xl:text-xl"
             >
               {{ $t("homepage.contact_us") }}</UButton
             ></a
