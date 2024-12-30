@@ -26,14 +26,14 @@ const localeRoute = useLocaleRoute();
       </div>
       <div class="mx-4 bg-sc-white/70">
         <h4 class="text-sm font-bold xl:text-2xl">
-          {{ $t("socials.social_media") }}
+          {{ $t("homepage.socials.social_media") }}
         </h4>
         <p class="text-xs leading-6 xl:text-base">
           <NuxtLink
             to="https://www.instagram.com/scrumplicity.app"
             target="_blank"
             external
-            >{{ $t("socials.instagram") }}</NuxtLink
+            >{{ $t("homepage.socials.instagram") }}</NuxtLink
           >
           <br />
           <NuxtLink
@@ -41,7 +41,7 @@ const localeRoute = useLocaleRoute();
             target="_blank"
             external
           >
-            {{ $t("socials.facebook") }}</NuxtLink
+            {{ $t("homepage.socials.facebook") }}</NuxtLink
           >
         </p>
       </div>

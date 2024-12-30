@@ -69,7 +69,7 @@ watch(y, () => {
       filled
     />
   </div>
-  <div class="relative flex flex-col">
+  <div class="relative flex flex-col overflow-hidden">
     <HomeHeader />
     <div class="mt-32 flex flex-col lg:mt-20 xl:mt-[8vw]">
       <div
@@ -87,7 +87,7 @@ watch(y, () => {
           <span v-html="$t('homepage.project_description')"></span>
           <b>{{ $t("homepage.build_your_scrum_knowledge") }}</b>
         </p>
-        <UTooltip :text="$t('tooltip.not_available')">
+        <UTooltip :text="$t('homepage.tooltip.not_available')">
           <UButton
             :disabled="true"
             style="opacity: 100"
@@ -198,7 +198,7 @@ watch(y, () => {
             class="mb-4 bg-sc-white/70 text-sm min-[394px]:text-base min-[480px]:text-lg sm:text-base min-[720px]:text-lg lg:text-xl xl:text-2xl min-[1400px]:leading-10"
             v-html="$t('homepage.scrum_guide_description')"
           ></p>
-          <UTooltip :text="$t('tooltip.not_available')">
+          <UTooltip :text="$t('homepage.tooltip.not_available')">
             <UButton
               :disabled="true"
               style="opacity: 100"

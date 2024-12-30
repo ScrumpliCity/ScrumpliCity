@@ -21,8 +21,8 @@ const mobileMenuOpen = ref(false);
         <ChangeLangButton class="w-8" />
       </div>
     </div>
-    <div class="mx-6 flex flex-col text-sm">
-      <NuxtLink class="mb-7 flex items-center justify-between"
+    <div class="mx-6 flex flex-col gap-7 text-sm">
+      <NuxtLink class="flex items-center justify-between"
         ><p>{{ $t("homepage.scrum_guide") }}</p>
         <Icon
           name="material-symbols:arrow-forward-ios-rounded"
@@ -30,7 +30,7 @@ const mobileMenuOpen = ref(false);
           size="18px"
       /></NuxtLink>
       <NuxtLink
-        class="mb-7 flex items-center justify-between"
+        class="flex items-center justify-between"
         to="https://diplomarbeit.scrumplicity.app/"
         target="_blank"
         ><p>{{ $t("homepage.diploma_thesis_website") }}</p>
@@ -88,7 +88,7 @@ const mobileMenuOpen = ref(false);
           class=""
           >{{ $t("homepage.about_us") }}</NuxtLink
         >
-        <UTooltip :text="$t('tooltip.not_available')">
+        <UTooltip :text="$t('homepage.tooltip.not_available')">
           <UButton
             :disabled="true"
             style="opacity: 100"
