@@ -6,5 +6,6 @@
       <NuxtPage />
     </NuxtLayout>
     <UNotifications />
+    <USlideovers />
   </div>
 </template>
