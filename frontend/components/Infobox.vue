@@ -66,12 +66,12 @@ onUnmounted(() => {
 });
 
 function clearTimer() {
-  if (!timeoutId.value) return;
+  if (timeoutId.value == undefined) return;
   clearTimeout(timeoutId.value);
 }
 
 function restartTimer() {
-  if (!props.withTimeout) return;
+  if (!props.withTimeout || !infoboxIsOpen.value) return;
   clearTimer();
   timeoutId.value = setTimeout(() => {
     toggleInfobox();
