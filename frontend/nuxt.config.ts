@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     "nuxt-svgo",
     "@nuxt/ui",
     "@pinia/nuxt",
+    "nuxt-laravel-echo",
   ],
   i18n: {
     defaultLocale: "de",
@@ -71,6 +72,37 @@ export default defineNuxtConfig({
     autoImportPath: "~/assets/svg",
   },
   colorMode: {
-    preference: "light", // without this, Nuxt UI uses it's dark mode
+    preference: "light", // without this, Nuxt UI uses its dark mode
+  },
+  echo: {
+    host: process.env.REVERB_HOST ?? "localhost",
+    port: Number(process.env.REVERB_PORT ?? 8888),
+    scheme:
+      (process.env.REVERB_SCHEME as "http" | "https" | undefined) ?? "http",
+    key: "_", // overriden by runtimeConfig
+    authentication: {
+      mode: "cookie",
+      baseUrl:
+        process.env.SCRUMPLICITY_LARAVEL_API_URL ?? "http://localhost:8000",
+      authEndpoint: "/broadcasting/auth",
+      csrfEndpoint: "/sanctum/csrf-cookie",
+      csrfCookie: "XSRF-TOKEN",
+      csrfHeader: "X-XSRF-TOKEN",
+    },
+    logLevel: 3,
+    properties: undefined,
+  },
+  vite: {
+    // see https://manchenkoff.gitbook.io/nuxt-laravel-echo/getting-started/installation
+    optimizeDeps: {
+      include: ["pusher-js"],
+    },
+  },
+  runtimeConfig: {
+    public: {
+      echo: {
+        // echo key set by NUXT_PUBLIC_ECHO_KEY env variable
+      },
+    },
   },
 });
