@@ -6,7 +6,7 @@ const localeRoute = useLocaleRoute();
 // demo for data fetching
 const client = useSanctumClient();
 
-const { data } = await useAsyncData("laravel", () => client("/"));
+// const { data } = await useAsyncData("laravel", () => client("/"));
 </script>
 
 <template>
@@ -21,7 +21,7 @@ const { data } = await useAsyncData("laravel", () => client("/"));
         class="font-heading font-thin"
         >{{ $t("join") }}</NuxtLink
       >
-      <p>Laravel Version: {{ data.Laravel }}</p>
+      <!-- <p>Laravel Version: {{ data.Laravel }}</p> -->
     </div>
   </div>
 </template>
