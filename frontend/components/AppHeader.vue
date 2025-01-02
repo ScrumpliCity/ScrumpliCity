@@ -102,20 +102,20 @@ async function editName() {
                   :src="`${sanctumConfig.baseUrl}/api/user/profile-picture`"
                 />
                 <div class="flex flex-1 flex-col">
-                  <div class="flex items-center justify-between">
-                    <p
-                      class="rounded text-base font-bold ring-sc-orange ring-offset-1 ring-offset-sc-black-100 focus:outline-none focus:ring-2"
-                      ref="inputNameElement"
-                      @blur="saveName"
-                      :contenteditable="
-                        isEditingName ? 'plaintext-only' : 'false'
-                      "
-                      @input="
-                        (event) =>
-                          (inputName = (event.target as HTMLParagraphElement)
-                            .innerText)
-                      "
+                  <div class="flex items-center justify-between gap-4">
+                    <input
+                      type="text"
+                      v-if="isEditingName"
+                      class="mb-1 w-0 flex-1 rounded bg-transparent text-base font-bold leading-5 ring-0 ring-sc-orange ring-offset-1 ring-offset-sc-black-100 transition-shadow focus:outline-none focus:ring-2"
                       @keydown.enter.prevent="saveName"
+                      spellcheck="false"
+                      @blur="saveName"
+                      v-model="inputName"
+                      ref="inputNameElement"
+                    />
+                    <p
+                      v-else
+                      class="mb-1 line-clamp-2 w-0 flex-1 text-ellipsis whitespace-pre-wrap break-words rounded text-base font-bold leading-5"
                     >
                       {{ inputName }}
                     </p>
