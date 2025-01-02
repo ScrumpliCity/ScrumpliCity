@@ -17,9 +17,9 @@
     "@nuxtjs/i18n": "^9.1.1",
     "@pinia/nuxt": "^0.9.0",
     "nuxt": "^3.14.1592",
-    "nuxt-auth-sanctum": "^0.5.2",
+    "nuxt-auth-sanctum": "^0.5.4",
     "nuxt-laravel-echo": "^0.2.1",
-    "nuxt-svgo": "^4.0.9",
+    "nuxt-svgo": "^4.0.10",
     "pinia": "^2.3.0",
     "vue": "latest",
     "vue-router": "latest"
@@ -27,7 +27,7 @@
   "devDependencies": {
     "@iconify-json/ic": "^1.2.2",
     "husky": "^9.1.7",
-    "lint-staged": "^15.2.11",
+    "lint-staged": "^15.3.0",
     "prettier": "3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.9"
   },
