@@ -17,7 +17,7 @@
     "@nuxtjs/i18n": "^9.1.1",
     "@pinia/nuxt": "^0.9.0",
     "nuxt": "^3.14.1592",
-    "nuxt-auth-sanctum": "^0.5.2",
+    "nuxt-auth-sanctum": "^0.5.4",
     "nuxt-laravel-echo": "^0.2.1",
     "nuxt-svgo": "^4.0.10",
     "pinia": "^2.3.0",
