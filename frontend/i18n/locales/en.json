@@ -20,7 +20,13 @@
     "created_on": "created on: {0}",
     "completed_on": "completed on: {0}",
     "new": "New +",
-    "teams": "{n} Team | {n} Teams"
+    "teams": "{n} Team | {n} Teams",
+    "profile": {
+      "sign_out": "Sign out",
+      "account": "Account",
+      "signed_out_successfully": "You've signed out successfully!",
+      "sign_out_error": "An error has occured whilst signing out."
+    }
   },
   "create_room": {
     "heading": "Create a project room",

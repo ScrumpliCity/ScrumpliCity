@@ -3,11 +3,6 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return ['Laravel' => app()->version()];
-});
-
-
 Route::post('/logout', [UserController::class, 'logout'])
     ->middleware('auth')
     ->name('logout');
