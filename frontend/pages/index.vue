@@ -4,7 +4,7 @@ import { useWindowScroll } from "@vueuse/core";
 const { y } = useWindowScroll();
 
 const scrollToTopOfPage = () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  y.value = 0;
 };
 
 const scrollToTopButtonIsVisible = computed(() => y.value > 200);
@@ -13,7 +13,7 @@ const scrollToTopButtonIsVisible = computed(() => y.value > 200);
 <template>
   <ClientOnly>
     <div class="absolute top-12 z-10 flex w-screen justify-center lg:hidden">
-      <!--@vue-expect-error-->
+      <!--@vue-expect-error ':close-button="null" is the way to hide the close button but incorrectly not allowed by types -->
       <UNotification
         id="mobileDevice"
         class="w-[85vw]"
