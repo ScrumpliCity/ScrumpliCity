@@ -20,7 +20,13 @@
     "created_on": "erstellt am: {0}",
     "completed_on": "abgeschlossen am: {0}",
     "new": "Neu +",
-    "teams": "{n} Team | {n} Teams"
+    "teams": "{n} Team | {n} Teams",
+    "profile": {
+      "sign_out": "Abmelden",
+      "account": "Konto",
+      "signed_out_successfully": "Du hast dich erfolgreich abgemeldet!",
+      "sign_out_error": "Beim Abmelden ist ein Fehler aufgetreten."
+    }
   },
   "create_room": {
     "heading": "Projekt-Raum erstellen",

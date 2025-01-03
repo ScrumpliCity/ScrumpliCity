@@ -44,6 +44,17 @@ class UserController extends Controller
         return response()->noContent();
     }
 
+    public function updateName(Request $request): JsonResponse {
+        $user = $request->user();
+
+        $validated = $request->validate([
+            'name' => "required|string|max:100|regex:/^[^\n\r]*$/"
+        ]);
+
+        $user->update($validated);
+        return response()->json($user);
+    }
+
     public function profilePicture(Request $request): Response
     {
         $user = $request->user();
