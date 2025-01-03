@@ -1,48 +1,82 @@
 <script lang="ts" setup>
 const props = defineProps({
+  /**
+   * Whether the Infobox should automatically close after a certain duration.
+   */
   withTimeout: {
     type: Boolean,
     default: true,
   },
+  /**
+   * Duration the infobox should close after in seconds. Useless if `withTimeout` is `false`.
+   */
   durationInS: {
     type: Number,
     default: 10,
   },
+  /**
+   * Whether the Infobox should start out open.
+   */
+  startOpen: {
+    type: Boolean,
+    default: true,
+  },
+  /**
+   * Texts the infobox should display. Arrows for switching are shown if an array with multiple entries is given. Slots are ignored if array is given.
+   */
+  text: {
+    type: Array,
+    required: false,
+  },
 });
-const infoboxIsOpen = ref(true);
+const infoboxIsOpen = ref(props.startOpen);
 
-const duration = ref(props.durationInS);
+const showText = computed(() => props.text && props.text.length >= 1);
 
-const intervalId = ref();
+const showPagination = computed(
+  () => showText.value && props.text && props.text.length >= 2,
+);
 
-const toggleInfobox = () => {
+const currentText = ref(0);
+
+const lastTextIndex = computed(() => (props.text?.length ?? 0) - 1);
+
+const timeoutId: Ref<ReturnType<typeof setTimeout> | undefined> = ref();
+
+function toggleInfobox() {
   infoboxIsOpen.value = !infoboxIsOpen.value;
-  if (intervalId.value) {
-    clearInterval(intervalId.value);
-    intervalId.value = "";
-    duration.value = props.durationInS;
-  } else if (infoboxIsOpen.value) {
-    startTimer();
-  }
-};
 
-const startTimer = () => {
-  duration.value = props.durationInS;
-  intervalId.value = setInterval(() => {
-    duration.value -= 1;
-    if (duration.value <= 0) {
-      clearInterval(intervalId.value);
-      intervalId.value = "";
-      toggleInfobox();
-    }
-  }, 1000);
-};
+  if (!props.withTimeout) return;
+
+  if (infoboxIsOpen.value) {
+    restartTimer();
+  } else {
+    clearTimer();
+  }
+}
 
 onMounted(() => {
   if (props.withTimeout && infoboxIsOpen.value) {
-    startTimer();
+    restartTimer();
   }
 });
+
+onUnmounted(() => {
+  clearTimer();
+});
+
+function clearTimer() {
+  if (timeoutId.value == undefined) return;
+  clearTimeout(timeoutId.value);
+}
+
+function restartTimer() {
+  if (!props.withTimeout || !infoboxIsOpen.value) return;
+  clearTimer();
+  timeoutId.value = setTimeout(() => {
+    toggleInfobox();
+  }, props.durationInS * 1000);
+}
 </script>
 
 <template>
@@ -51,33 +85,68 @@ onMounted(() => {
       <div
         v-if="infoboxIsOpen"
         class="fixed bottom-10 right-10 h-fit max-w-[23vw] rounded-xl border-sc-black-200 bg-sc-blue-background p-4 drop-shadow-sc-shadow"
+        @mouseover="restartTimer"
       >
-        <div class="flex items-center">
+        <div class="flex items-center pr-10">
           <UIcon name="ic:outline-info" class="mr-2 bg-sc-blue" size="3vw" />
-          <slot name="title">
+          <slot name="title" v-if="!showText">
             <h2 class="font-heading text-2xl font-medium text-sc-black-900">
               {{ $t("join_room.infobox.welcome.title") }}
             </h2>
           </slot>
-          <div v-if="withTimeout" class="flex flex-grow justify-end">
-            <button @click="toggleInfobox" class="bg-transparent">
-              <SvgClose class="w-5" :fontControlled="false" filled />
-            </button>
-          </div>
+          <h2
+            class="font-heading text-2xl font-medium text-sc-black-900"
+            v-else
+          >
+            {{ (text as any[])[currentText].title }}
+          </h2>
         </div>
-        <slot name="content">
+        <div class="absolute right-4 top-4">
+          <button @click="toggleInfobox" class="bg-transparent">
+            <UIcon class="size-6" name="heroicons:x-mark-solid" />
+          </button>
+        </div>
+        <slot name="content" v-if="!showText">
           <p class="my-2 text-sc-black-500">
             {{ $t("join_room.infobox.welcome.content") }}
           </p>
         </slot>
-        <div class="flex justify-end">
+        <p class="my-2 text-sc-black-500" v-else>
+          {{ (text as any[])[currentText].content }}
+        </p>
+        <div
+          class="flex items-center justify-end gap-1 text-sc-black-800"
+          v-if="showPagination"
+        >
+          <button
+            class="flex items-center justify-center disabled:text-transparent"
+            @click="currentText--"
+            :disabled="currentText <= 0"
+          >
+            <UIcon name="heroicons:chevron-left" />
+          </button>
+          <span class="text-sm">{{
+            $t("infobox.current_of_total", {
+              current: currentText + 1,
+              total: lastTextIndex + 1,
+            })
+          }}</span>
+          <button
+            class="flex items-center justify-center disabled:text-transparent"
+            @click="currentText++"
+            :disabled="currentText >= lastTextIndex"
+          >
+            <UIcon name="heroicons:chevron-right" />
+          </button>
+        </div>
+        <div class="flex justify-end" v-if="!showText">
           <slot name="button" :close="toggleInfobox" />
         </div>
       </div>
     </transition>
     <div v-if="!infoboxIsOpen">
       <UButton
-        class="fixed bottom-5 right-5 rounded-full bg-sc-blue-background p-0 drop-shadow-sc-shadow hover:bg-sc-blue"
+        class="fixed bottom-5 right-5 rounded-full bg-sc-blue-background p-0 drop-shadow-sc-shadow transition-colors hover:bg-sc-blue"
         @click="toggleInfobox"
       >
         <UIcon
