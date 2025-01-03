@@ -2,14 +2,12 @@
 import { useWindowScroll } from "@vueuse/core";
 
 const { y } = useWindowScroll();
-const scrollToTopButtonIsVisible = ref();
+const scrollToTopButtonIsVisible = () => {
+  y.value > 200;
+};
 const scrollToTopOfPage = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
-
-watch(y, () => {
-  scrollToTopButtonIsVisible.value = y.value > 200;
-});
 </script>
 
 <template>
@@ -122,7 +120,7 @@ watch(y, () => {
               {{ $t("homepage.features.learn_scrum.title") }}
             </h3>
             <p
-              class="text-xs min-[400px]:text-sm min-[480px]:text-base min-[855px]:mb-6 lg:mb-1 lg:text-lg min-[1400px]:text-xl"
+              class="text-xs min-[400px]:text-sm min-[480px]:text-base min-[855px]:min-h-[144px] lg:mb-1 lg:text-lg min-[1400px]:text-xl"
             >
               {{ $t("homepage.features.learn_scrum.description") }}
             </p>
@@ -143,7 +141,7 @@ watch(y, () => {
               {{ $t("homepage.features.craft_your_city.title") }}
             </h3>
             <p
-              class="mb-1 text-xs min-[400px]:text-sm min-[480px]:text-base min-[855px]:mb-6 lg:mb-7 lg:text-lg min-[1400px]:text-xl"
+              class="mb-1 text-xs min-[400px]:text-sm min-[480px]:text-base min-[640px]:min-h-[115px] min-[855px]:min-h-[144px] lg:text-lg min-[1400px]:text-xl"
             >
               {{ $t("homepage.features.craft_your_city.description") }}
             </p>
@@ -164,7 +162,7 @@ watch(y, () => {
               {{ $t("homepage.features.solidify_teamwork.title") }}
             </h3>
             <p
-              class="text-xs min-[400px]:text-sm min-[480px]:text-base lg:text-lg min-[1400px]:text-xl"
+              class="text-xs min-[400px]:text-sm min-[480px]:text-base min-[855px]:min-h-[144px] lg:text-lg min-[1400px]:text-xl"
             >
               {{ $t("homepage.features.solidify_teamwork.description") }}
             </p>
