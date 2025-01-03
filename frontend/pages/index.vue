@@ -2,12 +2,12 @@
 import { useWindowScroll } from "@vueuse/core";
 
 const { y } = useWindowScroll();
-const scrollToTopButtonIsVisible = () => {
-  y.value > 200;
-};
+
 const scrollToTopOfPage = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
+
+const scrollToTopButtonIsVisible = computed(() => y.value > 200);
 </script>
 
 <template>
