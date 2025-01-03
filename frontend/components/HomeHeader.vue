@@ -30,7 +30,7 @@ const mobileMenuOpen = ref(false);
           size="18px"
       /></NuxtLink>
       <NuxtLink
-        class="flex items-center justify-between hover:text-sc-orange"
+        class="flex items-center justify-between transition-colors hover:text-sc-orange"
         to="https://diplomarbeit.scrumplicity.app/"
         target="_blank"
         ><p>{{ $t("homepage.diploma_thesis_website") }}</p>
@@ -50,7 +50,7 @@ const mobileMenuOpen = ref(false);
         >
           <Icon
             name="mdi:instagram"
-            class="text-sc-black hover:text-sc-orange"
+            class="text-sc-black transition-colors hover:text-sc-orange"
             size="28px"
           />
         </NuxtLink>
@@ -61,7 +61,7 @@ const mobileMenuOpen = ref(false);
         >
           <Icon
             name="ri:facebook-box-line"
-            class="text-sc-black hover:text-sc-orange"
+            class="text-sc-black transition-colors hover:text-sc-orange"
             size="28px"
           />
         </NuxtLink>
@@ -73,12 +73,13 @@ const mobileMenuOpen = ref(false);
   >
     <div class="ml-3 flex flex-grow items-center justify-between">
       <SvgMainLogo class="h-full w-auto" :fontControlled="false" filled />
-      <UButton @click="mobileMenuOpen = !mobileMenuOpen" variant="ghost">
+      <UButton
+        @click="mobileMenuOpen = !mobileMenuOpen"
+        variant="ghost"
+        class="lg:hidden"
+      >
         <template #leading>
-          <UIcon
-            name="ic:round-menu"
-            class="text-sc-black lg:hidden"
-            size="20px"
+          <UIcon name="ic:round-menu" class="text-sc-black" size="20px"
         /></template>
       </UButton>
       <div class="hidden items-center gap-6 lg:flex">
@@ -86,7 +87,7 @@ const mobileMenuOpen = ref(false);
         <NuxtLink
           to="https://diplomarbeit.scrumplicity.app/"
           target="_blank"
-          class="hover:text-sc-orange"
+          class="transition-colors hover:text-sc-orange"
           >{{ $t("homepage.about_us") }}</NuxtLink
         >
         <UTooltip :text="$t('homepage.tooltip.not_available')">
