@@ -20,7 +20,13 @@
     "created_on": "created on: {0}",
     "completed_on": "completed on: {0}",
     "new": "New +",
-    "teams": "{n} Team | {n} Teams"
+    "teams": "{n} Team | {n} Teams",
+    "profile": {
+      "sign_out": "Sign out",
+      "account": "Account",
+      "signed_out_successfully": "You've signed out successfully!",
+      "sign_out_error": "An error has occured whilst signing out."
+    }
   },
   "create_room": {
     "heading": "Create a project room",
@@ -177,7 +183,7 @@
     "current_of_total": "{current} of {total}"
   },
   "homepage": {
-    "project_description": "Learn the agile project management method Scrum by building a paper city! ScrumpliCity provides a web application, crafting templates and explanations about Scrum - so: {build_your_scrum_knowledge}",
+    "project_description": "Learn the agile project management method Scrum by building a paper city! ScrumpliCity provides a web application, crafting templates and explanations about Scrum—so: ",
     "build_your_scrum_knowledge": "Build Your Scrum Knowledge",
     "get_started": "Get started!",
     "scrum_guide": "Scrum Guide",
@@ -188,7 +194,7 @@
     "features": {
       "learn_scrum": {
         "title": "Learn Scrum",
-        "description": "Discover the basics of Scrum and start your first agile project - practical, interactive and easy to understand!"
+        "description": "Discover the basics of Scrum and start your first agile project—practical, interactive and easy to understand!"
       },
       "craft_your_city": {
         "title": "Craft your city",
@@ -208,14 +214,14 @@
     "notification": {
       "title": "Laptop use recommended",
       "description": "To get the most out of ScrumpliCity, please open it on your laptop!"
+    },
+    "socials": {
+      "social_media": "Social media",
+      "instagram": "Instagram",
+      "facebook": "Facebook"
+    },
+    "tooltip": {
+      "not_available": "Not available yet, come back later! :)"
     }
-  },
-  "socials": {
-    "social_media": "Social media",
-    "instagram": "Instagram",
-    "facebook": "Facebook"
-  },
-  "tooltip": {
-    "not_available": "Not available yet, come back later! :)"
   }
 }

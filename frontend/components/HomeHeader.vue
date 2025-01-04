@@ -21,8 +21,8 @@ const mobileMenuOpen = ref(false);
         <ChangeLangButton class="w-8" />
       </div>
     </div>
-    <div class="mx-6 flex flex-col text-sm">
-      <NuxtLink class="mb-7 flex items-center justify-between"
+    <div class="mx-6 flex flex-col gap-7 text-sm">
+      <NuxtLink class="flex items-center justify-between"
         ><p>{{ $t("homepage.scrum_guide") }}</p>
         <Icon
           name="material-symbols:arrow-forward-ios-rounded"
@@ -30,17 +30,10 @@ const mobileMenuOpen = ref(false);
           size="18px"
       /></NuxtLink>
       <NuxtLink
-        class="mb-7 flex items-center justify-between"
+        class="flex items-center justify-between transition-colors hover:text-sc-orange"
         to="https://diplomarbeit.scrumplicity.app/"
         target="_blank"
         ><p>{{ $t("homepage.diploma_thesis_website") }}</p>
-        <Icon
-          name="material-symbols:arrow-forward-ios-rounded"
-          class="text-sc-black"
-          size="18px"
-      /></NuxtLink>
-      <NuxtLink class="flex items-center justify-between"
-        ><p>{{ $t("homepage.crafting_templates_download") }}</p>
         <Icon
           name="material-symbols:arrow-forward-ios-rounded"
           class="text-sc-black"
@@ -55,20 +48,28 @@ const mobileMenuOpen = ref(false);
           external
           target="_blank"
         >
-          <Icon name="mdi:instagram" class="text-sc-black" size="28px" />
+          <Icon
+            name="mdi:instagram"
+            class="text-sc-black transition-colors hover:text-sc-orange"
+            size="28px"
+          />
         </NuxtLink>
         <NuxtLink
           to="https://www.facebook.com/people/Scrumplicityapp/61568992263197/"
           external
           target="_blank"
         >
-          <Icon name="ri:facebook-box-line" class="text-sc-black" size="28px" />
+          <Icon
+            name="ri:facebook-box-line"
+            class="text-sc-black transition-colors hover:text-sc-orange"
+            size="28px"
+          />
         </NuxtLink>
       </div>
     </div>
   </USlideover>
   <header
-    class="fixed z-30 flex h-10 w-screen bg-sc-white p-3 drop-shadow-sc-shadow lg:h-16"
+    class="fixed z-30 flex h-10 w-full bg-sc-white p-3 drop-shadow-sc-shadow lg:h-16"
   >
     <div class="ml-3 flex flex-grow items-center justify-between">
       <NuxtLinkLocale to="/">
@@ -92,14 +93,13 @@ const mobileMenuOpen = ref(false);
         <NuxtLink
           to="https://diplomarbeit.scrumplicity.app/"
           target="_blank"
-          class=""
+          class="transition-colors hover:text-sc-orange"
           >{{ $t("homepage.about_us") }}</NuxtLink
         >
-        <UTooltip :text="$t('tooltip.not_available')">
+        <UTooltip :text="$t('homepage.tooltip.not_available')">
           <UButton
             :disabled="true"
-            style="opacity: 100"
-            class="hidden h-8 drop-shadow-sc-shadow hover:bg-orange-700 lg:block"
+            class="hidden h-8 !opacity-100 drop-shadow-sc-shadow hover:bg-orange-700 lg:block"
             >{{ $t("homepage.get_started") }}</UButton
           ></UTooltip
         >
