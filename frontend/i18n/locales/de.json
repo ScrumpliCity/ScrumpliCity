@@ -20,7 +20,13 @@
     "created_on": "erstellt am: {0}",
     "completed_on": "abgeschlossen am: {0}",
     "new": "Neu +",
-    "teams": "{n} Team | {n} Teams"
+    "teams": "{n} Team | {n} Teams",
+    "profile": {
+      "sign_out": "Abmelden",
+      "account": "Konto",
+      "signed_out_successfully": "Du hast dich erfolgreich abgemeldet!",
+      "sign_out_error": "Beim Abmelden ist ein Fehler aufgetreten."
+    }
   },
   "create_room": {
     "heading": "Projekt-Raum erstellen",
@@ -105,123 +111,123 @@
     "tutor": "Ich bin Tutor*in"
   },
   "login": {
-    "get_started_with_scrumplicity": "Get started with ScrumpliCity",
-    "get_started_with": "Get started with",
+    "get_started_with_scrumplicity": "Leg' los bei ScrumpliCity",
+    "get_started_with": "Leg' los mit",
     "google": "Google",
     "microsoft": "Microsoft",
-    "error": "An error occured while logging in."
+    "error": "Beim Einloggen ist ein Fehler aufgetreten."
   },
   "common": {
-    "legal_notice": "Legal Notice",
+    "legal_notice": "Impressum",
     "phases": {
       "sprint_planning": "Sprint Planning",
-      "build_phase": "Build phase"
+      "build_phase": "Bauphase"
     }
   },
   "legal_notice": {
-    "title": "Legal Notice",
-    "legal_matters": "Legal matters",
+    "title": "Impressum",
+    "legal_matters": "Rechtliches",
     "brand_name": "ScrumpliCity",
-    "media_proprietor": "Media Proprietor",
+    "media_proprietor": "Medieninhaber",
     "address": {
-      "title": "Address",
-      "vienna": "Vienna, Austria"
+      "title": "Anschrift",
+      "vienna": "Wien, Österreich"
     },
-    "contact": "Contact",
+    "contact": "Kontakt",
     "editorial_policy": {
-      "title": "Editorial Policy",
-      "content": "Teaching the fundamentals of the Scrum agile project management method through interactive exercises and hands-on projects."
+      "title": "Blattlinie",
+      "content": "Vermittlung von Grundlagen der agilen Projektmanagementmethode Scrum durch interaktive Übungen und praktische Projekte."
     },
     "disclaimer": {
-      "title": "Disclaimer",
-      "content": "This website was developed as part of a thesis project and is intended for use in various educational institutions. While the content has been created with utmost care, the project team assumes no liability for the accuracy, completeness, or timeliness of the information. The use of the website and materials is at the user's own risk."
+      "title": "Haftungsausschluss",
+      "content": "Diese Website wurde im Rahmen einer Diplomarbeit entwickelt und ist für die Anwendung in verschiedenen Bildungseinrichtungen vorgesehen. Trotz sorgfältiger Erstellung der Inhalte übernimmt das Projektteam keine Haftung für die Richtigkeit, Vollständigkeit oder Aktualität der Informationen. Die Nutzung der Website und der Materialien erfolgt auf eigene Verantwortung."
     },
     "business_purpose": {
-      "title": "Business Purpose",
-      "content": "Development of a platform as part of a thesis project to teach the Scrum method through interactive group exercises and projects."
+      "title": "Unternehmensgegenstand",
+      "content": "Entwicklung einer Plattform im Rahmen einer Diplomarbeit zur Vermittlung der Scrum-Methode durch interaktive Gruppenübungen und Projekte."
     }
   },
   "planning": {
-    "sprint_goal": "Sprint goal",
+    "sprint_goal": "Sprint-Ziel",
     "sprint_planning": "@:common.phases.sprint_planning",
     "build_phase": "@:common.phases.build_phase",
-    "sprint_name": "Sprint name",
-    "set_a_sprint_name": "Set a sprint name first!",
-    "define_sprint_goal": "Then define your sprint goal!",
-    "write_user_story": "Then write your first user story!",
-    "title": "Title",
-    "description": "Description",
+    "sprint_name": "Sprintname",
+    "set_a_sprint_name": "Setzt zuerst einen Sprintnamen!",
+    "define_sprint_goal": "Definiert dann euer Sprint-Ziel!",
+    "write_user_story": "Und schreibt dann eure erste User Story!",
+    "title": "Titel",
+    "description": "Beschreibung",
     "story_points": "Story Points",
-    "responsible": "Responsible",
+    "responsible": "Zuständigkeit",
     "sprint_out_of_n": "Sprint {current}/{total}",
-    "next_phase": "Next phase:",
+    "next_phase": "Nächste Phase:",
     "story_points_abbreviation": "SP.",
-    "story_points_of_planned_user_stories": "Story points of the planned user stories",
-    "velocity_to_date": "Velocity to date",
-    "description_of_us": "User Story description",
-    "title_of_us": "User Story title",
+    "story_points_of_planned_user_stories": "Story Points der geplanten User Stories",
+    "velocity_to_date": "Bisherige Velocity",
+    "description_of_us": "Beschreibung der US",
+    "title_of_us": "Titel der US",
     "infobox": {
       "sprint_names": {
-        "title": "Sprint names",
-        "content": "Sprint names help to clearly identify sprints and categorize them in a meaningful way. For example, they can be named numerically (e.g. \"Sprint 1\", \"Sprint 2\"), according to content focus (e.g. \"Sprint house construction\") or with a further alphabetical initial letter (e.g. \"Amsterdam\", \"Berlin\")."
+        "title": "Sprintnamen",
+        "content": "Sprintnamen helfen, Sprints eindeutig zu identifizieren und sie sinnvoll einzuordnen. Sie können beispielsweise numerisch (z. B. \"Sprint 1\", \"Sprint 2\"), nach inhaltlichem Fokus (z. B. \"Sprint Häuserbau\") oder mit weiterführendem alphabetischem Anfangsbuchstaben (z.B. \"Amsterdam\", \"Berlin\") benannt werden."
       },
       "sprint_goal": {
-        "title": "Sprint Goal",
-        "content": "The sprint goal is the main objective that the team wants to achieve in the current sprint. It provides clear orientation and helps to keep the focus on the most important things during the entire sprint. A good sprint goal is precise, realistic and clear to the entire team, e.g. \"Sketch the layout of the city.\""
+        "title": "Sprint-Ziel",
+        "content": "Das Sprint-Ziel ist das Hauptziel, welches das Team im aktuellen Sprint erreichen möchte. Es bietet eine klare Orientierung und hilft dabei, den Fokus während des gesamten Sprints auf das Wichtigste zu lenken. Ein gutes Sprint Ziel ist prägnant, realistisch und für das gesamte Team nachvollziehbar, z. B. \"Grundriss der Stadt skizzieren.\""
       },
       "user_stories": {
-        "title": "User stories",
-        "content": "User stories should be formulated clearly and precisely and reflect the user's perspective. They follow the format: \"As a [role], I want [goal] to [benefit].\" (e.g. \"As a resident, I would like to have a road to get from my house to work.\") Acceptance criteria should also be present. These are conditions that show when a task has been completed. (e.g. \"The road has two lanes.\")"
+        "title": "User Stories",
+        "content": "User Stories sollten klar und präzise formuliert sein und die Perspektive des Nutzers widerspiegeln. Sie folgen dem Format: \"Als [Rolle] möchte ich [Ziel], um [Nutzen].\" (z.B. \"Als Bewohner möchte ich eine Straße haben, um von meinem Haus zur Arbeit zu gelangen.\") Ebenfalls sollten Akzeptanzkriterien vorhanden sein. Das sind Bedingungen, die zeigen, wann eine Aufgabe fertiggestellt ist. (z.B. \"Die Straße hat 2 Fahrstreifen.\")"
       },
       "story_points": {
-        "title": "Story points",
-        "content": "Story points indicate the complexity of the user story. The Fibonacci sequence (1, 2, 3, 5, 8, 13 ...) is often used to record relative differences between the stories. Alternative estimation methods for user stories are T-shirt sizes (S, M, L, XL) or time-based estimation."
+        "title": "Story Points",
+        "content": "Story Points geben die Komplexität der User Story an. Häufig wird die Fibonacci-Folge (1, 2, 3, 5, 8, 13 …) genutzt, um relative Unterschiede zwischen den Stories zu erfassen. Alternative Schätzmethoden für User Stories sind T-Shirt-Größen (S, M, L, XL) oder die zeitbasierte Schätzung."
       }
     }
   },
   "infobox": {
-    "current_of_total": "{current} of {total}"
+    "current_of_total": "{current} von {total}"
   },
   "homepage": {
-    "project_description": "Learn the agile project management method Scrum by building a paper city! ScrumpliCity provides a web application, crafting templates and explanations about Scrum—so: ",
+    "project_description": "Lerne die agile Projektmanagement\u00ADmethode Scrum mittels Bau einer Papierstadt! ScrumpliCity stellt eine Web-Applikation, Bastelvorlagen und Erklärungen zu Scrum zur Verfügung – also: ",
     "build_your_scrum_knowledge": "Build Your Scrum Knowledge",
-    "get_started": "Get started!",
+    "get_started": "Loslegen!",
     "scrum_guide": "Scrum Guide",
-    "diploma_thesis_website": "Diploma thesis website",
-    "crafting_templates_download": "Crafting templates download",
-    "follow_us": "Follow us!",
-    "about_us": "About Us",
+    "diploma_thesis_website": "Diplomarbeits-Webseite",
+    "crafting_templates_download": "Bastelvorlagen-Download",
+    "follow_us": "Folge uns!",
+    "about_us": "Über uns",
     "features": {
       "learn_scrum": {
-        "title": "Learn Scrum",
-        "description": "Discover the basics of Scrum and start your first agile project—practical, interactive and easy to understand!"
+        "title": "Lerne Scrum",
+        "description": "Entdecke die Grundlagen von Scrum und starte dein erstes agiles Projekt – praxisnah, interaktiv und einfach verständlich!"
       },
       "craft_your_city": {
-        "title": "Craft your city",
-        "description": "Design your own paper city and bring your project to life step by step!"
+        "title": "Bastle deine Stadt",
+        "description": "Gestalte deine eigene Stadt aus Papier und erwecke Schritt für Schritt dein Projekt zum Leben!"
       },
       "solidify_teamwork": {
-        "title": "Solidify teamwork",
-        "description": "Strengthen team spirit and experience how effective, cooperative collaboration can lead your projects to success!"
+        "title": "Festige Teamwork",
+        "description": "Stärke den Teamgeist und erlebe, wie effektive, kooperative Zusammenarbeit deine Projekte zum Erfolg führen!"
       }
     },
-    "learning_materials": "Learning materials",
-    "all_you_need_to_know": "Scrum: All you need to know!",
-    "scrum_guide_description": "You would like to learn more about the agile project management method Scrum outside of the game process? You'll find everything you need on our Scrum theory page: from the basics to practical tips. Whether you're new to Scrum or want to deepen your knowledge, you'll find clear, understandable explanations here. Take a look and take your projects to the next level!",
-    "questions": "Any questions?",
-    "here_to_help": "We are here to help you! Feel free to send us an e-mail:",
-    "contact_us": "Contact us!",
+    "learning_materials": "Lernunterlagen",
+    "all_you_need_to_know": "Scrum: Alles was du wissen musst!",
+    "scrum_guide_description": "Du möchtest dich außerhalb des Spielprozesses über die agile Projektmanagement&shy;methode Scrum weiterbilden? Auf unserer Scrum-Theorie-Seite findest du alles Wichtige: von den Grundlagen bis zu praktischen Tipps. Egal, ob du neu einsteigst oder dein Wissen vertiefen möchtest – hier bekommst du klare, verständliche Erklärungen. Schau vorbei und bring deine Projekte auf das nächste Level!",
+    "questions": "Noch Fragen?",
+    "here_to_help": "Wir sind da um dir zu helfen! Schreib uns gerne eine E-Mail:",
+    "contact_us": "Kontaktiere uns!",
     "notification": {
-      "title": "Laptop use recommended",
-      "description": "To get the most out of ScrumpliCity, please open it on your laptop!"
+      "title": "Nutzung am Laptop empfohlen",
+      "description": "Um ScrumpliCity bestmöglich nutzen zu können, öffne es bitte auf dem Laptop!"
     },
     "socials": {
-      "social_media": "Social media",
+      "social_media": "Soziale Medien",
       "instagram": "Instagram",
       "facebook": "Facebook"
     },
     "tooltip": {
-      "not_available": "Not available yet, come back later! :)"
+      "not_available": "Noch nicht verfügbar, komm später wieder! :)"
     }
   }
 }

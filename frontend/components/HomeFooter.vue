@@ -5,9 +5,9 @@ const localeRoute = useLocaleRoute();
 <template>
   <footer>
     <div
-      class="flex w-screen flex-wrap px-6 min-[470px]:justify-center xl:gap-[248px]"
+      class="flex w-screen flex-wrap px-6 min-[490px]:justify-center xl:gap-[248px]"
     >
-      <div class="mx-4 bg-sc-white/70 max-[470px]:mb-5">
+      <div class="mx-4 bg-sc-white/70 max-[490px]:mb-5">
         <h4 class="text-sm font-bold xl:text-2xl">
           {{ $t("legal_notice.brand_name") }}
         </h4>
@@ -18,6 +18,7 @@ const localeRoute = useLocaleRoute();
             to="https://diplomarbeit.scrumplicity.app/"
             target="_blank"
             external
+            class="transition-colors hover:text-sc-orange"
             >{{ $t("homepage.diploma_thesis_website") }}</NuxtLink
           >
           <br />
@@ -26,22 +27,24 @@ const localeRoute = useLocaleRoute();
       </div>
       <div class="mx-4 bg-sc-white/70">
         <h4 class="text-sm font-bold xl:text-2xl">
-          {{ $t("socials.social_media") }}
+          {{ $t("homepage.socials.social_media") }}
         </h4>
         <p class="text-xs leading-6 xl:text-base">
           <NuxtLink
             to="https://www.instagram.com/scrumplicity.app"
             target="_blank"
             external
-            >{{ $t("socials.instagram") }}</NuxtLink
+            class="transition-colors hover:text-sc-orange"
+            >{{ $t("homepage.socials.instagram") }}</NuxtLink
           >
           <br />
           <NuxtLink
             to="https://www.facebook.com/people/Scrumplicityapp/61568992263197/"
             target="_blank"
             external
+            class="transition-colors hover:text-sc-orange"
           >
-            {{ $t("socials.facebook") }}</NuxtLink
+            {{ $t("homepage.socials.facebook") }}</NuxtLink
           >
         </p>
       </div>
@@ -51,7 +54,7 @@ const localeRoute = useLocaleRoute();
         </h4>
         <NuxtLink
           :to="localeRoute('legal_notice')"
-          class="text-xs xl:text-base"
+          class="text-xs transition-colors hover:text-sc-orange xl:text-base"
           >{{ $t("legal_notice.title") }}</NuxtLink
         >
       </div>

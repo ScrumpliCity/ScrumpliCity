@@ -26,3 +26,5 @@ Route::post('/team/{team}/members', [MemberController::class, 'setMembers']);
 Route::get('/team/me/members', [MemberController::class, 'index']);
 
 Route::get('/user/profile-picture', [UserController::class, 'profilePicture'])->middleware('auth:sanctum');
+
+Route::patch('/user', [UserController::class, 'updateName'])->middleware('auth:sanctum');
