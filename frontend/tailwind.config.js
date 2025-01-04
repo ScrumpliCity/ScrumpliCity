@@ -85,6 +85,9 @@ export default {
       dropShadow: {
         "sc-shadow": "0 4px 8px rgba(0,0,0,0.25)",
       },
+      screens: {
+        xs: "365px",
+      },
     },
   },
   plugins: [],
