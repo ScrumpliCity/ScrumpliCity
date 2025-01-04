@@ -12,7 +12,7 @@ const scrollToTopButtonIsVisible = computed(() => y.value > 200);
 
 <template>
   <ClientOnly>
-    <div class="absolute top-12 z-10 flex w-screen justify-center lg:hidden">
+    <div class="absolute top-12 z-10 flex w-full justify-center lg:hidden">
       <!--@vue-expect-error ':close-button="null" is the way to hide the close button but incorrectly not allowed by types -->
       <UNotification
         id="mobileDevice"
