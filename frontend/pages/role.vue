@@ -24,7 +24,7 @@
       >
         <NuxtLinkLocale
           to="/play"
-          class="flex h-52 w-60 flex-col items-center justify-center rounded-lg border-2 border-dashed border-sc-orange bg-sc-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.25)] hover:bg-sc-black-100 min-[1380px]:h-60 min-[1380px]:w-72 min-[1470px]:h-[303px] min-[1470px]:w-96"
+          class="flex h-52 w-60 flex-col items-center justify-center rounded-lg border-2 border-dashed border-sc-orange bg-sc-white drop-shadow-sc-shadow transition-colors hover:bg-sc-black-100 min-[1380px]:h-60 min-[1380px]:w-72 min-[1470px]:h-[303px] min-[1470px]:w-96"
         >
           <SvgLearnerSm
             class="mb-6 h-24 w-auto min-[1380px]:h-28 min-[1470px]:mb-11 min-[1470px]:h-36"
@@ -35,7 +35,7 @@
         </NuxtLinkLocale>
         <NuxtLinkLocale
           to="/login"
-          class="flex h-52 w-60 flex-col items-center justify-center rounded-lg border-2 border-dashed border-sc-orange bg-sc-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.25)] hover:bg-sc-black-100 min-[1380px]:h-60 min-[1380px]:w-72 min-[1470px]:h-[303px] min-[1470px]:w-96"
+          class="flex h-52 w-60 flex-col items-center justify-center rounded-lg border-2 border-dashed border-sc-orange bg-sc-white drop-shadow-sc-shadow transition-colors hover:bg-sc-black-100 min-[1380px]:h-60 min-[1380px]:w-72 min-[1470px]:h-[303px] min-[1470px]:w-96"
         >
           <SvgTutorSm
             class="mb-6 h-24 w-auto min-[1380px]:h-28 min-[1470px]:mb-11 min-[1470px]:h-36"
