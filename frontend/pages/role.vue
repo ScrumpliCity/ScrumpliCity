@@ -1,13 +1,13 @@
 <template>
   <div
-    class="absolute top-4 h-full w-full bg-sc-white min-[1190px]:-top-[2vw] min-[1470px]:top-0 min-[1760px]:-top-[3vw]"
+    class="absolute top-4 w-full bg-sc-white min-[1190px]:-top-[2vw] min-[1470px]:top-0 min-[1760px]:-top-[3vw]"
   >
     <SvgRoleBackground class="w-full px-[3vw]" filled :fontControlled="false" />
   </div>
   <div class="relative flex max-h-fit flex-col">
     <HomeHeader />
     <div
-      class="mb-[5vw] flex w-full flex-col items-center min-[1100px]:mb-[8vw] min-[1760px]:mb-[10vw]"
+      class="mb-[5vw] flex w-full flex-col items-center min-[1100px]:mb-[8vw] min-[1760px]:mb-[10vw] min-[2000px]:mb-[15vw] min-[2400px]:mb-[20vw]"
     >
       <h1
         class="mt-28 font-heading text-4xl font-bold text-sc-orange xl:mt-32 xl:text-5xl min-[1470px]:mt-36 min-[1470px]:text-6xl"
