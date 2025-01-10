@@ -31,6 +31,7 @@ const mail = runtimeConfig.public.contactMail;
       <p
         class="max-w-[48rem] text-sm text-sc-black sm:text-base lg:text-xl lg:leading-relaxed"
       >
+        <!-- if 404 error: display nice message; else: display the error message, if there is one -->
         {{ $t("error.description") }}
         <template v-if="props.error.statusCode === 404">
           {{ $t("error.404_description") }}
@@ -65,6 +66,7 @@ const mail = runtimeConfig.public.contactMail;
       </div>
     </div>
 
+    <!-- positioned to be on the sign in the SVG -->
     <p
       class="absolute bottom-[18.9vw] left-[9.5vw] z-10 hidden w-[7vw] -translate-x-1/2 translate-y-1/2 text-center text-[1.3vw] font-bold leading-[1em] text-sc-black-800 xs:block sm:bottom-[13.45vw] sm:left-[41.2vw] sm:w-[4.6vw] sm:text-[0.9vw] lg:bottom-[11.8vw] lg:left-[49.8vw] lg:w-[3.8vw] lg:text-[0.75vw]"
     >
