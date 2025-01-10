@@ -107,6 +107,7 @@ export default defineNuxtConfig({
       echo: {
         // echo key set by NUXT_PUBLIC_ECHO_KEY env variable
       },
+      contactMail: "lisa-marie.hoermann@scrumplicity.app", // used in error page
     },
   },
 });
