@@ -62,7 +62,7 @@ const localeRoute = useLocaleRoute();
     <div
       class="ml-[60vw] flex justify-end bg-sc-white pb-4 pr-4 font-heading text-xs xl:text-base"
     >
-      <p>© 2024, ScrumpliCity</p>
+      <p>© 2025, ScrumpliCity</p>
     </div>
   </footer>
 </template>
