@@ -5,7 +5,7 @@ const localeRoute = useLocaleRoute();
 <template>
   <footer>
     <div
-      class="flex w-screen flex-wrap px-6 min-[490px]:justify-center xl:gap-[248px]"
+      class="flex w-full flex-wrap px-6 min-[490px]:justify-center xl:gap-[248px]"
     >
       <div class="mx-4 bg-sc-white/70 max-[490px]:mb-5">
         <h4 class="text-sm font-bold xl:text-2xl">
@@ -60,7 +60,7 @@ const localeRoute = useLocaleRoute();
       </div>
     </div>
     <div
-      class="ml-[60vw] flex justify-end bg-sc-white/70 pb-4 pr-4 font-heading text-xs xl:text-base"
+      class="ml-[60vw] flex justify-end bg-sc-white pb-4 pr-4 font-heading text-xs xl:text-base"
     >
       <p>© 2024, ScrumpliCity</p>
     </div>

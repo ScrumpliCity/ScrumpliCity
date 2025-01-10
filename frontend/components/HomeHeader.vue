@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const mobileMenuOpen = ref(false);
+const localeRoute = useLocaleRoute();
 </script>
 <template>
   <USlideover v-model="mobileMenuOpen" :ui="{ width: 'max-w-[70vw]' }">
@@ -96,12 +97,11 @@ const mobileMenuOpen = ref(false);
           class="transition-colors hover:text-sc-orange"
           >{{ $t("homepage.about_us") }}</NuxtLink
         >
-        <UTooltip :text="$t('homepage.tooltip.not_available')">
+        <NuxtLink :to="localeRoute('role')">
           <UButton
-            :disabled="true"
             class="hidden h-8 !opacity-100 drop-shadow-sc-shadow hover:bg-orange-700 lg:block"
             >{{ $t("homepage.get_started") }}</UButton
-          ></UTooltip
+          ></NuxtLink
         >
         <div class="ml-6 hidden items-center gap-3 lg:flex">
           <UButton

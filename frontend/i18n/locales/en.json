@@ -104,6 +104,12 @@
       }
     }
   },
+  "role": {
+    "title": "What's your role?",
+    "description": "Choose your role so that ScrumpliCity can be tailored to you!",
+    "learner": "I am a learner",
+    "tutor": "I am a tutor"
+  },
   "login": {
     "get_started_with_scrumplicity": "Get started with ScrumpliCity",
     "get_started_with": "Get started with",

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useWindowScroll } from "@vueuse/core";
+const localeRoute = useLocaleRoute();
 
 const { y } = useWindowScroll();
 
@@ -86,12 +87,13 @@ const scrollToTopButtonIsVisible = computed(() => y.value > 200);
           <span>{{ $t("homepage.project_description") }}</span>
           <b>{{ $t("homepage.build_your_scrum_knowledge") }}</b>
         </p>
-        <UTooltip :text="$t('homepage.tooltip.not_available')">
+        <NuxtLink :to="localeRoute('role')">
           <UButton
-            :disabled="true"
             class="hidden !opacity-100 drop-shadow-sc-shadow hover:bg-orange-700 lg:block lg:px-5 lg:py-2 lg:text-base lg:font-bold xl:text-xl"
             >{{ $t("homepage.get_started") }}</UButton
-          >
+          ></NuxtLink
+        >
+        <UTooltip :text="$t('homepage.tooltip.not_available')">
           <UButton
             :disabled="true"
             class="!opacity-100 drop-shadow-sc-shadow hover:bg-orange-700 xs:text-base lg:hidden"
