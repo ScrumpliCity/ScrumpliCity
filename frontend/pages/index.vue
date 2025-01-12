@@ -9,6 +9,9 @@ const scrollToTopOfPage = () => {
 };
 
 const scrollToTopButtonIsVisible = computed(() => y.value > 200);
+
+const runtimeConfig = useRuntimeConfig();
+const mail = runtimeConfig.public.contactMail;
 </script>
 
 <template>
@@ -220,7 +223,7 @@ const scrollToTopButtonIsVisible = computed(() => y.value > 200);
           >
             {{ $t("homepage.here_to_help") }}
           </p>
-          <a href="mailto:lisa-marie.hoermann@scrumplicity.app">
+          <a :href="`mailto:${mail}`">
             <UButton
               class="!opacity-100 drop-shadow-sc-shadow hover:bg-orange-700 lg:px-5 lg:py-2 lg:text-base lg:font-bold xl:text-xl"
             >

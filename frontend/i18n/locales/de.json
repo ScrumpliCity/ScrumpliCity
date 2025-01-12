@@ -229,5 +229,18 @@
     "tooltip": {
       "not_available": "Noch nicht verfügbar, komm später wieder! :)"
     }
+  },
+  "error": {
+    "do_not_enter": "Betreten verboten!",
+    "plan_missing": "Der Bauplan fehlt!",
+    "error": "Error: ",
+    "description": "Die angefragte Seite scheint im Baustellenchaos verloren gegangen zu sein!",
+    "404_description": "Vielleicht wurde die falsche URL eingegeben oder die Seite existiert nicht.",
+    "do_now": "Das kannst du jetzt tun:",
+    "back_homepage": "Zurück zur Startseite",
+    "scrum_guide": "Schau dir den Scrum Guide an",
+    "get_started": "Leg’ los mit ScrumpliCity",
+    "contact_us": "Kontaktiere uns",
+    "we_help": "unsere Baustellenleiterin hilft dir weiter!"
   }
 }

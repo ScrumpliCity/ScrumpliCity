@@ -229,5 +229,18 @@
     "tooltip": {
       "not_available": "Not available yet, come back later! :)"
     }
+  },
+  "error": {
+    "do_not_enter": "Do not enter!",
+    "plan_missing": "The architect’s plan is missing!",
+    "error": "Error: ",
+    "description": "The requested page seems to have been lost in the construction chaos!",
+    "404_description": "Maybe the wrong URL was entered, or the page doesn’t exist.",
+    "do_now": "Here’s what you can do now:",
+    "back_homepage": "Back to the homepage",
+    "scrum_guide": "Take a look at the Scrum Guide",
+    "get_started": "Get started with ScrumpliCity",
+    "contact_us": "Contact us",
+    "we_help": "our construction manager will help you!"
   }
 }
