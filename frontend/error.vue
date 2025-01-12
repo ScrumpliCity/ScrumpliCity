@@ -13,7 +13,7 @@ const mail = runtimeConfig.public.contactMail;
   <div class="relative flex h-svh w-full items-start justify-start bg-sc-white">
     <NuxtLinkLocale
       to="/"
-      class="bg-sc-whit e absolute left-7 top-7 z-50 h-5 rounded ring-4 ring-sc-white lg:left-10"
+      class="bg-sc-white absolute left-7 top-7 z-50 h-5 rounded ring-4 ring-sc-white lg:left-10"
     >
       <SvgMainLogo :font-controlled="false" class="h-full lg:top-6 lg:h-8" />
     </NuxtLinkLocale>
@@ -29,7 +29,7 @@ const mail = runtimeConfig.public.contactMail;
         </span>
       </h1>
       <p
-        class="max-w-[48rem] text-sm text-sc-black sm:text-base lg:text-xl lg:leading-relaxed"
+        class="max-w-[48rem] text-sm text-sc-black sm:text-base lg:text-2xl lg:leading-relaxed"
       >
         <!-- if 404 error: display nice message; else: display the error message, if there is one -->
         {{ $t("error.description") }}
@@ -45,10 +45,10 @@ const mail = runtimeConfig.public.contactMail;
         </template>
       </p>
 
-      <div class="flex flex-col gap-2 text-sm sm:text-base lg:gap-3 lg:text-xl">
+      <div class="flex flex-col gap-2 text-sm sm:text-base lg:gap-3 lg:text-2xl">
         <p class="font-semibold">{{ $t("error.do_now") }}</p>
         <div
-          class="ml-3 flex flex-col gap-2 text-sc-orange sm:gap-3 lg:gap-4 lg:text-base"
+          class="ml-3 flex flex-col gap-2 text-sc-orange sm:gap-3 lg:gap-4 lg:text-xl"
         >
           <NuxtLinkLocale to="/">{{
             $t("error.back_homepage")
