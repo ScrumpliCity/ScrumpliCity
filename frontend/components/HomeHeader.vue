@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import DownloadFilesButton from "./DownloadFilesButton.vue";
-
 const mobileMenuOpen = ref(false);
 const localeRoute = useLocaleRoute();
 </script>
@@ -18,7 +16,7 @@ const localeRoute = useLocaleRoute();
         @click="mobileMenuOpen = false"
       />
       <div class="mb-6 mr-3 mt-9 flex flex-row items-center gap-2">
-        <DownloadFilesButton size="32px" />
+        <DownloadFilesButton class="[&_svg]:size-8" />
         <ChangeLangButton class="w-8" />
       </div>
     </div>

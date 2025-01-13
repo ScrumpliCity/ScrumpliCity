@@ -69,7 +69,7 @@ async function editName() {
       <DownloadFilesButton />
       <UPopover :ui="{ ring: '' }">
         <UAvatar
-          class="bottom-0 cursor-pointer bg-sc-black-100 outline-none ring-sc-black-100 transition-shadow focus-within:ring-8 hover:ring-8"
+          class="cursor-pointer bg-sc-black-100 outline-none ring-sc-black-100 transition-shadow focus-within:ring-8 hover:ring-8"
           tabindex="0"
           size="sm"
           :alt="user?.name"

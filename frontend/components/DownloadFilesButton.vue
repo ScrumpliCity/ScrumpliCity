@@ -1,14 +1,3 @@
-<script setup lang="ts">
-import { defineProps } from "vue";
-
-const props = defineProps({
-  size: {
-    type: String,
-    default: "40px",
-  },
-});
-</script>
-
 <template>
   <a
     href="/ScrumpliCity-crafting-templates.zip"
@@ -24,10 +13,7 @@ const props = defineProps({
         rounded: 'rounded-full',
       }"
     >
-      <SvgDownload
-        :font-controlled="false"
-        :style="{ width: props.size, height: props.size }"
-      />
+      <SvgDownload :font-controlled="false" class="h-10" />
     </UButton>
   </a>
 </template>
