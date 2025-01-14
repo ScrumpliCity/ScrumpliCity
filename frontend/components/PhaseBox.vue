@@ -17,6 +17,11 @@ const props = defineProps({
     required: false,
     default: 300,
   },
+  isCompleted: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
 });
 
 const { t } = useI18n();
@@ -26,10 +31,9 @@ const phase = ref(props.phase ?? "default");
 const phaseInfos = computed(() => {
   const i18nPath = "rooms.phase_box.";
   const nextPhase = {
-    planning: "building_phase",
-    building_phase: "review",
-    review: "retrospective",
-    retrospective: "backlog_refinement",
+    planning: "build_phase",
+    build_phase: "review",
+    review: "backlog_refinement",
     backlog_refinement: "planning",
     default: "planning",
   };
@@ -56,17 +60,12 @@ const phaseInfos = computed(() => {
         <SvgBuildingPhaseSM
           filled
           :fontControlled="false"
-          v-else-if="phase === 'building_phase'"
+          v-else-if="phase === 'build_phase'"
         />
         <SvgSprintReviewSM
           filled
           :fontControlled="false"
           v-else-if="phase === 'review'"
-        />
-        <SvgSprintRetroSM
-          filled
-          :fontControlled="false"
-          v-else-if="phase === 'retrospective'"
         />
         <SvgBacklogRefinementSM
           filled
@@ -80,7 +79,7 @@ const phaseInfos = computed(() => {
           {{ $t("rooms.phase_box.sprint") }} {{ currentSprint }} /
           {{ sprintCount }}
         </h2>
-        <div class="flex flex-col" v-if="sprintCount !== currentSprint">
+        <div class="flex flex-col" v-if="!isCompleted" :key="phaseInfos.text">
           <h3 class="text-2xl text-sc-black">{{ phaseInfos.text }}</h3>
           <p class="text-sm text-sc-black-700">
             {{ $t("rooms.phase_box.next_phase") }}: {{ phaseInfos.nextPhase }}
@@ -104,12 +103,14 @@ const phaseInfos = computed(() => {
       />
       <p class="leading-9 text-sc-black-700">
         {{ $t("rooms.phase_box.end_of_sprint") }}
-        <span class="font-bold">{{
-          new Date(Date.now() + timeLeft * 1000).toLocaleTimeString(
-            $i18n.locale,
-            { hour: "2-digit", minute: "2-digit" },
-          )
-        }}</span>
+        <ClientOnly>
+          <span class="font-bold">{{
+            new Date(Date.now() + timeLeft * 1000).toLocaleTimeString(
+              $i18n.locale,
+              { hour: "2-digit", minute: "2-digit" },
+            )
+          }}</span>
+        </ClientOnly>
       </p>
     </div>
   </div>

@@ -4,6 +4,8 @@ const localeRoute = useLocaleRoute();
 const route = useRoute();
 const localePath = useLocalePath();
 const { t } = useI18n();
+const echo = useEcho();
+const toast = useToast();
 
 const { data, refresh } = await useAsyncData("room", () =>
   client(`/api/rooms/${route.params.id}`),
@@ -14,6 +16,16 @@ const isOpen = ref(false);
 const timerPaused = ref(false);
 
 const teamReadyStates = ref({});
+
+const remainingSeconds = ref(0);
+const totalSeconds = ref(0);
+const isPlaying = computed(() =>
+  manageRoom.value.is_playing === 1
+    ? true
+    : manageRoom.value.is_playing === null
+      ? null
+      : false,
+);
 
 // const totalDuration =
 
@@ -42,7 +54,7 @@ const statusText = computed(() => {
   if (!manageRoom.value.roomcode) {
     return t("rooms.ready");
   }
-  if (manageRoom.value.is_playing) {
+  if (isPlaying) {
     return t("rooms.currently_playing");
   }
   return t("rooms.started");
@@ -51,6 +63,22 @@ const statusText = computed(() => {
 const allTeamsReady = computed(() => {
   return Object.values(teamReadyStates.value).every((isReady) => isReady);
 });
+
+const lastPlayedAgoMinutes = ref(undefined);
+
+watch(
+  () => manageRoom.value.last_play_start,
+  (newVal) => {
+    if (newVal) {
+      lastPlayedAgoMinutes.value = Math.floor(
+        (new Date().getTime() - new Date(newVal).getTime()) / 1000 / 60,
+      );
+    } else {
+      lastPlayedAgoMinutes.value = undefined;
+    }
+  },
+  { immediate: true },
+);
 
 console.log(manageRoom.value); // Remove
 
@@ -75,6 +103,34 @@ onMounted(() => {
       }
     },
   );
+
+  if (!echo) return;
+
+  echo
+    .channel(`rooms.${manageRoom.value.id}`)
+    .listen(".TeamCreated", () => refresh())
+    .listen(".TeamUpdated", () => refresh())
+    .listen(".MemberCreated", () => refresh())
+    .error((e) => {
+      console.error("Channel error:", e);
+    });
+
+  echo
+    .channel(`timer.${manageRoom.value.id}`)
+    .listen("TimerUpdate", (data) => {
+      if (data.remainingSeconds !== remainingSeconds.value)
+        remainingSeconds.value = data.remainingSeconds;
+    })
+    .listen("TimerStateChange", (data) => {
+      remainingSeconds.value = data.remainingSeconds;
+      totalSeconds.value = data.totalSeconds;
+      refresh();
+    });
+});
+
+onBeforeUnmount(() => {
+  echo.leave(`rooms.${manageRoom.value.id}`);
+  echo.leave(`timer.${manageRoom.value.id}`);
 });
 
 function openRoomCode() {
@@ -102,30 +158,61 @@ async function togglePlaying() {
   } catch (error) {
     toast.add({
       title: t("rooms.toggle_playing_error", {
-        status: manageRoom.value.is_playing
-          ? t("rooms.pause")
-          : t("rooms.start"),
+        status: isPlaying ? t("rooms.pause") : t("rooms.start"),
       }),
       variant: "error",
     });
     return;
   }
 }
+
+async function toggleTimer() {
+  try {
+    await client(
+      `/api/rooms/${manageRoom.value.id}/timer/${timerPaused.value ? "resume" : "pause"}`,
+      {
+        method: "POST",
+      },
+    );
+    await refresh();
+    timerPaused.value = !timerPaused.value;
+  } catch (error) {
+    toast.add({
+      title: t("rooms.toggle_playing_error", {
+        status: isPlaying ? t("rooms.pause") : t("rooms.start"),
+      }),
+      variant: "error",
+    });
+    return;
+  }
+}
+
+function copyRoomCode() {
+  navigator.clipboard.writeText(manageRoom.value.roomcode);
+  toast.add({
+    title: t("rooms.room_code_copied"),
+    variant: "success",
+  });
+}
 </script>
 <template>
   <div class="h-screen overflow-clip">
     <AppHeader />
     <div
-      class="absolute top-20 flex flex-col items-end gap-7 sm:right-6 xl:right-24"
+      class="absolute top-20 flex flex-col items-end gap-7 sm:right-6 xl:right-36"
+      :class="{
+        'top-[24.75rem]': manageRoom.completed_at,
+      }"
     >
       <Timer
-        :remainingSeconds="manageRoom.remainingSeconds ?? 300"
-        :totalSeconds="manageRoom.totalSeconds ?? 300"
+        :remainingSeconds="remainingSeconds"
+        :totalSeconds="totalSeconds"
         :isControllable="true"
         :isPaused="timerPaused"
-        :isDisabled="!manageRoom.is_playing"
-        v-if="manageRoom.roomcode"
-        @toggle="timerPaused = !timerPaused"
+        :isDisabled="!isPlaying"
+        v-show="manageRoom.roomcode && !manageRoom.completed_at"
+        @toggle="toggleTimer"
+        :isPlaying="isPlaying"
       />
 
       <PhaseBox
@@ -134,65 +221,105 @@ async function togglePlaying() {
         :currentSprint="manageRoom.current_sprint"
         :sprintCount="manageRoom.number_of_sprints"
         :phase="manageRoom.current_phase"
+        :key="`${manageRoom.current_phase}-${manageRoom.current_sprint}`"
+        :isCompleted="!!manageRoom.completed_at"
       />
     </div>
-    <div class="flex flex-col gap-12">
-      <div class="ml-5 mr-10 mt-10 flex justify-between">
-        <div class="flex items-center gap-3">
+    <div class="flex flex-col gap-7">
+      <div class="flex flex-col gap-2">
+        <div class="ml-5 mr-10 mt-10 flex justify-between">
+          <div class="flex items-center gap-3">
+            <UButton
+              variant="ghost"
+              @click="navigateTo(localeRoute('rooms-parent'))"
+              class="p-0 hover:bg-transparent"
+            >
+              <SvgArrowLeft
+                filled
+                class="size-10"
+                @click="navigateTo(localeRoute('rooms-parent'))"
+                :fontControlled="false"
+              />
+            </UButton>
+
+            <div class="flex items-center gap-5">
+              <h1 class="font-heading text-5xl font-bold text-sc-orange">
+                {{ manageRoom.name }}
+              </h1>
+              <UTooltip :text="statusText" class="flex-none">
+                <UIcon
+                  name="material-symbols:cycle"
+                  class="size-10 text-sc-green-500 hover:animate-[spin_2s_linear_infinite]"
+                  v-if="isPlaying"
+                />
+                <SvgStatusArrow
+                  :class="svgClass"
+                  filled
+                  :fontControlled="false"
+                  v-else
+                />
+              </UTooltip>
+            </div>
+          </div>
+
           <UButton
             variant="ghost"
-            @click="navigateTo(localeRoute('rooms-parent'))"
-            class="p-0 hover:bg-transparent"
-          >
-            <SvgArrowLeft
-              filled
-              class="size-10"
-              @click="navigateTo(localeRoute('rooms-parent'))"
-              :fontControlled="false"
-            />
-          </UButton>
-
-          <div class="flex items-center gap-5">
-            <h1 class="font-heading text-5xl font-bold text-sc-orange">
-              {{ manageRoom.name }}
-            </h1>
-            <UTooltip :text="statusText" class="flex-none">
-              <UIcon
-                name="material-symbols:cycle"
-                class="size-10 text-sc-green-500 hover:animate-[spin_2s_linear_infinite]"
-                v-if="manageRoom.is_playing"
-              />
-              <SvgStatusArrow
-                :class="svgClass"
-                filled
-                :fontControlled="false"
-                v-else
-              />
-            </UTooltip>
-          </div>
+            icon="material-symbols:settings-outline-rounded"
+            class="text-sc-orange *:size-9 hover:bg-transparent"
+            @click="
+              navigateTo(
+                localeRoute({
+                  name: 'rooms-id-parent-edit',
+                  params: { id: manageRoom.id },
+                }),
+              )
+            "
+            :disabled="isPlaying || manageRoom.completed_at"
+          />
         </div>
-        <UButton
-          variant="ghost"
-          icon="material-symbols:settings-outline-rounded"
-          class="text-sc-orange *:size-9 hover:bg-transparent"
-          @click="
-            navigateTo(
-              localeRoute({
-                name: 'rooms-id-parent-edit',
-                params: { id: manageRoom.id },
-              }),
-            )
-          "
-        />
+        <div
+          v-show="manageRoom.roomcode"
+          class="ml-[4.6875rem] flex items-center gap-1 text-sm"
+        >
+          <strong class="font-semibold text-sc-black"
+            >{{ $t("rooms.room_code") }}:
+          </strong>
+          <UTooltip
+            :text="$t('rooms.copy_room_code')"
+            class="flex-none"
+            v-show="manageRoom.roomcode"
+            :key="manageRoom.roomcode"
+          >
+            <UButton
+              variant="ghost"
+              icon="ic:baseline-content-copy"
+              class="p-0 text-sc-black-300 hover:bg-transparent"
+              :ui="{ icon: { size: 'size-3' } }"
+              :trailing="true"
+              @click="copyRoomCode"
+            >
+              <span class="font-normal text-sc-black">{{
+                manageRoom.roomcode
+              }}</span>
+            </UButton>
+          </UTooltip>
+        </div>
       </div>
+
       <div class="flex flex-col gap-4">
         <div class="ml-[5.65rem] flex items-center gap-4 text-lg font-bold">
           <UIcon
             name="material-symbols:calendar-today-outline-rounded"
             class="size-9 text-sc-orange"
           />
-          <p v-if="manageRoom.is_playing">
-            {{ $t("rooms.running_for") }}
+          <p v-if="isPlaying">
+            {{
+              $t("rooms.running_for", [
+                lastPlayedAgoMinutes >= 60
+                  ? `${Math.floor(lastPlayedAgoMinutes / 60)}h`
+                  : `${lastPlayedAgoMinutes}min`,
+              ])
+            }}
           </p>
           <p v-else>
             {{
@@ -215,7 +342,7 @@ async function togglePlaying() {
                   class="size-9 text-sc-orange"
                 />
                 <span class="text-lg font-bold">{{
-                  (manageRoom.is_playing ? activeTeams + " / " : "") +
+                  (isPlaying ? activeTeams + " / " : "") +
                   $t("rooms.teams", manageRoom.teams.length)
                 }}</span>
               </div>
@@ -241,7 +368,7 @@ async function togglePlaying() {
               v-for="team in manageRoom.teams"
               :key="team.members"
               :team="team"
-              :isPlaying="!!manageRoom.is_playing"
+              :isPlaying="isPlaying"
               @update="refresh()"
               @isReadyChanged="
                 (isReady, teamId) => (teamReadyStates[teamId] = isReady)
@@ -269,7 +396,6 @@ async function togglePlaying() {
       mode="hover"
       class="absolute bottom-5 right-9 active:pointer-events-none disabled:pointer-events-auto"
       :disabled="allTeamsReady"
-      v-if="manageRoom.roomcode"
     >
       <template #panel>
         <p class="w-80 p-3">
@@ -279,15 +405,14 @@ async function togglePlaying() {
       <UButton
         @click="togglePlaying"
         :icon="
-          manageRoom.is_playing
-            ? 'mage:pause-fill'
-            : 'material-symbols:play-arrow-rounded'
+          isPlaying ? 'mage:pause-fill' : 'material-symbols:play-arrow-rounded'
         "
+        v-show="!manageRoom.completed_at && manageRoom.roomcode"
         class="pointer-events-auto z-20 flex size-[5.625rem] items-center justify-center bg-sc-orange hover:bg-sc-orange-700 disabled:bg-sc-black-400 disabled:opacity-100"
         :ui="{
           rounded: 'rounded-full',
           icon: {
-            size: { sm: manageRoom.is_playing ? 'size-[3.75em]' : 'size-20' },
+            size: { sm: isPlaying ? 'size-[3.75em]' : 'size-20' },
           },
         }"
         :disabled="!allTeamsReady"

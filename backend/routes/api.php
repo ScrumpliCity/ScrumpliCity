@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TimerController;
 
 // User:
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
@@ -24,6 +25,17 @@ Route::post('/rooms/{room}/roomcode', [RoomController::class, 'generateRoomCode'
 Route::get('/rooms/{room}', [RoomController::class, 'showSingleRoom'])->middleware('auth:sanctum');
 
 Route::patch('/rooms/{room}/playing-status', [RoomController::class, 'togglePlaying'])->middleware('auth:sanctum');
+
+
+
+// Timer:
+Route::post('/rooms/{room}/timer/start', [TimerController::class, 'start'])->middleware('auth:sanctum');
+
+Route::post('/rooms/{room}/timer/pause', [TimerController::class, 'pause'])->middleware('auth:sanctum');
+
+Route::post('/rooms/{room}/timer/resume', [TimerController::class, 'resume'])->middleware('auth:sanctum');
+
+Route::post('/rooms/{room}/timer/stop', [TimerController::class, 'stop'])->middleware('auth:sanctum');
 
 
 

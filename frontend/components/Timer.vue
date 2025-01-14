@@ -22,6 +22,45 @@ const props = defineProps({
   },
 });
 
+const remainingSeconds = ref(props.remainingSeconds);
+const isPaused = ref(props.isPaused);
+
+let interval: any;
+
+watch(
+  () => props.remainingSeconds,
+  (newValue) => {
+    remainingSeconds.value = newValue;
+    clearInterval(interval);
+    interval = decrementTime();
+  },
+);
+
+watch(
+  () => props.isPaused,
+  (newValue) => {
+    isPaused.value = newValue;
+  },
+);
+
+onMounted(() => {
+  if (props.isPaused || props.isDisabled) {
+    return;
+  }
+  interval = decrementTime();
+  onBeforeUnmount(() => clearInterval(interval));
+});
+
+function decrementTime() {
+  return setInterval(() => {
+    if (remainingSeconds.value <= 0 || isPaused.value || props.isDisabled) {
+      clearInterval(interval);
+      return;
+    }
+    remainingSeconds.value = Math.max(remainingSeconds.value - 1, 0);
+  }, 1000);
+}
+
 const emit = defineEmits(["toggle"]);
 
 const pathLength = 890; // see path element
@@ -30,14 +69,14 @@ const text = computed(() => {
   if (props.isDisabled) {
     return "-- : --";
   }
-  const ourSeconds = Math.max(props.remainingSeconds, 0);
+  const ourSeconds = Math.max(remainingSeconds.value, 0);
   const minutes = Math.floor(ourSeconds / 60);
   const seconds = ourSeconds % 60;
   return `${`${minutes}`.padStart(2, "0")}:${`${seconds}`.padStart(2, "0")}`;
 });
 
 const offset = computed(() => {
-  const ourSeconds = Math.max(props.remainingSeconds, 0);
+  const ourSeconds = Math.max(remainingSeconds.value, 0);
   const fraction = ourSeconds / props.totalSeconds;
   return `-${pathLength - fraction * pathLength}`;
 });
@@ -104,7 +143,10 @@ const offset = computed(() => {
       variant="ghost"
       class="absolute bottom-3 right-3 z-20 text-sc-black-500 hover:bg-transparent"
       :padded="false"
-      @click="emit('toggle')"
+      @click="
+        emit('toggle');
+        isPaused = !isPaused;
+      "
       v-if="isControllable && !isDisabled"
       :icon="
         isPaused

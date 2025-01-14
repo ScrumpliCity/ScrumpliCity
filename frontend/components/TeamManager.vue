@@ -22,7 +22,16 @@ const focusOnInput = ref(false);
 const toast = useToast();
 const { t } = useI18n();
 const showInput = ref(false);
-const loading = ref(false);
+const loading = ref(!props.team.name);
+
+// Reset loading after 2 minutes maximum
+watch(loading, (newVal) => {
+  if (newVal) {
+    setTimeout(() => {
+      loading.value = false;
+    }, 120000); // 2 minutes in milliseconds
+  }
+});
 
 const roles = [
   { label: "Developer" },
@@ -356,8 +365,8 @@ function deleteTeam() {
     </div>
 
     <div
-      v-if="isDisabled"
-      class="pointer-events-none absolute inset-0 rounded-lg bg-sc-black-100 opacity-50"
+      v-if="preventInteraction"
+      class="pointer-events-none absolute inset-0 size-full rounded-lg bg-sc-black-100 opacity-50"
     ></div>
   </div>
 </template>

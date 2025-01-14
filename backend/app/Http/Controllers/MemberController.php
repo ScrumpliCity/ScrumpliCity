@@ -19,7 +19,6 @@ class MemberController extends Controller
 
     public function delete(Team $team, Member $member): JsonResponse
     {
-        // $member = $team->members()->findOrFail($member->id);
         Gate::authorize('delete', $member);
         $member->delete();
         return response()->json(null, 204);

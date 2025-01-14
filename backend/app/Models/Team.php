@@ -14,6 +14,22 @@ class Team extends Model
     use HasUlids;
     use BroadcastsEvents;
 
+    /**
+     * The relationships that should touch parent timestamps.
+     *
+     * @var array
+     */
+    protected $touches = ['room'];
+
+    /**
+     * Get the relations that should trigger broadcasting.
+     *
+     * @return array<string>
+     */
+    protected function broadcastsRelations(): array
+    {
+        return ['members', 'members.user', 'room'];
+    }
 
     /**
      * The relationships that should always be loaded.
@@ -50,8 +66,30 @@ class Team extends Model
      */
     public function broadcastOn(string $event): array
     {
-        return [
-            new Channel('team.' . $this->id)
-        ];
+        return match ($event) {
+            'created' => [
+                new Channel('rooms.' . $this->room->id)
+            ],
+            'updated' => [
+                new Channel('rooms.' . $this->room->id),
+                new Channel('team.' . $this->id)
+            ],
+            default => [
+                new Channel('team.' . $this->id)
+            ]
+        };
+    }
+
+    /**
+     * Get the data to broadcast for the model.
+     *
+     * @return array<string, mixed>
+     */
+    public function broadcastWith(string $event): array
+    {
+        return match ($event) {
+            'created' => ['title' => $this->title],
+            default => ['model' => $this],
+        };
     }
 }

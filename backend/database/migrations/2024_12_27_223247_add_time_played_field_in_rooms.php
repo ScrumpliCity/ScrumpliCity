@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('rooms', function (Blueprint $table) {
-            $table->integer('time_played_until_last_stop')->default(0);
+            $table->integer('time_remaining_in_phase')->nullable();
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('rooms', function (Blueprint $table) {
-            $table->dropColumn('time_played_until_last_stop');
+            $table->dropColumn('time_remaining_in_phase');
         });
     }
 };

@@ -41,7 +41,8 @@ const editRoomFunction = async () => {
       body: {
         name: roomName.value,
         number_of_sprints: sprintCount.value,
-        sprint_duration: buildPhaseDuration.value + 2 * meetingDuration.value,
+        sprint_duration:
+          buildPhaseDuration.value + 2 * meetingDuration.value + 1, // 1 min for refinement
         build_phase_duration: buildPhaseDuration.value,
         planning_duration: meetingDuration.value,
         review_duration: meetingDuration.value,

@@ -22,6 +22,12 @@ const isEditing = ref(false);
 
 const chosenNum = ref(props.chosenNum);
 
+onMounted(() => {
+  if (!props.choices.includes(chosenNum.value)) {
+    customValue.value = chosenNum.value;
+  }
+});
+
 function addCustomValue() {
   // Throw an error toast if the custom value is higher than the max value
   if (customValue.value > props.max) {

@@ -6,6 +6,8 @@ use App\Models\Room;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use App\Services\TimerService;
+use Illuminate\Support\Facades\Cache;
 
 class RoomController extends Controller
 {
@@ -125,18 +127,51 @@ class RoomController extends Controller
         $room->load(['teams.members']);
         return response()->json($room);
     }
+    
 
-    /**
-     * Toggle the playing status of the room.
-     */
     public function togglePlaying(Request $request, Room $room): JsonResponse
     {
-        Gate::authorize('update', $room);
-        error_log('Toggling playing status');
-        $room->is_playing = !$room->is_playing;
-        // TODO: Implement logic for time played
-        // TODO: Implement logic for phase changes
-        $room->save();
-        return response()->json($room);
+        try {
+            Gate::authorize('update', $room);
+
+            $room->is_playing = !$room->is_playing;
+
+            if ($room->is_playing) {
+                $this->startRoom($room);
+            } else {
+                $this->stopRoom($room);
+            }
+
+            $room->save();
+
+            return response()->json([
+                'status' => 'success',
+                'room' => $room->fresh()
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    private function startRoom(Room $room): void
+    {
+        if ($room->current_phase === null) {
+            $room->current_phase = 'planning';
+            $room->current_sprint = 1;
+            $room->save();
+        }
+
+        $timer = new TimerService($room->id);
+        error_log("Starting timer for phase: " . $room->current_phase);
+        $timer->start($room->getPhaseDuration());
+    }
+
+    private function stopRoom(Room $room): void
+    {
+        $timer = new TimerService($room->id);
+        $timer->stop();
     }
 }

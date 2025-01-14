@@ -95,6 +95,7 @@ export default defineNuxtConfig({
     },
     logLevel: 3,
     properties: undefined,
+    broadcaster: "reverb",
   },
   vite: {
     // see https://manchenkoff.gitbook.io/nuxt-laravel-echo/getting-started/installation
