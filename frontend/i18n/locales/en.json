@@ -39,7 +39,13 @@
     "product_owner_or_scrum_master_required": "You need a Product Owner and a Scrum Master in every team to continue.",
     "toggle_playing_error": "Error {status} the room!",
     "start": "starting",
-    "pause": "pausing"
+    "pause": "pausing",
+    "profile": {
+      "sign_out": "Sign out",
+      "account": "Account",
+      "signed_out_successfully": "You've signed out successfully!",
+      "sign_out_error": "An error has occured whilst signing out."
+    }
   },
   "create_room": {
     "heading": "Create a project room",
@@ -129,6 +135,12 @@
       }
     }
   },
+  "role": {
+    "title": "What's your role?",
+    "description": "Choose your role so that ScrumpliCity can be tailored to you!",
+    "learner": "I am a learner",
+    "tutor": "I am a tutor"
+  },
   "login": {
     "get_started_with_scrumplicity": "Get started with ScrumpliCity",
     "get_started_with": "Get started with",
@@ -145,6 +157,8 @@
   },
   "legal_notice": {
     "title": "Legal Notice",
+    "legal_matters": "Legal matters",
+    "brand_name": "ScrumpliCity",
     "media_proprietor": "Media Proprietor",
     "address": {
       "title": "Address",
@@ -223,5 +237,60 @@
       "delete_room": "Delete this team",
       "delete_forever": "Delete forever"
     }
+  },
+  "homepage": {
+    "project_description": "Learn the agile project management method Scrum by building a paper city! ScrumpliCity provides a web application, crafting templates and explanations about Scrum—so: ",
+    "build_your_scrum_knowledge": "Build Your Scrum Knowledge",
+    "get_started": "Get started!",
+    "scrum_guide": "Scrum Guide",
+    "diploma_thesis_website": "Diploma thesis website",
+    "crafting_templates_download": "Crafting templates download",
+    "follow_us": "Follow us!",
+    "about_us": "About Us",
+    "features": {
+      "learn_scrum": {
+        "title": "Learn Scrum",
+        "description": "Discover the basics of Scrum and start your first agile project—practical, interactive and easy to understand!"
+      },
+      "craft_your_city": {
+        "title": "Craft your city",
+        "description": "Design your own paper city and bring your project to life step by step!"
+      },
+      "solidify_teamwork": {
+        "title": "Solidify teamwork",
+        "description": "Strengthen team spirit and experience how effective, cooperative collaboration can lead your projects to success!"
+      }
+    },
+    "learning_materials": "Learning materials",
+    "all_you_need_to_know": "Scrum: All you need to know!",
+    "scrum_guide_description": "You would like to learn more about the agile project management method Scrum outside of the game process? You'll find everything you need on our Scrum theory page: from the basics to practical tips. Whether you're new to Scrum or want to deepen your knowledge, you'll find clear, understandable explanations here. Take a look and take your projects to the next level!",
+    "questions": "Any questions?",
+    "here_to_help": "We are here to help you! Feel free to send us an e-mail:",
+    "contact_us": "Contact us!",
+    "notification": {
+      "title": "Laptop use recommended",
+      "description": "To get the most out of ScrumpliCity, please open it on your laptop!"
+    },
+    "socials": {
+      "social_media": "Social media",
+      "instagram": "Instagram",
+      "facebook": "Facebook"
+    },
+    "tooltip": {
+      "not_available": "Not available yet, come back later! :)"
+    }
+  },
+  "error": {
+    "do_not_enter": "Do not enter!",
+    "plan_missing": "The architect’s plan is missing!",
+    "error": "Error: ",
+    "description": "The requested page seems to have been lost in the construction chaos!",
+    "404_description": "Maybe the wrong URL was entered, or the page doesn’t exist.",
+    "do_now": "Here’s what you can do now:",
+    "back_homepage": "Back to the homepage",
+    "scrum_guide": "Take a look at the Scrum Guide",
+    "get_started": "Get started with ScrumpliCity",
+    "contact_us": "Contact us",
+    "we_help": "our construction manager will help you!"
   }
 }

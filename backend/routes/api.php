@@ -15,6 +15,10 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 
 Route::get('/user/profile-picture', [UserController::class, 'profilePicture'])->middleware('auth:sanctum');
 
+Route::get('/user/profile-picture', [UserController::class, 'profilePicture'])->middleware('auth:sanctum');
+
+Route::patch('/user', [UserController::class, 'updateName'])->middleware('auth:sanctum');
+
 
 
 // Rooms:
