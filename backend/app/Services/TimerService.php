@@ -34,7 +34,8 @@ class TimerService
 
         $this->duration = $duration * 60;
 
-        $remaining = $room && $room->time_remaining_in_phase ? $room->time_remaining_in_phase : $duration * 60;
+        // Account for shorter phase time after stop
+        $remaining = $room && $room->time_remaining_in_phase ? min($room->time_remaining_in_phase, $duration * 60) : $duration * 60;
         error_log("Remaining time: $remaining");
         if ($room) {
             $room->time_remaining_in_phase = null;
@@ -119,7 +120,7 @@ class TimerService
         }
 
         $timer['state'] = 'running';
-        $timer['last_broadcast'] = now()->timestamp;
+        $timer['last_broadcast'] = now();
         Cache::put($this->roomId, $timer);
 
         broadcast(new TimerStateChange($this->roomId, 'running', $timer['remaining'], $timer['duration']));

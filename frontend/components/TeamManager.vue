@@ -282,6 +282,9 @@ function deleteTeam() {
           icon: { size: { sm: 'size-5' } },
         }"
         :disabled="preventInteraction"
+        :class="{
+          'z-20': loading,
+        }"
       >
       </UButton>
     </div>
@@ -336,7 +339,7 @@ function deleteTeam() {
     <div v-if="!preventInteraction">
       <div class="relative mt-1" v-if="showInput">
         <input
-          class="w-full cursor-pointer rounded-lg bg-sc-yellow/70 p-1 text-center text-xs font-bold drop-shadow-sc-shadow placeholder:text-sc-black focus:cursor-auto focus:placeholder:text-transparent"
+          class="w-full cursor-pointer rounded-lg bg-sc-yellow/70 p-1 text-center text-xs font-bold drop-shadow-sc-shadow placeholder:text-sc-black focus:cursor-auto focus:outline-1 focus:placeholder:text-transparent"
           :placeholder="$t('join_room.add_team_member')"
           v-model="newMember"
           @keydown.enter="addMember"

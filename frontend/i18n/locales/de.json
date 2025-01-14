@@ -211,6 +211,7 @@
     "add_member_error": "Fehler beim Hinzufügen von Mitgliedern!",
     "delete_member_error": "Fehler beim Löschen von Mitgliedern!",
     "update_role_error": "Fehler beim Aktualisieren der Rolle!",
+    "member_deleted": "Mitglied gelöscht!",
     "role_taken": {
       "title": "Rolle war bereits vergeben!",
       "description": "{member} wurde wieder Developer."

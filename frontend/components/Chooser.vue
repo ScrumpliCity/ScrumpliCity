@@ -23,7 +23,7 @@ const isEditing = ref(false);
 const chosenNum = ref(props.chosenNum);
 
 onMounted(() => {
-  if (!props.choices.includes(chosenNum.value)) {
+  if (!props.choices.includes(chosenNum.value) && chosenNum.value !== 0) {
     customValue.value = chosenNum.value;
   }
 });

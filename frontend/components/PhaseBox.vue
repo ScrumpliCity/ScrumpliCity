@@ -91,13 +91,17 @@ const phaseInfos = computed(() => {
       <UProgress
         :value="(50 / phaseInfos.phaseCount) * phaseInfos.currentPhaseIndex + 1"
         :ui="{
+          wrapper: 'border border-sc-black-400 rounded-[5px]',
           progress: {
             size: 'xl',
             color:
               '[&::-webkit-progress-value]:!rounded-[5px] [&::-moz-progress-bar]:!rounded-[5px] text-sc-orange',
             rounded: 'rounded-[5px] [&::-webkit-progress-bar]:rounded-[5px]',
+            track:
+              '[&::-webkit-progress-bar]:bg-sc-white [@supports(selector(&::-moz-progress-bar))]:bg-sc-white',
           },
         }"
+        class="drop-shadow"
         :max="50"
         v-if="phase !== 'default'"
       />

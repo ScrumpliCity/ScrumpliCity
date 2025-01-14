@@ -78,7 +78,7 @@ class RunTimer implements ShouldQueue
                 
                 $timer = new TimerService($this->roomId);
                 $nextPhaseDuration = $room->getPhaseDuration();
-                $room->time_remaining_in_phase = $nextPhaseDuration;
+                $room->time_remaining_in_phase = $nextPhaseDuration * 60;
                 $room->save();
 
                 // Start the next phase

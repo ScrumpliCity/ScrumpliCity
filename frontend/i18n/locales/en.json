@@ -211,6 +211,7 @@
     "add_member_error": "Error adding members!",
     "delete_member_error": "Error deleting members!",
     "update_role_error": "Error updating role!",
+    "member_deleted": "Member deleted!",
     "role_taken": {
       "title": "Role was already taken!",
       "description": "{member} has become a developer again."

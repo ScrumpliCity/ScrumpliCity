@@ -128,6 +128,9 @@ class RoomController extends Controller
     }
     
 
+    /**
+     * Toggle the playing status of the room
+     */
     public function togglePlaying(Request $request, Room $room): JsonResponse
     {
         try {
@@ -155,6 +158,9 @@ class RoomController extends Controller
         }
     }
 
+    /**
+     * Start the given room
+     */
     private function startRoom(Room $room): void
     {
         if ($room->current_phase === null) {
@@ -164,10 +170,12 @@ class RoomController extends Controller
         }
 
         $timer = new TimerService($room->id);
-        error_log("Starting timer for phase: " . $room->current_phase);
         $timer->start($room->getPhaseDuration());
     }
 
+    /**
+     * Stop the given room
+     */
     private function stopRoom(Room $room): void
     {
         $timer = new TimerService($room->id);

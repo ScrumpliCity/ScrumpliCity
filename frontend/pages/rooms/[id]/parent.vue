@@ -27,24 +27,24 @@ const isPlaying = computed(() =>
       : false,
 );
 
-// const totalDuration =
-
+// DEV: The active field in teams should indicate an active connection to a team that at some point joined has this room
 const activeTeams = computed(
   () => manageRoom.value.teams.filter((team) => team.active).length,
 );
 
 const svgClass = computed(() => {
-  if (!manageRoom.value) return "size-10 flex-none text-gray-300"; // If the room is not loaded yet
+  if (!manageRoom.value) return "text-gray-300"; // If the room is not loaded yet
 
   if (manageRoom.value.completed_at) {
-    return "size-10 flex-none text-sc-orange";
+    return "text-sc-orange";
   }
   if (!manageRoom.value.roomcode) {
-    return "size-10 flex-none text-sc-yellow";
+    return "text-sc-yellow";
   }
-  return "size-10 flex-none text-sc-green";
+  return "text-sc-green";
 });
 
+// For the created/playing/completed/... status text
 const statusText = computed(() => {
   if (!manageRoom.value) return ""; // If the room is not loaded yet
 
@@ -54,7 +54,7 @@ const statusText = computed(() => {
   if (!manageRoom.value.roomcode) {
     return t("rooms.ready");
   }
-  if (isPlaying) {
+  if (isPlaying.value) {
     return t("rooms.currently_playing");
   }
   return t("rooms.started");
@@ -80,8 +80,6 @@ watch(
   { immediate: true },
 );
 
-console.log(manageRoom.value); // Remove
-
 onMounted(() => {
   // Refresh the room when coming back from the edit room page
   watch(
@@ -106,6 +104,7 @@ onMounted(() => {
 
   if (!echo) return;
 
+  // Subscribe to channels for real-time updates: rooms, their teams and members
   echo
     .channel(`rooms.${manageRoom.value.id}`)
     .listen(".TeamCreated", () => refresh())
@@ -115,6 +114,7 @@ onMounted(() => {
       console.error("Channel error:", e);
     });
 
+  // Subscribe to channels for real-time updates: timer
   echo
     .channel(`timer.${manageRoom.value.id}`)
     .listen("TimerUpdate", (data) => {
@@ -125,6 +125,9 @@ onMounted(() => {
       remainingSeconds.value = data.remainingSeconds;
       totalSeconds.value = data.totalSeconds;
       refresh();
+    })
+    .error((e) => {
+      console.error("Channel error:", e);
     });
 });
 
@@ -146,6 +149,8 @@ function openRoomCode() {
       },
     },
   );
+  // Roomcode view needs time to load, therefore, refresh only after 3 seconds
+  setTimeout(refresh, 3000);
   refresh();
 }
 
@@ -254,6 +259,7 @@ function copyRoomCode() {
                 />
                 <SvgStatusArrow
                   :class="svgClass"
+                  class="size-10 flex-none"
                   filled
                   :fontControlled="false"
                   v-else
@@ -278,7 +284,7 @@ function copyRoomCode() {
           />
         </div>
         <div
-          v-show="manageRoom.roomcode"
+          v-show="manageRoom.roomcode && !manageRoom.completed_at"
           class="ml-[4.6875rem] flex items-center gap-1 text-sm"
         >
           <strong class="font-semibold text-sc-black"
@@ -287,7 +293,6 @@ function copyRoomCode() {
           <UTooltip
             :text="$t('rooms.copy_room_code')"
             class="flex-none"
-            v-show="manageRoom.roomcode"
             :key="manageRoom.roomcode"
           >
             <UButton
@@ -321,6 +326,13 @@ function copyRoomCode() {
               ])
             }}
           </p>
+          <p v-else-if="manageRoom.completed_at">
+            {{
+              $t("rooms.completed_on", [
+                $d(new Date(manageRoom.completed_at), "custom"),
+              ])
+            }}
+          </p>
           <p v-else>
             {{
               $t("rooms.created_on", [
@@ -342,8 +354,9 @@ function copyRoomCode() {
                   class="size-9 text-sc-orange"
                 />
                 <span class="text-lg font-bold">{{
-                  (isPlaying ? activeTeams + " / " : "") +
-                  $t("rooms.teams", manageRoom.teams.length)
+                  (manageRoom.teams.length != activeTeams
+                    ? activeTeams + " / "
+                    : "") + $t("rooms.teams", manageRoom.teams.length)
                 }}</span>
               </div>
 
@@ -412,10 +425,10 @@ function copyRoomCode() {
         :ui="{
           rounded: 'rounded-full',
           icon: {
-            size: { sm: isPlaying ? 'size-[3.75em]' : 'size-20' },
+            size: { sm: isPlaying ? 'size-[3.875rem]' : 'size-20' },
           },
         }"
-        :disabled="!allTeamsReady"
+        :disabled="!allTeamsReady || manageRoom.teams.length <= 0"
       ></UButton>
     </UPopover>
 
