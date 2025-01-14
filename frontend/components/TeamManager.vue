@@ -24,14 +24,6 @@ const { t } = useI18n();
 const showInput = ref(false);
 const loading = ref(!props.team.name);
 
-// Reset loading after 2 minutes maximum
-watch(loading, (newVal) => {
-  if (newVal) {
-    setTimeout(() => {
-      loading.value = false;
-    }, 120000); // 2 minutes in milliseconds
-  }
-});
 
 const roles = [
   { label: "Developer" },
