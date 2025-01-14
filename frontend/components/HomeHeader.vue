@@ -16,9 +16,7 @@ const localeRoute = useLocaleRoute();
         @click="mobileMenuOpen = false"
       />
       <div class="mb-6 mr-3 mt-9 flex flex-row items-center gap-2">
-        <button class="rounded-full p-1 hover:bg-sc-black-100">
-          <SvgDownload :font-controlled="false" class="size-8" />
-        </button>
+        <DownloadFilesButton class="[&_svg]:size-8" />
         <ChangeLangButton class="w-8" />
       </div>
     </div>
@@ -104,18 +102,7 @@ const localeRoute = useLocaleRoute();
           ></NuxtLink
         >
         <div class="ml-6 hidden items-center gap-3 lg:flex">
-          <UButton
-            class="hover:bg-sc-black-100"
-            variant="ghost"
-            color="black"
-            :padded="true"
-            :ui="{
-              padding: { sm: 'p-[0.15em]' },
-              rounded: 'rounded-full',
-            }"
-          >
-            <SvgDownload :font-controlled="false" class="h-10 w-10" />
-          </UButton>
+          <DownloadFilesButton />
           <ChangeLangButton class="w-11" />
         </div>
       </div>

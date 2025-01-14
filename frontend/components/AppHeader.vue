@@ -58,32 +58,21 @@ async function editName() {
 
 <template>
   <header
-    class="sticky top-0 z-50 flex h-20 w-full items-center bg-sc-white px-14 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.25)]"
+    class="sticky top-0 z-50 flex h-16 w-full items-center justify-center bg-sc-white px-14 drop-shadow-sc-shadow"
   >
-    <NuxtLinkLocale to="/" class="mt-2">
+    <NuxtLinkLocale to="/">
       <SvgMainLogo :font-controlled="false" class="h-10" />
     </NuxtLinkLocale>
     <div class="flex-1"></div>
-    <div class="flex items-center gap-4">
-      <ChangeLangButton />
-      <UButton
-        class="hover:bg-sc-black-100"
-        variant="ghost"
-        color="black"
-        :padded="true"
-        :ui="{
-          padding: { sm: 'p-[0.15em]' },
-          rounded: 'rounded-full',
-        }"
-      >
-        <SvgDownload :font-controlled="false" class="h-14 w-14" />
-      </UButton>
+    <div class="flex items-center justify-center gap-4">
+      <ChangeLangButton class="w-11" />
+      <DownloadFilesButton />
       <UPopover :ui="{ ring: '' }">
         <UAvatar
           class="cursor-pointer bg-sc-black-100 outline-none ring-sc-black-100 transition-shadow focus-within:ring-8 hover:ring-8"
           tabindex="0"
+          size="sm"
           :alt="user?.name"
-          size="md"
           :src="`${sanctumConfig.baseUrl}/api/user/profile-picture`"
         />
         <template #panel>
