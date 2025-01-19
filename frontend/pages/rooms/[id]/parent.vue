@@ -217,7 +217,7 @@ function copyRoomCode() {
         :isDisabled="!isPlaying"
         v-show="manageRoom.roomcode && !manageRoom.completed_at"
         @toggle="toggleTimer"
-        :isPlaying="isPlaying"
+        :isPlaying
       />
 
       <PhaseBox
