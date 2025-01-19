@@ -380,7 +380,7 @@ function copyRoomCode() {
               @click.stop
               v-for="team in manageRoom.teams"
               :key="team.members"
-              :team="team"
+              :team
               :isPlaying="isPlaying"
               @update="refresh()"
               @isReadyChanged="
