@@ -9,12 +9,10 @@ use App\Models\Room;
 
 class TimerService
 {
-    private string $roomId;
     private int $duration;
 
-    public function __construct(string $roomId)
+    public function __construct(private string $roomId)
     {
-        $this->roomId = $roomId;
     }
 
     /**
@@ -26,7 +24,7 @@ class TimerService
             return;
         }
 
-        $room = Room::where('id', $this->roomId)->first();
+        $room = Room::find($this->roomId);
 
         if ($room->completed_at) {
             return;
@@ -36,7 +34,6 @@ class TimerService
 
         // Account for shorter phase time after stop
         $remaining = $room && $room->time_remaining_in_phase ? min($room->time_remaining_in_phase, $duration * 60) : $duration * 60;
-        error_log("Remaining time: $remaining");
         if ($room) {
             $room->time_remaining_in_phase = null;
             $room->last_play_start = now();
@@ -44,7 +41,7 @@ class TimerService
         }
 
 
-        Cache::put($this->roomId, [
+        Cache::put(`timer.$this->roomId`, [
             'remaining' => $remaining,
             'duration' => $this->duration,
             'state' => 'running',
@@ -52,9 +49,7 @@ class TimerService
         ]);
 
         broadcast(new TimerStateChange($this->roomId, 'running', $remaining, $this->duration));
-        error_log("Timer started with duration: $this->duration");
         RunTimer::dispatch($this->roomId);
-        error_log("Timer dispatched");
     }
 
 
@@ -63,19 +58,18 @@ class TimerService
      */
     public function stop(): void
     {
-        $timer = Cache::get($this->roomId);
+        $timer = Cache::get(`timer.$this->roomId`);
         if ($timer) {
             $duration = $timer['duration'] ?? $this->duration;
-            Cache::put($this->roomId, array_merge($timer, [
+            Cache::put(`timer.$this->roomId`, array_merge($timer, [
                 'remaining' => 0,
                 'state' => 'stopped',
             ]));
-            $room = Room::where('id', $this->roomId)->first();
+            $room = Room::find($this->roomId);
             if ($room) {
                 $room->time_remaining_in_phase = $timer['remaining'];
                 $room->last_play_end = now();
                 $room->save();
-                error_log("Timer paused with remaining time: $timer[remaining]");
             }
             broadcast(new TimerStateChange($this->roomId, 'stopped', 0, $duration));
         }
@@ -87,14 +81,14 @@ class TimerService
      */
     public function pause(): void
     {
-        $timer = Cache::get($this->roomId);
+        $timer = Cache::get(`timer.$this->roomId`);
         if (!$timer || $timer['state'] !== 'running') {
             return;
         }
         $timer['state'] = 'paused';
-        Cache::put($this->roomId, $timer);
+        Cache::put(`timer.$this->roomId`, $timer);
 
-        $room = Room::where('id', $this->roomId)->first();
+        $room = Room::find($this->roomId);
         if ($room) {
             $room->time_remaining_in_phase = $timer['remaining'];
             $room->save();
@@ -108,12 +102,12 @@ class TimerService
      */
     public function resume(): void
     {
-        $timer = Cache::get($this->roomId);
+        $timer = Cache::get(`timer.$this->roomId`);
         if (!$timer || $timer['state'] !== 'paused') {
             return;
         }
 
-        $room = Room::where('id', $this->roomId)->first();
+        $room = Room::find($this->roomId);
         if ($room) {
             $room->time_remaining_in_phase = 0;
             $room->save();
@@ -121,7 +115,7 @@ class TimerService
 
         $timer['state'] = 'running';
         $timer['last_broadcast'] = now();
-        Cache::put($this->roomId, $timer);
+        Cache::put(`timer.$this->roomId`, $timer);
 
         broadcast(new TimerStateChange($this->roomId, 'running', $timer['remaining'], $timer['duration']));
 

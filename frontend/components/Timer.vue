@@ -25,7 +25,7 @@ const props = defineProps({
 const remainingSeconds = ref(props.remainingSeconds);
 const isPaused = ref(props.isPaused);
 
-let interval: any;
+let interval: ReturnType<typeof decrementTime>;
 
 watch(
   () => props.remainingSeconds,

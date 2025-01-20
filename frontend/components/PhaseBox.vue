@@ -2,7 +2,6 @@
 const props = defineProps({
   phase: {
     type: String,
-    default: "default",
   },
   sprintCount: {
     type: Number,
@@ -26,7 +25,7 @@ const props = defineProps({
 
 const { t } = useI18n();
 
-const phase = ref(props.phase ?? "default");
+const phase = ref(props.phase || "default");
 
 const phaseInfos = computed(() => {
   const i18nPath = "rooms.phase_box.";
@@ -52,27 +51,27 @@ const phaseInfos = computed(() => {
       class="z-10 flex h-[11.625rem] w-[26.25rem] gap-8 rounded-lg border border-sc-black-400 bg-sc-black-50 pb-10 pl-10 pt-12 drop-shadow"
     >
       <div class="size-[5.625rem] *:size-full" :fontControlled="false">
-        <SvgSprintPlanningSM
+        <LazySvgSprintPlanningSM
           filled
           :fontControlled="false"
           v-if="phase === 'planning'"
         />
-        <SvgBuildingPhaseSM
+        <LazySvgBuildingPhaseSM
           filled
           :fontControlled="false"
           v-else-if="phase === 'build_phase'"
         />
-        <SvgSprintReviewSM
+        <LazySvgSprintReviewSM
           filled
           :fontControlled="false"
           v-else-if="phase === 'review'"
         />
-        <SvgBacklogRefinementSM
+        <LazySvgBacklogRefinementSM
           filled
           :fontControlled="false"
           v-else-if="phase === 'backlog_refinement'"
         />
-        <SvgScrumProcessSM filled :fontControlled="false" v-else />
+        <LazySvgScrumProcessSM filled :fontControlled="false" v-else />
       </div>
       <div class="flex flex-col gap-1">
         <h2 class="text-2xl font-bold text-sc-black">

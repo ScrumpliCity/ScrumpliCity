@@ -10,14 +10,12 @@ class TimerUpdate implements ShouldBroadcastNow
 {
     use SerializesModels;
 
-    public string $roomId;
-    public int $remainingSeconds;
 
-    public function __construct(string $roomId, int $remainingSeconds)
-    {
-        $this->roomId = $roomId;
-        $this->remainingSeconds = $remainingSeconds;
-    }
+
+    public function __construct(
+        public string $roomId,
+        public int $remainingSeconds
+    ) {}
 
     public function broadcastOn()
     {

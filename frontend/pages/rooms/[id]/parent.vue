@@ -19,30 +19,12 @@ const teamReadyStates = ref({});
 
 const remainingSeconds = ref(0);
 const totalSeconds = ref(0);
-const isPlaying = computed(() =>
-  manageRoom.value.is_playing === 1
-    ? true
-    : manageRoom.value.is_playing === null
-      ? null
-      : false,
-);
+const isPlaying = computed(() => !!manageRoom.value.is_playing);
 
 // DEV: The active field in teams should indicate an active connection to a team that at some point joined has this room
 const activeTeams = computed(
   () => manageRoom.value.teams.filter((team) => team.active).length,
 );
-
-const svgClass = computed(() => {
-  if (!manageRoom.value) return "text-gray-300"; // If the room is not loaded yet
-
-  if (manageRoom.value.completed_at) {
-    return "text-sc-orange";
-  }
-  if (!manageRoom.value.roomcode) {
-    return "text-sc-yellow";
-  }
-  return "text-sc-green";
-});
 
 // For the created/playing/completed/... status text
 const statusText = computed(() => {
@@ -64,21 +46,15 @@ const allTeamsReady = computed(() => {
   return Object.values(teamReadyStates.value).every((isReady) => isReady);
 });
 
-const lastPlayedAgoMinutes = ref(undefined);
-
-watch(
-  () => manageRoom.value.last_play_start,
-  (newVal) => {
-    if (newVal) {
-      lastPlayedAgoMinutes.value = Math.floor(
-        (new Date().getTime() - new Date(newVal).getTime()) / 1000 / 60,
-      );
-    } else {
-      lastPlayedAgoMinutes.value = undefined;
-    }
-  },
-  { immediate: true },
-);
+const lastPlayedAgoMinutes = computed(() => {
+  const lastPlayStart = manageRoom.value?.last_play_start;
+  if (lastPlayStart) {
+    return Math.floor(
+      (Date.now() - new Date(lastPlayStart).getTime()) / 1000 / 60,
+    );
+  }
+  return undefined;
+});
 
 onMounted(() => {
   // Refresh the room when coming back from the edit room page
@@ -188,7 +164,6 @@ async function toggleTimer() {
       }),
       variant: "error",
     });
-    return;
   }
 }
 
@@ -204,23 +179,23 @@ function copyRoomCode() {
   <div class="h-screen overflow-clip">
     <AppHeader />
     <div
-      class="absolute top-20 flex flex-col items-end gap-7 sm:right-6 xl:right-36"
+      class="absolute top-16 flex flex-col items-end gap-7 sm:right-6 xl:right-36"
       :class="{
         'top-[24.75rem]': manageRoom.completed_at,
       }"
     >
-      <Timer
+      <LazyTimer
         :remainingSeconds="remainingSeconds"
         :totalSeconds="totalSeconds"
         :isControllable="true"
         :isPaused="timerPaused"
         :isDisabled="!isPlaying"
-        v-show="manageRoom.roomcode && !manageRoom.completed_at"
+        v-if="manageRoom.roomcode && !manageRoom.completed_at"
         @toggle="toggleTimer"
         :isPlaying
       />
 
-      <PhaseBox
+      <LazyPhaseBox
         v-if="manageRoom.roomcode"
         :room="manageRoom"
         :currentSprint="manageRoom.current_sprint"
@@ -239,12 +214,7 @@ function copyRoomCode() {
               @click="navigateTo(localeRoute('rooms-parent'))"
               class="p-0 hover:bg-transparent"
             >
-              <SvgArrowLeft
-                filled
-                class="size-10"
-                @click="navigateTo(localeRoute('rooms-parent'))"
-                :fontControlled="false"
-              />
+              <SvgArrowLeft filled class="size-10" :fontControlled="false" />
             </UButton>
 
             <div class="flex items-center gap-5">
@@ -258,8 +228,13 @@ function copyRoomCode() {
                   v-if="isPlaying"
                 />
                 <SvgStatusArrow
-                  :class="svgClass"
-                  class="size-10 flex-none"
+                  :class="{
+                    'text-sc-orange': manageRoom.completed_at,
+                    'text-sc-yellow': !manageRoom.roomcode,
+                    'text-sc-green':
+                      !manageRoom.completed_at && manageRoom.roomcode,
+                  }"
+                  class="size-10 flex-none text-gray-300"
                   filled
                   :fontControlled="false"
                   v-else
@@ -386,7 +361,7 @@ function copyRoomCode() {
               @isReadyChanged="
                 (isReady, teamId) => (teamReadyStates[teamId] = isReady)
               "
-              :isDisabled="manageRoom.completed_at ? true : false"
+              :isDisabled="manageRoom.completed_at"
             />
             <p
               v-if="manageRoom.teams.length <= 0"

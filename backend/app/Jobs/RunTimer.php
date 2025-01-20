@@ -32,7 +32,7 @@ class RunTimer implements ShouldQueue
     {
         try {
             // Return if there is no timer in cache
-            if (!$timer = Cache::get($this->roomId)) {
+            if (!$timer = Cache::get(`timer.$this->roomId`)) {
                 return;
             }
 
@@ -42,18 +42,17 @@ class RunTimer implements ShouldQueue
             }
 
             // Return if the room doesn't exist anymore
-            if (!Room::find($this->roomId)) {
+            if (!$room = Room::find($this->roomId)) {
                 return;
             }
 
 
-            $currentTime = now()->timestamp;
-            $remaining = max(0, $timer['remaining'] - ($currentTime - $timer['last_broadcast']));
+            $currentTime = now();
+            $remaining = max(0, $timer['remaining'] - ($currentTime->timestamp - $timer['last_broadcast']));
 
 
             // When the timer is over
             if ($remaining <= 0) {
-                $room = Room::find($this->roomId);
 
                 // End the room
                 if ($room->current_sprint === $room->number_of_sprints && $room->current_phase === 'backlog_refinement') {
@@ -62,7 +61,7 @@ class RunTimer implements ShouldQueue
                     $room->is_playing = false;
                     $room->save();
                     broadcast(new TimerStateChange($this->roomId, 'stopped', 0, 0));
-                    Cache::forget($this->roomId);
+                    Cache::forget(`timer.$this->roomId`);
                     return;
                 }
 
@@ -93,14 +92,14 @@ class RunTimer implements ShouldQueue
 
             // Broadcast only if timer still running
             if ($remaining > 0) {
-                Cache::put($this->roomId, array_merge($timer, [
+                Cache::put(`timer.$this->roomId`, array_merge($timer, [
                     'remaining' => $remaining,
-                    'last_broadcast' => $currentTime
+                    'last_broadcast' => $currentTime->timestamp
                 ]));
                 broadcast(new TimerUpdate($this->roomId, $remaining));
 
                 static::dispatch($this->roomId)
-                    ->delay(now()->addSeconds(min(self::BROADCAST_INTERVAL, $remaining)));
+                    ->delay($currentTime->addSeconds(min(self::BROADCAST_INTERVAL, $remaining)));
             }
         } catch (\Exception $e) {
             error_log("Timer error: " . $e->getMessage());

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('rooms', function (Blueprint $table) {
-            $table->integer('time_remaining_in_phase')->nullable();
+            $table->integer('time_remaining_in_phase')->nullable()->comment("Time in seconds");
         });
     }
 

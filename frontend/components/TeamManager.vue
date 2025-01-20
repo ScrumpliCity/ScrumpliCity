@@ -22,8 +22,7 @@ const focusOnInput = ref(false);
 const toast = useToast();
 const { t } = useI18n();
 const showInput = ref(false);
-const loading = ref(!props.team.name);
-
+const loading = ref(false);
 
 const roles = [
   { label: "Developer" },
@@ -160,16 +159,6 @@ async function updateRole(memberId, newRole) {
       });
     }
     // Then update the new role holder
-    const response = await client(
-      `/api/team/${props.team.id}/members/${memberId}`,
-      {
-        method: "PATCH",
-        body: {
-          name: member?.name,
-          role: newRole,
-        },
-      },
-    );
 
     if (!response) {
       throw new Error("No response from server");
