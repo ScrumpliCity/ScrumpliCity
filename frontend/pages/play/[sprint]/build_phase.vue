@@ -14,13 +14,9 @@ const sprint = ref({
       id: 1,
       title: "Bauphase",
       description:
-        "Als Schüler*in möchte ich während der Bauphase User Storys als fertig markieren, um meinem Team zu signalisieren, dass die Arbeit abgeschlossen ist.",
+        "Als Schüler*in möchte ich während der Bauphase User Storys als fertig markieren, um meinem Team zu signalisieren, dass die Arbeit abgeschlossen ist.\nAC:\n\t- Im Hintergrund sind Illustrationen/Animationen zu sehen, die signalisieren, dass gerade die Bauphase stattfindet.\n        ",
       responsible: "Lisa Marie-Hörmann",
       storyPoints: 13,
-      acceptence_criteria: [
-        "Im Hintergrund sind Illustrationen/Animationen zu sehen, die signalisieren, dass gerade die Bauphase stattfindet.",
-        "Die SchülerInnen können User Storys als erledigt markieren und auch was ganz anderes wichtiges weil naja und wenn du bis da hin gelesen hast.",
-      ],
     },
     {
       id: 2,
@@ -29,11 +25,6 @@ const sprint = ref({
         "Als Schüler*in möchte ich einen Sprintnamen vergeben können...",
       responsible: "Felix Wollmann",
       storyPoints: 2,
-      acceptence_criteria: [
-        "Der Sprintname wird in der Kopfzeile des Spiels angezeigt.",
-        "Der Sprintname wird in der Kopfzeile des Spiels angezeigt.",
-        "Der Sprintname wird in der Kopfzeile des Spiels angezeigt.",
-      ],
     },
   ],
 });
@@ -149,19 +140,9 @@ async function setDone(checked) {
           </div>
           <hr class="border-sc-black-300" />
           <div class="overflow-y-auto pr-1">
-            <p class="text-sm italic">
+            <p class="text-sm">
               {{ selectedUS.description }}
             </p>
-            <div class="mt-2 text-sm">
-              <h4 class="text-sm font-semibold">
-                {{ $t("build_phase.acceptence_criteria") }}:
-              </h4>
-              <ul class="flex list-outside list-disc flex-col gap-2 pl-6">
-                <li v-for="criteria in selectedUS.acceptence_criteria">
-                  {{ criteria }}
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
       </div>
