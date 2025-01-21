@@ -138,16 +138,26 @@ async function updateRole(memberId, newRole) {
       : null;
 
   try {
-    if (originalMember) {
-      // First, update the original role holder to Developer
-      await client(`/api/team/${props.team.id}/members/${originalMember.id}`, {
+    const [, response] = await Promise.all([
+      originalMember
+        ? client(`/api/team/${props.team.id}/members/${originalMember.id}`, {
+            method: "PATCH",
+            body: {
+              name: originalMember.name,
+              role: "Developer",
+            },
+          })
+        : Promise.resolve(),
+      client(`/api/team/${props.team.id}/members/${memberId}`, {
         method: "PATCH",
         body: {
-          name: originalMember.name,
-          role: "Developer",
+          name: member?.name,
+          role: newRole,
         },
-      });
+      }),
+    ]);
 
+    if (originalMember) {
       originalMember.role = "Developer";
 
       toast.add({
@@ -158,7 +168,6 @@ async function updateRole(memberId, newRole) {
         icon: "mdi:alert-circle",
       });
     }
-    // Then update the new role holder
 
     if (!response) {
       throw new Error("No response from server");
