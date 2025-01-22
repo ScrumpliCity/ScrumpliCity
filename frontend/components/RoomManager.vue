@@ -30,7 +30,6 @@ const props = defineProps({
   },
 });
 
-const localeRoute = useLocaleRoute();
 const toast = useToast();
 const client = useSanctumClient();
 

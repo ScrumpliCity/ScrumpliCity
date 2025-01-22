@@ -21,6 +21,11 @@ const props = defineProps({
     required: false,
     default: false,
   },
+  isPlaying: {
+    type: Boolean,
+    required: false,
+    default: true,
+  },
 });
 
 const { t } = useI18n();
@@ -107,7 +112,7 @@ const phaseInfos = computed(() => {
         :max="50"
         v-if="phase !== 'default'"
       />
-      <p class="leading-9 text-sc-black-700">
+      <p class="leading-9 text-sc-black-700" v-if="props.isPlaying">
         {{ $t("rooms.phase_box.end_of_sprint") }}
         <ClientOnly>
           <span class="font-bold">{{
