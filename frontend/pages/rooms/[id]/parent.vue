@@ -56,8 +56,6 @@ const lastPlayedAgoMinutes = computed(() => {
   return undefined;
 });
 
-console.log(manageRoom.value);
-
 const timeLeftInSprint = computed(() => {
   if (!manageRoom.value.current_sprint) return 0;
   if (manageRoom.value.current_phase === "backlog_refinement")
