@@ -56,6 +56,35 @@ const lastPlayedAgoMinutes = computed(() => {
   return undefined;
 });
 
+console.log(manageRoom.value);
+
+const timeLeftInSprint = computed(() => {
+  if (!manageRoom.value.current_sprint) return 0;
+  if (manageRoom.value.current_phase === "backlog_refinement")
+    return remainingSeconds.value;
+
+  const timeOfRemainingPhases = ref(0);
+
+  switch (manageRoom.value.current_phase) {
+    case "planning":
+      timeOfRemainingPhases.value =
+        manageRoom.value.build_phase_duration * 60 +
+        manageRoom.value.review_duration * 60 +
+        60;
+      break;
+    case "build_phase":
+      timeOfRemainingPhases.value = manageRoom.value.review_duration * 60 + 60;
+      break;
+    case "review":
+      timeOfRemainingPhases.value = 60; // 1 minute for backlog refinement
+      break;
+    default:
+      break;
+  }
+
+  return remainingSeconds.value + timeOfRemainingPhases.value;
+});
+
 onMounted(() => {
   // Refresh the room when coming back from the edit room page
   watch(
@@ -201,8 +230,10 @@ function copyRoomCode() {
         :currentSprint="manageRoom.current_sprint"
         :sprintCount="manageRoom.number_of_sprints"
         :phase="manageRoom.current_phase"
-        :key="`${manageRoom.current_phase}-${manageRoom.current_sprint}`"
+        :key="`${manageRoom.current_phase}-${manageRoom.current_sprint}-${isPlaying}`"
         :isCompleted="!!manageRoom.completed_at"
+        :timeLeft="timeLeftInSprint"
+        :isPlaying
       />
     </div>
     <div class="flex flex-col gap-7">
@@ -318,11 +349,13 @@ function copyRoomCode() {
         </div>
 
         <div
-          class="z-10 ml-[4.5rem] w-[calc(100vw-34.25rem)] cursor-pointer overflow-y-auto rounded-lg border border-sc-black-400 bg-sc-black-50 drop-shadow xl:w-[calc(86vw-34.25rem)]"
+          class="z-10 ml-[4.5rem] w-[calc(100vw-34.25rem)] overflow-y-auto rounded-lg border border-sc-black-400 bg-sc-black-50 drop-shadow xl:w-[calc(86vw-34.25rem)]"
           :class="{ 'h-[calc(64vh-1.75rem)]': isOpen }"
-          @click="isOpen = !isOpen"
         >
-          <div class="flex justify-between py-2">
+          <div
+            class="flex cursor-pointer justify-between py-2"
+            @click="isOpen = !isOpen"
+          >
             <div class="ml-5 mr-2 flex w-full items-center justify-between">
               <div class="flex items-center justify-between gap-4">
                 <UIcon
