@@ -179,7 +179,7 @@ function copyRoomCode() {
   <div class="h-screen overflow-clip">
     <AppHeader />
     <div
-      class="absolute top-16 flex flex-col items-end gap-7 sm:right-6 xl:right-36"
+      class="absolute top-16 flex h-fit flex-col items-end gap-7 sm:right-6 xl:right-36"
       :class="{
         'top-[24.75rem]': manageRoom.completed_at,
       }"
@@ -318,7 +318,8 @@ function copyRoomCode() {
         </div>
 
         <div
-          class="z-10 ml-[4.5rem] w-[735px] cursor-pointer overflow-y-auto rounded-lg border border-sc-black-400 bg-sc-black-50 drop-shadow"
+          class="z-10 ml-[4.5rem] w-[calc(100vw-34.25rem)] cursor-pointer overflow-y-auto rounded-lg border border-sc-black-400 bg-sc-black-50 drop-shadow xl:w-[calc(86vw-34.25rem)]"
+          :class="{ 'h-[calc(64vh-1.75rem)]': isOpen }"
           @click="isOpen = !isOpen"
         >
           <div class="flex justify-between py-2">
@@ -349,7 +350,7 @@ function copyRoomCode() {
           </div>
           <div
             v-show="isOpen"
-            class="flex h-[21rem] flex-wrap gap-x-3 gap-y-2 px-4 py-2"
+            class="flex h-[calc(100%-3.5rem)] flex-wrap gap-x-3 gap-y-2 px-4 py-2"
           >
             <TeamManager
               @click.stop

@@ -48,9 +48,12 @@ const phaseInfos = computed(() => {
 <template>
   <div class="flex flex-col gap-3">
     <div
-      class="z-10 flex h-[11.625rem] w-[26.25rem] gap-8 rounded-lg border border-sc-black-400 bg-sc-black-50 pb-10 pl-10 pt-12 drop-shadow"
+      class="z-10 flex h-fit w-fit gap-4 rounded-lg border border-sc-black-400 bg-sc-black-50 pb-5 pl-5 pr-5 pt-6 drop-shadow xl:h-[11.625rem] xl:w-[26.25rem] xl:gap-8 xl:pb-10 xl:pl-10 xl:pr-0 xl:pt-12"
     >
-      <div class="size-[5.625rem] *:size-full" :fontControlled="false">
+      <div
+        class="size-20 *:size-full xl:size-[5.625rem]"
+        :fontControlled="false"
+      >
         <LazySvgSprintPlanningSM
           filled
           :fontControlled="false"
