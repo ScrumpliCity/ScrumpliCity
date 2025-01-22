@@ -49,7 +49,7 @@ async function setDone(checked) {
     <div
       class="relative z-10 flex h-full gap-6 pb-8 pl-9 pr-6 pt-5 xl:gap-12 xl:pb-16 xl:pl-[4.5rem] xl:pr-12 xl:pt-10"
     >
-      <div class="flex flex-[7] flex-col gap-2">
+      <div class="flex w-[64vw] flex-[7] flex-col gap-2">
         <h1
           class="h-14 gap-3 font-heading text-4xl font-bold text-sc-orange xl:text-5xl"
         >
@@ -58,9 +58,7 @@ async function setDone(checked) {
         <div
           class="relative mt-1.5 flex-1 overflow-clip rounded-2xl border-2 border-sc-black-400 bg-sc-white"
         >
-          <table
-            class="w-full max-w-full table-auto divide-y-2 divide-sc-black-400"
-          >
+          <table class="max-w-full table-auto divide-y-2 divide-sc-black-400">
             <thead>
               <tr class="h-11 rounded-t-2xl bg-sc-orange-100 font-semibold">
                 <th class="py-2 pl-10 text-left text-lg" colspan="3">
@@ -149,7 +147,7 @@ async function setDone(checked) {
     </div>
     <Timer
       :total-seconds="120"
-      class="absolute right-2 top-0 z-0 h-72 w-auto lg:h-60 xl:right-24 xl:h-[clamp(13rem,calc(100vh-29rem),20rem)]"
+      class="absolute right-2 top-0 z-0 h-56 w-auto xl:right-24 xl:h-[clamp(13rem,calc(100vh-29rem),20rem)]"
       :remainingSeconds="118"
     ></Timer>
     <div class="overflow-clip">
@@ -159,11 +157,6 @@ async function setDone(checked) {
         class="absolute bottom-0 right-[calc(31.5vw-1.5rem)] h-[calc(96vh-4rem)] xl:right-[30vw]"
       >
       </SvgBuildPhaseBg>
-      <SvgLightBeams
-        class="absolute right-[calc(34.5vw-1.5rem)] top-[4.5rem] z-40 w-[12.5%] xl:right-[35.5vw]"
-        :font-controlled="false"
-        filled
-      />
     </div>
   </div>
 </template>
