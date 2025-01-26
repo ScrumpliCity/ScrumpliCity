@@ -7,24 +7,31 @@ definePageMeta({
 const sprint = ref({
   number: 1,
   name: "Amsterdam",
-  sprint_goal:
-    "Build the residential district of our paper city, focusing on constructing houses from blueprints",
+  sprint_goal: "Wasserversorgung der Bewohner sichern.",
   user_stories: [
     {
       id: 1,
-      title: "Bauphase",
+      title: "Erstes Haus",
       description:
-        "Als Schüler*in möchte ich während der Bauphase User Storys als fertig markieren, um meinem Team zu signalisieren, dass die Arbeit abgeschlossen ist.\nAC:\n\t- Im Hintergrund sind Illustrationen/Animationen zu sehen, die signalisieren, dass gerade die Bauphase stattfindet.\n        ",
+        "Als Bewohner möchte ich ein stabil gebautes Haus haben, um sicher wohnen zu können.",
       responsible: "Lisa Marie-Hörmann",
       storyPoints: 13,
     },
     {
       id: 2,
-      title: "Sprint-Planning: Sprintname",
+      title: "Kläranlage",
       description:
-        "Als Schüler*in möchte ich einen Sprintnamen vergeben können...",
+        "Als Bewohner möchte ich eine funktionierende Kläranlage haben, um die Umwelt nicht zu verschmutzen.",
       responsible: "Felix Wollmann",
-      storyPoints: 2,
+      storyPoints: 5,
+    },
+    {
+      id: 3,
+      title: "Wasserturm",
+      description:
+        "Als Bewohner möchte ich einen Wasserturm haben, um eine konstante Wasserversorgung zu haben.",
+      responsible: "Sophie Nemecek",
+      storyPoints: 3,
     },
   ],
 });
@@ -47,18 +54,18 @@ async function setDone(checked) {
 <template>
   <div class="relative h-full overflow-clip">
     <div
-      class="relative z-10 flex h-full gap-6 pb-8 pl-9 pr-6 pt-5 xl:gap-12 xl:pb-16 xl:pl-[4.5rem] xl:pr-12 xl:pt-10"
+      class="relative z-10 flex h-full gap-6 pb-8 pl-9 pr-6 xl:gap-12 xl:pb-8 xl:pl-[4.5rem] xl:pr-12"
     >
-      <div class="flex w-[64vw] flex-[7] flex-col gap-2">
+      <div class="flex w-[64vw] flex-[7] flex-col gap-2 pt-5 xl:pt-10">
         <h1
           class="h-14 gap-3 font-heading text-4xl font-bold text-sc-orange xl:text-5xl"
         >
           {{ $t("build_phase.build_phase") }}
         </h1>
         <div
-          class="relative mt-1.5 flex-1 overflow-clip rounded-2xl border-2 border-sc-black-400 bg-sc-white"
+          class="relative mt-1.5 flex-1 overflow-x-hidden rounded-2xl border-2 border-sc-black-400 bg-sc-white"
         >
-          <table class="max-w-full table-auto divide-y-2 divide-sc-black-400">
+          <table class="table-auto divide-y-2 divide-sc-black-400">
             <thead>
               <tr class="h-11 rounded-t-2xl bg-sc-orange-100 font-semibold">
                 <th class="py-2 pl-10 text-left text-lg" colspan="3">
@@ -66,7 +73,7 @@ async function setDone(checked) {
                 </th>
               </tr>
             </thead>
-            <tbody class="max-w-full divide-y">
+            <tbody class="divide-y">
               <template v-for="userStory in sprint.user_stories">
                 <tr
                   class="max-h-14 cursor-pointer border-b border-sc-black-400 text-lg hover:bg-sc-black-50"
@@ -117,9 +124,14 @@ async function setDone(checked) {
           </table>
         </div>
       </div>
-      <div class="flex w-0 flex-[3] flex-col justify-end">
+      <div class="flex h-full w-0 flex-[3] flex-col justify-between gap-8">
+        <Timer
+          :total-seconds="120"
+          class="z-0 h-fit w-auto max-w-[90%] flex-shrink justify-start self-center pt-0"
+          :remainingSeconds="118"
+        ></Timer>
         <div
-          class="flex h-72 flex-col gap-2 rounded-2xl border-2 border-sc-black-400 bg-sc-white p-5"
+          class="flex h-72 flex-grow flex-col gap-2 rounded-2xl border-2 border-sc-black-400 bg-sc-white p-5"
         >
           <div class="flex items-center justify-between">
             <div class="flex flex-col gap-1">
@@ -145,11 +157,7 @@ async function setDone(checked) {
         </div>
       </div>
     </div>
-    <Timer
-      :total-seconds="120"
-      class="absolute right-2 top-0 z-0 h-56 w-auto xl:right-24 xl:h-[clamp(13rem,calc(100vh-29rem),20rem)]"
-      :remainingSeconds="118"
-    ></Timer>
+
     <div class="overflow-clip">
       <SvgBuildPhaseBg
         :font-controlled="false"
