@@ -103,6 +103,14 @@ export default defineNuxtConfig({
       include: ["pusher-js"],
     },
   },
+  site: {
+    // url set by env variables
+    name: "ScrumpliCity",
+    description: "Build your Scrum knowledge with ScrumpliCity!",
+  },
+  seo: {
+    canonicalQueryWhitelist: [], // no query parameters should be included in the canonical url
+  },
   runtimeConfig: {
     public: {
       echo: {
