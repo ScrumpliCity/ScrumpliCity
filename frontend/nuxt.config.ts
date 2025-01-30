@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "@nuxt/ui",
     "@pinia/nuxt",
     "nuxt-laravel-echo",
+    "@nuxtjs/seo",
   ],
   i18n: {
     defaultLocale: "de",
