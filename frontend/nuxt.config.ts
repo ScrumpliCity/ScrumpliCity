@@ -111,6 +111,13 @@ export default defineNuxtConfig({
   seo: {
     canonicalQueryWhitelist: [], // no query parameters should be included in the canonical url
   },
+  app: {
+    head: {
+      templateParams: {
+        separator: "|",
+      },
+    },
+  },
   runtimeConfig: {
     public: {
       echo: {
