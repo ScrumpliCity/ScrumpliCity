@@ -1,5 +1,5 @@
 <script setup>
-const localePath = useLocalePath();
+const localeRoute = useLocaleRoute();
 const toast = useToast();
 const client = useSanctumClient();
 const route = useRoute();
@@ -17,7 +17,7 @@ const manageRoom = data.value.find((room) => room.id === route.params.id);
     type="edit"
     :room-id="manageRoom.id"
     :routeToParent="
-      localePath({
+      localeRoute({
         name: 'rooms-id-parent',
         params: { id: manageRoom.id },
       })
