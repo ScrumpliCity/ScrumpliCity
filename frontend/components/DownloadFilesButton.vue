@@ -1,7 +1,7 @@
 <template>
   <a
-    href="/ScrumpliCity-crafting-templates.zip"
-    download="ScrumpliCity-crafting-templates.zip"
+    href="/ScrumpliCity_crafting-templates.zip"
+    download="ScrumpliCity_crafting-templates.zip"
   >
     <UButton
       class="hover:bg-sc-black-100"
