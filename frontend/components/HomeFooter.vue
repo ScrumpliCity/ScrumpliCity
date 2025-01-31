@@ -22,7 +22,12 @@ const localeRoute = useLocaleRoute();
             >{{ $t("homepage.diploma_thesis_website") }}</NuxtLink
           >
           <br />
-          {{ $t("homepage.crafting_templates_download") }}
+          <a
+            class="transition-colors hover:text-sc-orange"
+            href="/ScrumpliCity_crafting-templates.zip"
+            download="ScrumpliCity_crafting-templates.zip"
+            >{{ $t("homepage.crafting_templates_download") }}</a
+          >
         </p>
       </div>
       <div class="mx-4 bg-sc-white/70">
