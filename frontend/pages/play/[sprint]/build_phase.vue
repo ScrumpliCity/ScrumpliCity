@@ -36,7 +36,7 @@ const sprint = ref({
   ],
 });
 
-const selectedUS = ref(sprint.value.user_stories[0]);
+const selectedUS = ref(sprint.value.user_stories[0]); // DOD-US: Implement DOD display (including on focusout/etc.)
 
 async function setDone(checked) {
   // try {
@@ -63,12 +63,12 @@ async function setDone(checked) {
           {{ $t("build_phase.build_phase") }}
         </h1>
         <div
-          class="relative mt-1.5 flex-1 overflow-x-hidden rounded-2xl border-2 border-sc-black-400 bg-sc-white"
+          class="relative mt-1.5 max-w-[64vw] flex-1 overflow-clip rounded-2xl border-2 border-sc-black-400 bg-sc-white"
         >
-          <table class="table-auto divide-y-2 divide-sc-black-400">
+          <table class="w-full table-fixed divide-y-2 divide-sc-black-400">
             <thead>
               <tr class="h-11 rounded-t-2xl bg-sc-orange-100 font-semibold">
-                <th class="py-2 pl-10 text-left text-lg" colspan="3">
+                <th class="py-2 pl-10 text-left text-lg" colspan="1">
                   {{ sprint.name }}
                 </th>
               </tr>
@@ -76,46 +76,50 @@ async function setDone(checked) {
             <tbody class="divide-y">
               <template v-for="userStory in sprint.user_stories">
                 <tr
-                  class="max-h-14 cursor-pointer border-b border-sc-black-400 text-lg hover:bg-sc-black-50"
+                  class="w-full border-b border-sc-black-400 text-lg hover:bg-sc-black-50"
                   @click="selectedUS = userStory"
                 >
-                  <td class="flex max-w-[45vw] items-center gap-8 py-2 pl-4">
-                    <span class="whitespace-nowrap font-medium">
-                      {{ userStory.title }}
-                    </span>
-                    <span
-                      class="inline-block overflow-hidden text-ellipsis whitespace-nowrap text-sm"
-                    >
-                      {{ userStory.description }}
-                    </span>
-                  </td>
-                  <td class="pl-3 pr-3 align-middle">
+                  <td class="w-full">
                     <div
-                      class="size-7 min-w-7 flex-none rounded-full bg-sc-black-100 text-center text-lg font-semibold text-sc-black"
+                      class="flex h-14 w-full cursor-pointer items-center justify-between"
                     >
-                      {{ userStory.storyPoints }}
-                    </div>
-                  </td>
-                  <td class="whitespace-nowrap pr-4 text-lg font-semibold">
-                    <div
-                      class="inline-flex items-center gap-3 rounded-[5px] border border-sc-black-200 px-2"
-                      @click.stop
-                    >
-                      {{ $t("build_phase.in_progress") }}
-                      <div class="relative h-5 w-9">
-                        <input
-                          :id="'switch-component-' + userStory.id"
-                          type="checkbox"
-                          class="peer h-5 w-9 cursor-pointer appearance-none rounded-full bg-gray-200 transition-colors duration-300 checked:bg-sc-green-500"
-                          @change="(e) => setDone(e.checked)"
-                        />
-                        <label
-                          :for="'switch-component-' + userStory.id"
-                          class="absolute left-0.5 top-[0.1875rem] h-4 w-4 cursor-pointer rounded-full bg-sc-white shadow-sm transition-transform duration-300 peer-checked:translate-x-[1rem]"
-                        >
-                        </label>
+                      <div
+                        class="my-2 ml-4 flex w-full min-w-0 items-center gap-8"
+                      >
+                        <span class="min-w-fit whitespace-nowrap font-medium">
+                          {{ userStory.title }}
+                        </span>
+                        <span class="flex-1 truncate text-sm">
+                          {{ userStory.description }}
+                        </span>
                       </div>
-                      {{ $t("build_phase.done") }}
+
+                      <div
+                        class="my-2 ml-3 mr-4 size-7 min-w-7 flex-none rounded-full bg-sc-black-100 text-center text-lg font-semibold text-sc-black"
+                      >
+                        {{ userStory.storyPoints }}
+                      </div>
+
+                      <div
+                        class="mr-4 inline-flex shrink-0 items-center gap-3 rounded-[5px] border border-sc-black-200 px-2 text-lg font-semibold"
+                        @click.stop
+                      >
+                        {{ $t("build_phase.in_progress") }}
+                        <div class="relative h-5 w-9">
+                          <input
+                            :id="'switch-component-' + userStory.id"
+                            type="checkbox"
+                            class="peer h-5 w-9 cursor-pointer appearance-none rounded-full bg-gray-200 transition-colors duration-300 checked:bg-sc-green-500"
+                            @change="(e) => setDone(e.checked)"
+                          />
+                          <label
+                            :for="'switch-component-' + userStory.id"
+                            class="absolute left-0.5 top-[0.1875rem] h-4 w-4 cursor-pointer rounded-full bg-sc-white shadow-sm transition-transform duration-300 peer-checked:translate-x-[1rem]"
+                          >
+                          </label>
+                        </div>
+                        {{ $t("build_phase.done") }}
+                      </div>
                     </div>
                   </td>
                 </tr>
