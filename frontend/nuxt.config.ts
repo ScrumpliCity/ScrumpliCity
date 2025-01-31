@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     "@nuxtjs/seo",
   ],
   i18n: {
-    defaultLocale: "de",
+    defaultLocale: "en",
     locales: [
       { code: "de", file: "de.json", language: "de-AT" },
       { code: "en", file: "en.json", language: "en-US" },
