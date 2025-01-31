@@ -7,10 +7,9 @@ const { t } = useI18n();
 const echo = useEcho();
 const toast = useToast();
 
-const { data, refresh } = await useAsyncData("room", () =>
+const { data: manageRoom, refresh } = await useAsyncData("room", () =>
   client(`/api/rooms/${route.params.id}`),
 );
-const manageRoom = computed(() => data.value);
 
 const isOpen = ref(false);
 const timerPaused = ref(false);
@@ -20,6 +19,7 @@ const teamReadyStates = ref({});
 const remainingSeconds = ref(0);
 const totalSeconds = ref(0);
 const isPlaying = computed(() => !!manageRoom.value.is_playing);
+const disableTimerActionForRequest = ref(false);
 
 // DEV: The active field in teams should indicate an active connection to a team that at some point joined has this room
 const activeTeams = computed(
@@ -50,7 +50,7 @@ const lastPlayedAgoMinutes = computed(() => {
   const lastPlayStart = manageRoom.value?.last_play_start;
   if (lastPlayStart) {
     return Math.floor(
-      (Date.now() - new Date(lastPlayStart).getTime()) / 1000 / 60,
+      (Date.now() - new Date(lastPlayStart + "Z").getTime()) / 1000 / 60,
     );
   }
   return undefined;
@@ -176,6 +176,7 @@ async function togglePlaying() {
 
 async function toggleTimer() {
   try {
+    disableTimerActionForRequest.value = true;
     await client(
       `/api/rooms/${manageRoom.value.id}/timer/${timerPaused.value ? "resume" : "pause"}`,
       {
@@ -184,6 +185,7 @@ async function toggleTimer() {
     );
     await refresh();
     timerPaused.value = !timerPaused.value;
+    disableTimerActionForRequest.value = false;
   } catch (error) {
     toast.add({
       title: t("rooms.toggle_playing_error", {
@@ -219,7 +221,9 @@ function copyRoomCode() {
         :isDisabled="!isPlaying"
         v-if="manageRoom.roomcode && !manageRoom.completed_at"
         @toggle="toggleTimer"
+        :disableAction="disableTimerActionForRequest"
         :isPlaying
+        :key="timerPaused"
       />
 
       <LazyPhaseBox

@@ -96,7 +96,8 @@ const color = computed(() => {
 const lastPlayedAgoMinutes = computed(() => {
   if (!props.room.last_play_start) return undefined;
   return Math.floor(
-    (new Date().getTime() - new Date(props.room.last_play_start).getTime()) /
+    (new Date().getTime() -
+      new Date(props.room.last_play_start + "Z").getTime()) /
       1000 /
       60,
   );

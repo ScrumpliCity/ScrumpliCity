@@ -11,9 +11,7 @@ class TimerService
 {
     private int $duration;
 
-    public function __construct(private string $roomId)
-    {
-    }
+    public function __construct(private string $roomId) {}
 
     /**
      * Start a timer for a room
@@ -41,7 +39,7 @@ class TimerService
         }
 
 
-        Cache::put(`timer.$this->roomId`, [
+        Cache::put("timer." . $this->roomId, [
             'remaining' => $remaining,
             'duration' => $this->duration,
             'state' => 'running',
@@ -58,21 +56,26 @@ class TimerService
      */
     public function stop(): void
     {
-        $timer = Cache::get(`timer.$this->roomId`);
-        if ($timer) {
-            $duration = $timer['duration'] ?? $this->duration;
-            Cache::put(`timer.$this->roomId`, array_merge($timer, [
-                'remaining' => 0,
-                'state' => 'stopped',
-            ]));
-            $room = Room::find($this->roomId);
-            if ($room) {
-                $room->time_remaining_in_phase = $timer['remaining'];
-                $room->last_play_end = now();
-                $room->save();
+        $this->withLock(function () {
+            $timer = Cache::get("timer." . $this->roomId);
+            if ($timer) {
+                $duration = $timer['duration'] ?? $this->duration;
+                Cache::put("timer." . $this->roomId, array_merge($timer, [
+                    'remaining' => 0,
+                    'state' => 'stopped',
+                ]));
+
+                $room = Room::find($this->roomId);
+                if ($room) {
+                    $room->time_remaining_in_phase =
+                    max(0, $timer['remaining'] - (now()->timestamp - $timer['last_broadcast']));
+                    $room->last_play_end = now();
+                    $room->save();
+                }
+
+                broadcast(new TimerStateChange($this->roomId, 'stopped', 0, $duration));
             }
-            broadcast(new TimerStateChange($this->roomId, 'stopped', 0, $duration));
-        }
+        });
     }
 
 
@@ -81,20 +84,26 @@ class TimerService
      */
     public function pause(): void
     {
-        $timer = Cache::get(`timer.$this->roomId`);
-        if (!$timer || $timer['state'] !== 'running') {
-            return;
-        }
-        $timer['state'] = 'paused';
-        Cache::put(`timer.$this->roomId`, $timer);
+        $this->withLock(function () {
+            $timer = Cache::get("timer." . $this->roomId);
+            if (!$timer || $timer['state'] !== 'running') {
+                return;
+            }
 
-        $room = Room::find($this->roomId);
-        if ($room) {
-            $room->time_remaining_in_phase = $timer['remaining'];
-            $room->save();
-        }
+            $timer['state'] = 'paused';
+            $currentTime = now();
+            $timer['remaining'] = max(0, $timer['remaining'] - ($currentTime->timestamp - $timer['last_broadcast']));
+            $timer['last_broadcast'] = $currentTime;
+            Cache::put("timer." . $this->roomId, $timer);
 
-        broadcast(new TimerStateChange($this->roomId, 'paused', $timer['remaining'], $timer['duration']));
+            $room = Room::find($this->roomId);
+            if ($room) {
+                $room->time_remaining_in_phase = $timer['remaining'];
+                $room->save();
+            }
+
+            broadcast(new TimerStateChange($this->roomId, 'paused', $timer['remaining'], $timer['duration']));
+        });
     }
 
     /**
@@ -102,23 +111,33 @@ class TimerService
      */
     public function resume(): void
     {
-        $timer = Cache::get(`timer.$this->roomId`);
-        if (!$timer || $timer['state'] !== 'paused') {
-            return;
+        $this->withLock(function () {
+            $timer = Cache::get("timer." . $this->roomId);
+            if (!$timer || $timer['state'] !== 'paused') {
+                return;
+            }
+
+            $timer['state'] = 'running';
+            $timer['last_broadcast'] = now()->timestamp;
+            Cache::put("timer." . $this->roomId, $timer);
+
+            broadcast(new TimerStateChange($this->roomId, 'running', $timer['remaining'], $timer['duration']));
+
+            RunTimer::dispatch($this->roomId);
+        });
+    }
+
+    private function withLock(callable $callback)
+    {
+        $lock = Cache::lock("timer_lock." . $this->roomId, 5);
+
+        try {
+            if ($lock->get(2)) {
+                return $callback();
+            }
+            return false;
+        } finally {
+            optional($lock)->release();
         }
-
-        $room = Room::find($this->roomId);
-        if ($room) {
-            $room->time_remaining_in_phase = 0;
-            $room->save();
-        }
-
-        $timer['state'] = 'running';
-        $timer['last_broadcast'] = now();
-        Cache::put(`timer.$this->roomId`, $timer);
-
-        broadcast(new TimerStateChange($this->roomId, 'running', $timer['remaining'], $timer['duration']));
-
-        RunTimer::dispatch($this->roomId);
     }
 }

@@ -31,75 +31,85 @@ class RunTimer implements ShouldQueue
     public function handle(): void
     {
         try {
-            // Return if there is no timer in cache
-            if (!$timer = Cache::get(`timer.$this->roomId`)) {
+            $lock = Cache::lock("timer_lock." . $this->roomId, 5);
+
+            if (!$lock->get(1)) {
                 return;
             }
 
-            // Return if the timer is not running
-            if ($timer['state'] !== 'running') {
-                return;
-            }
+            try {
+                // Return if there is no timer in cache
+                if (!$timer = Cache::get("timer." . $this->roomId)) {
+                    return;
+                }
 
-            // Return if the room doesn't exist anymore
-            if (!$room = Room::find($this->roomId)) {
-                return;
-            }
+                // Return if the timer is not running
+                if ($timer['state'] !== 'running') {
+                    return;
+                }
 
-
-            $currentTime = now();
-            $remaining = max(0, $timer['remaining'] - ($currentTime->timestamp - $timer['last_broadcast']));
-
-
-            // When the timer is over
-            if ($remaining <= 0) {
-
-                // End the room
-                if ($room->current_sprint === $room->number_of_sprints && $room->current_phase === 'backlog_refinement') {
-                    $room->current_phase = null;
-                    $room->completed_at = now();
-                    $room->is_playing = false;
-                    $room->save();
-                    broadcast(new TimerStateChange($this->roomId, 'stopped', 0, 0));
-                    Cache::forget(`timer.$this->roomId`);
+                // Return if the room doesn't exist anymore
+                if (!$room = Room::find($this->roomId)) {
                     return;
                 }
 
 
-                // Increment the sprint if it's the end of the sprint (phase backlog refinement)
-                if ($room->current_phase === 'backlog_refinement' && $room->current_sprint < $room->number_of_sprints) {
-                    $room->current_sprint++;
+                $currentTime = now();
+                $remaining = max(0, $timer['remaining'] - ($currentTime->timestamp - $timer['last_broadcast']));
+
+
+                // When the timer is over
+                if ($remaining <= 0) {
+
+                    // End the room
+                    if ($room->current_sprint === $room->number_of_sprints && $room->current_phase === 'backlog_refinement') {
+                        $room->current_phase = null;
+                        $room->completed_at = now()->utc();
+                        $room->is_playing = false;
+                        $room->save();
+                        broadcast(new TimerStateChange($this->roomId, 'stopped', 0, 0));
+                        Cache::forget("timer." . $this->roomId);
+                        return;
+                    }
+
+
+                    // Increment the sprint if it's the end of the sprint (phase backlog refinement)
+                    if ($room->current_phase === 'backlog_refinement' && $room->current_sprint < $room->number_of_sprints) {
+                        $room->current_sprint++;
+                    }
+
+                    // Increment the phase of the timer
+                    $room->current_phase = $room->nextPhase();
+                    $room->save();
+
+                    $timer = new TimerService($this->roomId);
+                    $nextPhaseDuration = $room->getPhaseDuration();
+                    $room->time_remaining_in_phase = $nextPhaseDuration * 60;
+                    $room->save();
+
+                    // Start the next phase
+                    if ($nextPhaseDuration > 0) {
+                        $timer->start($nextPhaseDuration);
+                    } else {
+                        error_log("Invalid phase duration: " . $nextPhaseDuration);
+                    }
+                    return;
                 }
 
-                // Increment the phase of the timer
-                $room->current_phase = $room->nextPhase();
-                $room->save();
-                
-                $timer = new TimerService($this->roomId);
-                $nextPhaseDuration = $room->getPhaseDuration();
-                $room->time_remaining_in_phase = $nextPhaseDuration * 60;
-                $room->save();
 
-                // Start the next phase
-                if ($nextPhaseDuration > 0) {
-                    $timer->start($nextPhaseDuration);
-                } else {
-                    error_log("Invalid phase duration: " . $nextPhaseDuration);
+                // Broadcast only if timer still running
+                if ($remaining > 0) {
+                    Cache::put("timer." . $this->roomId, array_merge($timer, [
+                        'remaining' => $remaining,
+                        'last_broadcast' => $currentTime->timestamp
+                    ]));
+                    broadcast(new TimerUpdate($this->roomId, $remaining));
+
+                    static::dispatch($this->roomId)
+                        ->delay($currentTime->addSeconds(min(self::BROADCAST_INTERVAL, $remaining)));
                 }
-                return;
-            }
-
-
-            // Broadcast only if timer still running
-            if ($remaining > 0) {
-                Cache::put(`timer.$this->roomId`, array_merge($timer, [
-                    'remaining' => $remaining,
-                    'last_broadcast' => $currentTime->timestamp
-                ]));
-                broadcast(new TimerUpdate($this->roomId, $remaining));
-
-                static::dispatch($this->roomId)
-                    ->delay($currentTime->addSeconds(min(self::BROADCAST_INTERVAL, $remaining)));
+            } finally {
+                $lock->release();
             }
         } catch (\Exception $e) {
             error_log("Timer error: " . $e->getMessage());

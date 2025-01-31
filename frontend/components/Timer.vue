@@ -16,6 +16,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  disableAction: {
+    type: Boolean,
+    default: false,
+  },
   isDisabled: {
     type: Boolean,
     default: false,
@@ -23,7 +27,6 @@ const props = defineProps({
 });
 
 const remainingSeconds = ref(props.remainingSeconds);
-const isPaused = ref(props.isPaused);
 
 let interval: ReturnType<typeof decrementTime>;
 
@@ -33,13 +36,6 @@ watch(
     remainingSeconds.value = newValue;
     clearInterval(interval);
     interval = decrementTime();
-  },
-);
-
-watch(
-  () => props.isPaused,
-  (newValue) => {
-    isPaused.value = newValue;
   },
 );
 
@@ -53,7 +49,7 @@ onMounted(() => {
 
 function decrementTime() {
   return setInterval(() => {
-    if (remainingSeconds.value <= 0 || isPaused.value || props.isDisabled) {
+    if (remainingSeconds.value <= 0 || props.isDisabled) {
       clearInterval(interval);
       return;
     }
@@ -143,16 +139,14 @@ const offset = computed(() => {
       variant="ghost"
       class="absolute bottom-3 right-3 z-20 text-sc-black-500 hover:bg-transparent"
       :padded="false"
-      @click="
-        emit('toggle');
-        isPaused = !isPaused;
-      "
+      @click="emit('toggle')"
       v-if="isControllable && !isDisabled"
       :icon="
         isPaused
           ? 'material-symbols:play-arrow-outline-rounded'
           : 'humbleicons:pause'
       "
+      :disabled="disableAction"
     ></UButton>
   </div>
 </template>

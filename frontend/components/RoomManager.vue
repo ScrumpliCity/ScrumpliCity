@@ -21,11 +21,11 @@ const props = defineProps({
     required: true,
   },
   routeToParent: {
-    type: String,
+    type: Object,
     required: true,
   },
   roomId: {
-    type: Number,
+    type: String,
     default: 0,
   },
 });
