@@ -38,17 +38,8 @@ const sprint = ref({
 
 const selectedUS = ref(sprint.value.user_stories[0]); // DOD-US: Implement DOD display (including on focusout/etc.)
 
-async function setDone(checked) {
-  // try {
-  //     const response = await client("/api/tba", {
-  //         method: "PATCH",
-  //         body: {
-  //             done: checked,
-  //         },
-  //     });
-  // } catch (error) {
-  //     console.error(error);
-  // }
+async function toggleDone(checked) {
+  // implement with backend
 }
 </script>
 <template>
@@ -110,7 +101,7 @@ async function setDone(checked) {
                             :id="'switch-component-' + userStory.id"
                             type="checkbox"
                             class="peer h-5 w-9 cursor-pointer appearance-none rounded-full bg-gray-200 transition-colors duration-300 checked:bg-sc-green-500"
-                            @change="(e) => setDone(e.checked)"
+                            @change="(e) => toggleDone(e.checked)"
                           />
                           <label
                             :for="'switch-component-' + userStory.id"
