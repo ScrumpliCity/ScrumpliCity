@@ -61,8 +61,17 @@ class TeamController extends Controller
         ]);
 
         $team = Team::findOrFail($request->session()->get('team'));
-        $team->members()->delete();
 
+        // Update existing members with duplicate unique roles to Developer
+        foreach (['Product Owner', 'Scrum Master'] as $role) {
+            if (collect($validated['new_members'])->contains('role', $role)) {
+                $team->members()
+                    ->where('role', $role)
+                    ->update(['role' => 'Developer']);
+            }
+        }
+
+        // Create new members
         foreach ($validated['new_members'] as $memberData) {
             $member = $team->members()->create($memberData);
             $member->save();
