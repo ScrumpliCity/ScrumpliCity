@@ -99,12 +99,13 @@ const existingTeams = [
     ],
   },
 ];
-let selected = ref({});
+let selected = ref();
 
-function changeDisplaySelected() {
-  selected.value = selected.value.name;
-  teamName.value = selected.value;
+function changeSelected(team) {
+  selected = team;
 }
+
+const dropdownOpen = ref(false);
 </script>
 <template>
   <div class="mt-10 flex h-full w-full flex-col items-center">
@@ -124,22 +125,40 @@ function changeDisplaySelected() {
       :placeholder="$t('join_room.team_name')"
       v-model="teamName"
     />
-    <USelectMenu
+    <div
       v-else
-      v-model="selected"
-      :options="existingTeams"
-      :placeholder="$t('join_room.team_name')"
-      class="mt-16 w-96 rounded-lg"
-      @change="changeDisplaySelected()"
+      @click="dropdownOpen = !dropdownOpen"
+      tabindex="0"
+      @keydown.space="dropdownOpen = !dropdownOpen"
+      class="mt-16 max-h-[40vh] w-fit cursor-pointer overflow-scroll rounded-lg border-2 border-sc-black-400 bg-sc-white py-8 text-center text-5xl font-medium drop-shadow-sc-shadow"
     >
-      <template #option="{ option: team }">
-        <div class="flex flex-col items-center">
-          <span class="truncate">{{ team.name }}</span>
-          <span>{{ team.members.join(", ") }}</span>
+      <p v-if="selected?.name" class="text-sc-black-400">
+        {{ selected.name }}
+      </p>
+      <p v-else class="text-sc-black-400">
+        {{ $t("join_room.team_name") }}
+      </p>
+      <div
+        v-if="dropdownOpen"
+        class="flex flex-col items-center justify-center"
+      >
+        <div
+          v-for="team in existingTeams"
+          :key="team.name"
+          @click="changeSelected(team)"
+          class="w-full px-14 hover:bg-sc-black-200"
+        >
+          <button
+            class="flex flex-col items-center border-b-2 border-sc-black py-6"
+          >
+            <p class="mb-1 text-3xl font-bold">{{ team.name }}</p>
+            <p class="text-xs">{{ team.members.join(", ") }}</p>
+          </button>
         </div>
-      </template>
-    </USelectMenu>
+      </div>
+    </div>
     <button
+      v-if="!dropdownOpen"
       @click="submit"
       :disabled="!teamName"
       class="mt-12 w-72 cursor-pointer rounded-lg bg-sc-green py-6 text-center text-4xl font-bold text-sc-black drop-shadow-sc-shadow transition-colors hover:bg-sc-green-400 disabled:cursor-not-allowed disabled:bg-sc-black-400 disabled:text-sc-white"
