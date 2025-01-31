@@ -6,6 +6,7 @@ use App\Models\Room;
 use App\Models\Team;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Gate;
 
 class TeamController extends Controller
@@ -29,7 +30,7 @@ class TeamController extends Controller
     public function update(Request $request, Team $team): JsonResponse
     {
         if ($request->session()->get('team') != $team->id) {
-            return  response()->noContent(403);
+            return response()->json(null, 403);
         }
 
         $validated = $request->validate([
