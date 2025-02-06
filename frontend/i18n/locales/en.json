@@ -189,7 +189,7 @@
     "build_phase": "@:common.phases.build_phase",
     "in_progress": "In progress",
     "done": "Done",
-    "responsible": "Responsible",
+    "responsible": "Responsible"
   },
 
   "infobox": {
