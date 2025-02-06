@@ -190,7 +190,6 @@
     "in_progress": "In Arbeit",
     "done": "Fertig",
     "responsible": "Verantwortliche*r",
-    "acceptence_criteria": "AC"
   },
   "infobox": {
     "current_of_total": "{current} von {total}"
