@@ -59,6 +59,10 @@ export default defineNuxtConfig({
         de: "/rolle",
         en: "/role",
       },
+      "play/[sprint]/build_phase": {
+        de: "/play/[sprint]/bauphase",
+        en: "/play/[sprint]/build_phase",
+      },
       // define more pages here
     },
   },

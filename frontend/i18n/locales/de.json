@@ -216,6 +216,12 @@
       }
     }
   },
+  "build_phase": {
+    "build_phase": "@:common.phases.build_phase",
+    "in_progress": "In Arbeit",
+    "done": "Fertig",
+    "responsible": "Verantwortliche*r"
+  },
   "infobox": {
     "current_of_total": "{current} von {total}"
   },
