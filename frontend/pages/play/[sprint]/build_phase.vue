@@ -14,7 +14,7 @@ const sprint = ref({
       title: "Erstes Haus",
       description:
         "Als Bewohner möchte ich ein stabil gebautes Haus haben, um sicher wohnen zu können.",
-      responsible: "Lisa Marie-Hörmann",
+      responsible: "Lisa-Marie Hörmann",
       storyPoints: 13,
     },
     {
