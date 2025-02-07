@@ -76,11 +76,7 @@ async function toggleAccepted(checked) {
           <span
             class="pointer-events-none flex w-full items-center gap-2 px-2.5 text-base"
           >
-            <UIcon
-              name="octicon:goal-16"
-              class="size-5"
-              :class="{ 'text-gray-400': showSprintGoalInput }"
-            />
+            <UIcon name="octicon:goal-16" class="size-5" />
             {{ sprint.sprint_goal }}
           </span>
         </div>
