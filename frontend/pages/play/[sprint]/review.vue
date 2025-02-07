@@ -4,14 +4,13 @@ definePageMeta({
   layout: "in-game",
 });
 
-const game = useGameStore();
-
 const sprint = ref({
   number: 1,
   total: 4,
   name: "Amsterdam",
   sprint_goal: "Wasserversorgung der Bewohner sichern.",
   team_name: "Die Besten",
+  velocity: 0,
   user_stories: [
     {
       id: 1,
@@ -48,9 +47,6 @@ const acceptedSP = computed(() =>
   sprint.value.user_stories
     .filter((us) => us.accepted)
     .reduce((acc, us) => acc + us.storyPoints, 0),
-);
-const allUSAccepted = computed(() =>
-  sprint.value.user_stories.every((us) => us.accepted),
 );
 
 const plannedSP = computed(() =>
@@ -223,17 +219,27 @@ async function toggleAccepted(checked) {
             <UTooltip :text="$t('review.velocity_to_date')" v-if="true">
               <div
                 class="flex h-8 w-20 items-center justify-between rounded-md p-1.5"
-                :class="allUSAccepted ? 'bg-sc-green-100' : 'bg-sc-orange-100'"
+                :class="{
+                  'bg-sc-green-100':
+                    plannedSP < sprint.velocity && sprint.number !== 1,
+                  'bg-sc-orange-100':
+                    plannedSP >= sprint.velocity && sprint.number !== 1,
+                  'bg-sc-black-100': sprint.number === 1,
+                }"
               >
                 <UIcon
                   name="mingcute:chart-bar-line"
                   class="size-6"
-                  :class="
-                    allUSAccepted ? 'text-sc-green-500' : 'text-sc-orange-500'
-                  "
+                  :class="{
+                    'text-sc-green-500':
+                      plannedSP < sprint.velocity && sprint.number !== 1,
+                    'text-sc-orange-500':
+                      plannedSP >= sprint.velocity && sprint.number !== 1,
+                  }"
                 />
                 <span class="text-lg font-bold">
-                  37<span class="text-xs">{{
+                  {{ sprint.number === 1 ? acceptedSP : sprint.velocity
+                  }}<span class="text-xs">{{
                     $t("review.story_points_abbreviation")
                   }}</span>
                 </span>

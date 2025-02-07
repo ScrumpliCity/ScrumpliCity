@@ -121,7 +121,8 @@
     "legal_notice": "Legal Notice",
     "phases": {
       "sprint_planning": "Sprint Planning",
-      "build_phase": "Build phase"
+      "build_phase": "Build phase",
+      "review": "Sprint Review"
     }
   },
   "legal_notice": {
