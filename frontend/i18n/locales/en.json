@@ -152,7 +152,8 @@
     "legal_notice": "Legal Notice",
     "phases": {
       "sprint_planning": "Sprint Planning",
-      "build_phase": "Build phase"
+      "build_phase": "Build phase",
+      "review": "Sprint Review"
     }
   },
   "legal_notice": {
@@ -223,6 +224,25 @@
     "responsible": "Responsible"
   },
 
+  "review": {
+    "review": "@:common.phases.review",
+    "title": "Title",
+    "description": "Description",
+    "story_points": "Story Points",
+    "approved": "Approved",
+    "sprint_out_of_n": "Sprint {current}/{total}",
+    "next_phase": "Next phase:",
+    "responsible": "Responsible",
+    "story_points_abbreviation": "SP.",
+    "planning": "Sprint Planning",
+    "story_points_of_planned_user_stories": "Story points of the planned user stories",
+    "accepted_story_points": "Story points of the accepted user stories",
+    "velocity_to_date": "Velocity to date",
+    "infobox": {
+      "title": "Sprint Review",
+      "content": "The sprint review is used to present and review the finished increment of the product. The product owner (PO) therefore checks whether all user story (US) requirements have been met. If this has been done, the US is defined as accepted. The aim of the meeting is to inspect the product and discuss possible adjustments for the next sprints together with the stakeholders."
+    }
+  },
   "infobox": {
     "current_of_total": "{current} of {total}"
   },
