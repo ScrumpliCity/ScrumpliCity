@@ -8,6 +8,10 @@ const props = defineProps({
     type: Number,
     default: 99,
   },
+  chosenNum: {
+    type: Number,
+    default: 0,
+  },
 });
 
 const emit = defineEmits(["update:chosenNum"]);
@@ -16,7 +20,13 @@ const toast = useToast();
 const customValue = ref("");
 const isEditing = ref(false);
 
-const chosenNum = ref(0);
+const chosenNum = ref(props.chosenNum);
+
+onMounted(() => {
+  if (!props.choices.includes(chosenNum.value) && chosenNum.value !== 0) {
+    customValue.value = chosenNum.value;
+  }
+});
 
 function addCustomValue() {
   // Throw an error toast if the custom value is higher than the max value

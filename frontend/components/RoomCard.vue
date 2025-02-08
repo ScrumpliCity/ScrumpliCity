@@ -96,7 +96,8 @@ const color = computed(() => {
 const lastPlayedAgoMinutes = computed(() => {
   if (!props.room.last_play_start) return undefined;
   return Math.floor(
-    (new Date().getTime() - new Date(props.room.last_play_start).getTime()) /
+    (new Date().getTime() -
+      new Date(props.room.last_play_start + "Z").getTime()) /
       1000 /
       60,
   );
@@ -106,12 +107,12 @@ const lastPlayedAgoMinutes = computed(() => {
   <div
     @click="
       navigateTo(
-        localeRoute({ name: 'rooms-id', params: { id: props.room.id } }),
+        localeRoute({ name: 'rooms-id-parent', params: { id: props.room.id } }),
       )
     "
     @keydown.enter="
       navigateTo(
-        localeRoute({ name: 'rooms-id', params: { id: props.room.id } }),
+        localeRoute({ name: 'rooms-id-parent', params: { id: props.room.id } }),
       )
     "
     tabindex="0"

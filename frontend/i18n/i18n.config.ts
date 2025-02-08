@@ -8,9 +8,19 @@ export default defineI18nConfig(() => ({
         month: "short",
         day: "numeric",
       },
+      custom: {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      },
     },
     en: {
       short: {
+        month: "short",
+        day: "numeric",
+      },
+      custom: {
+        year: "numeric",
         month: "short",
         day: "numeric",
       },
