@@ -121,7 +121,8 @@
     "legal_notice": "Impressum",
     "phases": {
       "sprint_planning": "Sprint Planning",
-      "build_phase": "Bauphase"
+      "build_phase": "Bauphase",
+      "review": "Sprint Review"
     }
   },
   "legal_notice": {
@@ -190,6 +191,25 @@
     "in_progress": "In Arbeit",
     "done": "Fertig",
     "responsible": "Verantwortliche*r"
+  },
+  "review": {
+    "review": "@:common.phases.review",
+    "title": "Titel",
+    "description": "Beschreibung",
+    "story_points": "Story Points",
+    "approved": "Abgenommen",
+    "sprint_out_of_n": "Sprint {current}/{total}",
+    "next_phase": "Nächste Phase:",
+    "responsible": "Verantwortliche*r",
+    "story_points_abbreviation": "SP.",
+    "planning": "Sprint Planning",
+    "story_points_of_planned_user_stories": "Story Points der geplanten User Stories",
+    "accepted_story_points": "Story Points der abgenommenen User Stories",
+    "velocity_to_date": "Bisherige Velocity",
+    "infobox": {
+      "title": "Sprint Review",
+      "content": "Das Sprint Review dient dazu, das fertige Inkrement des Produkts vorzustellen und zu überprüfen. Der Product Owner (PO) prüft demnach, ob alle Anforderungen der User Stories (US) erfüllt wurden. Wenn dies geschehen ist, wird die US als abgenommen definiert. Ziel des Meetings ist es, das Produkt zu inspizieren und gemeinsam mit den Stakeholdern mögliche Anpassungen für die nächsten Sprints zu besprechen."
+    }
   },
   "infobox": {
     "current_of_total": "{current} von {total}"
