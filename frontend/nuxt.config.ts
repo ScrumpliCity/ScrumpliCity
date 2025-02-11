@@ -11,13 +11,23 @@ export default defineNuxtConfig({
     "@nuxtjs/seo",
   ],
   routeRules: {
+    // https://github.com/nuxt-modules/i18n/issues/2342 // there doesn't seem to be a cleaner way to define route rules than this ... f*ck localized slugs
     "/": {
+      prerender: true,
+    },
+    "/de": {
+      prerender: true,
+    },
+    "/legal-notice": {
+      prerender: true,
+    },
+    "/de/impressum": {
       prerender: true,
     },
     "/role": {
       prerender: true,
     },
-    "/legal_notice": {
+    "/de/rolle": {
       prerender: true,
     },
   },
