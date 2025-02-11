@@ -30,6 +30,18 @@ export default defineNuxtConfig({
     "/de/rolle": {
       prerender: true,
     },
+    "/**": {
+      seoMeta: {
+        ogImage: "/og-image-en.png",
+        ogImageAlt: "Welcome to ScrumpliCity",
+      },
+    },
+    "/de/**": {
+      seoMeta: {
+        ogImage: "/og-image-de.png",
+        ogImageAlt: "Willkommen bei ScrumpliCity",
+      },
+    },
   },
   i18n: {
     defaultLocale: "en",
@@ -136,11 +148,15 @@ export default defineNuxtConfig({
   seo: {
     canonicalQueryWhitelist: [], // no query parameters should be included in the canonical url
   },
+  ogImage: {
+    enabled: false,
+  },
   app: {
     head: {
       templateParams: {
         separator: "|",
       },
+      link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }],
     },
   },
   runtimeConfig: {
