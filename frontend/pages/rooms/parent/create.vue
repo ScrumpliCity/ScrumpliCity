@@ -5,6 +5,6 @@ const localeRoute = useLocaleRoute();
 <template>
   <RoomManager
     type="create"
-    :route-to-parent="localeRoute('rooms-parent', locale)"
+    :route-to-parent="localeRoute('rooms-parent')"
   />
 </template>
