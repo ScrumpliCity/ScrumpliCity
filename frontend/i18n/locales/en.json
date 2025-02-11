@@ -121,7 +121,8 @@
     "legal_notice": "Legal Notice",
     "phases": {
       "sprint_planning": "Sprint Planning",
-      "build_phase": "Build phase"
+      "build_phase": "Build phase",
+      "review": "Sprint Review"
     }
   },
   "legal_notice": {
@@ -183,6 +184,32 @@
         "title": "Story points",
         "content": "Story points indicate the complexity of the user story. The Fibonacci sequence (1, 2, 3, 5, 8, 13 ...) is often used to record relative differences between the stories. Alternative estimation methods for user stories are T-shirt sizes (S, M, L, XL) or time-based estimation."
       }
+    }
+  },
+  "build_phase": {
+    "build_phase": "@:common.phases.build_phase",
+    "in_progress": "In progress",
+    "done": "Done",
+    "responsible": "Responsible"
+  },
+
+  "review": {
+    "review": "@:common.phases.review",
+    "title": "Title",
+    "description": "Description",
+    "story_points": "Story Points",
+    "approved": "Approved",
+    "sprint_out_of_n": "Sprint {current}/{total}",
+    "next_phase": "Next phase:",
+    "responsible": "Responsible",
+    "story_points_abbreviation": "SP.",
+    "planning": "Sprint Planning",
+    "story_points_of_planned_user_stories": "Story points of the planned user stories",
+    "accepted_story_points": "Story points of the accepted user stories",
+    "velocity_to_date": "Velocity to date",
+    "infobox": {
+      "title": "Sprint Review",
+      "content": "The sprint review is used to present and review the finished increment of the product. The product owner (PO) therefore checks whether all user story (US) requirements have been met. If this has been done, the US is defined as accepted. The aim of the meeting is to inspect the product and discuss possible adjustments for the next sprints together with the stakeholders."
     }
   },
   "infobox": {
