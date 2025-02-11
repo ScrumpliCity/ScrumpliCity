@@ -13,12 +13,15 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }],
+      htmlAttrs: {
+        lang: "de",
+      },
     },
   },
   features: {
-    noScripts: true
+    noScripts: true,
   },
   image: {
-    dir: 'assets'
-  }
+    dir: "assets",
+  },
 });
