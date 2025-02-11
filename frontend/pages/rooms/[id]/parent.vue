@@ -163,6 +163,7 @@ async function togglePlaying() {
       method: "PATCH",
     });
     refresh();
+    timerPaused.value = false;
   } catch (error) {
     toast.add({
       title: t("rooms.toggle_playing_error", {
@@ -232,7 +233,7 @@ function copyRoomCode() {
         :currentSprint="manageRoom.current_sprint"
         :sprintCount="manageRoom.number_of_sprints"
         :phase="manageRoom.current_phase"
-        :key="`${manageRoom.current_phase}-${manageRoom.current_sprint}-${isPlaying}`"
+        :key="`${manageRoom.current_phase}-${manageRoom.current_sprint}-${isPlaying}- ${timeLeftInSprint}`"
         :isCompleted="!!manageRoom.completed_at"
         :timeLeft="timeLeftInSprint"
         :isPlaying
@@ -385,7 +386,7 @@ function copyRoomCode() {
           </div>
           <div
             v-show="isOpen"
-            class="flex h-[calc(100%-3.5rem)] flex-wrap gap-x-3 gap-y-2 px-4 py-2"
+            class="flex h-[calc(100%-3.5rem)] flex-wrap content-start gap-x-3 gap-y-2 px-4 py-2"
           >
             <TeamManager
               @click.stop
@@ -439,7 +440,7 @@ function copyRoomCode() {
             size: { sm: isPlaying ? 'size-[3.875rem]' : 'size-20' },
           },
         }"
-        :disabled="!allTeamsReady || manageRoom.teams.length <= 0"
+        :disabled="!allTeamsReady || !manageRoom?.teams?.length"
       ></UButton>
     </UPopover>
 

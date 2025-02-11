@@ -93,7 +93,7 @@ class TimerService
             $timer['state'] = 'paused';
             $currentTime = now();
             $timer['remaining'] = max(0, $timer['remaining'] - ($currentTime->timestamp - $timer['last_broadcast']));
-            $timer['last_broadcast'] = $currentTime;
+            $timer['last_broadcast'] = $currentTime->timestamp;
             Cache::put("timer." . $this->roomId, $timer);
 
             $room = Room::find($this->roomId);
