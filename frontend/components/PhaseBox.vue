@@ -1,4 +1,6 @@
 <script setup>
+import { useNow } from "@vueuse/core";
+
 const props = defineProps({
   phase: {
     type: String,
@@ -29,6 +31,8 @@ const props = defineProps({
 });
 
 const { t } = useI18n();
+
+const now = useNow();
 
 const phase = ref(props.phase || "default");
 
@@ -116,7 +120,7 @@ const phaseInfos = computed(() => {
         {{ $t("rooms.phase_box.end_of_sprint") }}
         <ClientOnly>
           <span class="font-bold">{{
-            new Date(Date.now() + timeLeft * 1000).toLocaleTimeString(
+            new Date(now.getTime() + timeLeft * 1000).toLocaleTimeString(
               $i18n.locale,
               { hour: "2-digit", minute: "2-digit" },
             )
