@@ -10,6 +10,17 @@ export default defineNuxtConfig({
     "nuxt-laravel-echo",
     "@nuxtjs/seo",
   ],
+  routeRules: {
+    "/": {
+      prerender: true,
+    },
+    "/role": {
+      prerender: true,
+    },
+    "/legal_notice": {
+      prerender: true,
+    },
+  },
   i18n: {
     defaultLocale: "en",
     locales: [
