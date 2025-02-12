@@ -1,4 +1,10 @@
 <script setup>
+const { t } = useI18n();
+
+useSeoMeta({
+  title: t("create_room.page_title"),
+});
+
 const localeRoute = useLocaleRoute();
 const toast = useToast();
 const client = useSanctumClient();

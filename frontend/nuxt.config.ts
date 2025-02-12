@@ -8,9 +8,47 @@ export default defineNuxtConfig({
     "@nuxt/ui",
     "@pinia/nuxt",
     "nuxt-laravel-echo",
+    "@nuxtjs/seo",
   ],
+  routeRules: {
+    // https://github.com/nuxt-modules/i18n/issues/2342 // there doesn't seem to be a cleaner way to define route rules than this ... f*ck localized slugs
+    "/": {
+      prerender: true,
+    },
+    "/de": {
+      prerender: true,
+    },
+    "/legal-notice": {
+      prerender: true,
+    },
+    "/de/impressum": {
+      prerender: true,
+    },
+    "/role": {
+      prerender: true,
+    },
+    "/de/rolle": {
+      prerender: true,
+    },
+    "/**": {
+      seoMeta: {
+        ogImage: "/og-image-en.png",
+        ogImageAlt: "Welcome to ScrumpliCity",
+        ogImageHeight: 2625,
+        ogImageWidth: 5001,
+      },
+    },
+    "/de/**": {
+      seoMeta: {
+        ogImage: "/og-image-de.png",
+        ogImageAlt: "Willkommen bei ScrumpliCity",
+        ogImageHeight: 2625,
+        ogImageWidth: 5000,
+      },
+    },
+  },
   i18n: {
-    defaultLocale: "de",
+    defaultLocale: "en",
     locales: [
       { code: "de", file: "de.json", language: "de-AT" },
       { code: "en", file: "en.json", language: "en-US" },
@@ -104,6 +142,38 @@ export default defineNuxtConfig({
     // see https://manchenkoff.gitbook.io/nuxt-laravel-echo/getting-started/installation
     optimizeDeps: {
       include: ["pusher-js"],
+    },
+  },
+  site: {
+    // url set by env variables
+    name: "ScrumpliCity",
+    description: "Build your Scrum knowledge with ScrumpliCity!",
+  },
+  seo: {
+    canonicalQueryWhitelist: [], // no query parameters should be included in the canonical url
+  },
+  ogImage: {
+    enabled: false,
+  },
+  app: {
+    head: {
+      templateParams: {
+        separator: "|",
+      },
+      link: [
+        {
+          rel: "icon",
+          type: "image/png",
+          href: "/favicon-light.png",
+          media: "(prefers-color-scheme: light)",
+        },
+        {
+          rel: "icon",
+          type: "image/png",
+          href: "/favicon-dark.png",
+          media: "(prefers-color-scheme: dark)",
+        },
+      ],
     },
   },
   runtimeConfig: {

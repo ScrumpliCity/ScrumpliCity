@@ -3,6 +3,12 @@ definePageMeta({
   middleware: ["auth"],
 });
 
+const { t } = useI18n();
+
+useSeoMeta({
+  title: t("rooms.page_title"),
+});
+
 import type { Room } from "~/types/api";
 
 const localePath = useLocalePath();
@@ -31,9 +37,6 @@ onMounted(() => {
 });
 
 const toast = useToast();
-
-import { useI18n } from "vue-i18n";
-const { t } = useI18n();
 
 function deleteRoom(room: Room) {
   toast.add({

@@ -26,7 +26,8 @@
       "account": "Konto",
       "signed_out_successfully": "Du hast dich erfolgreich abgemeldet!",
       "sign_out_error": "Beim Abmelden ist ein Fehler aufgetreten."
-    }
+    },
+    "page_title": "Deine Räume"
   },
   "create_room": {
     "heading": "Projekt-Raum erstellen",
@@ -38,7 +39,8 @@
     "minute": "Minute | Minuten",
     "create": "Erstellen",
     "room_created": "Raum erstellt!",
-    "creation_error": "Raumerstellung fehlgeschlagen!"
+    "creation_error": "Raumerstellung fehlgeschlagen!",
+    "page_title": "Neuer Raum"
   },
   "chooser": {
     "max_value_reached": "Wert zu groß!"
@@ -85,7 +87,11 @@
       "sprint_duration": "Sprintdauer",
       "planning_duration": "Planningdauer",
       "review_duration": "Reviewdauer",
-      "minutes": "min"
+      "minutes": "min",
+      "page_title": "Gleich geht's los"
+    },
+    "members": {
+      "page_title": "Mitglieder hinzufügen"
     },
     "infobox": {
       "welcome": {
@@ -102,13 +108,15 @@
           "development_team": "Entwicklungsteam (Developer)"
         }
       }
-    }
+    },
+    "page_title": "Raum beitreten"
   },
   "role": {
     "title": "Was ist deine Rolle?",
     "description": "Wähle deine Rolle aus, damit ScrumpliCity auf dich zugeschnitten werden kann!",
     "learner": "Ich bin Lernende*r",
-    "tutor": "Ich bin Tutor*in"
+    "tutor": "Ich bin Tutor*in",
+    "page_title": "Deine Rolle"
   },
   "login": {
     "get_started_with_scrumplicity": "Leg' los bei ScrumpliCity",
