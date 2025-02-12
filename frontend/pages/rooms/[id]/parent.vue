@@ -6,6 +6,7 @@ const localePath = useLocalePath();
 const { t } = useI18n();
 const echo = useEcho();
 const toast = useToast();
+import { useNow } from "@vueuse/core";
 
 const { data: manageRoom, refresh } = await useAsyncData("room", () =>
   client(`/api/rooms/${route.params.id}`),
@@ -20,6 +21,7 @@ const remainingSeconds = ref(0);
 const totalSeconds = ref(0);
 const isPlaying = computed(() => !!manageRoom.value.is_playing);
 const disableTimerActionForRequest = ref(false);
+const now = useNow();
 
 // DEV: The active field in teams should indicate an active connection to a team that at some point joined has this room
 const activeTeams = computed(
@@ -50,7 +52,9 @@ const lastPlayedAgoMinutes = computed(() => {
   const lastPlayStart = manageRoom.value?.last_play_start;
   if (lastPlayStart) {
     return Math.floor(
-      (Date.now() - new Date(lastPlayStart + "Z").getTime()) / 1000 / 60,
+      (new Date(now.value) - new Date(lastPlayStart + "Z").getTime()) /
+        1000 /
+        60,
     );
   }
   return undefined;
@@ -331,7 +335,7 @@ function copyRoomCode() {
               $t("rooms.running_for", [
                 lastPlayedAgoMinutes >= 60
                   ? `${Math.floor(lastPlayedAgoMinutes / 60)}h`
-                  : `${lastPlayedAgoMinutes}min`,
+                  : `${lastPlayedAgoMinutes < 1 ? "< 1" : lastPlayedAgoMinutes}min`,
               ])
             }}
           </p>
