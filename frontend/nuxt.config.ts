@@ -34,12 +34,16 @@ export default defineNuxtConfig({
       seoMeta: {
         ogImage: "/og-image-en.png",
         ogImageAlt: "Welcome to ScrumpliCity",
+        ogImageHeight: 2625,
+        ogImageWidth: 5001,
       },
     },
     "/de/**": {
       seoMeta: {
         ogImage: "/og-image-de.png",
         ogImageAlt: "Willkommen bei ScrumpliCity",
+        ogImageHeight: 2625,
+        ogImageWidth: 5000,
       },
     },
   },
