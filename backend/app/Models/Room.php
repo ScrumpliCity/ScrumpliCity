@@ -12,7 +12,7 @@ class Room extends Model
 {
     use HasFactory;
     use HasUlids;
-    
+
     protected $fillable = [
         'name',
         'number_of_sprints',
@@ -31,20 +31,60 @@ class Room extends Model
     }
 
     /**
-     * 
+     * Get the duration of a specific phase or current phase
+     * @param string|null $phase The phase to get duration for. If null, uses current phase.
+     * @return int Duration in minutes
+     */
+    public function getPhaseDuration(?string $phase = null): int
+    {
+        $phase = $phase ?? $this->current_phase;
+        return match ($phase) {
+            'planning' => $this->planning_duration,
+            'build_phase' => $this->build_phase_duration,
+            'review' => $this->review_duration,
+            'backlog_refinement' => 1,
+            default => 0,
+        };
+    }
+
+
+    /**
+     * Get the next phase of this room
+     */
+    public function nextPhase(): string
+    {
+        $phases = [
+            "planning",
+            "build_phase",
+            "review",
+            "backlog_refinement",
+        ];
+
+        $currentPhase = $this->current_phase;
+        $currentPhaseIndex = array_search($currentPhase, $phases);
+        $nextPhaseIndex = $currentPhaseIndex + 1;
+        if ($nextPhaseIndex >= count($phases)) {
+            $nextPhaseIndex = 0;
+        }
+
+        return $phases[$nextPhaseIndex];
+    }
+
+    /**
+     * Get the number of teams in this room
      */
     protected function teamCount(): Attribute
     {
         return new Attribute(
-            get: fn () => $this->teams()->count(),
+            get: fn() => $this->teams()->count(),
         );
     }
 
     /**
      * Get the teams for the room.
      */
-    public function teams() {
+    public function teams()
+    {
         return $this->hasMany(Team::class);
     }
 }
-
