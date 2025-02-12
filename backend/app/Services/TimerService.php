@@ -67,8 +67,8 @@ class TimerService
 
                 $room = Room::find($this->roomId);
                 if ($room) {
-                    $room->time_remaining_in_phase =
-                    max(0, $timer['remaining'] - (now()->timestamp - $timer['last_broadcast']));
+                    $room->time_remaining_in_phase = $timer['state'] === 'paused' ? $timer['remaining'] :
+                        max(0, $timer['remaining'] - (now()->timestamp - $timer['last_broadcast']));
                     $room->last_play_end = now();
                     $room->save();
                 }
