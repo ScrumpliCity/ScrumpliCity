@@ -17,10 +17,29 @@
     "sprint_display": "{current_sprint}/{number_of_sprints} Sprints",
     "running_for": "läuft seit: {0}",
     "last_played": "zuletzt gespielt am: {0}",
-    "created_on": "erstellt am: {0}",
+    "created_on": "erstellt am {0}",
     "completed_on": "abgeschlossen am: {0}",
     "new": "Neu +",
     "teams": "{n} Team | {n} Teams",
+    "no_teams_yet": "Es sind noch keine Teams vorhanden..",
+    "room_code": "Raumcode",
+    "copy_room_code": "Raumcode kopieren",
+    "room_code_copied": "Raumcode kopiert!",
+    "phase_box": {
+      "default": "Starte den 1. Sprint!",
+      "planning": "Sprint Planning",
+      "build_phase": "Bauphase",
+      "review": "Sprint Review",
+      "retrospective": "Sprint Retro",
+      "backlog_refinement": "Backlog Refinement",
+      "next_phase": "nächste Phase",
+      "sprint": "Sprint",
+      "end_of_sprint": "Ende des Sprints:"
+    },
+    "product_owner_or_scrum_master_required": "Du brauchst einen Product Owner und einen Scrum Master in jedem Team, um weiterzumachen.",
+    "toggle_playing_error": "Fehler beim {status} des Raums!",
+    "start": "Starten",
+    "pause": "Pausieren",
     "profile": {
       "sign_out": "Abmelden",
       "account": "Konto",
@@ -40,11 +59,23 @@
     "room_created": "Raum erstellt!",
     "creation_error": "Raumerstellung fehlgeschlagen!"
   },
+  "edit_room": {
+    "heading": "Projekt-Raum anpassen",
+    "room_name": "Name des Raums",
+    "sprint_count": "Anzahl an Sprints",
+    "build_phase_duration": "Dauer der Bauphase (min)",
+    "meeting_duration": "Planning- & Review-Dauer",
+    "total_duration": "Gesamtdauer",
+    "minute": "Minute | Minuten",
+    "save": "Speichern",
+    "room_editted": "Raum erfolgreich angepasst!",
+    "edit_error": "Raumanpassung fehlgeschlagen!"
+  },
   "chooser": {
     "max_value_reached": "Wert zu groß!"
   },
   "generate_room_code": {
-    "generate_code": "Code generieren",
+    "generate_code": "Raumcode generieren",
     "title": "Tritt dem ScrumpliCity-Projekt-Raum bei!",
     "description": "Gehe auf {url} und gib diesen Code ein:",
     "url": "www.scrumplicity.app/play"
@@ -213,6 +244,25 @@
   },
   "infobox": {
     "current_of_total": "{current} von {total}"
+  },
+  "team_manager": {
+    "missing_roles": "Nicht alle Rollen sind vergeben! \n Bitte vergib die Rolle {roles}, um fortzufahren.",
+    "and": "und",
+    "add_member_error": "Fehler beim Hinzufügen von Mitgliedern!",
+    "delete_member_error": "Fehler beim Löschen von Mitgliedern!",
+    "update_role_error": "Fehler beim Aktualisieren der Rolle!",
+    "member_deleted": "Mitglied gelöscht!",
+    "role_taken": {
+      "title": "Rolle war bereits vergeben!",
+      "description": "{member} wurde wieder Developer."
+    },
+    "delete": {
+      "are_you_sure": "Bist du sicher, dass du das Team {name} löschen möchtest?",
+      "success": "Erfolgreich gelöscht",
+      "error": "Ein Fehler ist aufgetreten",
+      "delete_room": "Dieses Team löschen",
+      "delete_forever": "Für immer löschen"
+    }
   },
   "homepage": {
     "project_description": "Lerne die agile Projektmanagement\u00ADmethode Scrum mittels Bau einer Papierstadt! ScrumpliCity stellt eine Web-Applikation, Bastelvorlagen und Erklärungen zu Scrum zur Verfügung – also: ",
