@@ -34,7 +34,7 @@ const { t } = useI18n();
 
 const now = useNow();
 
-const phase = ref(props.phase || "default");
+const phase = computed(() => props.phase || "default");
 
 const phaseInfos = computed(() => {
   const i18nPath = "rooms.phase_box.";

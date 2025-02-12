@@ -237,7 +237,7 @@ function copyRoomCode() {
         :currentSprint="manageRoom.current_sprint"
         :sprintCount="manageRoom.number_of_sprints"
         :phase="manageRoom.current_phase"
-        :key="`${manageRoom.current_phase}-${manageRoom.current_sprint}-${isPlaying}- ${timeLeftInSprint}`"
+        :key="`${manageRoom.current_sprint}-${isPlaying}- ${timeLeftInSprint}`"
         :isCompleted="!!manageRoom.completed_at"
         :timeLeft="timeLeftInSprint"
         :isPlaying
