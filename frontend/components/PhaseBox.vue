@@ -57,7 +57,7 @@ const phaseInfos = computed(() => {
 <template>
   <div class="flex flex-col gap-3">
     <div
-      class="z-10 flex h-fit w-fit gap-4 rounded-lg border border-sc-black-400 bg-sc-black-50 pb-5 pl-5 pr-5 pt-6 drop-shadow xl:h-[11.625rem] xl:w-[26.25rem] xl:gap-8 xl:pb-10 xl:pl-10 xl:pr-0 xl:pt-12"
+      class="z-10 flex h-fit w-fit gap-4 rounded-lg border border-sc-black-400 bg-sc-black-50 p-5 pt-6 drop-shadow xl:h-[11.625rem] xl:w-[26.25rem] xl:gap-8 xl:pb-10 xl:pl-10 xl:pr-0 xl:pt-12"
     >
       <div
         class="size-20 *:size-full xl:size-[5.625rem]"
