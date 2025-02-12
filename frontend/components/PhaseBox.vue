@@ -50,7 +50,7 @@ const phaseInfos = computed(() => {
     text: t(i18nPath + phase.value),
     nextPhase: t(i18nPath + nextPhase[phase.value]),
     currentPhaseIndex: Object.keys(nextPhase).indexOf(phase.value),
-    phaseCount: Object.keys(nextPhase).length - 1,
+    phaseCount: Object.keys(nextPhase).length - 1, // 5, unless we add or remove a phase
   };
 });
 </script>
