@@ -17,10 +17,29 @@
     "sprint_display": "{current_sprint}/{number_of_sprints} Sprints",
     "running_for": "running for: {0}",
     "last_played": "last played: {0}",
-    "created_on": "created on: {0}",
+    "created_on": "created on {0}",
     "completed_on": "completed on: {0}",
     "new": "New +",
     "teams": "{n} Team | {n} Teams",
+    "no_teams_yet": "There are no teams yet..",
+    "room_code": "Room code",
+    "copy_room_code": "Copy room code",
+    "room_code_copied": "Room code copied!",
+    "phase_box": {
+      "default": "Start the 1ˢᵗ Sprint!",
+      "planning": "Sprint Planning",
+      "build_phase": "Build phase",
+      "review": "Sprint Review",
+      "retrospective": "Sprint Retro",
+      "backlog_refinement": "Backlog Refinement",
+      "next_phase": "next phase",
+      "sprint": "Sprint",
+      "end_of_sprint": "End of Sprint:"
+    },
+    "product_owner_or_scrum_master_required": "You need a Product Owner and a Scrum Master in every team to continue.",
+    "toggle_playing_error": "Error {status} the room!",
+    "start": "starting",
+    "pause": "pausing",
     "profile": {
       "sign_out": "Sign out",
       "account": "Account",
@@ -42,11 +61,23 @@
     "creation_error": "Room creation failed!",
     "page_title": "Create New Room"
   },
+  "edit_room": {
+    "heading": "Edit project room",
+    "room_name": "Room name",
+    "sprint_count": "Number of sprints",
+    "build_phase_duration": "Build phase duration (min)",
+    "meeting_duration": "Planning & Review duration",
+    "total_duration": "Total duration",
+    "minute": "minute | minutes",
+    "save": "Save",
+    "room_editted": "Room editted successfully!",
+    "edit_error": "Room editing failed!"
+  },
   "chooser": {
     "max_value_reached": "Value too large!"
   },
   "generate_room_code": {
-    "generate_code": "Generate code",
+    "generate_code": "Generate room code",
     "title": "Join the ScrumpliCity project room!",
     "description": "Visit {url} and enter this code:",
     "url": "www.scrumplicity.app/play"
@@ -60,7 +91,7 @@
     "team_join": "Let's go!",
     "team_ready": "Ready",
     "product_owner_or_scrum_master_required": "You need a Product Owner and a Scrum Master to continue.",
-    "waiting": "Waiting to start...",
+    "waiting": "Waiting to start",
     "team_members": "Team members",
     "room_settings": "Room settings",
     "add_team_member": "Add team member",
@@ -222,6 +253,25 @@
   },
   "infobox": {
     "current_of_total": "{current} of {total}"
+  },
+  "team_manager": {
+    "missing_roles": "Not all roles are assigned! Please assign the role {roles} to continue.",
+    "and": "and",
+    "add_member_error": "Error adding members!",
+    "delete_member_error": "Error deleting members!",
+    "update_role_error": "Error updating role!",
+    "member_deleted": "Member deleted!",
+    "role_taken": {
+      "title": "Role was already taken!",
+      "description": "{member} has become a developer again."
+    },
+    "delete": {
+      "are_you_sure": "Are you sure you want do delete team {name}?",
+      "success": "Sucessfully deleted",
+      "error": "An error occured",
+      "delete_room": "Delete this team",
+      "delete_forever": "Delete forever"
+    }
   },
   "homepage": {
     "project_description": "Learn the agile project management method Scrum by building a paper city! ScrumpliCity provides a web application, crafting templates and explanations about Scrum—so: ",
