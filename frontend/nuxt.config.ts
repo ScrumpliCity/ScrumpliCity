@@ -10,6 +10,18 @@ export default defineNuxtConfig({
     "nuxt-laravel-echo",
     "@nuxtjs/seo",
   ],
+  nitro: {
+    prerender: {
+      routes: [
+        "/",
+        "/de",
+        "/legal-notice",
+        "/de/impressum",
+        "/role",
+        "/de/rolle",
+      ],
+    },
+  },
   routeRules: {
     // https://github.com/nuxt-modules/i18n/issues/2342 // there doesn't seem to be a clean way to define route rules than this ... f*ck localized slugs
     "/**": {
@@ -97,6 +109,9 @@ export default defineNuxtConfig({
       onLogout: false,
       onAuthOnly: "login", // used by our own custom middleware "auth" for locale-aware redirection to login page
       onGuestOnly: "rooms-parent", // used by our own "guest" middlware for locale-aware redirection to rooms
+    },
+    client: {
+      initialRequest: false,
     },
   },
   svgo: {
