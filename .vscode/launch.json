@@ -22,13 +22,23 @@
             "request": "launch",
             "program": "${workspaceFolder}/backend/artisan",
             "cwd": "${workspaceFolder}/backend",
-            // "port": 9000,
             "args": [
-                "reverb:start", "--debug"
+                "reverb:start", "--debug" // "--debug" option adds logs
             ],
+        },
+        {
+            "name": "Queue Worker",
+            "type": "php",
+            "request": "launch",
+            "program": "${workspaceFolder}/backend/artisan",
+            "cwd": "${workspaceFolder}/backend",
+            "args": [
+                "queue:work"
+            ],
+            "port": 9004,
             "env": {
-                // "XDEBUG_MODE": "debug,develop",
-                // "XDEBUG_CONFIG": "client_port=${port}"
+                "XDEBUG_MODE": "debug,develop",
+                "XDEBUG_CONFIG": "client_port=${port}"
             }
         },
         {

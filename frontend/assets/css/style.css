@@ -9,42 +9,42 @@
 
 @font-face {
   font-family: "Kelson";
-  src: url("../fonts/ignored/Kelson.otf");
+  src: url("../fonts/Kelson.otf");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Kelson";
-  src: url("../fonts/ignored/Kelson-Bold.otf");
+  src: url("../fonts/Kelson-Bold.otf");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Kelson";
-  src: url("../fonts/ignored/Kelson-ExtraBold.otf");
+  src: url("../fonts/Kelson-ExtraBold.otf");
   font-weight: 800;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Kelson";
-  src: url("../fonts/ignored/Kelson-Light.otf");
+  src: url("../fonts/Kelson-Light.otf");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Kelson";
-  src: url("../fonts/ignored/Kelson-Medium.otf");
+  src: url("../fonts/Kelson-Medium.otf");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Kelson";
-  src: url("../fonts/ignored/Kelson-Thin.otf");
+  src: url("../fonts/Kelson-Thin.otf");
   font-weight: 100;
   font-style: normal;
 }
