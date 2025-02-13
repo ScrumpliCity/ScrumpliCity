@@ -111,7 +111,7 @@ export default defineNuxtConfig({
       onGuestOnly: "rooms-parent", // used by our own "guest" middlware for locale-aware redirection to rooms
     },
     client: {
-      initialRequest: false,
+      initialRequest: false, // caution: without this initial request disabled, prerendering gets stuck in some kind of infinite loop and eventually runs out of memory
     },
   },
   svgo: {
