@@ -32,9 +32,13 @@ export default defineNuxtConfig({
         de: "/räume/erstellen",
         en: "/rooms/create",
       },
-      "rooms/[id]/index": {
+      "rooms/[id]/parent": {
         de: "/räume/[id]",
         en: "/rooms/[id]",
+      },
+      "rooms/[id]/parent/edit": {
+        de: "/räume/[id]/bearbeiten",
+        en: "/rooms/[id]/edit",
       },
       "rooms/[id]/roomcode": {
         de: "/räume/[id]/raumcode",
@@ -51,6 +55,14 @@ export default defineNuxtConfig({
       legal_notice: {
         de: "/impressum",
         en: "/legal-notice",
+      },
+      role: {
+        de: "/rolle",
+        en: "/role",
+      },
+      "play/[sprint]/build_phase": {
+        de: "/play/[sprint]/bauphase",
+        en: "/play/[sprint]/build_phase",
       },
       // define more pages here
     },
@@ -92,6 +104,7 @@ export default defineNuxtConfig({
     },
     logLevel: 3,
     properties: undefined,
+    broadcaster: "reverb",
   },
   vite: {
     // see https://manchenkoff.gitbook.io/nuxt-laravel-echo/getting-started/installation
@@ -104,6 +117,7 @@ export default defineNuxtConfig({
       echo: {
         // echo key set by NUXT_PUBLIC_ECHO_KEY env variable
       },
+      contactMail: "lisa-marie.hoermann@scrumplicity.app", // used in error page & homepage
     },
   },
 });

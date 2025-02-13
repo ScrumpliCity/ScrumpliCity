@@ -17,10 +17,35 @@
     "sprint_display": "{current_sprint}/{number_of_sprints} Sprints",
     "running_for": "läuft seit: {0}",
     "last_played": "zuletzt gespielt am: {0}",
-    "created_on": "erstellt am: {0}",
+    "created_on": "erstellt am {0}",
     "completed_on": "abgeschlossen am: {0}",
     "new": "Neu +",
-    "teams": "{n} Team | {n} Teams"
+    "teams": "{n} Team | {n} Teams",
+    "no_teams_yet": "Es sind noch keine Teams vorhanden..",
+    "room_code": "Raumcode",
+    "copy_room_code": "Raumcode kopieren",
+    "room_code_copied": "Raumcode kopiert!",
+    "phase_box": {
+      "default": "Starte den 1. Sprint!",
+      "planning": "Sprint Planning",
+      "build_phase": "Bauphase",
+      "review": "Sprint Review",
+      "retrospective": "Sprint Retro",
+      "backlog_refinement": "Backlog Refinement",
+      "next_phase": "nächste Phase",
+      "sprint": "Sprint",
+      "end_of_sprint": "Ende des Sprints:"
+    },
+    "product_owner_or_scrum_master_required": "Du brauchst einen Product Owner und einen Scrum Master in jedem Team, um weiterzumachen.",
+    "toggle_playing_error": "Fehler beim {status} des Raums!",
+    "start": "Starten",
+    "pause": "Pausieren",
+    "profile": {
+      "sign_out": "Abmelden",
+      "account": "Konto",
+      "signed_out_successfully": "Du hast dich erfolgreich abgemeldet!",
+      "sign_out_error": "Beim Abmelden ist ein Fehler aufgetreten."
+    }
   },
   "create_room": {
     "heading": "Projekt-Raum erstellen",
@@ -34,11 +59,23 @@
     "room_created": "Raum erstellt!",
     "creation_error": "Raumerstellung fehlgeschlagen!"
   },
+  "edit_room": {
+    "heading": "Projekt-Raum anpassen",
+    "room_name": "Name des Raums",
+    "sprint_count": "Anzahl an Sprints",
+    "build_phase_duration": "Dauer der Bauphase (min)",
+    "meeting_duration": "Planning- & Review-Dauer",
+    "total_duration": "Gesamtdauer",
+    "minute": "Minute | Minuten",
+    "save": "Speichern",
+    "room_editted": "Raum erfolgreich angepasst!",
+    "edit_error": "Raumanpassung fehlgeschlagen!"
+  },
   "chooser": {
     "max_value_reached": "Wert zu groß!"
   },
   "generate_room_code": {
-    "generate_code": "Code generieren",
+    "generate_code": "Raumcode generieren",
     "title": "Tritt dem ScrumpliCity-Projekt-Raum bei!",
     "description": "Gehe auf {url} und gib diesen Code ein:",
     "url": "www.scrumplicity.app/play"
@@ -98,6 +135,12 @@
       }
     }
   },
+  "role": {
+    "title": "Was ist deine Rolle?",
+    "description": "Wähle deine Rolle aus, damit ScrumpliCity auf dich zugeschnitten werden kann!",
+    "learner": "Ich bin Lernende*r",
+    "tutor": "Ich bin Tutor*in"
+  },
   "login": {
     "get_started_with_scrumplicity": "Leg' los bei ScrumpliCity",
     "get_started_with": "Leg' los mit",
@@ -109,11 +152,14 @@
     "legal_notice": "Impressum",
     "phases": {
       "sprint_planning": "Sprint Planning",
-      "build_phase": "Bauphase"
+      "build_phase": "Bauphase",
+      "review": "Sprint Review"
     }
   },
   "legal_notice": {
     "title": "Impressum",
+    "legal_matters": "Rechtliches",
+    "brand_name": "ScrumpliCity",
     "media_proprietor": "Medieninhaber",
     "address": {
       "title": "Anschrift",
@@ -171,7 +217,106 @@
       }
     }
   },
+  "build_phase": {
+    "build_phase": "@:common.phases.build_phase",
+    "in_progress": "In Arbeit",
+    "done": "Fertig",
+    "responsible": "Verantwortliche*r"
+  },
+  "review": {
+    "review": "@:common.phases.review",
+    "title": "Titel",
+    "description": "Beschreibung",
+    "story_points": "Story Points",
+    "approved": "Abgenommen",
+    "sprint_out_of_n": "Sprint {current}/{total}",
+    "next_phase": "Nächste Phase:",
+    "responsible": "Verantwortliche*r",
+    "story_points_abbreviation": "SP.",
+    "planning": "Sprint Planning",
+    "story_points_of_planned_user_stories": "Story Points der geplanten User Stories",
+    "accepted_story_points": "Story Points der abgenommenen User Stories",
+    "velocity_to_date": "Bisherige Velocity",
+    "infobox": {
+      "title": "Sprint Review",
+      "content": "Das Sprint Review dient dazu, das fertige Inkrement des Produkts vorzustellen und zu überprüfen. Der Product Owner (PO) prüft demnach, ob alle Anforderungen der User Stories (US) erfüllt wurden. Wenn dies geschehen ist, wird die US als abgenommen definiert. Ziel des Meetings ist es, das Produkt zu inspizieren und gemeinsam mit den Stakeholdern mögliche Anpassungen für die nächsten Sprints zu besprechen."
+    }
+  },
   "infobox": {
     "current_of_total": "{current} von {total}"
+  },
+  "team_manager": {
+    "missing_roles": "Nicht alle Rollen sind vergeben! \n Bitte vergib die Rolle {roles}, um fortzufahren.",
+    "and": "und",
+    "add_member_error": "Fehler beim Hinzufügen von Mitgliedern!",
+    "delete_member_error": "Fehler beim Löschen von Mitgliedern!",
+    "update_role_error": "Fehler beim Aktualisieren der Rolle!",
+    "member_deleted": "Mitglied gelöscht!",
+    "role_taken": {
+      "title": "Rolle war bereits vergeben!",
+      "description": "{member} wurde wieder Developer."
+    },
+    "delete": {
+      "are_you_sure": "Bist du sicher, dass du das Team {name} löschen möchtest?",
+      "success": "Erfolgreich gelöscht",
+      "error": "Ein Fehler ist aufgetreten",
+      "delete_room": "Dieses Team löschen",
+      "delete_forever": "Für immer löschen"
+    }
+  },
+  "homepage": {
+    "project_description": "Lerne die agile Projektmanagement\u00ADmethode Scrum mittels Bau einer Papierstadt! ScrumpliCity stellt eine Web-Applikation, Bastelvorlagen und Erklärungen zu Scrum zur Verfügung – also: ",
+    "build_your_scrum_knowledge": "Build Your Scrum Knowledge",
+    "get_started": "Loslegen!",
+    "scrum_guide": "Scrum Guide",
+    "diploma_thesis_website": "Diplomarbeits-Webseite",
+    "crafting_templates_download": "Bastelvorlagen-Download",
+    "follow_us": "Folge uns!",
+    "about_us": "Über uns",
+    "features": {
+      "learn_scrum": {
+        "title": "Lerne Scrum",
+        "description": "Entdecke die Grundlagen von Scrum und starte dein erstes agiles Projekt – praxisnah, interaktiv und einfach verständlich!"
+      },
+      "craft_your_city": {
+        "title": "Bastle deine Stadt",
+        "description": "Gestalte deine eigene Stadt aus Papier und erwecke Schritt für Schritt dein Projekt zum Leben!"
+      },
+      "solidify_teamwork": {
+        "title": "Festige Teamwork",
+        "description": "Stärke den Teamgeist und erlebe, wie effektive, kooperative Zusammenarbeit deine Projekte zum Erfolg führen!"
+      }
+    },
+    "learning_materials": "Lernunterlagen",
+    "all_you_need_to_know": "Scrum: Alles was du wissen musst!",
+    "scrum_guide_description": "Du möchtest dich außerhalb des Spielprozesses über die agile Projektmanagement&shy;methode Scrum weiterbilden? Auf unserer Scrum-Theorie-Seite findest du alles Wichtige: von den Grundlagen bis zu praktischen Tipps. Egal, ob du neu einsteigst oder dein Wissen vertiefen möchtest – hier bekommst du klare, verständliche Erklärungen. Schau vorbei und bring deine Projekte auf das nächste Level!",
+    "questions": "Noch Fragen?",
+    "here_to_help": "Wir sind da um dir zu helfen! Schreib uns gerne eine E-Mail:",
+    "contact_us": "Kontaktiere uns!",
+    "notification": {
+      "title": "Nutzung am Laptop empfohlen",
+      "description": "Um ScrumpliCity bestmöglich nutzen zu können, öffne es bitte auf dem Laptop!"
+    },
+    "socials": {
+      "social_media": "Soziale Medien",
+      "instagram": "Instagram",
+      "facebook": "Facebook"
+    },
+    "tooltip": {
+      "not_available": "Noch nicht verfügbar, komm später wieder! :)"
+    }
+  },
+  "error": {
+    "do_not_enter": "Betreten verboten!",
+    "plan_missing": "Der Bauplan fehlt!",
+    "error": "Error: ",
+    "description": "Die angefragte Seite scheint im Baustellenchaos verloren gegangen zu sein!",
+    "404_description": "Vielleicht wurde die falsche URL eingegeben oder die Seite existiert nicht.",
+    "do_now": "Das kannst du jetzt tun:",
+    "back_homepage": "Zurück zur Startseite",
+    "scrum_guide": "Schau dir den Scrum Guide an",
+    "get_started": "Leg’ los mit ScrumpliCity",
+    "contact_us": "Kontaktiere uns",
+    "we_help": "unsere Baustellenleiterin hilft dir weiter!"
   }
 }

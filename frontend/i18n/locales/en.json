@@ -17,10 +17,35 @@
     "sprint_display": "{current_sprint}/{number_of_sprints} Sprints",
     "running_for": "running for: {0}",
     "last_played": "last played: {0}",
-    "created_on": "created on: {0}",
+    "created_on": "created on {0}",
     "completed_on": "completed on: {0}",
     "new": "New +",
-    "teams": "{n} Team | {n} Teams"
+    "teams": "{n} Team | {n} Teams",
+    "no_teams_yet": "There are no teams yet..",
+    "room_code": "Room code",
+    "copy_room_code": "Copy room code",
+    "room_code_copied": "Room code copied!",
+    "phase_box": {
+      "default": "Start the 1ˢᵗ Sprint!",
+      "planning": "Sprint Planning",
+      "build_phase": "Build phase",
+      "review": "Sprint Review",
+      "retrospective": "Sprint Retro",
+      "backlog_refinement": "Backlog Refinement",
+      "next_phase": "next phase",
+      "sprint": "Sprint",
+      "end_of_sprint": "End of Sprint:"
+    },
+    "product_owner_or_scrum_master_required": "You need a Product Owner and a Scrum Master in every team to continue.",
+    "toggle_playing_error": "Error {status} the room!",
+    "start": "starting",
+    "pause": "pausing",
+    "profile": {
+      "sign_out": "Sign out",
+      "account": "Account",
+      "signed_out_successfully": "You've signed out successfully!",
+      "sign_out_error": "An error has occured whilst signing out."
+    }
   },
   "create_room": {
     "heading": "Create a project room",
@@ -34,11 +59,23 @@
     "room_created": "Room created!",
     "creation_error": "Room creation failed!"
   },
+  "edit_room": {
+    "heading": "Edit project room",
+    "room_name": "Room name",
+    "sprint_count": "Number of sprints",
+    "build_phase_duration": "Build phase duration (min)",
+    "meeting_duration": "Planning & Review duration",
+    "total_duration": "Total duration",
+    "minute": "minute | minutes",
+    "save": "Save",
+    "room_editted": "Room editted successfully!",
+    "edit_error": "Room editing failed!"
+  },
   "chooser": {
     "max_value_reached": "Value too large!"
   },
   "generate_room_code": {
-    "generate_code": "Generate code",
+    "generate_code": "Generate room code",
     "title": "Join the ScrumpliCity project room!",
     "description": "Visit {url} and enter this code:",
     "url": "www.scrumplicity.app/play"
@@ -52,7 +89,7 @@
     "team_join": "Let's go!",
     "team_ready": "Ready",
     "product_owner_or_scrum_master_required": "You need a Product Owner and a Scrum Master to continue.",
-    "waiting": "Waiting to start...",
+    "waiting": "Waiting to start",
     "team_members": "Team members",
     "room_settings": "Room settings",
     "add_team_member": "Add team member",
@@ -98,6 +135,12 @@
       }
     }
   },
+  "role": {
+    "title": "What's your role?",
+    "description": "Choose your role so that ScrumpliCity can be tailored to you!",
+    "learner": "I am a learner",
+    "tutor": "I am a tutor"
+  },
   "login": {
     "get_started_with_scrumplicity": "Get started with ScrumpliCity",
     "get_started_with": "Get started with",
@@ -109,11 +152,14 @@
     "legal_notice": "Legal Notice",
     "phases": {
       "sprint_planning": "Sprint Planning",
-      "build_phase": "Build phase"
+      "build_phase": "Build phase",
+      "review": "Sprint Review"
     }
   },
   "legal_notice": {
     "title": "Legal Notice",
+    "legal_matters": "Legal matters",
+    "brand_name": "ScrumpliCity",
     "media_proprietor": "Media Proprietor",
     "address": {
       "title": "Address",
@@ -171,7 +217,107 @@
       }
     }
   },
+  "build_phase": {
+    "build_phase": "@:common.phases.build_phase",
+    "in_progress": "In progress",
+    "done": "Done",
+    "responsible": "Responsible"
+  },
+
+  "review": {
+    "review": "@:common.phases.review",
+    "title": "Title",
+    "description": "Description",
+    "story_points": "Story Points",
+    "approved": "Approved",
+    "sprint_out_of_n": "Sprint {current}/{total}",
+    "next_phase": "Next phase:",
+    "responsible": "Responsible",
+    "story_points_abbreviation": "SP.",
+    "planning": "Sprint Planning",
+    "story_points_of_planned_user_stories": "Story points of the planned user stories",
+    "accepted_story_points": "Story points of the accepted user stories",
+    "velocity_to_date": "Velocity to date",
+    "infobox": {
+      "title": "Sprint Review",
+      "content": "The sprint review is used to present and review the finished increment of the product. The product owner (PO) therefore checks whether all user story (US) requirements have been met. If this has been done, the US is defined as accepted. The aim of the meeting is to inspect the product and discuss possible adjustments for the next sprints together with the stakeholders."
+    }
+  },
   "infobox": {
     "current_of_total": "{current} of {total}"
+  },
+  "team_manager": {
+    "missing_roles": "Not all roles are assigned! Please assign the role {roles} to continue.",
+    "and": "and",
+    "add_member_error": "Error adding members!",
+    "delete_member_error": "Error deleting members!",
+    "update_role_error": "Error updating role!",
+    "member_deleted": "Member deleted!",
+    "role_taken": {
+      "title": "Role was already taken!",
+      "description": "{member} has become a developer again."
+    },
+    "delete": {
+      "are_you_sure": "Are you sure you want do delete team {name}?",
+      "success": "Sucessfully deleted",
+      "error": "An error occured",
+      "delete_room": "Delete this team",
+      "delete_forever": "Delete forever"
+    }
+  },
+  "homepage": {
+    "project_description": "Learn the agile project management method Scrum by building a paper city! ScrumpliCity provides a web application, crafting templates and explanations about Scrum—so: ",
+    "build_your_scrum_knowledge": "Build Your Scrum Knowledge",
+    "get_started": "Get started!",
+    "scrum_guide": "Scrum Guide",
+    "diploma_thesis_website": "Diploma thesis website",
+    "crafting_templates_download": "Crafting templates download",
+    "follow_us": "Follow us!",
+    "about_us": "About Us",
+    "features": {
+      "learn_scrum": {
+        "title": "Learn Scrum",
+        "description": "Discover the basics of Scrum and start your first agile project—practical, interactive and easy to understand!"
+      },
+      "craft_your_city": {
+        "title": "Craft your city",
+        "description": "Design your own paper city and bring your project to life step by step!"
+      },
+      "solidify_teamwork": {
+        "title": "Solidify teamwork",
+        "description": "Strengthen team spirit and experience how effective, cooperative collaboration can lead your projects to success!"
+      }
+    },
+    "learning_materials": "Learning materials",
+    "all_you_need_to_know": "Scrum: All you need to know!",
+    "scrum_guide_description": "You would like to learn more about the agile project management method Scrum outside of the game process? You'll find everything you need on our Scrum theory page: from the basics to practical tips. Whether you're new to Scrum or want to deepen your knowledge, you'll find clear, understandable explanations here. Take a look and take your projects to the next level!",
+    "questions": "Any questions?",
+    "here_to_help": "We are here to help you! Feel free to send us an e-mail:",
+    "contact_us": "Contact us!",
+    "notification": {
+      "title": "Laptop use recommended",
+      "description": "To get the most out of ScrumpliCity, please open it on your laptop!"
+    },
+    "socials": {
+      "social_media": "Social media",
+      "instagram": "Instagram",
+      "facebook": "Facebook"
+    },
+    "tooltip": {
+      "not_available": "Not available yet, come back later! :)"
+    }
+  },
+  "error": {
+    "do_not_enter": "Do not enter!",
+    "plan_missing": "The architect’s plan is missing!",
+    "error": "Error: ",
+    "description": "The requested page seems to have been lost in the construction chaos!",
+    "404_description": "Maybe the wrong URL was entered, or the page doesn’t exist.",
+    "do_now": "Here’s what you can do now:",
+    "back_homepage": "Back to the homepage",
+    "scrum_guide": "Take a look at the Scrum Guide",
+    "get_started": "Get started with ScrumpliCity",
+    "contact_us": "Contact us",
+    "we_help": "our construction manager will help you!"
   }
 }
