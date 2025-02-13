@@ -1,3 +1,10 @@
+<script setup lang="ts">
+const { t } = useI18n();
+
+useSeoMeta({
+  title: t("role.page_title"),
+});
+</script>
 <template>
   <div
     class="absolute top-4 w-full bg-sc-white min-[1190px]:-top-[2vw] min-[1470px]:top-0 min-[1760px]:-top-[3vw]"

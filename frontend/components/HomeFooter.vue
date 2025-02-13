@@ -24,8 +24,8 @@ const localeRoute = useLocaleRoute();
           <br />
           <a
             class="transition-colors hover:text-sc-orange"
-            href="/ScrumpliCity_crafting-templates.zip"
-            download="ScrumpliCity_crafting-templates.zip"
+            href="/scrumplicity-crafting-templates.zip"
+            download="ScrumpliCity-crafting-templates.zip"
             >{{ $t("homepage.crafting_templates_download") }}</a
           >
         </p>

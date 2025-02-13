@@ -1,4 +1,10 @@
 <script setup lang="ts">
+const { t } = useI18n();
+
+useSeoMeta({
+  title: t("join_room.page_title"),
+});
+
 const route = useRoute();
 const routeName = computed(() => route.name);
 

@@ -60,6 +60,7 @@ services:
       - REVERB_APP_ID=${REVERB_APP_ID}
       - REVERB_APP_KEY=${REVERB_APP_KEY}
       - REVERB_APP_SECRET=${REVERB_APP_SECRET}
+      - NUXT_SITE_URL=${SCRUMPLICITY_FRONTEND_URL}
     depends_on:
       - db
       - websocket

@@ -45,7 +45,8 @@
       "account": "Account",
       "signed_out_successfully": "You've signed out successfully!",
       "sign_out_error": "An error has occured whilst signing out."
-    }
+    },
+    "page_title": "Your Rooms"
   },
   "create_room": {
     "heading": "Create a project room",
@@ -57,7 +58,8 @@
     "minute": "minute | minutes",
     "create": "Create",
     "room_created": "Room created!",
-    "creation_error": "Room creation failed!"
+    "creation_error": "Room creation failed!",
+    "page_title": "Create New Room"
   },
   "edit_room": {
     "heading": "Edit project room",
@@ -116,7 +118,11 @@
       "sprint_duration": "Sprint duration",
       "planning_duration": "Planning duration",
       "review_duration": "Review duration",
-      "minutes": "min"
+      "minutes": "min",
+      "page_title": "Waiting To Start"
+    },
+    "members": {
+      "page_title": "Add Your Team"
     },
     "infobox": {
       "welcome": {
@@ -133,13 +139,15 @@
           "development_team": "Development Team"
         }
       }
-    }
+    },
+    "page_title": "Join Room"
   },
   "role": {
     "title": "What's your role?",
     "description": "Choose your role so that ScrumpliCity can be tailored to you!",
     "learner": "I am a learner",
-    "tutor": "I am a tutor"
+    "tutor": "I am a tutor",
+    "page_title": "Your Role"
   },
   "login": {
     "get_started_with_scrumplicity": "Get started with ScrumpliCity",

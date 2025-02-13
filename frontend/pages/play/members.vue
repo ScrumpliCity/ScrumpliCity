@@ -8,6 +8,10 @@ const toast = useToast();
 const { t } = useI18n();
 const localRoute = useLocaleRoute();
 
+useSeoMeta({
+  title: t("join_room.members.page_title"),
+});
+
 const game = useGameStore();
 
 const newMember = ref("");

@@ -1,4 +1,8 @@
 <script lang="ts" setup>
+useSeoMeta({
+  title: "", // only show "ScrumpliCity", no seperator, no page title
+});
+
 import { useWindowScroll } from "@vueuse/core";
 const localeRoute = useLocaleRoute();
 
