@@ -13,34 +13,16 @@
     class="flex h-fit min-h-screen flex-col bg-[url('/assets/svg/ScrumpliCityGuideBackground.svg')] bg-cover bg-[bottom_2rem_left_2rem] bg-no-repeat text-justify"
   >
     <div
-      class="mb-[20vh] mt-32 flex w-[76.547vw] flex-col gap-2 self-center font-sans"
+      class="mb-[20vh] mt-32 flex w-[76.547vw] flex-col gap-2 self-center bg-sc-white/70 font-sans"
     >
       <h1
-        class="mb-8 text-center font-heading text-6xl font-bold text-sc-orange"
+        class="mb-8 text-center font-heading text-5xl font-bold text-sc-orange md:text-6xl"
       >
         {{ $t("scrumplicity_guide.title") }}
       </h1>
-      <!--
-      <div class="mb-5 flex flex-row flex-wrap items-center justify-between">
-        <div class="flex-1 flex-col">
-          <p class="mb-5 text-lg font-medium">
-            {{ $t("scrumplicity_guide.overview") }}
-          </p>
-          <p
-            class="mb-3 text-left font-heading text-3xl font-bold text-sc-orange"
-          >
-            {{ $t("scrumplicity_guide.introduction.title") }}
-          </p>
-          <p class="text-lg font-medium">
-            {{ $t("scrumplicity_guide.introduction.description") }}
-          </p>
-        </div>
-        <SvgTutorSm class="ml-40 h-52 w-auto" :fontControlled="false" filled />
-      </div>
-    -->
       <div class="relative mb-5">
         <SvgTutorSm
-          class="float-right mb-10 ml-40 mt-10 h-52 w-auto"
+          class="float-right mb-10 ml-[10vw] mt-10 h-auto max-h-[15vw] min-h-20 w-auto"
           :fontControlled="false"
           filled
         />
@@ -61,7 +43,7 @@
       </p>
       <div class="relative mb-5">
         <SvgCraftingTemplateIllustration
-          class="float-right mb-10 ml-16 h-28 w-auto"
+          class="float-right mb-10 ml-[10vw] h-auto max-h-[10vw] min-h-20 w-auto"
           :fontControlled="false"
           filled
         />
@@ -74,7 +56,7 @@
       </p>
       <div class="relative mb-32">
         <SvgScrumProcessIllustration
-          class="float-right mb-10 ml-[46px] h-28 w-auto"
+          class="float-right mb-10 ml-[10vw] h-auto max-h-[10vw] min-h-20 w-auto"
           :fontControlled="false"
           filled
         />
@@ -98,7 +80,7 @@
             {{ $t("scrumplicity_guide.step_by_step.caption1") }}
           </p>
         </div>
-        <p class="flex-1 text-base font-medium">
+        <p class="mt-5 flex-1 text-base font-medium">
           <span class="font-heading text-6xl font-bold text-sc-orange">1.</span>
           {{ $t("scrumplicity_guide.step_by_step.description1") }}
         </p>
@@ -194,9 +176,9 @@
       >
         {{ $t("scrumplicity_guide.learners_title") }}
       </h3>
-      <div class="relative mb-5">
+      <div class="relative mb-32">
         <SvgLearnerSm
-          class="float-right mb-10 ml-40 mt-10 h-[188px] w-auto"
+          class="float-right mb-10 ml-[10vw] h-auto max-h-[10vw] min-h-20 w-auto"
           :fontControlled="false"
           filled
         />
