@@ -33,7 +33,7 @@ const mail = runtimeConfig.public.contactMail;
     @click="scrollToTopOfPage"
     v-show="scrollToTopButtonIsVisible"
     :ui="{ rounded: 'rounded-full' }"
-    class="fixed bottom-5 right-5 z-50 flex size-12 items-center justify-center transition-colors hover:bg-orange-700 lg:size-16"
+    class="fixed bottom-5 right-5 z-50 flex size-12 items-center justify-center transition-colors hover:bg-sc-orange-700 lg:size-16"
   >
     <UIcon name="mdi:arrow-up" size="100" class="bg-sc-black" />
   </UButton>
@@ -92,14 +92,14 @@ const mail = runtimeConfig.public.contactMail;
         </p>
         <NuxtLink :to="localeRoute('role')">
           <UButton
-            class="hidden !opacity-100 drop-shadow-sc-shadow hover:bg-orange-700 lg:block lg:px-5 lg:py-2 lg:text-base lg:font-bold xl:text-xl"
+            class="hidden !opacity-100 drop-shadow-sc-shadow hover:bg-sc-orange-700 lg:block lg:px-5 lg:py-2 lg:text-base lg:font-bold xl:text-xl"
             >{{ $t("homepage.get_started") }}</UButton
           ></NuxtLink
         >
         <UTooltip :text="$t('homepage.tooltip.not_available')">
           <UButton
             :disabled="true"
-            class="!opacity-100 drop-shadow-sc-shadow hover:bg-orange-700 xs:text-base lg:hidden"
+            class="!opacity-100 drop-shadow-sc-shadow hover:bg-sc-orange-700 xs:text-base lg:hidden"
             >{{ $t("homepage.scrum_guide") }}</UButton
           ></UTooltip
         >
@@ -203,7 +203,7 @@ const mail = runtimeConfig.public.contactMail;
           <UTooltip :text="$t('homepage.tooltip.not_available')">
             <UButton
               :disabled="true"
-              class="!opacity-100 drop-shadow-sc-shadow hover:bg-orange-700 lg:px-5 lg:py-2 lg:text-base lg:font-bold xl:text-xl"
+              class="!opacity-100 drop-shadow-sc-shadow hover:bg-sc-orange-700 lg:px-5 lg:py-2 lg:text-base lg:font-bold xl:text-xl"
               >{{ $t("homepage.scrum_guide") }}</UButton
             ></UTooltip
           >
@@ -225,7 +225,7 @@ const mail = runtimeConfig.public.contactMail;
           </p>
           <a :href="`mailto:${mail}`">
             <UButton
-              class="!opacity-100 drop-shadow-sc-shadow hover:bg-orange-700 lg:px-5 lg:py-2 lg:text-base lg:font-bold xl:text-xl"
+              class="!opacity-100 drop-shadow-sc-shadow hover:bg-sc-orange-700 lg:px-5 lg:py-2 lg:text-base lg:font-bold xl:text-xl"
             >
               {{ $t("homepage.contact_us") }}</UButton
             ></a
