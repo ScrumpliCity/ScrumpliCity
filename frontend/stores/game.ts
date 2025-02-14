@@ -10,45 +10,108 @@ type Team = {
     sprint_duration: number;
     planning_duration: number;
     review_duration: number;
+    current_sprint: number;
+    current_phase: string;
+    is_playing: boolean;
   };
+  members: Array<Member>;
+  sprints: Array<Sprint>;
 };
 
 type Member = {
+  id?: string;
   name: string;
   role: string;
 };
 
+type UserStory = {
+  id?: string;
+  title: string;
+  description: string;
+  member_id?: string;
+  completed: boolean;
+  story_points?: number;
+};
+
+type Sprint = {
+  id?: string;
+  name: string;
+  goal: string;
+  sprint_number: number;
+  velocity?: number;
+  user_stories: Array<UserStory>;
+};
+
 export const useGameStore = defineStore("game", () => {
+  const client = useSanctumClient();
+  const echo = useEcho();
+  const router = useRouter();
+  const localeRoute = useLocaleRoute();
+
   const team: Ref<undefined | Team> = ref(undefined);
   const members: Ref<undefined | Member[]> = ref(undefined);
 
-  const client = useSanctumClient();
+  const currentSprint = computed(() => {
+    return team.value?.sprints.find(
+      (v) => v.sprint_number === team.value!.room.current_sprint,
+    );
+  });
 
-  const echo = useEcho();
+  const timerRemainingSeconds: Ref<undefined | number> = ref(undefined);
+  const timerState: Ref<"running" | "stopped" | "paused"> = ref("stopped");
+  const timerTotalSeconds: Ref<undefined | number> = ref(undefined);
 
   watch(
-    () => team.value?.id,
+    // Timer:
+    () => team.value?.room.id,
     (newValue, oldValue, onCleanup) => {
       if (!echo) return; // echo is undefined during SSR
 
-      const oldChannel = oldValue == undefined ? undefined : `team.${oldValue}`;
-      const newChannel = newValue == undefined ? undefined : `team.${newValue}`;
-
-      console.log(echo);
+      const oldChannel =
+        oldValue == undefined ? undefined : `timer.${oldValue}`;
+      const newChannel =
+        newValue == undefined ? undefined : `timer.${newValue}`;
 
       if (newChannel) {
-        console.log("subscribing to " + newChannel);
         echo
           .channel(newChannel)
-          .listen(".TeamUpdated", (e: object) => console.log(e))
+          .listen("TimerUpdate", onTimerUpdate)
+          .listen("TimerStateChange", onTimerStateChange)
           .error((e: object) => {
-            console.error("Public channel error", e);
+            console.error("Error listening to Timer: ", e);
           });
       }
 
       onCleanup(() => {
         if (oldChannel) echo.leaveChannel(oldChannel);
       });
+
+      function onTimerUpdate({
+        roomId,
+        remainingSeconds,
+      }: {
+        roomId: string;
+        remainingSeconds: number;
+      }) {
+        timerRemainingSeconds.value = remainingSeconds;
+      }
+
+      function onTimerStateChange({
+        roomId,
+        state,
+        remainingSeconds,
+        totalSeconds,
+      }: {
+        roomId: string;
+        state: "running" | "stopped" | "paused";
+        remainingSeconds: number;
+        totalSeconds: number;
+      }) {
+        timerRemainingSeconds.value = remainingSeconds;
+        timerTotalSeconds.value = totalSeconds;
+        timerState.value = state;
+        refresh();
+      }
     },
   );
 
@@ -64,9 +127,123 @@ export const useGameStore = defineStore("game", () => {
     return data;
   }
 
+  async function setSprintGoal(sprintGoal: string): Promise<void> {
+    if (!team.value) return;
+    const sprint = await client(
+      `/api/team/${team.value.id}/sprints/${team.value.room.current_sprint}`,
+      {
+        method: "PATCH",
+        body: {
+          goal: sprintGoal,
+        },
+      },
+    );
+    refresh();
+  }
+  async function setSprintName(sprintName: string): Promise<void> {
+    if (!team.value) return;
+    const sprint = await client(
+      `/api/team/${team.value.id}/sprints/${team.value.room.current_sprint}`,
+      {
+        method: "PATCH",
+        body: {
+          name: sprintName,
+        },
+      },
+    );
+    refresh();
+  }
+
+  async function createUserStory(): Promise<UserStory> {
+    const story = await client(
+      `/api/team/${team.value!.id}/sprints/${team.value!.room.current_sprint}/stories`,
+      {
+        method: "POST",
+      },
+    );
+
+    return story as UserStory;
+  }
+
+  async function updateUserStory(userStory: UserStory): Promise<UserStory> {
+    const story = await client(
+      `/api/team/${team.value!.id}/sprints/${team.value!.room.current_sprint}/stories/${userStory.id}`,
+      {
+        method: "PATCH",
+        body: {
+          ...(userStory.title ? { title: userStory.title } : {}),
+          ...(userStory.description
+            ? { description: userStory.description }
+            : {}),
+          member_id: userStory.member_id,
+          story_points: userStory.story_points,
+        },
+      },
+    );
+
+    return story as UserStory;
+  }
+
+  async function deleteUserStory(userStory: UserStory): Promise<void> {
+    const response = await client(
+      `/api/team/${team.value!.id}/sprints/${team.value!.room.current_sprint}/stories/${userStory.id}`,
+      {
+        method: "DELETE",
+      },
+    );
+  }
+
   async function refresh() {
     const data = await client(`/api/team/me`);
     team.value = data;
+    _handlePhaseUpdate();
+  }
+
+  /** Check for a timer state change (pause/resume/phase change) & handle it accordingly */
+  async function _handlePhaseUpdate() {
+    if (!team.value) return; // no team yet so nothing to handle
+
+    const currentRoute = router.currentRoute.value;
+    const currentRouteName = currentRoute.name;
+
+    const currentPhase = team.value.room.current_phase;
+
+    // redirect to waiting screen if room is paused
+    const roomIsPaused = !team.value.room.is_playing;
+    if (roomIsPaused) {
+      const waitingScreenRoute = localeRoute("play-ready");
+      if (waitingScreenRoute !== currentRouteName)
+        return navigateTo(waitingScreenRoute);
+    }
+
+    const phases = {
+      planning: "play-sprint-planning",
+      build_phase: "play-sprint-build_phase",
+      review: "play-sprint-review",
+    };
+
+    if (!(currentPhase in phases)) return;
+
+    const correctRoute = localeRoute({
+      name: phases[currentPhase as keyof typeof phases],
+      params: { sprint: team.value.room.current_sprint },
+    });
+
+    if (currentRouteName !== correctRoute) navigateTo(correctRoute);
+
+    if (
+      // if sprint doesn't exist already
+      !team.value.sprints.some(
+        (v) => v.sprint_number === team.value!.room.current_sprint,
+      )
+    ) {
+      // create sprint
+      await client(
+        `/api/team/${team.value?.id}/sprints/${team.value.room.current_sprint}`,
+        { method: "POST" },
+      );
+      refresh();
+    }
   }
 
   async function changeName(newName: string) {
@@ -104,5 +281,15 @@ export const useGameStore = defineStore("game", () => {
     changeName,
     addMembers,
     getMembers,
+    setSprintGoal,
+    setSprintName,
+    createUserStory,
+    updateUserStory,
+    deleteUserStory,
+    currentSprint,
+    _handlePhaseUpdate,
+    timerRemainingSeconds,
+    timerState,
+    timerTotalSeconds,
   };
 });
