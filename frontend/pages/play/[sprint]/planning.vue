@@ -6,8 +6,6 @@ definePageMeta({
 
 const game = useGameStore();
 
-const remainingSeconds = ref(120);
-
 const sprintNameInput = ref(game.currentSprint?.name ?? "");
 
 const editingSprintName = ref(false);
@@ -44,19 +42,6 @@ watchDebounced(
   },
   { debounce: 3000, maxWait: 10000 },
 );
-
-const intervalId: Ref<ReturnType<typeof setInterval> | undefined> =
-  ref(undefined);
-
-onMounted(() => {
-  intervalId.value = setInterval(() => {
-    remainingSeconds.value = remainingSeconds.value - 1;
-  }, 1000);
-});
-
-onUnmounted(() => {
-  if (intervalId.value !== undefined) clearInterval(intervalId.value);
-});
 
 const userStories = ref(game.currentSprint?.user_stories ?? []);
 
@@ -289,7 +274,11 @@ async function updateUserStory(
             </UTooltip>
             <UTooltip
               :text="$t('planning.velocity_to_date')"
-              v-if="game.currentSprint?.velocity !== undefined"
+              v-if="
+                game.currentSprint &&
+                game.currentSprint?.sprint_number > 1 &&
+                game.currentSprint?.velocity !== undefined
+              "
             >
               <div
                 class="flex h-8 w-20 items-center justify-between rounded-md p-1.5"
@@ -321,9 +310,11 @@ async function updateUserStory(
       </div>
     </div>
     <Timer
-      :total-seconds="120"
-      class="absolute right-2 top-0 z-0 h-52 w-auto lg:h-60 xl:right-24 xl:h-[clamp(13rem,calc(100vh-35rem),20rem)]"
-      :remainingSeconds
+      :total-seconds="game.timerTotalSeconds ?? 0"
+      :is-paused="game.timerState === 'paused'"
+      :is-disabled="game.timerState === 'stopped'"
+      class="absolute right-2 top-0 z-10 h-52 w-auto lg:h-60 xl:right-24 xl:h-[clamp(13rem,calc(100vh-35rem),20rem)]"
+      :remaining-seconds="game.timerRemainingSeconds ?? 0"
     ></Timer>
     <SvgMeetingScreenTrees
       :font-controlled="false"

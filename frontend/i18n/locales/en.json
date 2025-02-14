@@ -319,5 +319,10 @@
     "get_started": "Get started with ScrumpliCity",
     "contact_us": "Contact us",
     "we_help": "our construction manager will help you!"
+  },
+  "timer": {
+    "paused_by_tutor": "Timer was paused by the tutor",
+    "resume_timer": "Resume timer",
+    "pause_timer": "Pause timer"
   }
 }
