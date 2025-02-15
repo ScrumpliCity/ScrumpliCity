@@ -231,8 +231,6 @@ function copyRoomCode() {
         v-if="manageRoom.roomcode && !manageRoom.completed_at"
         @toggle="toggleTimer"
         :disableAction="disableTimerActionForRequest"
-        :isPlaying
-        :key="timerPaused"
       />
 
       <LazyPhaseBox
@@ -241,7 +239,6 @@ function copyRoomCode() {
         :currentSprint="manageRoom.current_sprint"
         :sprintCount="manageRoom.number_of_sprints"
         :phase="manageRoom.current_phase"
-        :key="`${manageRoom.current_phase}-${manageRoom.current_sprint}-${isPlaying}-${timeLeftInSprint}`"
         :isCompleted="!!manageRoom.completed_at"
         :timeLeft="timeLeftInSprint"
         :isPlaying
@@ -307,11 +304,7 @@ function copyRoomCode() {
           <strong class="font-semibold text-sc-black"
             >{{ $t("rooms.room_code") }}:
           </strong>
-          <UTooltip
-            :text="$t('rooms.copy_room_code')"
-            class="flex-none"
-            :key="manageRoom.roomcode"
-          >
+          <UTooltip :text="$t('rooms.copy_room_code')" class="flex-none">
             <UButton
               variant="ghost"
               icon="ic:baseline-content-copy"
@@ -406,7 +399,7 @@ function copyRoomCode() {
               @isReadyChanged="
                 (isReady, teamId) => (teamReadyStates[teamId] = isReady)
               "
-              :isDisabled="manageRoom.completed_at"
+              :isDisabled="!!manageRoom.completed_at"
             />
             <p
               v-if="manageRoom.teams.length <= 0"
