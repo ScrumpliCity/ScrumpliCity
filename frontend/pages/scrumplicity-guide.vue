@@ -118,8 +118,8 @@
         </p>
         <div class="ml-12 flex h-auto w-[541px] flex-col">
           <img
-            src="/assets/png/role_page.png"
-            alt="Role Page"
+            src="/assets/png/rooms_page.png"
+            alt="Role selection page"
             class="mb-2 drop-shadow-sc-shadow"
           />
           <p class="text-base font-medium text-sc-black-600">
@@ -130,8 +130,8 @@
       <div class="mb-5 flex flex-row flex-wrap items-center justify-between">
         <div class="mr-12 flex h-auto w-[541px] flex-col">
           <img
-            src="/assets/png/role_page.png"
-            alt="Role Page"
+            src="/assets/png/create_room.png"
+            alt="Create room overlay"
             class="mb-2 drop-shadow-sc-shadow"
           />
           <p class="text-base font-medium text-sc-black-600">
@@ -158,8 +158,8 @@
         </p>
         <div class="ml-12 flex h-auto w-[541px] flex-col">
           <img
-            src="/assets/png/role_page.png"
-            alt="Role Page"
+            src="/assets/png/download_crafting-templates.png"
+            alt="Download crafting-templates in the room overview"
             class="mb-2 drop-shadow-sc-shadow"
           />
           <p class="text-base font-medium text-sc-black-600">
@@ -170,8 +170,8 @@
       <div class="mb-5 flex flex-row flex-wrap items-center justify-between">
         <div class="mr-12 flex h-auto w-[541px] flex-col">
           <img
-            src="/assets/png/role_page.png"
-            alt="Role Page"
+            src="/assets/png/room_manage.png"
+            alt="Manage a single room"
             class="mb-2 drop-shadow-sc-shadow"
           />
           <p class="text-base font-medium text-sc-black-600">
@@ -198,8 +198,8 @@
         </p>
         <div class="ml-12 flex h-auto w-[541px] flex-col">
           <img
-            src="/assets/png/role_page.png"
-            alt="Role Page"
+            src="/assets/png/start_game.png"
+            alt="Manage teams and start the game"
             class="mb-2 drop-shadow-sc-shadow"
           />
           <p class="text-base font-medium text-sc-black-600">
