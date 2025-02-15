@@ -73,9 +73,9 @@ async function updateUserStory(
 <template>
   <div class="relative h-full overflow-clip">
     <div
-      class="relative z-10 flex h-full gap-6 pb-8 pl-9 pr-6 pt-5 xl:gap-12 xl:pb-16 xl:pl-[4.5rem] xl:pr-12 xl:pt-10"
+      class="pointer-events-none relative z-20 flex h-full gap-6 pb-8 pl-9 pr-6 pt-5 xl:gap-12 xl:pb-16 xl:pl-[4.5rem] xl:pr-12 xl:pt-10"
     >
-      <div class="flex w-0 flex-[7] flex-col gap-1.5">
+      <div class="pointer-events-auto flex w-0 flex-[7] flex-col gap-1.5">
         <h1 class="relative flex h-14 gap-3">
           <span
             class="font-heading text-4xl font-bold text-sc-orange xl:text-5xl"
@@ -238,7 +238,9 @@ async function updateUserStory(
           </button>
         </div>
       </div>
-      <div class="flex w-0 flex-[3] flex-col justify-end">
+      <div
+        class="pointer-events-auto flex w-0 flex-[3] flex-col justify-end self-end"
+      >
         <div
           class="flex h-72 flex-col gap-2 rounded-2xl border-2 border-sc-black-400 bg-sc-white p-5"
         >
@@ -322,7 +324,7 @@ async function updateUserStory(
       class="absolute bottom-0 z-0 h-auto w-[100vw]"
     ></SvgMeetingScreenTrees>
     <Infobox
-      class="relative z-20"
+      class="relative z-30"
       :text="[
         {
           title: $t('planning.infobox.sprint_names.title'),
