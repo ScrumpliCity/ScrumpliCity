@@ -1,4 +1,8 @@
 <script setup>
+definePageMeta({
+  middleware: ["auth"],
+});
+
 const client = useSanctumClient();
 const localeRoute = useLocaleRoute();
 const route = useRoute();
