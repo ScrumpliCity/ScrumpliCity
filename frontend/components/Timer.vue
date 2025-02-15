@@ -99,7 +99,7 @@ const offset = computed(() => {
         </mask>
 
         <!-- the two paths for the timer itself -->
-        <!-- 890 is the lenght of the path exactly -->
+        <!-- 890 is the length of the path exactly -->
         <path
           d="M 150 131 h 146 v 154 h -291 v -154 z"
           class="stroke-sc-black-400"

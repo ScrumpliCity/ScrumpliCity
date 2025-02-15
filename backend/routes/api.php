@@ -17,7 +17,7 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 
 Route::get('/user/profile-picture', [UserController::class, 'profilePicture'])->middleware('auth:sanctum'); // get profile picture
 
-Route::patch('/user', [UserController::class, 'updateName'])->middleware('auth:sanctum');
+Route::patch('/user', [UserController::class, 'updateName'])->middleware('auth:sanctum'); // update username
 
 
 
@@ -50,14 +50,14 @@ Route::get('/team/me', [TeamController::class, 'show']);
 
 Route::post('/team/{team}', [TeamController::class, 'update']);
 
-Route::delete('/team/{team}', [TeamController::class, 'destroy']);
+Route::delete('/team/{team}', [TeamController::class, 'destroy']); // delete team
 
 Route::post('/team/{team}/sprints/{sprintNumber}', [SprintController::class, 'store']); // create sprint
 Route::patch('/team/{team}/sprints/{sprintNumber}', [SprintController::class, 'update']); // update sprint
 
 Route::post('/team/{team}/sprints/{sprintNumber}/stories', [UserStoryController::class, 'store']); // create user story
 Route::patch('/team/{team}/sprints/{sprintNumber}/stories/{userStoryId}', [UserStoryController::class, 'update']); // update user story
-Route::delete('/team/{team}/sprints/{sprintNumber}/stories/{userStoryId}', [UserStoryController::class, 'delete']); 
+Route::delete('/team/{team}/sprints/{sprintNumber}/stories/{userStoryId}', [UserStoryController::class, 'delete']);  // delete user story
 
 
 
