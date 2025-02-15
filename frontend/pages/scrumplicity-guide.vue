@@ -10,13 +10,13 @@
     <UIcon name="mdi:arrow-up" size="100" class="bg-sc-black" />
   </UButton>
   <div
-    class="flex h-fit min-h-screen flex-col bg-cover bg-[bottom_2rem_left_2rem] bg-no-repeat text-justify lg:bg-[url('/assets/svg/ScrumpliCityGuideBackground.svg')]"
+    class="flex h-fit min-h-screen flex-col bg-[url('/assets/svg/ScrumpliCityGuideBackgroundSM.svg')] bg-cover bg-[bottom_2rem_left_2rem] bg-no-repeat text-justify lg:bg-[url('/assets/svg/ScrumpliCityGuideBackground.svg')]"
   >
     <div
-      class="mb-[20vh] mt-32 flex w-[76.547vw] flex-col gap-2 self-center font-sans"
+      class="mb-[20vh] mt-[104px] flex w-[76.547vw] flex-col gap-2 self-center font-sans lg:mt-32"
     >
       <h1
-        class="mb-8 text-center font-heading text-5xl font-bold text-sc-orange md:text-6xl"
+        class="mb-8 text-center font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
       >
         {{ $t("scrumplicity_guide.title") }}
       </h1>
@@ -29,7 +29,7 @@
         <i18n-t
           keypath="scrumplicity_guide.overview"
           tag="p"
-          class="mb-5 text-lg font-medium"
+          class="mb-5 text-base font-medium md:text-lg"
           scope="global"
         >
           <template #link>
@@ -44,15 +44,17 @@
           </template>
         </i18n-t>
         <p
-          class="mb-3 text-left font-heading text-3xl font-bold text-sc-orange"
+          class="mb-3 text-left font-heading text-xl font-bold text-sc-orange md:text-2xl lg:text-3xl"
         >
           {{ $t("scrumplicity_guide.introduction.title") }}
         </p>
-        <p class="text-lg font-medium">
+        <p class="text-base font-medium md:text-lg">
           {{ $t("scrumplicity_guide.introduction.description") }}
         </p>
       </div>
-      <p class="mb-3 text-left font-heading text-3xl font-bold text-sc-orange">
+      <p
+        class="mb-3 text-left font-heading text-xl font-bold text-sc-orange md:text-2xl lg:text-3xl"
+      >
         {{ $t("scrumplicity_guide.prerequisites.title") }}
       </p>
       <div class="relative mb-5">
@@ -61,25 +63,27 @@
           :fontControlled="false"
           filled
         />
-        <p class="text-lg font-medium">
+        <p class="text-base font-medium md:text-lg">
           {{ $t("scrumplicity_guide.prerequisites.description") }}
         </p>
       </div>
-      <p class="mb-3 text-left font-heading text-3xl font-bold text-sc-orange">
+      <p
+        class="mb-3 text-left font-heading text-xl font-bold text-sc-orange md:text-2xl lg:text-3xl"
+      >
         {{ $t("scrumplicity_guide.scrum_content.title") }}
       </p>
-      <div class="relative mb-32">
+      <div class="relative mb-16 lg:mb-32">
         <SvgScrumProcessIllustration
           class="float-right mb-10 ml-[10vw] h-auto max-h-[10vw] min-h-20 w-auto"
           :fontControlled="false"
           filled
         />
-        <p class="text-lg font-medium">
+        <p class="text-base font-medium md:text-lg">
           {{ $t("scrumplicity_guide.scrum_content.description") }}
         </p>
       </div>
       <h2
-        class="mb-8 self-start text-left font-heading text-5xl font-bold text-sc-orange"
+        class="mb-8 self-start text-left font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
       >
         {{ $t("scrumplicity_guide.step_by_step.title") }}
       </h2>
@@ -94,16 +98,22 @@
             {{ $t("scrumplicity_guide.step_by_step.caption1") }}
           </p>
         </div>
-        <p class="mt-5 flex-1 text-base font-medium">
-          <span class="font-heading text-6xl font-bold text-sc-orange">1.</span>
+        <p class="mt-5 min-w-[350px] flex-1 text-base font-medium">
+          <span
+            class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
+            >1.</span
+          >
           {{ $t("scrumplicity_guide.step_by_step.description1") }}
         </p>
       </div>
       <div
         class="mb-5 flex flex-row flex-wrap-reverse items-center justify-between"
       >
-        <p class="flex-1 text-base font-medium">
-          <span class="font-heading text-6xl font-bold text-sc-orange">2.</span>
+        <p class="min-w-[350px] flex-1 text-base font-medium">
+          <span
+            class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
+            >2.</span
+          >
           {{ $t("scrumplicity_guide.step_by_step.description2") }}
         </p>
         <div class="ml-12 flex h-auto w-[541px] flex-col">
@@ -128,16 +138,22 @@
             {{ $t("scrumplicity_guide.step_by_step.caption3") }}
           </p>
         </div>
-        <p class="flex-1 text-base font-medium">
-          <span class="font-heading text-6xl font-bold text-sc-orange">3.</span>
+        <p class="min-w-[350px] flex-1 text-base font-medium">
+          <span
+            class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
+            >3.</span
+          >
           {{ $t("scrumplicity_guide.step_by_step.description3") }}
         </p>
       </div>
       <div
         class="mb-5 flex flex-row flex-wrap-reverse items-center justify-between"
       >
-        <p class="flex-1 text-base font-medium">
-          <span class="font-heading text-6xl font-bold text-sc-orange">4.</span>
+        <p class="min-w-[350px] flex-1 text-base font-medium">
+          <span
+            class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
+            >4.</span
+          >
           {{ $t("scrumplicity_guide.step_by_step.description4") }}
         </p>
         <div class="ml-12 flex h-auto w-[541px] flex-col">
@@ -162,16 +178,22 @@
             {{ $t("scrumplicity_guide.step_by_step.caption5") }}
           </p>
         </div>
-        <p class="flex-1 text-base font-medium">
-          <span class="font-heading text-6xl font-bold text-sc-orange">5.</span>
+        <p class="min-w-[350px] flex-1 text-base font-medium">
+          <span
+            class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
+            >5.</span
+          >
           {{ $t("scrumplicity_guide.step_by_step.description5") }}
         </p>
       </div>
       <div
-        class="mb-32 flex flex-row flex-wrap-reverse items-center justify-between"
+        class="mb-16 flex flex-row flex-wrap-reverse items-center justify-between lg:mb-32"
       >
-        <p class="flex-1 text-base font-medium">
-          <span class="font-heading text-6xl font-bold text-sc-orange">6.</span>
+        <p class="min-w-[350px] flex-1 text-base font-medium">
+          <span
+            class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
+            >6.</span
+          >
           {{ $t("scrumplicity_guide.step_by_step.description6") }}
         </p>
         <div class="ml-12 flex h-auto w-[541px] flex-col">
@@ -186,7 +208,7 @@
         </div>
       </div>
       <h3
-        class="mb-8 self-start text-left font-heading text-5xl font-bold text-sc-orange"
+        class="mb-8 self-start text-left font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
       >
         {{ $t("scrumplicity_guide.learners_title") }}
       </h3>
@@ -199,7 +221,7 @@
         <i18n-t
           keypath="scrumplicity_guide.learners_description"
           tag="p"
-          class="flex-1 text-lg font-medium"
+          class="flex-1 text-base font-medium md:text-lg"
           scope="global"
         >
           <template #join_steps>
