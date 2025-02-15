@@ -266,4 +266,9 @@ const scrollToTopOfPage = () => {
 };
 
 const scrollToTopButtonIsVisible = computed(() => y.value > 200);
+
+const { t } = useI18n();
+useSeoMeta({
+  title: t("homepage.scrum_guide"),
+});
 </script>
