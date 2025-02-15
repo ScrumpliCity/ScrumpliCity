@@ -10,10 +10,10 @@
     <UIcon name="mdi:arrow-up" size="100" class="bg-sc-black" />
   </UButton>
   <div
-    class="flex h-fit min-h-screen flex-col bg-[url('/assets/svg/ScrumpliCityGuideBackground.svg')] bg-cover bg-[bottom_2rem_left_2rem] bg-no-repeat text-justify"
+    class="flex h-fit min-h-screen flex-col bg-cover bg-[bottom_2rem_left_2rem] bg-no-repeat text-justify lg:bg-[url('/assets/svg/ScrumpliCityGuideBackground.svg')]"
   >
     <div
-      class="mb-[20vh] mt-32 flex w-[76.547vw] flex-col gap-2 self-center bg-sc-white/70 font-sans"
+      class="mb-[20vh] mt-32 flex w-[76.547vw] flex-col gap-2 self-center font-sans"
     >
       <h1
         class="mb-8 text-center font-heading text-5xl font-bold text-sc-orange md:text-6xl"
@@ -26,9 +26,23 @@
           :fontControlled="false"
           filled
         />
-        <p class="mb-5 text-lg font-medium">
-          {{ $t("scrumplicity_guide.overview") }}
-        </p>
+        <i18n-t
+          keypath="scrumplicity_guide.overview"
+          tag="p"
+          class="mb-5 text-lg font-medium"
+          scope="global"
+        >
+          <template #link>
+            <NuxtLink
+              to="https://www.scrum.org/"
+              target="_blank"
+              external="true"
+              class="text-sc-orange underline"
+            >
+              {{ $t("scrumplicity_guide.link") }}
+            </NuxtLink>
+          </template>
+        </i18n-t>
         <p
           class="mb-3 text-left font-heading text-3xl font-bold text-sc-orange"
         >
@@ -176,7 +190,7 @@
       >
         {{ $t("scrumplicity_guide.learners_title") }}
       </h3>
-      <div class="relative mb-32">
+      <div class="relative lg:mb-32">
         <SvgLearnerSm
           class="float-right mb-10 ml-[10vw] h-auto max-h-[10vw] min-h-20 w-auto"
           :fontControlled="false"

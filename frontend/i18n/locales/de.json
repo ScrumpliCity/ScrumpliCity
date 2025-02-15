@@ -321,7 +321,8 @@
   },
   "scrumplicity_guide": {
     "title": "Willkommen beim ScrumpliCity-Guide!",
-    "overview": "Der ScrumpliCity-Guide bietet dir alle wichtigen Informationen zum Spiel, eine detaillierte Schritt-für-Schritt-Anleitung für deine Rolle als Tutor*in sowie eine Beitrittsanleitung für Lernende. Weiterführende Informationen zum Scrum-Prozess, die hier aus Gründen der Übersichtlichkeit nicht aufgeführt sind, findest du auf scrum.org.",
+    "overview": "Der ScrumpliCity-Guide bietet dir alle wichtigen Informationen zum Spiel, eine detaillierte Schritt-für-Schritt-Anleitung für deine Rolle als Tutor*in sowie eine Beitrittsanleitung für Lernende. Weiterführende Informationen zum Scrum-Prozess, die hier aus Gründen der Übersichtlichkeit nicht aufgeführt sind, findest du auf {link}.",
+    "link": "scrum.org",
     "introduction": {
       "title": "Einführung",
       "description": "ScrumpliCity ist ein ideales erstes Projekt, um den Scrum-Prozess besser zu verstehen und praktisch anzuwenden. Die Lernenden bauen dabei eine Papierstadt aus vorgefertigten Bastelvorlagen, während die Website sie Schritt für Schritt durch die verschiedenen Phasen führt. Gearbeitet wird in Teams, die gemeinsam in einem Raum organisiert sind. Ein Raum fasst also mehrere Projektteams zusammen – zum Beispiel eine Schulklasse, die in vier Teams unterteilt ist."
