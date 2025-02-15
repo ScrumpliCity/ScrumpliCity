@@ -1,7 +1,8 @@
 <template>
   <a
-    href="/ScrumpliCity_crafting-templates.zip"
-    download="ScrumpliCity_crafting-templates.zip"
+    href="/scrumplicity-crafting-templates.zip"
+    download="ScrumpliCity-crafting-templates.zip"
+    :title="$t('homepage.crafting_templates_download')"
   >
     <UButton
       class="hover:bg-sc-black-100"
