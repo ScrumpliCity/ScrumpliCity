@@ -200,12 +200,11 @@ const mail = runtimeConfig.public.contactMail;
             class="mb-4 bg-sc-white/70 text-sm min-[394px]:text-base min-[480px]:text-lg sm:text-base min-[720px]:text-lg lg:text-xl xl:text-2xl min-[1400px]:leading-10"
             v-html="$t('homepage.scrum_guide_description')"
           ></p>
-          <UTooltip :text="$t('homepage.tooltip.not_available')">
+          <NuxtLink :to="localeRoute('scrumplicity-guide')">
             <UButton
-              :disabled="true"
               class="!opacity-100 drop-shadow-sc-shadow hover:bg-sc-orange-700 lg:px-5 lg:py-2 lg:text-base lg:font-bold xl:text-xl"
               >{{ $t("homepage.scrum_guide") }}</UButton
-            ></UTooltip
+            ></NuxtLink
           >
         </div>
       </div>
