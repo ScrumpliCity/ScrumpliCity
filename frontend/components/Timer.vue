@@ -31,9 +31,9 @@ const remainingSeconds = ref(props.remainingSeconds);
 let interval: ReturnType<typeof decrementTime>;
 
 watch(
-  () => props.remainingSeconds,
-  (newValue) => {
-    remainingSeconds.value = newValue;
+  () => [props.remainingSeconds, props.isPaused],
+  ([newRemainingSeconds, newIsPaused]) => {
+    remainingSeconds.value = newRemainingSeconds as number; // typescript apparently can't handle arrays with different types
     clearInterval(interval);
     interval = decrementTime();
   },
@@ -145,7 +145,7 @@ const offset = computed(() => {
       >
         <UButton
           variant="ghost"
-          class="text-sc-black-500 disabled:opacity-100"
+          class="text-sc-black-500 hover:bg-transparent disabled:opacity-100"
           :padded="false"
           @click="emit('toggle')"
           :class="{

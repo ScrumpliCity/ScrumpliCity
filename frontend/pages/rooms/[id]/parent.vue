@@ -392,7 +392,6 @@ function copyRoomCode() {
             <TeamManager
               @click.stop
               v-for="team in manageRoom.teams"
-              :key="team.members"
               :team
               :isPlaying="isPlaying"
               @update="refresh()"
