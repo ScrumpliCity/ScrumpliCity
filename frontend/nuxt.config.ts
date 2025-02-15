@@ -10,20 +10,26 @@ export default defineNuxtConfig({
     "nuxt-laravel-echo",
     "@nuxtjs/seo",
   ],
-  nitro: {
-    prerender: {
-      routes: [
-        "/",
-        "/de",
-        "/legal-notice",
-        "/de/impressum",
-        "/role",
-        "/de/rolle",
-      ],
-    },
-  },
   routeRules: {
     // https://github.com/nuxt-modules/i18n/issues/2342 // there doesn't seem to be a clean way to define route rules than this ... f*ck localized slugs
+    "/": {
+      swr: true,
+    },
+    "/de": {
+      swr: true,
+    },
+    "/legal-notice": {
+      swr: true,
+    },
+    "/de/impressum": {
+      swr: true,
+    },
+    "/role": {
+      swr: true,
+    },
+    "/de/rolle": {
+      swr: true,
+    },
     "/**": {
       seoMeta: {
         ogImage: "/og-image-en.png",
