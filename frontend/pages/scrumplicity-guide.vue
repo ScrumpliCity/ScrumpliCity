@@ -10,19 +10,19 @@
     <UIcon name="mdi:arrow-up" size="100" class="bg-sc-black" />
   </UButton>
   <div
-    class="flex h-fit min-h-screen flex-col bg-[url('/assets/svg/ScrumpliCityGuideBackgroundSM.svg')] bg-cover bg-[bottom_2rem_left_2rem] bg-no-repeat text-justify lg:bg-[url('/assets/svg/ScrumpliCityGuideBackground.svg')]"
+    class="flex h-fit min-h-screen flex-col bg-[url('/assets/svg/ScrumpliCityGuideBackgroundSM.svg')] bg-cover bg-[bottom_1rem_left_1rem] bg-no-repeat text-justify lg:bg-[url('/assets/svg/ScrumpliCityGuideBackground.svg')] lg:bg-[bottom_2rem_left_2rem]"
   >
     <div
       class="mb-[20vh] mt-[104px] flex w-[76.547vw] flex-col gap-2 self-center font-sans lg:mt-32"
     >
       <h1
-        class="mb-8 text-center font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
+        class="mb-8 text-left font-heading text-3xl font-bold text-sc-orange sm:text-center md:text-4xl lg:text-5xl"
       >
         {{ $t("scrumplicity_guide.title") }}
       </h1>
       <div class="relative mb-5">
         <SvgTutorSm
-          class="float-right mb-10 ml-[10vw] mt-10 h-auto max-h-[15vw] min-h-20 w-auto"
+          class="float-right mb-10 ml-[10vw] mt-10 h-[15vw] max-h-52 min-h-20 w-auto"
           :fontControlled="false"
           filled
         />
@@ -59,7 +59,7 @@
       </p>
       <div class="relative mb-5">
         <SvgCraftingTemplateIllustration
-          class="float-right mb-10 ml-[10vw] h-auto max-h-[10vw] min-h-20 w-auto"
+          class="float-right mb-10 ml-[10vw] h-[10vw] max-h-28 min-h-20 w-auto"
           :fontControlled="false"
           filled
         />
@@ -74,7 +74,7 @@
       </p>
       <div class="relative mb-16 lg:mb-32">
         <SvgScrumProcessIllustration
-          class="float-right mb-10 ml-[10vw] h-auto max-h-[10vw] min-h-20 w-auto"
+          class="float-right mb-10 ml-[10vw] h-[10vw] max-h-28 min-h-20 w-auto"
           :fontControlled="false"
           filled
         />
@@ -98,7 +98,9 @@
             {{ $t("scrumplicity_guide.step_by_step.caption1") }}
           </p>
         </div>
-        <p class="mt-5 min-w-[350px] flex-1 text-base font-medium">
+        <p
+          class="mt-5 flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px]"
+        >
           <span
             class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
             >1.</span
@@ -109,7 +111,7 @@
       <div
         class="mb-5 flex flex-row flex-wrap-reverse items-center justify-between"
       >
-        <p class="min-w-[350px] flex-1 text-base font-medium">
+        <p class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px]">
           <span
             class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
             >2.</span
@@ -138,7 +140,7 @@
             {{ $t("scrumplicity_guide.step_by_step.caption3") }}
           </p>
         </div>
-        <p class="min-w-[350px] flex-1 text-base font-medium">
+        <p class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px]">
           <span
             class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
             >3.</span
@@ -149,7 +151,7 @@
       <div
         class="mb-5 flex flex-row flex-wrap-reverse items-center justify-between"
       >
-        <p class="min-w-[350px] flex-1 text-base font-medium">
+        <p class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px]">
           <span
             class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
             >4.</span
@@ -178,7 +180,7 @@
             {{ $t("scrumplicity_guide.step_by_step.caption5") }}
           </p>
         </div>
-        <p class="min-w-[350px] flex-1 text-base font-medium">
+        <p class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px]">
           <span
             class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
             >5.</span
@@ -189,7 +191,7 @@
       <div
         class="mb-16 flex flex-row flex-wrap-reverse items-center justify-between lg:mb-32"
       >
-        <p class="min-w-[350px] flex-1 text-base font-medium">
+        <p class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px]">
           <span
             class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
             >6.</span
@@ -214,14 +216,14 @@
       </h3>
       <div class="relative lg:mb-32">
         <SvgLearnerSm
-          class="float-right mb-10 ml-[10vw] h-auto max-h-[10vw] min-h-20 w-auto"
+          class="float-right mb-10 ml-[10vw] h-[15vw] max-h-52 min-h-20 w-auto"
           :fontControlled="false"
           filled
         />
         <i18n-t
           keypath="scrumplicity_guide.learners_description"
           tag="p"
-          class="flex-1 text-base font-medium md:text-lg"
+          class="flex-1 bg-sc-white/70 text-base font-medium md:text-lg"
           scope="global"
         >
           <template #join_steps>

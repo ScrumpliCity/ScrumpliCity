@@ -85,7 +85,7 @@ const mail = runtimeConfig.public.contactMail;
           filled
         />
         <p
-          class="my-3 max-w-[835px] bg-sc-white/70 text-left text-sm xs:text-base min-[460px]:text-lg lg:max-w-[60vw] min-[1190px]:text-xl min-[1330px]:text-2xl min-[1700px]:text-3xl"
+          class="my-3 max-w-[835px] bg-sc-white/70 text-left text-sm min-[360px]:text-base min-[460px]:text-lg lg:max-w-[60vw] min-[1190px]:text-xl min-[1330px]:text-2xl min-[1700px]:text-3xl"
         >
           <span>{{ $t("homepage.project_description") }}</span>
           <b>{{ $t("homepage.build_your_scrum_knowledge") }}</b>
@@ -99,14 +99,14 @@ const mail = runtimeConfig.public.contactMail;
         <UTooltip :text="$t('homepage.tooltip.not_available')">
           <UButton
             :disabled="true"
-            class="!opacity-100 drop-shadow-sc-shadow hover:bg-sc-orange-700 xs:text-base lg:hidden"
+            class="!opacity-100 drop-shadow-sc-shadow hover:bg-sc-orange-700 min-[354px]:text-base lg:hidden"
             >{{ $t("homepage.scrum_guide") }}</UButton
           ></UTooltip
         >
       </div>
       <div
         id="knowledge"
-        class="mt-10 flex min-h-[710px] w-screen flex-col items-center xs:mt-[25vw] min-[394px]:min-h-[705px] min-[400px]:min-h-[782px] min-[415px]:mt-[33vw] min-[455px]:mt-[40vw] min-[480px]:mt-[20vw] min-[480px]:min-h-[820px] min-[520px]:min-h-[872px] min-[570px]:mt-[33vw] sm:mt-[10vw] sm:min-h-[650px] min-[660px]:mt-[15vw] min-[684px]:mt-[10vw] min-[720px]:mt-[5vw] min-[855px]:mt-[3vw] min-[855px]:min-h-[350px] lg:mt-[15vw] xl:mt-[12vw] xl:min-h-[426px] min-[1400px]:mt-[15vw] min-[1400px]:min-h-[430px] min-[1600px]:mt-[20vw]"
+        class="mt-10 flex min-h-[710px] w-screen flex-col items-center min-[360px]:mt-[25vw] min-[394px]:min-h-[705px] min-[400px]:min-h-[782px] min-[415px]:mt-[33vw] min-[455px]:mt-[40vw] min-[480px]:mt-[20vw] min-[480px]:min-h-[820px] min-[520px]:min-h-[872px] min-[570px]:mt-[33vw] sm:mt-[10vw] sm:min-h-[650px] min-[660px]:mt-[15vw] min-[684px]:mt-[10vw] min-[720px]:mt-[5vw] min-[855px]:mt-[3vw] min-[855px]:min-h-[350px] lg:mt-[15vw] xl:mt-[12vw] xl:min-h-[426px] min-[1400px]:mt-[15vw] min-[1400px]:min-h-[430px] min-[1600px]:mt-[20vw]"
       >
         <h2
           class="mb-5 bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl min-[720px]:mb-8 min-[720px]:text-3xl lg:text-4xl xl:mb-14 xl:text-5xl min-[1700px]:text-6xl"
@@ -210,7 +210,7 @@ const mail = runtimeConfig.public.contactMail;
       </div>
       <div class="flex w-screen flex-col items-end sm:px-[5vw]" id="contact">
         <div
-          class="mx-10 mb-12 mt-12 max-w-[475px] text-right xs:mb-[19vw] xs:mt-[23vw] min-[370px]:mt-[30vw] min-[400px]:mb-[25vw] min-[400px]:mt-[20vw] min-[410px]:mt-[27vw] min-[435px]:mt-[34vw] min-[480px]:mb-[28vw] min-[480px]:mt-[13vw] min-[530px]:mt-[18vw] min-[550px]:mt-[25vw] min-[600px]:mt-[30vw] min-[610px]:mb-[30vw] sm:mb-[6vw] sm:mt-[7vw] min-[710px]:mb-[10vw] min-[720px]:mt-[12vw] md:mt-[10vw] min-[830px]:mb-[12vw] min-[830px]:mt-[15vw] min-[855px]:mt-[12vw] lg:mb-[13vw] min-[1050px]:mb-[16vw] min-[1060px]:mb-[13vw] min-[1078px]:mt-[15vw] min-[1100px]:mb-[15vw] min-[1120px]:mb-[10vw] min-[1244px]:mt-[20vw] min-[1250px]:mb-[13vw] xl:mt-[12vw] xl:max-w-none min-[1350px]:mb-[17vw] min-[1560px]:mb-[20vw] min-[1700px]:mb-[15vw] min-[1700px]:mt-[20vw] min-[1870px]:mb-[20vw] min-[1870px]:mt-[20vw]"
+          class="mx-10 mb-12 mt-12 max-w-[475px] text-right min-[354px]:mb-[19vw] min-[354px]:mt-[23vw] min-[370px]:mt-[30vw] min-[400px]:mb-[25vw] min-[400px]:mt-[20vw] min-[410px]:mt-[27vw] min-[435px]:mt-[34vw] min-[480px]:mb-[28vw] min-[480px]:mt-[13vw] min-[530px]:mt-[18vw] min-[550px]:mt-[25vw] min-[600px]:mt-[30vw] min-[610px]:mb-[30vw] sm:mb-[6vw] sm:mt-[7vw] min-[710px]:mb-[10vw] min-[720px]:mt-[12vw] md:mt-[10vw] min-[830px]:mb-[12vw] min-[830px]:mt-[15vw] min-[855px]:mt-[12vw] lg:mb-[13vw] min-[1050px]:mb-[16vw] min-[1060px]:mb-[13vw] min-[1078px]:mt-[15vw] min-[1100px]:mb-[15vw] min-[1120px]:mb-[10vw] min-[1244px]:mt-[20vw] min-[1250px]:mb-[13vw] xl:mt-[12vw] xl:max-w-none min-[1350px]:mb-[17vw] min-[1560px]:mb-[20vw] min-[1700px]:mb-[15vw] min-[1700px]:mt-[20vw] min-[1870px]:mb-[20vw] min-[1870px]:mt-[20vw]"
         >
           <h5
             class="bg-sc-white/70 font-heading text-xl font-bold text-sc-orange min-[480px]:text-2xl lg:text-4xl xl:mb-7 xl:text-6xl"
