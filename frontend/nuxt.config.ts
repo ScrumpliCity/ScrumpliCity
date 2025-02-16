@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     "@nuxtjs/seo",
   ],
   routeRules: {
-    // https://github.com/nuxt-modules/i18n/issues/2342 // there doesn't seem to be a clean way to define route rules than this ... f*ck localized slugs
+    // https://github.com/nuxt-modules/i18n/issues/2342 // there doesn't seem to be a cleaner way to define route rules than like this ... f*ck localized slugs
     "/": {
       swr: true,
     },
