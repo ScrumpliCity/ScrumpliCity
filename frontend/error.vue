@@ -56,7 +56,9 @@ const mail = runtimeConfig.public.contactMail;
           <NuxtLinkLocale to="/">{{
             $t("error.back_homepage")
           }}</NuxtLinkLocale>
-          <!-- <NuxtLinkLocale class="lg:hidden">{{ $t("error.scrum_guide") }}</NuxtLinkLocale> TODO: when doing the Scrum Guide, edit this accordingly -->
+          <NuxtLinkLocale to="scrumplicity-guide" class="lg:hidden">{{
+            $t("error.scrum_guide")
+          }}</NuxtLinkLocale>
           <NuxtLinkLocale to="role" class="hidden lg:block">{{
             $t("error.get_started")
           }}</NuxtLinkLocale>
