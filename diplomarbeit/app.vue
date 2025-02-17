@@ -80,12 +80,12 @@
               <p>& Developer</p>
               <div class="flex justify-center mt-2">
                 <a href="mailto:felix.wollmann@scrumplicity.app"><img src="assets/icons/VectoriconMail.svg"
-                                                                      class="w-8 mx-1"></a>
+                                                                      class="w-8 mx-1" alt="E-Mail"></a>
                 <NuxtLink to="https://www.linkedin.com/in/felixwollmann/ " target="_blank"><img
                     src="./assets/icons/VectoriconLinkedIn.svg"
-                    class="w-8 mx-1"></NuxtLink>
+                    class="w-8 mx-1" alt="LinkedIn-Logo"></NuxtLink>
                 <NuxtLink to="https://github.com/felixwollmann" target="_blank"><img
-                    src="./assets/icons/VectoriconGitHub.svg" class="w-8 mx-1"></NuxtLink>
+                    src="./assets/icons/VectoriconGitHub.svg" class="w-8 mx-1" alt="GitHub-Logo"></NuxtLink>
               </div>
             </div>
           </div>
@@ -102,12 +102,12 @@
               <p>& Developer</p>
               <div class="flex justify-center mt-2">
                 <a href="mailto:lisa-marie.hoermann@scrumplicity.app"><img src="assets/icons/VectoriconMail.svg"
-                                                                           class="w-8 mx-1"></a>
+                                                                           class="w-8 mx-1" alt="E-Mail"></a>
                 <NuxtLink to="https://www.linkedin.com/in/lisa-marie-hörmann/" target="_blank"><img
                     src="./assets/icons/VectoriconLinkedIn.svg"
-                    class="w-8 mx-1"></NuxtLink>
+                    class="w-8 mx-1" alt="LinkedIn-Logo"></NuxtLink>
                 <NuxtLink to="https://github.com/dasechtelima" target="_blank"><img
-                    src="./assets/icons/VectoriconGitHub.svg" class="w-8 mx-1"></NuxtLink>
+                    src="./assets/icons/VectoriconGitHub.svg" class="w-8 mx-1" alt="GitHub-Logo"></NuxtLink>
               </div>
             </div>
           </div>
@@ -124,12 +124,12 @@
               <p>& Developer</p>
               <div class="flex justify-center mt-2">
                 <a href="mailto:marco.janderka@scrumplicity.app"><img src="assets/icons/VectoriconMail.svg"
-                                                                      class="w-8 mx-1"></a>
+                                                                      class="w-8 mx-1" alt="E-Mail"></a>
                 <NuxtLink to="https://www.linkedin.com/in/marco-janderka/" target="_blank"><img
                     src="./assets/icons/VectoriconLinkedIn.svg"
-                    class="w-8 mx-1"></NuxtLink>
+                    class="w-8 mx-1" alt="LinkedIn-Logo"></NuxtLink>
                 <NuxtLink to="https://github.com/Pycxtv" target="_blank"><img
-                    src="./assets/icons/VectoriconGitHub.svg" class="w-8 mx-1"></NuxtLink>
+                    src="./assets/icons/VectoriconGitHub.svg" class="w-8 mx-1" alt="GitHub-Logo"></NuxtLink>
               </div>
             </div>
           </div>
@@ -146,12 +146,12 @@
               <p>& Head of Design</p>
               <div class="flex justify-center mt-2">
                 <a href="mailto:sophie.nemecek@scrumplicity.app"><img src="assets/icons/VectoriconMail.svg"
-                                                                      class="w-8 mx-1"></a>
+                                                                      class="w-8 mx-1" alt="E-Mail"></a>
                 <NuxtLink to="https://www.linkedin.com/in/sophie-nemecek/" target="_blank"><img
                     src="./assets/icons/VectoriconLinkedIn.svg"
-                    class="w-8 mx-1"></NuxtLink>
+                    class="w-8 mx-1" alt="LinkedIn-Logo"></NuxtLink>
                 <NuxtLink to="https://github.com/soplikessoup" target="_blank"><img
-                    src="./assets/icons/VectoriconGitHub.svg" class="w-8 mx-1"></NuxtLink>
+                    src="./assets/icons/VectoriconGitHub.svg" class="w-8 mx-1" alt="GitHub-Logo"></NuxtLink>
               </div>
             </div>
           </div>

@@ -4,6 +4,12 @@ definePageMeta({
   middleware: "ensure-playing",
 });
 
+const { t } = useI18n();
+
+useSeoMeta({
+  title: t("join_room.ready.page_title"),
+});
+
 const game = useGameStore();
 
 const { data: teamMembers } = await useAsyncData("teamMembers", () =>
