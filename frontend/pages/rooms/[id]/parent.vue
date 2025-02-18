@@ -16,6 +16,10 @@ const { data: manageRoom, refresh } = await useAsyncData("room", () =>
   client(`/api/rooms/${route.params.id}`),
 );
 
+useSeoMeta({
+  title: manageRoom.value.name,
+});
+
 const isOpen = ref(false);
 const timerPaused = ref(false);
 
