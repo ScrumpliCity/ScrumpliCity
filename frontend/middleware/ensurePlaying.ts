@@ -6,7 +6,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
   const localeRoute = useLocaleRoute();
 
   try {
-    await team.refresh(true);
+    await team.refresh(import.meta.server);
   } catch (error) {
     return navigateTo(localeRoute("play"), {
       replace: true,

@@ -232,14 +232,6 @@ export const useGameStore = defineStore("game", () => {
   async function _handlePhaseUpdate() {
     if (!team.value) return; // no team yet so nothing to handle
 
-    if (!correctRoute.value) return;
-    if (
-      correctRoute.value.name !== router.currentRoute.value.name ||
-      correctRoute.value.params.sprint !==
-        router.currentRoute.value.params.sprint
-    )
-      return navigateTo(correctRoute.value);
-
     if (
       // if sprint doesn't exist already
       !team.value.sprints.some(
@@ -253,6 +245,14 @@ export const useGameStore = defineStore("game", () => {
       );
       refresh();
     }
+
+    if (!correctRoute.value) return;
+    if (
+      correctRoute.value.name !== router.currentRoute.value.name ||
+      correctRoute.value.params.sprint !==
+        router.currentRoute.value.params.sprint
+    )
+      return navigateTo(correctRoute.value);
   }
 
   async function changeName(newName: string) {
