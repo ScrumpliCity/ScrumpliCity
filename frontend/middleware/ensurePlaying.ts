@@ -2,13 +2,6 @@ import { useGameStore } from "~/stores/game";
 
 export default defineNuxtRouteMiddleware(async (to, from) => {
   const team = useGameStore();
-  const nuxtApp = useNuxtApp();
-  // run this middleware: yes on the server, on the clien only if not server rendered and not hydrating
-  if (
-    import.meta.client &&
-    (nuxtApp.payload.serverRendered || !nuxtApp.isHydrating)
-  )
-    return console.log("skipping middlware");
 
   const localeRoute = useLocaleRoute();
 

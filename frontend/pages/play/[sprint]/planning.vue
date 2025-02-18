@@ -52,6 +52,9 @@ const currentStoryPoints = computed(
       .reduce((prev, curr) => (prev ?? 0) + (curr ?? 0), 0) ?? 0,
 );
 
+// info popovers are hidden when this is not the first sprint
+const isFirstSprint = computed(() => game.team?.room.current_sprint === 1);
+
 async function addUserStory() {
   const story = await game.createUserStory();
   userStories.value.push(story);
@@ -101,7 +104,7 @@ async function updateUserStory(
             class="block h-14 w-0 flex-1 rounded-lg border border-sc-black-400 bg-sc-white px-4 py-3 font-sans text-xl font-medium text-black outline-sc-orange drop-shadow-md"
           />
           <InfoPopover
-            v-if="showSprintNameInput"
+            v-if="showSprintNameInput && isFirstSprint"
             step="1"
             :text="$t('planning.set_a_sprint_name')"
           />
@@ -137,7 +140,7 @@ async function updateUserStory(
           <InfoPopover
             :text="$t('planning.define_sprint_goal')"
             step="2"
-            v-if="showSprintGoalInput"
+            v-if="showSprintGoalInput && isFirstSprint"
           />
         </div>
         <div
@@ -230,7 +233,7 @@ async function updateUserStory(
           >
             <UIcon name="ic:round-plus" class="size-8" />
             <InfoPopover
-              v-if="userStories.length === 0"
+              v-if="userStories.length === 0 && isFirstSprint"
               step="3"
               position="left"
               :text="$t('planning.write_user_story')"
@@ -268,7 +271,8 @@ async function updateUserStory(
                 <UIcon name="lucide:list-todo" class="size-6"> </UIcon>
 
                 <span class="text-lg font-bold">
-                  37<span class="text-xs">{{
+                  {{ currentStoryPoints
+                  }}<span class="text-xs">{{
                     $t("planning.story_points_abbreviation")
                   }}</span>
                 </span>
