@@ -193,27 +193,20 @@ export const useGameStore = defineStore("game", () => {
     );
   }
 
-  async function refresh() {
+  async function refresh(supressHandlingPhaseUpdate = false) {
     const data = await client(`/api/team/me`);
     team.value = data;
-    _handlePhaseUpdate();
+    if (!supressHandlingPhaseUpdate) _handlePhaseUpdate();
   }
 
-  /** Check for a timer state change (pause/resume/phase change) & handle it accordingly */
-  async function _handlePhaseUpdate() {
-    if (!team.value) return; // no team yet so nothing to handle
+  const correctRoute = computed(() => {
+    if (!team.value) return undefined;
 
-    const currentRoute = router.currentRoute.value;
-    const currentRouteName = currentRoute.name;
-
-    const currentPhase = team.value.room.current_phase;
-
-    // redirect to waiting screen if room is paused
     const roomIsPaused = !team.value.room.is_playing;
     if (roomIsPaused) {
-      const waitingScreenRoute = localeRoute("play-ready");
-      if (waitingScreenRoute !== currentRouteName)
-        return navigateTo(waitingScreenRoute);
+      return team.value.members.length > 0
+        ? localeRoute("play-ready")
+        : localeRoute("play-members");
     }
 
     const phases = {
@@ -222,14 +215,30 @@ export const useGameStore = defineStore("game", () => {
       review: "play-sprint-review",
     };
 
-    if (!(currentPhase in phases)) return;
+    const currentPhase = team.value.room.current_phase;
 
-    const correctRoute = localeRoute({
+    if (!(currentPhase in phases)) {
+      console.error(`Current phase ${currentPhase} is not implemented yet.`);
+      return undefined;
+    }
+
+    return localeRoute({
       name: phases[currentPhase as keyof typeof phases],
       params: { sprint: team.value.room.current_sprint },
     });
+  });
 
-    if (currentRouteName !== correctRoute) navigateTo(correctRoute);
+  /** Check for a timer state change (pause/resume/phase change) & handle it accordingly */
+  async function _handlePhaseUpdate() {
+    if (!team.value) return; // no team yet so nothing to handle
+
+    if (!correctRoute.value) return;
+    if (
+      correctRoute.value.name !== router.currentRoute.value.name ||
+      correctRoute.value.params.sprint !==
+        router.currentRoute.value.params.sprint
+    )
+      return navigateTo(correctRoute.value);
 
     if (
       // if sprint doesn't exist already
@@ -291,5 +300,6 @@ export const useGameStore = defineStore("game", () => {
     timerRemainingSeconds,
     timerState,
     timerTotalSeconds,
+    correctRoute,
   };
 });
