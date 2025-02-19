@@ -103,7 +103,7 @@
           </p>
         </div>
         <p
-          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg"
+          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
         >
           <span
             class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
@@ -116,7 +116,7 @@
         class="mb-5 flex flex-row flex-wrap-reverse items-center justify-between max-[1200px]:mb-16 max-[1200px]:justify-center"
       >
         <p
-          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg"
+          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
         >
           <span
             class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
@@ -153,7 +153,7 @@
           </p>
         </div>
         <p
-          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg"
+          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
         >
           <span
             class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
@@ -166,7 +166,7 @@
         class="mb-5 flex flex-row flex-wrap-reverse items-center justify-between max-[1200px]:mb-16 max-[1200px]:justify-center"
       >
         <p
-          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg"
+          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
         >
           <span
             class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
@@ -203,7 +203,7 @@
           </p>
         </div>
         <p
-          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg"
+          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
         >
           <span
             class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
@@ -216,7 +216,7 @@
         class="mb-16 flex flex-row flex-wrap-reverse items-center justify-between max-[1200px]:justify-center lg:mb-32"
       >
         <p
-          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg"
+          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
         >
           <span
             class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
