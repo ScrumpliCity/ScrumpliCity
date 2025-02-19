@@ -13,6 +13,7 @@
     "prepare": "cd .. && husky frontend/.husky"
   },
   "dependencies": {
+    "@esbuild/win32-x64": "^0.25.0",
     "@nuxt/ui": "^2.21.0",
     "@nuxtjs/i18n": "^9.2.0",
     "@nuxtjs/seo": "^2.1.1",
