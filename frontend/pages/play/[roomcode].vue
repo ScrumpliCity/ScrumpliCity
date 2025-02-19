@@ -1,4 +1,10 @@
 <script setup>
+const { t } = useI18n();
+
+useSeoMeta({
+  title: t("join_room.page_title"),
+});
+
 definePageMeta({
   layout: "play",
   middleware: (to, from) => {

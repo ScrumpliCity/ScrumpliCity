@@ -19,8 +19,16 @@ function switchLocale() {
         :font-controlled="false"
         class="size-14"
         filled
+        @mouseover="prefetchComponents('SvgI18nEn')"
       />
-      <LazySvgI18nEn v-else :font-controlled="false" class="size-14" filled />
+      <!-- prefetching Components to avoid flashing on the first click -->
+      <LazySvgI18nEn
+        v-else
+        :font-controlled="false"
+        class="size-14"
+        filled
+        @mouseover="prefetchComponents('SvgI18nDe')"
+      />
     </template>
   </UButton>
 </template>

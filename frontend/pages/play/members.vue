@@ -8,6 +8,10 @@ const toast = useToast();
 const { t } = useI18n();
 const localRoute = useLocaleRoute();
 
+useSeoMeta({
+  title: t("join_room.members.page_title"),
+});
+
 const game = useGameStore();
 
 const newMember = ref("");
@@ -52,9 +56,12 @@ function updateRole(memberId, newRole) {
   const member = teamMembers.value.find((member) => member.id === memberId);
 
   // Set role of original member with role to developer
-  const originalMember = teamMembers.value.find(
-    (member) => member.role === newRole && member.id !== memberId,
-  );
+  const originalMember =
+    newRole !== "Developer"
+      ? teamMembers.value.find(
+          (member) => member.role === newRole && member.id !== memberId,
+        )
+      : null;
   if (originalMember) {
     toast.add({
       title: t("join_room.role_taken.title"),

@@ -17,16 +17,36 @@
     "sprint_display": "{current_sprint}/{number_of_sprints} Sprints",
     "running_for": "läuft seit: {0}",
     "last_played": "zuletzt gespielt am: {0}",
-    "created_on": "erstellt am: {0}",
+    "created_on": "erstellt am {0}",
     "completed_on": "abgeschlossen am: {0}",
     "new": "Neu +",
     "teams": "{n} Team | {n} Teams",
+    "no_teams_yet": "Es sind noch keine Teams vorhanden..",
+    "room_code": "Raumcode",
+    "copy_room_code": "Raumcode kopieren",
+    "room_code_copied": "Raumcode kopiert!",
+    "phase_box": {
+      "default": "Starte den 1. Sprint!",
+      "planning": "Sprint Planning",
+      "build_phase": "Bauphase",
+      "review": "Sprint Review",
+      "retrospective": "Sprint Retro",
+      "backlog_refinement": "Backlog Refinement",
+      "next_phase": "nächste Phase",
+      "sprint": "Sprint",
+      "end_of_sprint": "Ende des Sprints:"
+    },
+    "product_owner_or_scrum_master_required": "Du brauchst einen Product Owner und einen Scrum Master in jedem Team, um weiterzumachen.",
+    "toggle_playing_error": "Fehler beim {status} des Raums!",
+    "start": "Starten",
+    "pause": "Pausieren",
     "profile": {
       "sign_out": "Abmelden",
       "account": "Konto",
       "signed_out_successfully": "Du hast dich erfolgreich abgemeldet!",
       "sign_out_error": "Beim Abmelden ist ein Fehler aufgetreten."
-    }
+    },
+    "page_title": "Deine Räume"
   },
   "create_room": {
     "heading": "Projekt-Raum erstellen",
@@ -38,13 +58,26 @@
     "minute": "Minute | Minuten",
     "create": "Erstellen",
     "room_created": "Raum erstellt!",
-    "creation_error": "Raumerstellung fehlgeschlagen!"
+    "creation_error": "Raumerstellung fehlgeschlagen!",
+    "page_title": "Neuer Raum"
+  },
+  "edit_room": {
+    "heading": "Projekt-Raum anpassen",
+    "room_name": "Name des Raums",
+    "sprint_count": "Anzahl an Sprints",
+    "build_phase_duration": "Dauer der Bauphase (min)",
+    "meeting_duration": "Planning- & Review-Dauer",
+    "total_duration": "Gesamtdauer",
+    "minute": "Minute | Minuten",
+    "save": "Speichern",
+    "room_editted": "Raum erfolgreich angepasst!",
+    "edit_error": "Raumanpassung fehlgeschlagen!"
   },
   "chooser": {
     "max_value_reached": "Wert zu groß!"
   },
   "generate_room_code": {
-    "generate_code": "Code generieren",
+    "generate_code": "Raumcode generieren",
     "title": "Tritt dem ScrumpliCity-Projekt-Raum bei!",
     "description": "Gehe auf {url} und gib diesen Code ein:",
     "url": "www.scrumplicity.app/play"
@@ -86,7 +119,11 @@
       "sprint_duration": "Sprintdauer",
       "planning_duration": "Planningdauer",
       "review_duration": "Reviewdauer",
-      "minutes": "min"
+      "minutes": "min",
+      "page_title": "Gleich geht's los"
+    },
+    "members": {
+      "page_title": "Mitglieder hinzufügen"
     },
     "infobox": {
       "welcome": {
@@ -103,13 +140,15 @@
           "development_team": "Entwicklungsteam (Developer)"
         }
       }
-    }
+    },
+    "page_title": "Raum beitreten"
   },
   "role": {
     "title": "Was ist deine Rolle?",
     "description": "Wähle deine Rolle aus, damit ScrumpliCity auf dich zugeschnitten werden kann!",
     "learner": "Ich bin Lernende*r",
-    "tutor": "Ich bin Tutor*in"
+    "tutor": "Ich bin Tutor*in",
+    "page_title": "Deine Rolle"
   },
   "login": {
     "get_started_with_scrumplicity": "Leg' los bei ScrumpliCity",
@@ -122,7 +161,8 @@
     "legal_notice": "Impressum",
     "phases": {
       "sprint_planning": "Sprint Planning",
-      "build_phase": "Bauphase"
+      "build_phase": "Bauphase",
+      "review": "Sprint Review"
     }
   },
   "legal_notice": {
@@ -186,8 +226,52 @@
       }
     }
   },
+  "build_phase": {
+    "build_phase": "@:common.phases.build_phase",
+    "in_progress": "In Arbeit",
+    "done": "Fertig",
+    "responsible": "Verantwortliche*r"
+  },
+  "review": {
+    "review": "@:common.phases.review",
+    "title": "Titel",
+    "description": "Beschreibung",
+    "story_points": "Story Points",
+    "approved": "Abgenommen",
+    "sprint_out_of_n": "Sprint {current}/{total}",
+    "next_phase": "Nächste Phase:",
+    "responsible": "Verantwortliche*r",
+    "story_points_abbreviation": "SP.",
+    "planning": "Sprint Planning",
+    "story_points_of_planned_user_stories": "Story Points der geplanten User Stories",
+    "accepted_story_points": "Story Points der abgenommenen User Stories",
+    "velocity_to_date": "Bisherige Velocity",
+    "infobox": {
+      "title": "Sprint Review",
+      "content": "Das Sprint Review dient dazu, das fertige Inkrement des Produkts vorzustellen und zu überprüfen. Der Product Owner (PO) prüft demnach, ob alle Anforderungen der User Stories (US) erfüllt wurden. Wenn dies geschehen ist, wird die US als abgenommen definiert. Ziel des Meetings ist es, das Produkt zu inspizieren und gemeinsam mit den Stakeholdern mögliche Anpassungen für die nächsten Sprints zu besprechen."
+    }
+  },
   "infobox": {
     "current_of_total": "{current} von {total}"
+  },
+  "team_manager": {
+    "missing_roles": "Nicht alle Rollen sind vergeben! \n Bitte vergib die Rolle {roles}, um fortzufahren.",
+    "and": "und",
+    "add_member_error": "Fehler beim Hinzufügen von Mitgliedern!",
+    "delete_member_error": "Fehler beim Löschen von Mitgliedern!",
+    "update_role_error": "Fehler beim Aktualisieren der Rolle!",
+    "member_deleted": "Mitglied gelöscht!",
+    "role_taken": {
+      "title": "Rolle war bereits vergeben!",
+      "description": "{member} wurde wieder Developer."
+    },
+    "delete": {
+      "are_you_sure": "Bist du sicher, dass du das Team {name} löschen möchtest?",
+      "success": "Erfolgreich gelöscht",
+      "error": "Ein Fehler ist aufgetreten",
+      "delete_room": "Dieses Team löschen",
+      "delete_forever": "Für immer löschen"
+    }
   },
   "homepage": {
     "project_description": "Lerne die agile Projektmanagement\u00ADmethode Scrum mittels Bau einer Papierstadt! ScrumpliCity stellt eine Web-Applikation, Bastelvorlagen und Erklärungen zu Scrum zur Verfügung – also: ",
