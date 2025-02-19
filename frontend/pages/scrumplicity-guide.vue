@@ -9,276 +9,278 @@
   >
     <UIcon name="mdi:arrow-up" size="100" class="bg-sc-black" />
   </UButton>
-  <div
-    class="flex h-fit min-h-screen flex-col bg-[url('/assets/svg/ScrumpliCityGuideBackgroundSM.svg')] bg-cover bg-[bottom_1rem_left_1rem] bg-no-repeat text-justify lg:bg-[url('/assets/svg/ScrumpliCityGuideBackground.svg')] lg:bg-[bottom_2rem_left_2rem]"
-  >
+  <div class="h-fit w-full bg-sc-white">
     <div
-      class="mb-[20vh] mt-[104px] flex w-[76.547vw] flex-col gap-2 self-center font-sans lg:mt-32"
+      class="flex h-fit min-h-screen flex-col bg-[url('/assets/svg/ScrumpliCityGuideBackgroundSM.svg')] bg-cover bg-[bottom_1rem_left_1rem] bg-no-repeat text-justify lg:bg-[url('/assets/svg/ScrumpliCityGuideBackground.svg')] lg:bg-[bottom_2rem_left_2rem]"
     >
-      <h1
-        class="mb-8 text-left font-heading text-3xl font-bold text-sc-orange sm:text-center md:text-4xl lg:text-5xl"
+      <div
+        class="mb-[20vh] mt-[104px] flex w-[76.547vw] flex-col gap-2 self-center font-sans lg:mt-32"
       >
-        {{ $t("scrumplicity_guide.title") }}
-      </h1>
-      <div class="relative mb-5">
-        <SvgTutorSm
-          class="float-right mb-10 ml-[10vw] mt-10 h-[15vw] max-h-52 min-h-20 w-auto"
-          :fontControlled="false"
-          filled
-        />
-        <i18n-t
-          keypath="scrumplicity_guide.overview"
-          tag="p"
-          class="mb-5 text-base font-medium md:text-lg"
-          scope="global"
+        <h1
+          class="mb-8 text-left font-heading text-3xl font-bold text-sc-orange sm:text-center md:text-4xl lg:text-5xl"
         >
-          <template #link>
-            <NuxtLink
-              to="https://www.scrum.org/"
-              target="_blank"
-              external
-              class="text-sc-orange underline"
+          {{ $t("scrumplicity_guide.title") }}
+        </h1>
+        <div class="relative mb-5">
+          <SvgTutorSm
+            class="float-right mb-10 ml-[10vw] mt-10 h-[15vw] max-h-52 min-h-20 w-auto"
+            :fontControlled="false"
+            filled
+          />
+          <i18n-t
+            keypath="scrumplicity_guide.overview"
+            tag="p"
+            class="mb-5 text-base font-medium md:text-lg"
+            scope="global"
+          >
+            <template #link>
+              <NuxtLink
+                to="https://www.scrum.org/"
+                target="_blank"
+                external
+                class="text-sc-orange underline"
+              >
+                {{ $t("scrumplicity_guide.link") }}
+              </NuxtLink>
+            </template>
+          </i18n-t>
+          <p
+            class="mb-4 text-left font-heading text-xl font-bold text-sc-orange md:text-2xl lg:text-3xl"
+          >
+            {{ $t("scrumplicity_guide.introduction.title") }}
+          </p>
+          <p class="text-base font-medium md:text-lg">
+            {{ $t("scrumplicity_guide.introduction.description") }}
+          </p>
+        </div>
+        <div class="relative mb-5">
+          <p
+            class="mb-4 text-left font-heading text-xl font-bold text-sc-orange md:text-2xl lg:text-3xl"
+          >
+            {{ $t("scrumplicity_guide.prerequisites.title") }}
+          </p>
+          <SvgCraftingTemplateIllustration
+            class="float-right mb-10 ml-[10vw] h-[10vw] max-h-28 min-h-20 w-auto"
+            :fontControlled="false"
+            filled
+          />
+          <p class="text-base font-medium md:text-lg">
+            {{ $t("scrumplicity_guide.prerequisites.description") }}
+          </p>
+        </div>
+        <div class="relative mb-16 lg:mb-32">
+          <p
+            class="mb-4 text-left font-heading text-xl font-bold text-sc-orange md:text-2xl lg:text-3xl"
+          >
+            {{ $t("scrumplicity_guide.scrum_content.title") }}
+          </p>
+          <SvgScrumProcessIllustration
+            class="float-right mb-10 ml-[10vw] h-[10vw] max-h-28 min-h-20 w-auto"
+            :fontControlled="false"
+            filled
+          />
+          <p class="text-base font-medium md:text-lg">
+            {{ $t("scrumplicity_guide.scrum_content.description") }}
+          </p>
+        </div>
+        <h2
+          class="mb-8 self-start text-left font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
+        >
+          {{ $t("scrumplicity_guide.step_by_step.title") }}
+        </h2>
+        <div
+          class="mb-5 flex flex-row flex-wrap items-center justify-between max-[1200px]:mb-16 max-[1200px]:justify-center"
+        >
+          <div class="mr-12 flex h-auto w-[541px] flex-col max-[1200px]:ml-12">
+            <img
+              src="/assets/png/role_page.png"
+              alt="Role Page"
+              class="mb-2 drop-shadow-sc-shadow"
+            />
+            <p
+              class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
             >
-              {{ $t("scrumplicity_guide.link") }}
-            </NuxtLink>
-          </template>
-        </i18n-t>
-        <p
-          class="mb-4 text-left font-heading text-xl font-bold text-sc-orange md:text-2xl lg:text-3xl"
-        >
-          {{ $t("scrumplicity_guide.introduction.title") }}
-        </p>
-        <p class="text-base font-medium md:text-lg">
-          {{ $t("scrumplicity_guide.introduction.description") }}
-        </p>
-      </div>
-      <div class="relative mb-5">
-        <p
-          class="mb-4 text-left font-heading text-xl font-bold text-sc-orange md:text-2xl lg:text-3xl"
-        >
-          {{ $t("scrumplicity_guide.prerequisites.title") }}
-        </p>
-        <SvgCraftingTemplateIllustration
-          class="float-right mb-10 ml-[10vw] h-[10vw] max-h-28 min-h-20 w-auto"
-          :fontControlled="false"
-          filled
-        />
-        <p class="text-base font-medium md:text-lg">
-          {{ $t("scrumplicity_guide.prerequisites.description") }}
-        </p>
-      </div>
-      <div class="relative mb-16 lg:mb-32">
-        <p
-          class="mb-4 text-left font-heading text-xl font-bold text-sc-orange md:text-2xl lg:text-3xl"
-        >
-          {{ $t("scrumplicity_guide.scrum_content.title") }}
-        </p>
-        <SvgScrumProcessIllustration
-          class="float-right mb-10 ml-[10vw] h-[10vw] max-h-28 min-h-20 w-auto"
-          :fontControlled="false"
-          filled
-        />
-        <p class="text-base font-medium md:text-lg">
-          {{ $t("scrumplicity_guide.scrum_content.description") }}
-        </p>
-      </div>
-      <h2
-        class="mb-8 self-start text-left font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
-      >
-        {{ $t("scrumplicity_guide.step_by_step.title") }}
-      </h2>
-      <div
-        class="mb-5 flex flex-row flex-wrap items-center justify-between max-[1200px]:mb-16 max-[1200px]:justify-center"
-      >
-        <div class="mr-12 flex h-auto w-[541px] flex-col max-[1200px]:ml-12">
-          <img
-            src="/assets/png/role_page.png"
-            alt="Role Page"
-            class="mb-2 drop-shadow-sc-shadow"
-          />
+              {{ $t("scrumplicity_guide.step_by_step.caption1") }}
+            </p>
+          </div>
           <p
-            class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+            class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
           >
-            {{ $t("scrumplicity_guide.step_by_step.caption1") }}
+            <span
+              class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
+              >1.</span
+            >
+            {{ $t("scrumplicity_guide.step_by_step.description1") }}
           </p>
         </div>
-        <p
-          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
+        <div
+          class="mb-5 flex flex-row flex-wrap-reverse items-center justify-between max-[1200px]:mb-16 max-[1200px]:justify-center"
         >
-          <span
-            class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
-            >1.</span
-          >
-          {{ $t("scrumplicity_guide.step_by_step.description1") }}
-        </p>
-      </div>
-      <div
-        class="mb-5 flex flex-row flex-wrap-reverse items-center justify-between max-[1200px]:mb-16 max-[1200px]:justify-center"
-      >
-        <p
-          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
-        >
-          <span
-            class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
-            >2.</span
-          >
-          {{ $t("scrumplicity_guide.step_by_step.description2") }}
-        </p>
-        <div class="ml-12 flex h-auto w-[541px] flex-col max-[1200px]:mr-12">
-          <img
-            src="/assets/png/rooms_page.png"
-            alt="Role selection page"
-            class="mb-2 drop-shadow-sc-shadow"
-          />
           <p
-            class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+            class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
           >
-            {{ $t("scrumplicity_guide.step_by_step.caption2") }}
+            <span
+              class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
+              >2.</span
+            >
+            {{ $t("scrumplicity_guide.step_by_step.description2") }}
+          </p>
+          <div class="ml-12 flex h-auto w-[541px] flex-col max-[1200px]:mr-12">
+            <img
+              src="/assets/png/rooms_page.png"
+              alt="Role selection page"
+              class="mb-2 drop-shadow-sc-shadow"
+            />
+            <p
+              class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+            >
+              {{ $t("scrumplicity_guide.step_by_step.caption2") }}
+            </p>
+          </div>
+        </div>
+        <div
+          class="mb-5 flex flex-row flex-wrap items-center justify-between max-[1200px]:mb-16 max-[1200px]:justify-center"
+        >
+          <div class="mr-12 flex h-auto w-[541px] flex-col max-[1200px]:ml-12">
+            <img
+              src="/assets/png/create_room.png"
+              alt="Create room overlay"
+              class="mb-2 drop-shadow-sc-shadow"
+            />
+            <p
+              class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+            >
+              {{ $t("scrumplicity_guide.step_by_step.caption3") }}
+            </p>
+          </div>
+          <p
+            class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
+          >
+            <span
+              class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
+              >3.</span
+            >
+            {{ $t("scrumplicity_guide.step_by_step.description3") }}
           </p>
         </div>
-      </div>
-      <div
-        class="mb-5 flex flex-row flex-wrap items-center justify-between max-[1200px]:mb-16 max-[1200px]:justify-center"
-      >
-        <div class="mr-12 flex h-auto w-[541px] flex-col max-[1200px]:ml-12">
-          <img
-            src="/assets/png/create_room.png"
-            alt="Create room overlay"
-            class="mb-2 drop-shadow-sc-shadow"
-          />
+        <div
+          class="mb-5 flex flex-row flex-wrap-reverse items-center justify-between max-[1200px]:mb-16 max-[1200px]:justify-center"
+        >
           <p
-            class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+            class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
           >
-            {{ $t("scrumplicity_guide.step_by_step.caption3") }}
+            <span
+              class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
+              >4.</span
+            >
+            {{ $t("scrumplicity_guide.step_by_step.description4") }}
+          </p>
+          <div class="ml-12 flex h-auto w-[541px] flex-col max-[1200px]:mr-12">
+            <img
+              src="/assets/png/download_crafting-templates.png"
+              alt="Download crafting-templates in the room overview"
+              class="mb-2 drop-shadow-sc-shadow"
+            />
+            <p
+              class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+            >
+              {{ $t("scrumplicity_guide.step_by_step.caption4") }}
+            </p>
+          </div>
+        </div>
+        <div
+          class="mb-5 flex flex-row flex-wrap items-center justify-between max-[1200px]:mb-16 max-[1200px]:justify-center"
+        >
+          <div class="mr-12 flex h-auto w-[541px] flex-col max-[1200px]:ml-12">
+            <img
+              src="/assets/png/room_manage.png"
+              alt="Manage a single room"
+              class="mb-2 drop-shadow-sc-shadow"
+            />
+            <p
+              class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+            >
+              {{ $t("scrumplicity_guide.step_by_step.caption5") }}
+            </p>
+          </div>
+          <p
+            class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
+          >
+            <span
+              class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
+              >5.</span
+            >
+            {{ $t("scrumplicity_guide.step_by_step.description5") }}
           </p>
         </div>
-        <p
-          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
+        <div
+          class="mb-16 flex flex-row flex-wrap-reverse items-center justify-between max-[1200px]:justify-center lg:mb-32"
         >
-          <span
-            class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
-            >3.</span
-          >
-          {{ $t("scrumplicity_guide.step_by_step.description3") }}
-        </p>
-      </div>
-      <div
-        class="mb-5 flex flex-row flex-wrap-reverse items-center justify-between max-[1200px]:mb-16 max-[1200px]:justify-center"
-      >
-        <p
-          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
-        >
-          <span
-            class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
-            >4.</span
-          >
-          {{ $t("scrumplicity_guide.step_by_step.description4") }}
-        </p>
-        <div class="ml-12 flex h-auto w-[541px] flex-col max-[1200px]:mr-12">
-          <img
-            src="/assets/png/download_crafting-templates.png"
-            alt="Download crafting-templates in the room overview"
-            class="mb-2 drop-shadow-sc-shadow"
-          />
           <p
-            class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+            class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
           >
-            {{ $t("scrumplicity_guide.step_by_step.caption4") }}
+            <span
+              class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
+              >6.</span
+            >
+            {{ $t("scrumplicity_guide.step_by_step.description6") }}
           </p>
+          <div class="ml-12 flex h-auto w-[541px] flex-col max-[1200px]:mr-12">
+            <img
+              src="/assets/png/start_game.png"
+              alt="Manage teams and start the game"
+              class="mb-2 drop-shadow-sc-shadow"
+            />
+            <p
+              class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+            >
+              {{ $t("scrumplicity_guide.step_by_step.caption6") }}
+            </p>
+          </div>
         </div>
-      </div>
-      <div
-        class="mb-5 flex flex-row flex-wrap items-center justify-between max-[1200px]:mb-16 max-[1200px]:justify-center"
-      >
-        <div class="mr-12 flex h-auto w-[541px] flex-col max-[1200px]:ml-12">
-          <img
-            src="/assets/png/room_manage.png"
-            alt="Manage a single room"
-            class="mb-2 drop-shadow-sc-shadow"
+        <h3
+          class="mb-8 self-start text-left font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
+        >
+          {{ $t("scrumplicity_guide.learners_title") }}
+        </h3>
+        <div class="relative lg:mb-32">
+          <SvgLearnerSm
+            class="float-right mb-10 ml-[10vw] h-[15vw] max-h-52 min-h-20 w-auto"
+            :fontControlled="false"
+            filled
           />
-          <p
-            class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+          <i18n-t
+            keypath="scrumplicity_guide.learners_description"
+            tag="p"
+            class="flex-1 bg-sc-white/70 text-base font-medium md:text-lg"
+            scope="global"
           >
-            {{ $t("scrumplicity_guide.step_by_step.caption5") }}
-          </p>
+            <template #join_steps>
+              <ul class="ml-6 list-disc text-left">
+                <li>
+                  {{ $t("scrumplicity_guide.join_steps.step1") }}
+                </li>
+                <li>
+                  {{ $t("scrumplicity_guide.join_steps.step2") }}
+                </li>
+                <li>
+                  {{ $t("scrumplicity_guide.join_steps.step3") }}
+                </li>
+                <li>
+                  {{ $t("scrumplicity_guide.join_steps.step4") }}
+                </li>
+              </ul>
+            </template>
+          </i18n-t>
         </div>
-        <p
-          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
-        >
-          <span
-            class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
-            >5.</span
+        <div class="flex w-full justify-center">
+          <NuxtLink :to="localeRoute('role')">
+            <UButton
+              class="hidden !opacity-100 drop-shadow-sc-shadow hover:bg-sc-orange-700 lg:block lg:px-5 lg:py-2 lg:text-base lg:font-bold xl:text-xl"
+              >{{ $t("scrumplicity_guide.get_started") }}</UButton
+            ></NuxtLink
           >
-          {{ $t("scrumplicity_guide.step_by_step.description5") }}
-        </p>
-      </div>
-      <div
-        class="mb-16 flex flex-row flex-wrap-reverse items-center justify-between max-[1200px]:justify-center lg:mb-32"
-      >
-        <p
-          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
-        >
-          <span
-            class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
-            >6.</span
-          >
-          {{ $t("scrumplicity_guide.step_by_step.description6") }}
-        </p>
-        <div class="ml-12 flex h-auto w-[541px] flex-col max-[1200px]:mr-12">
-          <img
-            src="/assets/png/start_game.png"
-            alt="Manage teams and start the game"
-            class="mb-2 drop-shadow-sc-shadow"
-          />
-          <p
-            class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
-          >
-            {{ $t("scrumplicity_guide.step_by_step.caption6") }}
-          </p>
         </div>
-      </div>
-      <h3
-        class="mb-8 self-start text-left font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
-      >
-        {{ $t("scrumplicity_guide.learners_title") }}
-      </h3>
-      <div class="relative lg:mb-32">
-        <SvgLearnerSm
-          class="float-right mb-10 ml-[10vw] h-[15vw] max-h-52 min-h-20 w-auto"
-          :fontControlled="false"
-          filled
-        />
-        <i18n-t
-          keypath="scrumplicity_guide.learners_description"
-          tag="p"
-          class="flex-1 bg-sc-white/70 text-base font-medium md:text-lg"
-          scope="global"
-        >
-          <template #join_steps>
-            <ul class="ml-6 list-disc text-left">
-              <li>
-                {{ $t("scrumplicity_guide.join_steps.step1") }}
-              </li>
-              <li>
-                {{ $t("scrumplicity_guide.join_steps.step2") }}
-              </li>
-              <li>
-                {{ $t("scrumplicity_guide.join_steps.step3") }}
-              </li>
-              <li>
-                {{ $t("scrumplicity_guide.join_steps.step4") }}
-              </li>
-            </ul>
-          </template>
-        </i18n-t>
-      </div>
-      <div class="flex w-full justify-center">
-        <NuxtLink :to="localeRoute('role')">
-          <UButton
-            class="hidden !opacity-100 drop-shadow-sc-shadow hover:bg-sc-orange-700 lg:block lg:px-5 lg:py-2 lg:text-base lg:font-bold xl:text-xl"
-            >{{ $t("scrumplicity_guide.get_started") }}</UButton
-          ></NuxtLink
-        >
       </div>
     </div>
   </div>
