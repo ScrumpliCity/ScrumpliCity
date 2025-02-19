@@ -36,7 +36,7 @@
             <NuxtLink
               to="https://www.scrum.org/"
               target="_blank"
-              external="true"
+              external
               class="text-sc-orange underline"
             >
               {{ $t("scrumplicity_guide.link") }}
@@ -44,7 +44,7 @@
           </template>
         </i18n-t>
         <p
-          class="mb-3 text-left font-heading text-xl font-bold text-sc-orange md:text-2xl lg:text-3xl"
+          class="mb-4 text-left font-heading text-xl font-bold text-sc-orange md:text-2xl lg:text-3xl"
         >
           {{ $t("scrumplicity_guide.introduction.title") }}
         </p>
@@ -52,12 +52,12 @@
           {{ $t("scrumplicity_guide.introduction.description") }}
         </p>
       </div>
-      <p
-        class="mb-3 text-left font-heading text-xl font-bold text-sc-orange md:text-2xl lg:text-3xl"
-      >
-        {{ $t("scrumplicity_guide.prerequisites.title") }}
-      </p>
       <div class="relative mb-5">
+        <p
+          class="mb-4 text-left font-heading text-xl font-bold text-sc-orange md:text-2xl lg:text-3xl"
+        >
+          {{ $t("scrumplicity_guide.prerequisites.title") }}
+        </p>
         <SvgCraftingTemplateIllustration
           class="float-right mb-10 ml-[10vw] h-[10vw] max-h-28 min-h-20 w-auto"
           :fontControlled="false"
@@ -67,12 +67,12 @@
           {{ $t("scrumplicity_guide.prerequisites.description") }}
         </p>
       </div>
-      <p
-        class="mb-3 text-left font-heading text-xl font-bold text-sc-orange md:text-2xl lg:text-3xl"
-      >
-        {{ $t("scrumplicity_guide.scrum_content.title") }}
-      </p>
       <div class="relative mb-16 lg:mb-32">
+        <p
+          class="mb-4 text-left font-heading text-xl font-bold text-sc-orange md:text-2xl lg:text-3xl"
+        >
+          {{ $t("scrumplicity_guide.scrum_content.title") }}
+        </p>
         <SvgScrumProcessIllustration
           class="float-right mb-10 ml-[10vw] h-[10vw] max-h-28 min-h-20 w-auto"
           :fontControlled="false"
@@ -87,19 +87,23 @@
       >
         {{ $t("scrumplicity_guide.step_by_step.title") }}
       </h2>
-      <div class="mb-5 flex flex-row flex-wrap items-center justify-between">
-        <div class="mr-12 flex h-auto w-[541px] flex-col">
+      <div
+        class="mb-5 flex flex-row flex-wrap items-center justify-between max-[1200px]:mb-16 max-[1200px]:justify-center"
+      >
+        <div class="mr-12 flex h-auto w-[541px] flex-col max-[1200px]:ml-12">
           <img
             src="/assets/png/role_page.png"
             alt="Role Page"
             class="mb-2 drop-shadow-sc-shadow"
           />
-          <p class="text-base font-medium text-sc-black-600">
+          <p
+            class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+          >
             {{ $t("scrumplicity_guide.step_by_step.caption1") }}
           </p>
         </div>
         <p
-          class="mt-5 flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px]"
+          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg"
         >
           <span
             class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
@@ -109,38 +113,48 @@
         </p>
       </div>
       <div
-        class="mb-5 flex flex-row flex-wrap-reverse items-center justify-between"
+        class="mb-5 flex flex-row flex-wrap-reverse items-center justify-between max-[1200px]:mb-16 max-[1200px]:justify-center"
       >
-        <p class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px]">
+        <p
+          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg"
+        >
           <span
             class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
             >2.</span
           >
           {{ $t("scrumplicity_guide.step_by_step.description2") }}
         </p>
-        <div class="ml-12 flex h-auto w-[541px] flex-col">
+        <div class="ml-12 flex h-auto w-[541px] flex-col max-[1200px]:mr-12">
           <img
             src="/assets/png/rooms_page.png"
             alt="Role selection page"
             class="mb-2 drop-shadow-sc-shadow"
           />
-          <p class="text-base font-medium text-sc-black-600">
+          <p
+            class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+          >
             {{ $t("scrumplicity_guide.step_by_step.caption2") }}
           </p>
         </div>
       </div>
-      <div class="mb-5 flex flex-row flex-wrap items-center justify-between">
-        <div class="mr-12 flex h-auto w-[541px] flex-col">
+      <div
+        class="mb-5 flex flex-row flex-wrap items-center justify-between max-[1200px]:mb-16 max-[1200px]:justify-center"
+      >
+        <div class="mr-12 flex h-auto w-[541px] flex-col max-[1200px]:ml-12">
           <img
             src="/assets/png/create_room.png"
             alt="Create room overlay"
             class="mb-2 drop-shadow-sc-shadow"
           />
-          <p class="text-base font-medium text-sc-black-600">
+          <p
+            class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+          >
             {{ $t("scrumplicity_guide.step_by_step.caption3") }}
           </p>
         </div>
-        <p class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px]">
+        <p
+          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg"
+        >
           <span
             class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
             >3.</span
@@ -149,38 +163,48 @@
         </p>
       </div>
       <div
-        class="mb-5 flex flex-row flex-wrap-reverse items-center justify-between"
+        class="mb-5 flex flex-row flex-wrap-reverse items-center justify-between max-[1200px]:mb-16 max-[1200px]:justify-center"
       >
-        <p class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px]">
+        <p
+          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg"
+        >
           <span
             class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
             >4.</span
           >
           {{ $t("scrumplicity_guide.step_by_step.description4") }}
         </p>
-        <div class="ml-12 flex h-auto w-[541px] flex-col">
+        <div class="ml-12 flex h-auto w-[541px] flex-col max-[1200px]:mr-12">
           <img
             src="/assets/png/download_crafting-templates.png"
             alt="Download crafting-templates in the room overview"
             class="mb-2 drop-shadow-sc-shadow"
           />
-          <p class="text-base font-medium text-sc-black-600">
+          <p
+            class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+          >
             {{ $t("scrumplicity_guide.step_by_step.caption4") }}
           </p>
         </div>
       </div>
-      <div class="mb-5 flex flex-row flex-wrap items-center justify-between">
-        <div class="mr-12 flex h-auto w-[541px] flex-col">
+      <div
+        class="mb-5 flex flex-row flex-wrap items-center justify-between max-[1200px]:mb-16 max-[1200px]:justify-center"
+      >
+        <div class="mr-12 flex h-auto w-[541px] flex-col max-[1200px]:ml-12">
           <img
             src="/assets/png/room_manage.png"
             alt="Manage a single room"
             class="mb-2 drop-shadow-sc-shadow"
           />
-          <p class="text-base font-medium text-sc-black-600">
+          <p
+            class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+          >
             {{ $t("scrumplicity_guide.step_by_step.caption5") }}
           </p>
         </div>
-        <p class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px]">
+        <p
+          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg"
+        >
           <span
             class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
             >5.</span
@@ -189,22 +213,26 @@
         </p>
       </div>
       <div
-        class="mb-16 flex flex-row flex-wrap-reverse items-center justify-between lg:mb-32"
+        class="mb-16 flex flex-row flex-wrap-reverse items-center justify-between max-[1200px]:justify-center lg:mb-32"
       >
-        <p class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px]">
+        <p
+          class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg"
+        >
           <span
             class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
             >6.</span
           >
           {{ $t("scrumplicity_guide.step_by_step.description6") }}
         </p>
-        <div class="ml-12 flex h-auto w-[541px] flex-col">
+        <div class="ml-12 flex h-auto w-[541px] flex-col max-[1200px]:mr-12">
           <img
             src="/assets/png/start_game.png"
             alt="Manage teams and start the game"
             class="mb-2 drop-shadow-sc-shadow"
           />
-          <p class="text-base font-medium text-sc-black-600">
+          <p
+            class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+          >
             {{ $t("scrumplicity_guide.step_by_step.caption6") }}
           </p>
         </div>
