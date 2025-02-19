@@ -54,11 +54,11 @@ const localRoute = useLocaleRoute();
 const teamName = ref("");
 
 async function submit() {
-  await game.changeName(teamName.value);
   if (roomAlreadyPlayed) {
     //await navigateTo(localRoute("ready"));
     console.log("TODO: navigate to ready");
   } else {
+    await game.changeName(teamName.value);
     await navigateTo(localRoute("play-members"));
   }
 }
@@ -109,6 +109,7 @@ let selected = ref();
 
 function changeSelected(team) {
   selected = team;
+  dropdownOpen.value = false;
 }
 
 const dropdownOpen = ref(false);
@@ -136,37 +137,48 @@ const dropdownOpen = ref(false);
       @click="dropdownOpen = !dropdownOpen"
       tabindex="0"
       @keydown.space="dropdownOpen = !dropdownOpen"
-      class="mt-16 max-h-[40vh] w-fit cursor-pointer overflow-scroll rounded-lg border-2 border-sc-black-400 bg-sc-white py-8 text-center text-5xl font-medium drop-shadow-sc-shadow"
+      class="relative mt-16 min-h-[132.8px] w-[660.2px] cursor-pointer items-center justify-center overflow-scroll rounded-lg border-2 border-sc-black-400 bg-sc-white py-8 text-center text-5xl font-medium drop-shadow-sc-shadow"
     >
-      <p v-if="selected?.name" class="text-sc-black-400">
+      <p
+        v-if="selected"
+        class="flex h-full items-center justify-center text-sc-black"
+      >
         {{ selected.name }}
       </p>
-      <p v-else class="text-sc-black-400">
+      <p
+        v-else
+        class="flex h-full items-center justify-center text-sc-black-400"
+      >
         {{ $t("join_room.team_name") }}
       </p>
+      <UIcon
+        name="ep:arrow-up-bold"
+        class="absolute right-14 top-1/2 -translate-y-1/2 transform text-sc-orange transition-transform"
+        :class="{ 'rotate-180': !dropdownOpen }"
+      />
+    </div>
+    <div
+      v-if="dropdownOpen"
+      class="mt-3 flex max-h-[30vh] w-[660.2px] cursor-pointer flex-col items-center justify-center overflow-scroll rounded-lg border-2 border-sc-black-400 bg-sc-white pt-16 text-center text-5xl font-medium drop-shadow-sc-shadow"
+    >
       <div
-        v-if="dropdownOpen"
-        class="flex flex-col items-center justify-center"
+        v-for="team in existingTeams"
+        :key="team.name"
+        @click="changeSelected(team)"
+        class="flex w-full items-center justify-center px-6 hover:bg-sc-black-200"
       >
-        <div
-          v-for="team in existingTeams"
-          :key="team.name"
-          @click="changeSelected(team)"
-          class="w-full px-14 hover:bg-sc-black-200"
+        <button
+          class="flex w-full flex-col items-center border-t-2 border-sc-black py-10"
         >
-          <button
-            class="flex flex-col items-center border-b-2 border-sc-black py-6"
-          >
-            <p class="mb-1 text-3xl font-bold">{{ team.name }}</p>
-            <p class="text-xs">{{ team.members.join(", ") }}</p>
-          </button>
-        </div>
+          <p class="mb-1 text-3xl font-bold">{{ team.name }}</p>
+          <p class="text-xs">{{ team.members.join(", ") }}</p>
+        </button>
       </div>
     </div>
     <button
       v-if="!dropdownOpen"
       @click="submit"
-      :disabled="!teamName"
+      :disabled="teamName === '' && !selected"
       class="mt-12 w-72 cursor-pointer rounded-lg bg-sc-green py-6 text-center text-4xl font-bold text-sc-black drop-shadow-sc-shadow transition-colors hover:bg-sc-green-400 disabled:cursor-not-allowed disabled:bg-sc-black-400 disabled:text-sc-white"
     >
       {{ $t("join_room.team_join") }}
