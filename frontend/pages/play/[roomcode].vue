@@ -62,7 +62,7 @@ async function submit() {
   }
 }
 
-//TODO: check if "last_play_start" is not null => Spiel noch nie gestartet
+//TODO: check if "last_play_start" is not null => Room hasn't been started
 const roomAlreadyPlayed = ref(true);
 //TODO: get existing teams from backend
 const existingTeams = [
