@@ -424,7 +424,7 @@ function copyRoomCode() {
     <UPopover
       mode="hover"
       class="absolute bottom-5 right-9 active:pointer-events-none disabled:pointer-events-auto"
-      :disabled="allTeamsReady"
+      :disabled="allTeamsReady || isPlaying"
     >
       <template #panel>
         <p class="w-80 p-3">
@@ -444,7 +444,7 @@ function copyRoomCode() {
             size: { sm: isPlaying ? 'size-[3.875rem]' : 'size-20' },
           },
         }"
-        :disabled="!allTeamsReady || !manageRoom?.teams?.length"
+        :disabled="(!allTeamsReady || !manageRoom?.teams?.length) && !isPlaying"
       ></UButton>
     </UPopover>
 

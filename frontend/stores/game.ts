@@ -202,11 +202,19 @@ export const useGameStore = defineStore("game", () => {
   const correctRoute = computed(() => {
     if (!team.value) return undefined;
 
+    if (!team.value.name) {
+      return localeRoute({
+        name: "play-roomcode",
+        params: { roomcode: team.value.room.roomcode },
+      });
+    }
+    if (team.value.members.length === 0) {
+      return localeRoute("play-members");
+    }
+
     const roomIsPaused = !team.value.room.is_playing;
     if (roomIsPaused) {
-      return team.value.members.length > 0
-        ? localeRoute("play-ready")
-        : localeRoute("play-members");
+      return localeRoute("play-ready");
     }
 
     const phases = {
