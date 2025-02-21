@@ -98,6 +98,8 @@ const offset = computed(() => {
           <rect y="126" width="301" height="164" rx="7" />
         </mask>
 
+        <rect y="126" width="301" height="164" rx="7" class="fill-sc-white" />
+
         <!-- the two paths for the timer itself -->
         <!-- 890 is the length of the path exactly -->
         <path
@@ -165,6 +167,7 @@ const offset = computed(() => {
       <UTooltip
         class="absolute bottom-3 right-3"
         :text="$t('timer.paused_by_tutor')"
+        :popper="{ placement: 'top' }"
         v-if="isPaused && !isControllable"
       >
         <UIcon name="humbleicons:pause" class="text-sc-black-500"> </UIcon>

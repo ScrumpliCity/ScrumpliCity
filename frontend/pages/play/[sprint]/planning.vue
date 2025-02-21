@@ -245,7 +245,7 @@ async function updateUserStory(
         class="pointer-events-auto flex w-0 flex-[3] flex-col justify-end self-end"
       >
         <div
-          class="flex h-72 flex-col gap-2 rounded-2xl border-2 border-sc-black-400 bg-sc-white p-5"
+          class="flex h-auto flex-col gap-2 rounded-2xl border-2 border-sc-black-400 bg-sc-white p-5 xl:h-72"
         >
           <h3 class="text-xl font-semibold">{{ game.team!.name }}</h3>
           <hr class="border-sc-black-300" />
