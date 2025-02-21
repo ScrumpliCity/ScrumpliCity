@@ -2,9 +2,15 @@
 
 import { defineNuxtRouteMiddleware, navigateTo, createError } from "#app";
 
-export default defineNuxtRouteMiddleware((to) => {
+export default defineNuxtRouteMiddleware(async (to) => {
   const options = useSanctumConfig();
-  const { isAuthenticated } = useSanctumAuth();
+  const { isAuthenticated, init } = useSanctumAuth();
+
+  try {
+    await init(); // we are not fetching login status on initial page load for pre-rendering
+  } catch {
+    // for whatever reason this stupid library does not do error handling on http errors
+  }
 
   if (isAuthenticated.value) {
     return;
