@@ -63,7 +63,7 @@ async function submit() {
 }
 
 //TODO: check if "last_play_start" is not null => Room hasn't been started
-const roomAlreadyPlayed = ref(true);
+const roomAlreadyPlayed = ref(false);
 //TODO: get existing teams from backend
 const existingTeams = [
   {
