@@ -55,8 +55,7 @@ const teamName = ref("");
 
 async function submit() {
   if (roomAlreadyPlayed) {
-    //await navigateTo(localRoute("ready"));
-    console.log("TODO: navigate to ready");
+    //TODO: await navigateTo(localRoute("ready"));
   } else {
     await game.changeName(teamName.value);
     await navigateTo(localRoute("play-members"));
@@ -64,45 +63,24 @@ async function submit() {
 }
 
 //TODO: check if "last_play_start" is not null => Spiel noch nie gestartet
-const roomAlreadyPlayed = true;
+const roomAlreadyPlayed = ref(true);
 //TODO: get existing teams from backend
 const existingTeams = [
   {
     name: "ScrumpliCity",
-    members: [
-      "Felix Wollmann",
-      "Marco Janderka",
-      "Lisa-Marie Hörmann",
-      "Sophie Nemecek",
-    ],
+    members: ["Felix", "Marco", "Lisa-Marie", "Sophie"],
   },
   {
     name: "JourneyPlanner",
-    members: [
-      "Raven Burkard",
-      "Severin Rosner",
-      "Stefania Manastirska",
-      "Roman Krebs",
-    ],
+    members: ["Raven", "Severin", "Stefania", "Roman"],
   },
   {
     name: "LinguExplorer",
-    members: [
-      "Tien Luong",
-      "Alexander Nems",
-      "Helena Stindl",
-      "Benjamin Bician",
-      "Britta Müller",
-    ],
+    members: ["Tien", "Alexander", "Helena", "Benjamin", "Britta"],
   },
   {
     name: "Specialbond",
-    members: [
-      "Anil Kapan",
-      "Arlon Labalan",
-      "Paula Wenighofer",
-      "Joavan Stojanovic",
-    ],
+    members: ["Anil", "Arlon", "Paula", "Jovana"],
   },
 ];
 let selected = ref();
@@ -137,7 +115,7 @@ const dropdownOpen = ref(false);
       @click="dropdownOpen = !dropdownOpen"
       tabindex="0"
       @keydown.space="dropdownOpen = !dropdownOpen"
-      class="relative mt-16 min-h-[132.8px] w-[660.2px] cursor-pointer items-center justify-center overflow-scroll rounded-lg border-2 border-sc-black-400 bg-sc-white py-8 text-center text-5xl font-medium drop-shadow-sc-shadow"
+      class="relative mt-16 min-h-[132.8px] w-[660.2px] cursor-pointer items-center justify-center overflow-y-auto rounded-lg border-2 border-sc-black-400 bg-sc-white py-8 text-center text-5xl font-medium drop-shadow-sc-shadow"
     >
       <p
         v-if="selected"
@@ -159,7 +137,7 @@ const dropdownOpen = ref(false);
     </div>
     <div
       v-if="dropdownOpen"
-      class="mt-3 flex max-h-[30vh] w-[660.2px] cursor-pointer flex-col items-center justify-center overflow-scroll rounded-lg border-2 border-sc-black-400 bg-sc-white pt-16 text-center text-5xl font-medium drop-shadow-sc-shadow"
+      class="relative mt-3 max-h-[30vh] w-[660.2px] cursor-pointer flex-col items-center justify-center overflow-y-auto rounded-lg border-2 border-sc-black-400 bg-sc-white text-center text-5xl font-medium drop-shadow-sc-shadow"
     >
       <div
         v-for="team in existingTeams"
@@ -168,7 +146,12 @@ const dropdownOpen = ref(false);
         class="flex w-full items-center justify-center px-6 hover:bg-sc-black-200"
       >
         <button
-          class="flex w-full flex-col items-center border-t-2 border-sc-black py-10"
+          class="flex w-full flex-col items-center py-10"
+          :class="[
+            {
+              'border-t-2 border-sc-black': team !== existingTeams[0],
+            },
+          ]"
         >
           <p class="mb-1 text-3xl font-bold">{{ team.name }}</p>
           <p class="text-xs">{{ team.members.join(", ") }}</p>
