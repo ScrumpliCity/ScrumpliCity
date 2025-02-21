@@ -111,7 +111,6 @@ async function deleteMember(memberId) {
 
     // Refresh parent after member deletion
     emit("update");
-    emit("isReadyChanged", true, props.team.id); // tell the parent we're ready so we don't block the game start
   } catch (error) {
     toast.add({
       title: useNuxtApp().$i18n.t("team_manager.delete_member_error"),
@@ -201,6 +200,7 @@ function deleteTeam() {
               title: t("team_manager.delete.success"),
               icon: "mdi:success",
             });
+            emit("isReadyChanged", true, props.team.id); // tell the parent we're ready so we don't block the game start
             emit("update");
           } catch {
             toast.add({

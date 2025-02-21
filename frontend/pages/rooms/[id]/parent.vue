@@ -12,6 +12,10 @@ const echo = useEcho();
 const toast = useToast();
 import { useNow } from "@vueuse/core";
 
+useSeoMeta({
+  title: "", // print nothing instead of id while loading the room
+});
+
 const { data: manageRoom, refresh } = await useAsyncData("room", () =>
   client(`/api/rooms/${route.params.id}`),
 );
