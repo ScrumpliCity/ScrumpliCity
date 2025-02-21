@@ -1599,16 +1599,16 @@
         },
         {
             "name": "laravel/octane",
-            "version": "v2.7.0",
+            "version": "v2.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/octane.git",
-                "reference": "c9580d430fa8459823bd1dfbcb2bcfd591548cec"
+                "reference": "1c5190cc5ad67eb4aadbf1816dcbfedc692851e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/octane/zipball/c9580d430fa8459823bd1dfbcb2bcfd591548cec",
-                "reference": "c9580d430fa8459823bd1dfbcb2bcfd591548cec",
+                "url": "https://api.github.com/repos/laravel/octane/zipball/1c5190cc5ad67eb4aadbf1816dcbfedc692851e7",
+                "reference": "1c5190cc5ad67eb4aadbf1816dcbfedc692851e7",
                 "shasum": ""
             },
             "require": {
@@ -1685,7 +1685,7 @@
                 "issues": "https://github.com/laravel/octane/issues",
                 "source": "https://github.com/laravel/octane"
             },
-            "time": "2025-02-11T15:04:38+00:00"
+            "time": "2025-02-18T15:18:13+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -2823,16 +2823,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "3.8.5",
+            "version": "3.8.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CarbonPHP/carbon.git",
-                "reference": "b1a53a27898639579a67de42e8ced5d5386aa9a4"
+                "reference": "ff2f20cf83bd4d503720632ce8a426dc747bf7fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CarbonPHP/carbon/zipball/b1a53a27898639579a67de42e8ced5d5386aa9a4",
-                "reference": "b1a53a27898639579a67de42e8ced5d5386aa9a4",
+                "url": "https://api.github.com/repos/CarbonPHP/carbon/zipball/ff2f20cf83bd4d503720632ce8a426dc747bf7fd",
+                "reference": "ff2f20cf83bd4d503720632ce8a426dc747bf7fd",
                 "shasum": ""
             },
             "require": {
@@ -2925,7 +2925,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-02-11T16:28:45+00:00"
+            "time": "2025-02-20T17:33:38+00:00"
         },
         {
             "name": "nette/schema",
