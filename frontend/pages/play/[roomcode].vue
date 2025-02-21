@@ -54,7 +54,7 @@ const localRoute = useLocaleRoute();
 const teamName = ref("");
 
 async function submit() {
-  if (roomAlreadyPlayed) {
+  if (roomAlreadyPlayed.value) {
     //TODO: await navigateTo(localRoute("ready"));
   } else {
     await game.changeName(teamName.value);
