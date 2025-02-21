@@ -3,6 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "migrateDB": "cd ../backend && php artisan migrate:fresh",
+    "startAll": "concurrently \"cd ../backend && php artisan queue:work\" \"cd ../backend && php artisan reverb:start\" \"cd ../backend && php artisan serve\" \"npm run dev\"",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
