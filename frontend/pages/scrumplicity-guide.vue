@@ -1,4 +1,20 @@
-<script setup></script>
+<script lang="ts" setup>
+import { useWindowScroll } from "@vueuse/core";
+const localeRoute = useLocaleRoute();
+const { t } = useI18n();
+useSeoMeta({
+  title: t("homepage.scrumplicity_guide"),
+});
+
+const { y } = useWindowScroll();
+
+const scrollToTopOfPage = () => {
+  y.value = 0;
+};
+
+const scrollToTopButtonIsVisible = computed(() => y.value > 200);
+</script>
+
 <template>
   <HomeHeader />
   <UButton
@@ -88,154 +104,168 @@
         >
           {{ $t("scrumplicity_guide.step_by_step.title") }}
         </h2>
-        <div
-          class="mb-5 flex flex-row flex-wrap items-center justify-between max-[1200px]:mb-16 max-[1200px]:justify-center"
-        >
-          <div class="mr-12 flex h-auto w-[541px] flex-col max-[1200px]:ml-12">
-            <img
-              src="/assets/png/role_page.png"
-              alt="Role Page"
-              class="mb-2 drop-shadow-sc-shadow"
-            />
-            <p
-              class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+        <div class="flex flex-col gap-16 min-[1200px]:gap-5">
+          <div
+            class="flex flex-row flex-wrap items-center justify-between max-[1200px]:justify-center"
+          >
+            <div
+              class="mr-12 flex h-auto w-[541px] flex-col max-[1200px]:ml-12"
             >
-              {{ $t("scrumplicity_guide.step_by_step.caption1") }}
+              <img
+                src="/assets/png/role_page.png"
+                :alt="t('scrumplicity_guide.step_by_step.alt1')"
+                class="mb-2 drop-shadow-sc-shadow"
+              />
+              <p
+                class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+              >
+                {{ $t("scrumplicity_guide.step_by_step.caption1") }}
+              </p>
+            </div>
+            <p
+              class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
+            >
+              <span
+                class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
+                >1.</span
+              >
+              {{ $t("scrumplicity_guide.step_by_step.description1") }}
             </p>
           </div>
-          <p
-            class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
+          <div
+            class="flex flex-row flex-wrap-reverse items-center justify-between max-[1200px]:justify-center"
           >
-            <span
-              class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
-              >1.</span
-            >
-            {{ $t("scrumplicity_guide.step_by_step.description1") }}
-          </p>
-        </div>
-        <div
-          class="mb-5 flex flex-row flex-wrap-reverse items-center justify-between max-[1200px]:mb-16 max-[1200px]:justify-center"
-        >
-          <p
-            class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
-          >
-            <span
-              class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
-              >2.</span
-            >
-            {{ $t("scrumplicity_guide.step_by_step.description2") }}
-          </p>
-          <div class="ml-12 flex h-auto w-[541px] flex-col max-[1200px]:mr-12">
-            <img
-              src="/assets/png/rooms_page.png"
-              alt="Role selection page"
-              class="mb-2 drop-shadow-sc-shadow"
-            />
             <p
-              class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+              class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
             >
-              {{ $t("scrumplicity_guide.step_by_step.caption2") }}
+              <span
+                class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
+                >2.</span
+              >
+              {{ $t("scrumplicity_guide.step_by_step.description2") }}
+            </p>
+            <div
+              class="ml-12 flex h-auto w-[541px] flex-col max-[1200px]:mr-12"
+            >
+              <img
+                src="/assets/png/rooms_page.png"
+                :alt="t('scrumplicity_guide.step_by_step.alt2')"
+                class="mb-2 drop-shadow-sc-shadow"
+              />
+              <p
+                class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+              >
+                {{ $t("scrumplicity_guide.step_by_step.caption2") }}
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex flex-row flex-wrap items-center justify-between max-[1200px]:justify-center"
+          >
+            <div
+              class="mr-12 flex h-auto w-[541px] flex-col max-[1200px]:ml-12"
+            >
+              <img
+                src="/assets/png/create_room.png"
+                :alt="t('scrumplicity_guide.step_by_step.alt3')"
+                class="mb-2 drop-shadow-sc-shadow"
+              />
+              <p
+                class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+              >
+                {{ $t("scrumplicity_guide.step_by_step.caption3") }}
+              </p>
+            </div>
+            <p
+              class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
+            >
+              <span
+                class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
+                >3.</span
+              >
+              {{ $t("scrumplicity_guide.step_by_step.description3") }}
             </p>
           </div>
-        </div>
-        <div
-          class="mb-5 flex flex-row flex-wrap items-center justify-between max-[1200px]:mb-16 max-[1200px]:justify-center"
-        >
-          <div class="mr-12 flex h-auto w-[541px] flex-col max-[1200px]:ml-12">
-            <img
-              src="/assets/png/create_room.png"
-              alt="Create room overlay"
-              class="mb-2 drop-shadow-sc-shadow"
-            />
+          <div
+            class="flex flex-row flex-wrap-reverse items-center justify-between max-[1200px]:justify-center"
+          >
             <p
-              class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+              class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
             >
-              {{ $t("scrumplicity_guide.step_by_step.caption3") }}
+              <span
+                class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
+                >4.</span
+              >
+              {{ $t("scrumplicity_guide.step_by_step.description4") }}
+            </p>
+            <div
+              class="ml-12 flex h-auto w-[541px] flex-col max-[1200px]:mr-12"
+            >
+              <img
+                src="/assets/png/download_crafting_templates.png"
+                :alt="t('scrumplicity_guide.step_by_step.alt4')"
+                class="mb-2 drop-shadow-sc-shadow"
+              />
+              <p
+                class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+              >
+                {{ $t("scrumplicity_guide.step_by_step.caption4") }}
+              </p>
+            </div>
+          </div>
+          <div
+            class="flex flex-row flex-wrap items-center justify-between max-[1200px]:justify-center"
+          >
+            <div
+              class="mr-12 flex h-auto w-[541px] flex-col max-[1200px]:ml-12"
+            >
+              <img
+                src="/assets/png/room_manage.png"
+                :alt="t('scrumplicity_guide.step_by_step.alt5')"
+                class="mb-2 drop-shadow-sc-shadow"
+              />
+              <p
+                class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+              >
+                {{ $t("scrumplicity_guide.step_by_step.caption5") }}
+              </p>
+            </div>
+            <p
+              class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
+            >
+              <span
+                class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
+                >5.</span
+              >
+              {{ $t("scrumplicity_guide.step_by_step.description5") }}
             </p>
           </div>
-          <p
-            class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
+          <div
+            class="mb-16 flex flex-row flex-wrap-reverse items-center justify-between max-[1200px]:justify-center lg:mb-32"
           >
-            <span
-              class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
-              >3.</span
-            >
-            {{ $t("scrumplicity_guide.step_by_step.description3") }}
-          </p>
-        </div>
-        <div
-          class="mb-5 flex flex-row flex-wrap-reverse items-center justify-between max-[1200px]:mb-16 max-[1200px]:justify-center"
-        >
-          <p
-            class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
-          >
-            <span
-              class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
-              >4.</span
-            >
-            {{ $t("scrumplicity_guide.step_by_step.description4") }}
-          </p>
-          <div class="ml-12 flex h-auto w-[541px] flex-col max-[1200px]:mr-12">
-            <img
-              src="/assets/png/download_crafting-templates.png"
-              alt="Download crafting-templates in the room overview"
-              class="mb-2 drop-shadow-sc-shadow"
-            />
             <p
-              class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+              class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
             >
-              {{ $t("scrumplicity_guide.step_by_step.caption4") }}
+              <span
+                class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
+                >6.</span
+              >
+              {{ $t("scrumplicity_guide.step_by_step.description6") }}
             </p>
-          </div>
-        </div>
-        <div
-          class="mb-5 flex flex-row flex-wrap items-center justify-between max-[1200px]:mb-16 max-[1200px]:justify-center"
-        >
-          <div class="mr-12 flex h-auto w-[541px] flex-col max-[1200px]:ml-12">
-            <img
-              src="/assets/png/room_manage.png"
-              alt="Manage a single room"
-              class="mb-2 drop-shadow-sc-shadow"
-            />
-            <p
-              class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+            <div
+              class="ml-12 flex h-auto w-[541px] flex-col max-[1200px]:mr-12"
             >
-              {{ $t("scrumplicity_guide.step_by_step.caption5") }}
-            </p>
-          </div>
-          <p
-            class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
-          >
-            <span
-              class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
-              >5.</span
-            >
-            {{ $t("scrumplicity_guide.step_by_step.description5") }}
-          </p>
-        </div>
-        <div
-          class="mb-16 flex flex-row flex-wrap-reverse items-center justify-between max-[1200px]:justify-center lg:mb-32"
-        >
-          <p
-            class="flex-1 text-base font-medium max-lg:pr-5 sm:min-w-[330px] md:text-lg lg:mb-6"
-          >
-            <span
-              class="font-heading text-3xl font-bold text-sc-orange md:text-4xl lg:text-5xl"
-              >6.</span
-            >
-            {{ $t("scrumplicity_guide.step_by_step.description6") }}
-          </p>
-          <div class="ml-12 flex h-auto w-[541px] flex-col max-[1200px]:mr-12">
-            <img
-              src="/assets/png/start_game.png"
-              alt="Manage teams and start the game"
-              class="mb-2 drop-shadow-sc-shadow"
-            />
-            <p
-              class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
-            >
-              {{ $t("scrumplicity_guide.step_by_step.caption6") }}
-            </p>
+              <img
+                src="/assets/png/start_game.png"
+                :alt="t('scrumplicity_guide.step_by_step.alt6')"
+                class="mb-2 drop-shadow-sc-shadow"
+              />
+              <p
+                class="text-base font-medium text-sc-black-600 max-[1200px]:text-left"
+              >
+                {{ $t("scrumplicity_guide.step_by_step.caption6") }}
+              </p>
+            </div>
           </div>
         </div>
         <h3
@@ -249,29 +279,31 @@
             :fontControlled="false"
             filled
           />
-          <i18n-t
-            keypath="scrumplicity_guide.learners_description"
-            tag="p"
-            class="flex-1 bg-sc-white/70 text-base font-medium md:text-lg"
-            scope="global"
+          <ClientOnly>
+            <i18n-t
+              keypath="scrumplicity_guide.learners_description"
+              tag="p"
+              class="flex-1 bg-sc-white/70 text-base font-medium md:text-lg"
+              scope="global"
+            >
+              <template #join_steps>
+                <ul class="ml-6 list-disc text-left">
+                  <li>
+                    {{ $t("scrumplicity_guide.join_steps.step1") }}
+                  </li>
+                  <li>
+                    {{ $t("scrumplicity_guide.join_steps.step2") }}
+                  </li>
+                  <li>
+                    {{ $t("scrumplicity_guide.join_steps.step3") }}
+                  </li>
+                  <li>
+                    {{ $t("scrumplicity_guide.join_steps.step4") }}
+                  </li>
+                </ul>
+              </template>
+            </i18n-t></ClientOnly
           >
-            <template #join_steps>
-              <ul class="ml-6 list-disc text-left">
-                <li>
-                  {{ $t("scrumplicity_guide.join_steps.step1") }}
-                </li>
-                <li>
-                  {{ $t("scrumplicity_guide.join_steps.step2") }}
-                </li>
-                <li>
-                  {{ $t("scrumplicity_guide.join_steps.step3") }}
-                </li>
-                <li>
-                  {{ $t("scrumplicity_guide.join_steps.step4") }}
-                </li>
-              </ul>
-            </template>
-          </i18n-t>
         </div>
         <div class="flex w-full justify-center">
           <NuxtLink :to="localeRoute('role')">
@@ -285,20 +317,3 @@
     </div>
   </div>
 </template>
-<script lang="ts" setup>
-import { useWindowScroll } from "@vueuse/core";
-const localeRoute = useLocaleRoute();
-
-const { y } = useWindowScroll();
-
-const scrollToTopOfPage = () => {
-  y.value = 0;
-};
-
-const scrollToTopButtonIsVisible = computed(() => y.value > 200);
-
-const { t } = useI18n();
-useSeoMeta({
-  title: t("homepage.scrum_guide"),
-});
-</script>

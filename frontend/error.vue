@@ -57,7 +57,7 @@ const mail = runtimeConfig.public.contactMail;
             $t("error.back_homepage")
           }}</NuxtLinkLocale>
           <NuxtLinkLocale to="scrumplicity-guide" class="lg:hidden">{{
-            $t("error.scrum_guide")
+            $t("error.scrumplicity_guide")
           }}</NuxtLinkLocale>
           <NuxtLinkLocale to="role" class="hidden lg:block">{{
             $t("error.get_started")

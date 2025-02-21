@@ -16,7 +16,7 @@ const localeRoute = useLocaleRoute();
             :to="localeRoute('scrumplicity-guide')"
             class="transition-colors hover:text-sc-orange"
           >
-            {{ $t("homepage.scrum_guide") }}</NuxtLink
+            {{ $t("homepage.scrumplicity_guide") }}</NuxtLink
           >
           <br />
           <NuxtLink

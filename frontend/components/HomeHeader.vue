@@ -24,7 +24,7 @@ const localeRoute = useLocaleRoute();
       <NuxtLink
         class="flex items-center justify-between transition-colors hover:text-sc-orange"
         :to="localeRoute('scrumplicity-guide')"
-        ><p>{{ $t("homepage.scrum_guide") }}</p>
+        ><p>{{ $t("homepage.scrumplicity_guide") }}</p>
         <Icon
           name="material-symbols:arrow-forward-ios-rounded"
           class="text-sc-black"
@@ -93,7 +93,7 @@ const localeRoute = useLocaleRoute();
         <NuxtLink
           :to="localeRoute('scrumplicity-guide')"
           class="transition-colors hover:text-sc-orange"
-          >{{ $t("homepage.scrum_guide") }}</NuxtLink
+          >{{ $t("homepage.scrumplicity_guide") }}</NuxtLink
         >
         <NuxtLink
           to="https://diplomarbeit.scrumplicity.app/#team"
