@@ -93,6 +93,7 @@ export const useGameStore = defineStore("game", () => {
         roomId: string;
         remainingSeconds: number;
       }) {
+        timerState.value = "running";
         timerRemainingSeconds.value = remainingSeconds;
       }
 
