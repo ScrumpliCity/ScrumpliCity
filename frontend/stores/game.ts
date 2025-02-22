@@ -3,6 +3,7 @@ type Team = {
   created_at: string;
   updated_at: string;
   name: string | null;
+  active: boolean;
   room: {
     id: string;
     roomcode: string;
@@ -10,6 +11,7 @@ type Team = {
     sprint_duration: number;
     planning_duration: number;
     review_duration: number;
+    last_play_start: Date | null;
   };
 };
 
@@ -56,6 +58,19 @@ export const useGameStore = defineStore("game", () => {
     const data: Team = await client(`/api/team/join`, {
       body: {
         code,
+      },
+      method: "POST",
+    });
+
+    team.value = data;
+    return data;
+  }
+
+  async function rejoinRoom(code: string) {
+    const data: Team = await client(`/api/team/${team.value?.id}/rejoin`, {
+      body: {
+        code,
+        team_id: team.value?.id,
       },
       method: "POST",
     });

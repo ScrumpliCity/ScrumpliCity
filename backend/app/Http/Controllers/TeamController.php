@@ -48,6 +48,14 @@ class TeamController extends Controller
         return response()->json(null, 204);
     }
 
+    //set active field to true on rejoin
+    public function rejoin(Request $request, Team $team): JsonResponse
+    {
+        Gate::authorize('update', $team);
+        $team->update(['active' => true]);
+        return response()->json($team);
+    }
+
     public function setMembers(Request $request, Team $team): JsonResponse
     {
         if ($request->session()->get('team') != $team->id) {
