@@ -3,6 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "migrateDB": "cd ../backend && php artisan migrate:fresh",
+    "startAll": "concurrently \"cd ../backend && php artisan queue:work\" \"cd ../backend && php artisan reverb:start\" \"cd ../backend && php artisan serve\" \"npm run dev\"",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
@@ -17,6 +19,7 @@
     "@nuxtjs/i18n": "^9.2.0",
     "@nuxtjs/seo": "^2.2.0",
     "@pinia/nuxt": "^0.10.1",
+    "concurrently": "^9.1.2",
     "nuxt": "^3.15.4",
     "nuxt-auth-sanctum": "^0.5.5",
     "nuxt-laravel-echo": "^0.2.1",
