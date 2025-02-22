@@ -118,31 +118,20 @@ const scrollToTopButtonIsVisible = computed(() => y.value > 200);
             :fontControlled="false"
             filled
           />
-          <ClientOnly>
-            <i18n-t
-              keypath="scrumplicity_guide.learners_description"
-              tag="p"
-              class="flex-1 bg-sc-white/70 text-base font-medium md:text-lg"
-              scope="global"
-            >
-              <template #join_steps>
-                <ul class="ml-6 list-disc text-left">
-                  <li>
-                    {{ $t("scrumplicity_guide.join_steps.step1") }}
-                  </li>
-                  <li>
-                    {{ $t("scrumplicity_guide.join_steps.step2") }}
-                  </li>
-                  <li>
-                    {{ $t("scrumplicity_guide.join_steps.step3") }}
-                  </li>
-                  <li>
-                    {{ $t("scrumplicity_guide.join_steps.step4") }}
-                  </li>
-                </ul>
-              </template>
-            </i18n-t></ClientOnly
+          <i18n-t
+            keypath="scrumplicity_guide.learners_description"
+            tag="div"
+            class="flex-1 bg-sc-white/70 text-base font-medium md:text-lg"
+            scope="global"
           >
+            <template #join_steps>
+              <ul class="ml-6 list-disc text-left">
+                <li v-for="index in 4">
+                  {{ $t("scrumplicity_guide.join_steps.step" + index) }}
+                </li>
+              </ul>
+            </template>
+          </i18n-t>
         </div>
         <div class="flex w-full justify-center">
           <NuxtLink :to="localeRoute('role')">
