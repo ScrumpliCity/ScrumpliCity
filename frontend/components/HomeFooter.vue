@@ -12,7 +12,12 @@ const localeRoute = useLocaleRoute();
           {{ $t("legal_notice.brand_name") }}
         </h4>
         <p class="text-xs leading-6 xl:text-base">
-          {{ $t("homepage.scrum_guide") }}
+          <NuxtLink
+            :to="localeRoute('scrumplicity-guide')"
+            class="transition-colors hover:text-sc-orange"
+          >
+            {{ $t("homepage.scrumplicity_guide") }}</NuxtLink
+          >
           <br />
           <NuxtLink
             to="https://diplomarbeit.scrumplicity.app/"
