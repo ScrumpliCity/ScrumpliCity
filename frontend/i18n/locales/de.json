@@ -327,5 +327,10 @@
     "get_started": "Leg’ los mit ScrumpliCity",
     "contact_us": "Kontaktiere uns",
     "we_help": "unsere Baustellenleiterin hilft dir weiter!"
+  },
+  "timer": {
+    "paused_by_tutor": "Timer wurde von Tutor*in pausiert",
+    "resume_timer": "Timer fortsetzen",
+    "pause_timer": "Timer pausieren"
   }
 }

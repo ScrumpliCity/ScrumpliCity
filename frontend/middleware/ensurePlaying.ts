@@ -1,13 +1,30 @@
 import { useGameStore } from "~/stores/game";
 
-export default defineNuxtRouteMiddleware(async (to) => {
+export default defineNuxtRouteMiddleware(async (to, from) => {
   const team = useGameStore();
 
-  if (team.isInTeam) return;
-
-  await team.refresh();
-  if (team.isInTeam) return;
-
   const localeRoute = useLocaleRoute();
-  return navigateTo(localeRoute("play"), { replace: true, redirectCode: 404 });
+
+  try {
+    await team.refresh(import.meta.server);
+  } catch (error) {
+    return navigateTo(localeRoute("play"), {
+      replace: true,
+      redirectCode: 403,
+    });
+  }
+
+  if (!team.isInTeam)
+    return navigateTo(localeRoute("play"), {
+      replace: true,
+      redirectCode: 403,
+    });
+
+  const correctRoute = team.correctRoute;
+  if (!correctRoute) return;
+  if (
+    correctRoute.name !== to.name ||
+    correctRoute.params.sprint !== to.params.sprint
+  )
+    return navigateTo(correctRoute);
 });
