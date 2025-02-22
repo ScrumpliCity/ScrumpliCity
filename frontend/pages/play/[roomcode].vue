@@ -22,12 +22,19 @@ definePageMeta({
 const localeRoute = useLocaleRoute();
 
 const game = useGameStore();
+const myGameData = ref(null);
+const roomAlreadyPlayed = ref(false);
 
 const { data: joinSuccess } = useAsyncData("team-join", async () => {
   try {
     const game = useGameStore();
     const route = useRoute();
-    await game.joinRoom(route.params.roomcode);
+    const data = await game.joinRoom(route.params.roomcode);
+    myGameData.value = data;
+    //check if "last_play_end" is not null => Room hasn't been started yet
+    console.log("game data", myGameData.value);
+    roomAlreadyPlayed.value = myGameData.value.room.last_play_end;
+    console.log("roomAlreadyPlayed", roomAlreadyPlayed.value);
     return "success";
   } catch (error) {
     return "failure";
@@ -49,8 +56,6 @@ watch(
   },
 );
 
-const localRoute = useLocaleRoute();
-
 const teamName = ref("");
 
 async function submit() {
@@ -58,12 +63,9 @@ async function submit() {
     //TODO: await navigateTo(localRoute("ready"));
   } else {
     await game.changeName(teamName.value);
-    await navigateTo(localRoute("play-members"));
+    await navigateTo(localeRoute("play-members"));
   }
 }
-
-//TODO: check if "last_play_start" is not null => Room hasn't been started
-const roomAlreadyPlayed = ref(false);
 //TODO: get existing teams from backend
 const existingTeams = [
   {
