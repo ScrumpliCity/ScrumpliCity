@@ -66,16 +66,11 @@ export const useGameStore = defineStore("game", () => {
     return data;
   }
 
-  async function rejoinRoom(code: string) {
-    const data: Team = await client(`/api/team/${team.value?.id}/rejoin`, {
-      body: {
-        code,
-        team_id: team.value?.id,
-      },
-      method: "POST",
+  //stopped here bc of confusion if I have to use this to get all teams of room or if I can make a direct api call
+  async function getExistingTeams() {
+    const data: Team = await client(`/api/rooms/${team.value?.room.id}/teams`, {
+      method: "GET",
     });
-
-    team.value = data;
     return data;
   }
 
@@ -114,6 +109,7 @@ export const useGameStore = defineStore("game", () => {
   return {
     team,
     joinRoom,
+    getExistingTeams,
     isInTeam,
     refresh,
     changeName,

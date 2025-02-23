@@ -57,6 +57,15 @@ class RoomController extends Controller
     }
 
     /**
+     * Get all teams and members in one room by roomid for rejoining with existing team
+     */
+    public function getExistingTeams(Request $request, String $roomID): Room
+    {
+        $room = Room::where('id', $roomID)->with('teams.members')->firstOrFail();
+        return $room;
+    }
+
+    /**
      * Show the form for editing the specified resource.
      */
     public function edit(Room $room)

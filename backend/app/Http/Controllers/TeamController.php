@@ -21,6 +21,20 @@ class TeamController extends Controller
         return response()->json($team);
     }
 
+    /**
+     * rejoin with existing team by setting active field to true
+     */
+    public function selectExistingTeam(Request $request, Team $team): JsonResponse
+    {
+        $roomcode = $request->input('code');
+        $room = Room::where('roomcode', $roomcode)->firstOrFail();
+        $team = $room->teams()->where('id', $team->id)->firstOrFail();
+        $team->active = true;
+        $team->save();
+        $request->session()->put('team', $team->id);
+        return response()->json($team);
+    }
+
     public function show(Request $request): JsonResponse
     {
         $teamId = $request->session()->get('team');
@@ -46,14 +60,6 @@ class TeamController extends Controller
         Gate::authorize('delete', $team);
         $team->delete();
         return response()->json(null, 204);
-    }
-
-    //set active field to true on rejoin
-    public function rejoin(Request $request, Team $team): JsonResponse
-    {
-        Gate::authorize('update', $team);
-        $team->update(['active' => true]);
-        return response()->json($team);
     }
 
     public function setMembers(Request $request, Team $team): JsonResponse

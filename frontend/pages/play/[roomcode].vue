@@ -24,6 +24,7 @@ const localeRoute = useLocaleRoute();
 const game = useGameStore();
 const myGameData = ref(null);
 const roomAlreadyPlayed = ref(false);
+const roomWithAllExistingTeamsAndMembers = ref({});
 
 const { data: joinSuccess } = useAsyncData("team-join", async () => {
   try {
@@ -32,9 +33,17 @@ const { data: joinSuccess } = useAsyncData("team-join", async () => {
     const data = await game.joinRoom(route.params.roomcode);
     myGameData.value = data;
     //check if "last_play_end" is not null => Room hasn't been started yet
-    console.log("game data", myGameData.value);
     roomAlreadyPlayed.value = myGameData.value.room.last_play_end;
-    console.log("roomAlreadyPlayed", roomAlreadyPlayed.value);
+    //stopped here bc of confusion if I have to use game store to get all teams of room or if I can make a direct api call
+    if (roomAlreadyPlayed.value) {
+      try {
+        roomWithAllExistingTeamsAndMembers.value =
+          await game.getExistingTeams();
+        console.log(roomWithAllExistingTeamsAndMembers.value.teams);
+      } catch (error) {
+        console.error("Failed to get all teams of room: ", error);
+      }
+    }
     return "success";
   } catch (error) {
     return "failure";
@@ -49,6 +58,7 @@ watch(
         replace: true,
         redirectCode: 404,
       });
+      console.error("Failed to join room");
     }
   },
   {
@@ -67,24 +77,6 @@ async function submit() {
   }
 }
 //TODO: get existing teams from backend
-const existingTeams = [
-  {
-    name: "ScrumpliCity",
-    members: ["Felix", "Marco", "Lisa-Marie", "Sophie"],
-  },
-  {
-    name: "JourneyPlanner",
-    members: ["Raven", "Severin", "Stefania", "Roman"],
-  },
-  {
-    name: "LinguExplorer",
-    members: ["Tien", "Alexander", "Helena", "Benjamin", "Britta"],
-  },
-  {
-    name: "Specialbond",
-    members: ["Anil", "Arlon", "Paula", "Jovana"],
-  },
-];
 let selected = ref();
 
 function changeSelected(team) {
@@ -142,8 +134,8 @@ const dropdownOpen = ref(false);
       class="relative mt-3 max-h-[30vh] w-[660.2px] cursor-pointer flex-col items-center justify-center overflow-y-auto rounded-lg border-2 border-sc-black-400 bg-sc-white text-center text-5xl font-medium drop-shadow-sc-shadow"
     >
       <div
-        v-for="team in existingTeams"
-        :key="team.name"
+        v-for="(team, index) in roomWithAllExistingTeamsAndMembers.value.teams"
+        :key="team.id"
         @click="changeSelected(team)"
         class="flex w-full items-center justify-center px-6 hover:bg-sc-black-200"
       >
@@ -151,12 +143,14 @@ const dropdownOpen = ref(false);
           class="flex w-full flex-col items-center py-10"
           :class="[
             {
-              'border-t-2 border-sc-black': team !== existingTeams[0],
+              'border-t-2 border-sc-black': index !== 0,
             },
           ]"
         >
           <p class="mb-1 text-3xl font-bold">{{ team.name }}</p>
-          <p class="text-xs">{{ team.members.join(", ") }}</p>
+          <p class="text-xs">
+            {{ team.members.map((member) => member.name).join(", ") }}
+          </p>
         </button>
       </div>
     </div>
