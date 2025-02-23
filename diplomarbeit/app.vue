@@ -163,7 +163,7 @@
     </main>
     <footer class="flex flex-row text-xs lg:text-base mb-3 lg:mb-7 mt-16 justify-around">
       <p class="ml-3 lg:ml-9">©2025, ScrumpliCity</p>
-      <NuxtLink to="https://dev.scrumplicity.app/impressum">Impressum</NuxtLink>
+      <NuxtLink to="https://dev.scrumplicity.app/de/impressum">Impressum</NuxtLink>
     </footer>
   </div>
 </template>
