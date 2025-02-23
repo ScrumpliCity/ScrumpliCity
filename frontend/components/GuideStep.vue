@@ -1,10 +1,8 @@
 <template>
   <!--breakpoint min-[1200px] is when image and text are side by side rather than below eachother -->
   <div
-    :class="[
-      'flex flex-row flex-wrap items-center justify-center min-[1200px]:justify-between',
-      { 'flex-wrap-reverse': isEven },
-    ]"
+    class="flex flex-row flex-wrap items-center justify-center min-[1200px]:justify-between"
+    :class="{ 'flex-wrap-reverse': isEven }"
   >
     <div
       v-if="!isEven"
@@ -50,8 +48,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from "vue";
-
 const { t } = useI18n();
 
 const props = defineProps({
