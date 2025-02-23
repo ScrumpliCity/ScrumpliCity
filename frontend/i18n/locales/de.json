@@ -328,6 +328,11 @@
     "contact_us": "Kontaktiere uns",
     "we_help": "unsere Baustellenleiterin hilft dir weiter!"
   },
+  "timer": {
+    "paused_by_tutor": "Timer wurde von Tutor*in pausiert",
+    "resume_timer": "Timer fortsetzen",
+    "pause_timer": "Timer pausieren"
+  },
   "scrumplicity_guide": {
     "title": "Willkommen beim ScrumpliCity-Guide!",
     "overview": "Der ScrumpliCity-Guide bietet dir alle wichtigen Informationen zum Spiel, eine detaillierte Schritt-für-Schritt-Anleitung für deine Rolle als Tutor*in sowie eine Beitrittsanleitung für Lernende. Weiterführende Informationen zum Scrum-Prozess, die hier aus Gründen der Übersichtlichkeit nicht aufgeführt sind, findest du auf {link}.",
