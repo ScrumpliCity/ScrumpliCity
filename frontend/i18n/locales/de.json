@@ -277,7 +277,7 @@
     "project_description": "Lerne die agile Projektmanagement\u00ADmethode Scrum mittels Bau einer Papierstadt! ScrumpliCity stellt eine Web-Applikation, Bastelvorlagen und Erklärungen zu Scrum zur Verfügung – also: ",
     "build_your_scrum_knowledge": "Build Your Scrum Knowledge",
     "get_started": "Loslegen!",
-    "scrum_guide": "Scrum Guide",
+    "scrumplicity_guide": "ScrumpliCity-Guide",
     "diploma_thesis_website": "Diplomarbeits-Webseite",
     "crafting_templates_download": "Bastelvorlagen-Download",
     "follow_us": "Folge uns!",
@@ -296,9 +296,9 @@
         "description": "Stärke den Teamgeist und erlebe, wie effektive, kooperative Zusammenarbeit deine Projekte zum Erfolg führen!"
       }
     },
-    "learning_materials": "Lernunterlagen",
-    "all_you_need_to_know": "Scrum: Alles was du wissen musst!",
-    "scrum_guide_description": "Du möchtest dich außerhalb des Spielprozesses über die agile Projektmanagement&shy;methode Scrum weiterbilden? Auf unserer Scrum-Theorie-Seite findest du alles Wichtige: von den Grundlagen bis zu praktischen Tipps. Egal, ob du neu einsteigst oder dein Wissen vertiefen möchtest – hier bekommst du klare, verständliche Erklärungen. Schau vorbei und bring deine Projekte auf das nächste Level!",
+    "learning_materials": "Spielanleitung",
+    "all_you_need_to_know": "Alles was du wissen musst!",
+    "scrumplicity_guide_description": "Neugierig geworden? Besuche unseren ScrumpliCity-Guide und finde heraus, was unser Spiel alles kann! Du findest dort alle behandelten Scrum-Inhalte, eine Schritt-für-Schritt-Anleitung für Tutor*innen und eine Beitrittsanleitung für Lernende. Worauf wartest du noch – lege jetzt los und starte dein erstes Spiel!",
     "questions": "Noch Fragen?",
     "here_to_help": "Wir sind da um dir zu helfen! Schreib uns gerne eine E-Mail:",
     "contact_us": "Kontaktiere uns!",
@@ -323,7 +323,7 @@
     "404_description": "Vielleicht wurde die falsche URL eingegeben oder die Seite existiert nicht.",
     "do_now": "Das kannst du jetzt tun:",
     "back_homepage": "Zurück zur Startseite",
-    "scrum_guide": "Schau dir den Scrum Guide an",
+    "scrumplicity_guide": "Schau dir den ScrumpliCity-Guide an!",
     "get_started": "Leg’ los mit ScrumpliCity",
     "contact_us": "Kontaktiere uns",
     "we_help": "unsere Baustellenleiterin hilft dir weiter!"
@@ -332,5 +332,52 @@
     "paused_by_tutor": "Timer wurde von Tutor*in pausiert",
     "resume_timer": "Timer fortsetzen",
     "pause_timer": "Timer pausieren"
+  },
+  "scrumplicity_guide": {
+    "title": "Willkommen beim ScrumpliCity-Guide!",
+    "overview": "Der ScrumpliCity-Guide bietet dir alle wichtigen Informationen zum Spiel, eine detaillierte Schritt-für-Schritt-Anleitung für deine Rolle als Tutor*in sowie eine Beitrittsanleitung für Lernende. Weiterführende Informationen zum Scrum-Prozess, die hier aus Gründen der Übersichtlichkeit nicht aufgeführt sind, findest du auf {link}.",
+    "link": "scrum.org",
+    "introduction": {
+      "title": "Einführung",
+      "description": "ScrumpliCity ist ein ideales erstes Projekt, um den Scrum-Prozess besser zu verstehen und praktisch anzuwenden. Die Lernenden bauen dabei eine Papierstadt aus vorgefertigten Bastelvorlagen, während die Website sie Schritt für Schritt durch die verschiedenen Phasen führt. Gearbeitet wird in Teams, die gemeinsam in einem Raum organisiert sind. Ein Raum fasst also mehrere Projektteams zusammen – zum Beispiel eine Schulklasse, die in vier Teams unterteilt ist."
+    },
+    "prerequisites": {
+      "title": "Voraussetzungen",
+      "description": "Für das Spiel sollte jedes Team über einen Laptop verfügen. Darüber treten die Lernenden dem Raum bei und verwalten ihre User Stories. Da ScrumpliCity keinen Product Backlog integriert, müssen die Teams diesen extern führen – etwa in einem Online-Tool oder ganz klassisch mit Haftnotizen. Zum Basteln der Stadt brauchen die Teams keinen Kleber, aber Scheren und optional Farbstifte, um das Ergebnis individuell zu gestalten. Mehr Infos zu den Bastelvorlagen findest du in der Anleitung im herunterladbaren .zip-Ordner."
+    },
+    "scrum_content": {
+      "title": "Scrum-Inhalte",
+      "description": "Zu Beginn definieren die Teams ihre Definition of Done – diese bleibt während des gesamten Sprints in der Detailbox rechts unten sichtbar. Im Sprint Planning legen sie zunächst einen Namen für den Sprint fest, definieren dann ein Sprint Goal und schließlich ihre User Stories. Diese werden mit Story Points von den Lernenden geschätzt, einem Teammitglied zugewiesen und mit Akzeptanzkriterien in der Beschreibung ergänzt. Während der Bauphase können die Lernenden ihre User Stories durch Anklicken in der Detailbox einsehen und als „erledigt“ markieren. Im Sprint Review überprüft der Product Owner die abgeschlossenen Aufgaben – die Velocity aktualisiert sich dabei automatisch. Der Sprint-Abschluss bildet die Übergangsphase zwischen zwei Sprints. Hier entscheiden die Lernenden, ob nicht abgenommene User Stories verworfen oder in den nächsten Sprint übernommen werden. Abgenommene Stories werden automatisch archiviert. Abschließend sollen die Lernenden das physische Burn-down-Chart aktualisieren, das du zusammen mit den Bastelvorlagen herunterladen kannst!"
+    },
+    "step_by_step": {
+      "title": "Schritt-für-Schritt-Anleitung für Tutor*innen",
+      "description1": "Von der Startseite gelangst du über die „Loslegen!“-Buttons auf die Auswahlseite. Die Rolle „Tutor*in“ leitet dich weiter zum Login, welcher derzeit ausschließlich mit einem existierenden Microsoft-Konto möglich ist. Wählt man die Rolle „Lernende*r“, wird man zur Raumcode-Eingabe weitergeleitet, um anschließend als Team spielen zu können.",
+      "caption1": "Schritt 1: Rollenauswahl als Tutor*in",
+      "alt1": "Rollenauswahl-Seite",
+      "description2": "Wenn du dich erfolgreich eingeloggt hast, leitet dich die Website automatisch in die Raumübersicht weiter. Im Header hast du die Möglichkeiten, die Sprache von Deutsch auf Englisch zu wechseln, die Bastelvorlagen herunterzuladen oder die Profileinstellungen auszuklappen. Um ScrumpliCity spielen zu können, musst du unten rechts einen neuen Raum erstellen.",
+      "caption2": "Schritt 2: Raumübersicht des*der Tutor*in",
+      "alt2": "Raumübersicht-Seite",
+      "description3": "Bei der Raumerstellung kannst du zahlreiche Einstellungen vornehmen. Diese kannst du im späteren Verlauf wieder verändern. Der Name des Raumes wird lediglich in der Raumübersicht angezeigt, um den Raum identifizierbar zu machen. Weiters kannst du die Dauer der verschiedenen Phasen einstellen, entweder mit Vorschlägen oder einer eigenen Eingabe (bis zu 99min). Unten rechts wird außerdem die Gesamtdauer des Spiels angezeigt, um besser planen zu können.",
+      "caption3": "Schritt 3: Raum erstellen mit Name, Sprintanzahl und Phasendauer",
+      "alt3": "Raum-Erstellen-Overlay",
+      "description4": "Da nun ein Raum zum Spielen vorbereitet wurde, empfehlen wir, die Bastelvorlagen mittels Klick auf den mittleren Button oben rechts herunterzuladen. In dem .zip-Ordner findest du Vorlagenbögen, eine Vorlage für ein Burn-down-Chart sowie eine Anleitung mit nützlichen Infos, wie zum Beispiel der benötigten Anzahl an ausgedruckten Bögen pro Team.",
+      "caption4": "Schritt 4: Bastelvorlagen über das Icon herunterladen",
+      "alt4": "Bastelvorlagen in der Raumübersicht herunterladen",
+      "description5": "Mit Klick auf den Raum öffnet sich die Spielablaufverwaltung. Hier befindest du dich als Tutor*in, während das Spiel läuft. Oben rechts kannst du die Einstellungen des Raumes anpassen. Bevor das Spiel gestartet werden kann, musst du unten rechts einen Raumcode generieren. Dieser öffnet sich in einem neuen Fenster, damit du ihn bequem auf einem anderen Bildschirm projizieren kannst. Mittels diesem Code können die Lernenden auf scrumplicity.app/play dem Raum beitreten.",
+      "caption5": "Schritt 5: Raum in der Spielablaufverwaltung verwalten",
+      "alt5": "Spielablaufverwaltung-Seite",
+      "description6": "Sobald ein Raumcode generiert wurde, kannst du diesen ebenfalls unter dem Raumnamen in die Zwischenablage kopieren. Außerdem erscheint ein leerer Timer und die Anzeige für die derzeitige Phase und Sprintnummer. Wenn mindestens ein Team beigetreten ist, kannst du das Spiel mittels „Play“-Button unten rechts starten. Du kannst als Tutor*in jederzeit Teams löschen oder um Mitglieder verringern bzw. erweitern.",
+      "caption6": "Schritt 6: Teams verwalten und das Spiel starten!",
+      "alt6": "Teams verwalten und das Spiel starten!"
+    },
+    "learners_title": "Spielbeitritt für Lernende",
+    "learners_description": "Der Prozess für Lernende ist selbsterklärend und geradlinig, weshalb er hier nicht detailliert beschrieben ist. Sobald ein Raumcode generiert wurde, können Lernende dem Raum auf scrumplicity.app/play beitreten:\n {join_steps} In bestimmten Phasen des Spiels stehen den Lernenden sogenannte „Infokästchen“ zur Verfügung. Sie bieten kurze, inhaltliche Erklärungen zur derzeitigen Phase und helfen, bestimmte Scrum-Elemente zu verstehen.",
+    "join_steps": {
+      "step1": "Raumcode eingeben",
+      "step2": "Teamnamen festlegen",
+      "step3": "Teammitglieder hinzufügen und Rollen verteilen",
+      "step4": "Beitritt abschließen und warten, bis der Tutor/die Tutorin das Spiel startet!"
+    },
+    "get_started": "Jetzt mit ScrumpliCity loslegen!"
   }
 }
