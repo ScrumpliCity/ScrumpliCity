@@ -9,22 +9,6 @@ use Illuminate\Http\Request;
 class SprintController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     */
-    public function index(string $requestTeamId, string $sprintNumber)
-    {
-        $teamId = session()->get('team');
-        $team = Team::findOrFail($teamId);
-
-        if ($sprintNumber != $team->room->current_sprint) return response(null, 403);
-
-        return $team->sprints()
-            ->where('sprint_number', $sprintNumber)
-            ->first();
-    }
-
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(string $requestTeamId, string $sprintNumber)
