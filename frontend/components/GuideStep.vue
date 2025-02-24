@@ -1,12 +1,18 @@
 <template>
   <!--breakpoint min-[1200px] is when image and text are side by side rather than below eachother -->
   <div
-    class="flex flex-row flex-wrap items-center justify-center min-[1200px]:justify-between"
-    :class="{ 'flex-wrap-reverse': isEven }"
+    class="flex flex-wrap items-center justify-center min-[1200px]:justify-between"
+    :class="{
+      'flex-row-reverse': isEven,
+      'flex-row': !isEven,
+    }"
   >
     <div
-      v-if="!isEven"
-      class="ml-12 mr-12 flex h-auto w-[541px] flex-col min-[1200px]:ml-0"
+      class="ml-12 mr-12 flex h-auto w-[541px] flex-col"
+      :class="{
+        'min-[1200px]:ml-0': !isEven,
+        'min-[1200px]:mr-0': isEven,
+      }"
     >
       <img
         :src="'/png/step' + props.index + '.png'"
@@ -29,21 +35,6 @@
       </span>
       {{ t("scrumplicity_guide.step_by_step.description" + index) }}
     </p>
-    <div
-      v-if="isEven"
-      class="ml-12 mr-12 flex h-auto w-[541px] flex-col min-[1200px]:mr-0"
-    >
-      <img
-        :src="'/png/step' + props.index + '.png'"
-        :alt="t('scrumplicity_guide.step_by_step.alt' + index)"
-        class="mb-2 drop-shadow-sc-shadow"
-      />
-      <p
-        class="text-left text-base font-medium text-sc-black-600 min-[1200px]:text-justify"
-      >
-        {{ t("scrumplicity_guide.step_by_step.caption" + index) }}
-      </p>
-    </div>
   </div>
 </template>
 
@@ -57,5 +48,6 @@ const props = defineProps({
   },
 });
 
+//not reactive because index is not supposed to change
 const isEven = props.index % 2 === 0;
 </script>
