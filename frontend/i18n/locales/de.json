@@ -230,7 +230,10 @@
     "build_phase": "@:common.phases.build_phase",
     "in_progress": "In Arbeit",
     "done": "Fertig",
-    "responsible": "Verantwortliche*r"
+    "responsible": "Verantwortliche*r",
+    "no_title": "Kein Titel",
+    "no_description": "Keine Beschreibung",
+    "no_responsible": "Niemand verantwortlich"
   },
   "review": {
     "review": "@:common.phases.review",

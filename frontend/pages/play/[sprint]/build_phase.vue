@@ -6,7 +6,7 @@ definePageMeta({
 
 const game = useGameStore();
 
-const selectedUS = ref(game.currentSprint.user_stories[0]); // DOD-US: Implement DOD display (including on focusout/etc.)
+const selectedUS = ref(game.currentSprint.user_stories[0] || {}); // DOD-US: Implement DOD display (including on focusout/etc.)
 </script>
 <template>
   <div class="relative h-full overflow-clip">
@@ -43,18 +43,27 @@ const selectedUS = ref(game.currentSprint.user_stories[0]); // DOD-US: Implement
                       <div
                         class="my-2 ml-4 flex w-full min-w-0 items-center gap-8"
                       >
-                        <span class="min-w-fit whitespace-nowrap font-medium">
-                          {{ userStory.title }}
+                        <span
+                          class="min-w-fit whitespace-nowrap font-medium"
+                          :class="{ italic: !userStory.title }"
+                        >
+                          {{ userStory.title || $t("build_phase.no_title") }}
                         </span>
-                        <span class="flex-1 truncate text-sm">
-                          {{ userStory.description }}
+                        <span
+                          class="flex-1 truncate text-sm"
+                          :class="{ italic: !userStory.description }"
+                        >
+                          {{
+                            userStory.description ||
+                            $t("build_phase.no_description")
+                          }}
                         </span>
                       </div>
 
                       <div
                         class="my-2 ml-3 mr-4 size-7 min-w-7 flex-none rounded-full bg-sc-black-100 text-center text-lg font-semibold text-sc-black"
                       >
-                        {{ userStory.story_points }}
+                        {{ userStory.story_points || 0 }}
                       </div>
 
                       <div
@@ -98,23 +107,33 @@ const selectedUS = ref(game.currentSprint.user_stories[0]); // DOD-US: Implement
         >
           <div class="flex items-center justify-between">
             <div class="flex flex-col gap-1">
-              <h3 class="text-xl font-semibold">{{ selectedUS.title }}</h3>
+              <h3
+                class="text-xl font-semibold"
+                :class="{ italic: !selectedUS.title }"
+              >
+                {{ selectedUS.title || $t("build_phase.no_title") }}
+              </h3>
               <div class="text-sm">
                 <span class="font-semibold"
                   >{{ $t("build_phase.responsible") }}:
                 </span>
-                <span>{{ selectedUS.member.name }}</span>
+                <span :class="{ italic: !selectedUS.member?.name }">{{
+                  selectedUS.member?.name || $t("build_phase.no_responsible")
+                }}</span>
               </div>
             </div>
             <span
               class="mr-5 size-7 min-w-7 self-start rounded-full bg-sc-black-100 text-center text-lg font-semibold text-sc-black"
-              >{{ selectedUS.story_points }}</span
+              >{{ selectedUS.story_points || 0 }}</span
             >
           </div>
           <hr class="border-sc-black-300" />
           <div class="overflow-y-auto pr-1">
-            <p class="whitespace-pre-line text-sm">
-              {{ selectedUS.description }}
+            <p
+              class="whitespace-pre-line text-sm"
+              :class="{ italic: !selectedUS.description }"
+            >
+              {{ selectedUS.description || $t("build_phase.no_description") }}
             </p>
           </div>
         </div>
