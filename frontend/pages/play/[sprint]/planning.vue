@@ -4,9 +4,10 @@ definePageMeta({
   layout: "in-game",
 });
 
-const remainingSeconds = ref(120);
+const game = useGameStore();
 
-const sprintNameInput = ref("");
+const sprintNameInput = ref(game.currentSprint?.name ?? "");
+
 const editingSprintName = ref(false);
 const showSprintNameInput = computed(
   () => editingSprintName.value || !sprintNameInput.value.trim(),
@@ -20,33 +21,64 @@ async function editSprintName() {
   sprintNameInputField.value?.focus();
 }
 
-const sprintGoalInput = ref("");
+watchDebounced(
+  sprintNameInput,
+  () => {
+    game.setSprintName(sprintNameInput.value);
+  },
+  { debounce: 3000, maxWait: 10000 },
+);
+
+const sprintGoalInput = ref(game.currentSprint?.goal ?? "");
 const editingSprintGoal = ref(false);
 const showSprintGoalInput = computed(
   () => editingSprintGoal.value || !sprintGoalInput.value.trim(),
 );
 
-const intervalId: Ref<ReturnType<typeof setInterval> | undefined> =
-  ref(undefined);
+watchDebounced(
+  sprintGoalInput,
+  () => {
+    game.setSprintGoal(sprintGoalInput.value);
+  },
+  { debounce: 3000, maxWait: 10000 },
+);
 
-onMounted(() => {
-  intervalId.value = setInterval(() => {
-    remainingSeconds.value = remainingSeconds.value - 1;
-  }, 1000);
-});
+const userStories = ref(game.currentSprint?.user_stories ?? []);
 
-onUnmounted(() => {
-  if (intervalId.value !== undefined) clearInterval(intervalId.value);
-});
+const currentStoryPoints = computed(
+  () =>
+    userStories.value
+      .map((v) => v.story_points)
+      .reduce((prev, curr) => (prev ?? 0) + (curr ?? 0), 0) ?? 0,
+);
 
-const selected = ref("");
+// info popovers are hidden when this is not the first sprint
+const isFirstSprint = computed(() => game.team?.room.current_sprint === 1);
+
+async function addUserStory() {
+  const story = await game.createUserStory();
+  userStories.value.push(story);
+}
+
+async function deleteUserStory(
+  userStory: Awaited<ReturnType<typeof game.createUserStory>>,
+) {
+  await game.deleteUserStory(userStory);
+  userStories.value = userStories.value.filter((v) => v.id !== userStory.id);
+}
+
+async function updateUserStory(
+  userStory: Awaited<ReturnType<typeof game.createUserStory>>,
+) {
+  const story = await game.updateUserStory(userStory);
+}
 </script>
 <template>
   <div class="relative h-full overflow-clip">
     <div
-      class="relative z-10 flex h-full gap-6 pb-8 pl-9 pr-6 pt-5 xl:gap-12 xl:pb-16 xl:pl-[4.5rem] xl:pr-12 xl:pt-10"
+      class="pointer-events-none relative z-20 flex h-full gap-6 pb-8 pl-9 pr-6 pt-5 xl:gap-12 xl:pb-16 xl:pl-[4.5rem] xl:pr-12 xl:pt-10"
     >
-      <div class="flex w-0 flex-[7] flex-col gap-1.5">
+      <div class="pointer-events-auto flex w-0 flex-[7] flex-col gap-1.5">
         <h1 class="relative flex h-14 gap-3">
           <span
             class="font-heading text-4xl font-bold text-sc-orange xl:text-5xl"
@@ -72,7 +104,7 @@ const selected = ref("");
             class="block h-14 w-0 flex-1 rounded-lg border border-sc-black-400 bg-sc-white px-4 py-3 font-sans text-xl font-medium text-black outline-sc-orange drop-shadow-md"
           />
           <InfoPopover
-            v-if="showSprintNameInput"
+            v-if="showSprintNameInput && isFirstSprint"
             step="1"
             :text="$t('planning.set_a_sprint_name')"
           />
@@ -108,7 +140,7 @@ const selected = ref("");
           <InfoPopover
             :text="$t('planning.define_sprint_goal')"
             step="2"
-            v-if="showSprintGoalInput"
+            v-if="showSprintGoalInput && isFirstSprint"
           />
         </div>
         <div
@@ -131,7 +163,7 @@ const selected = ref("");
               </tr>
             </thead>
             <tbody class="divide-y">
-              <template v-for="_ in Array(5)">
+              <template v-for="userStory in userStories" :key="userStory.id">
                 <tr class="max-h-14 border-b border-sc-black-400">
                   <td class="p-2 pr-6">
                     <input
@@ -140,6 +172,8 @@ const selected = ref("");
                         ($event.target as HTMLInputElement)?.blur()
                       "
                       :placeholder="$t('planning.title_of_us')"
+                      v-model="userStory.title"
+                      @blur="updateUserStory(userStory)"
                     />
                   </td>
                   <td class="p-2">
@@ -147,6 +181,8 @@ const selected = ref("");
                       <textarea
                         :placeholder="$t('planning.description_of_us')"
                         class="relative w-full resize-none rounded-lg bg-sc-white p-2 text-sm ring-inset focus-within:z-10 focus-within:h-36 focus-within:transition-[height] focus:outline-none focus:!ring-2 focus:!ring-sc-orange [&:is(:placeholder-shown,:focus-within)]:shadow [&:is(:placeholder-shown,:focus-within)]:ring-1 [&:is(:placeholder-shown,:focus-within)]:ring-sc-black-400 [&:not(:focus-within)]:h-9 [&:not(:focus-within)]:overflow-clip [&:not(:placeholder-shown,:focus-within)]:cursor-pointer"
+                        v-model="userStory.description"
+                        @blur="updateUserStory(userStory)"
                       ></textarea>
                     </div>
                   </td>
@@ -155,12 +191,21 @@ const selected = ref("");
                       class="size-7 rounded-full bg-sc-black-100 text-center text-lg font-semibold text-sc-black placeholder:text-sc-black focus:outline-none focus:ring-2 focus:ring-sc-orange [&:not(:placeholder-shown,:focus-within)]:cursor-pointer"
                       type="number"
                       placeholder="_"
+                      v-model="userStory.story_points"
+                      @blur="updateUserStory(userStory)"
                     />
                   </td>
                   <td>
                     <USelect
-                      :options="['United States', 'Canada', 'Mexico']"
-                      v-model="selected"
+                      :options="
+                        game.team!.members.map((member) => ({
+                          name: member.name,
+                          value: member.id,
+                        }))
+                      "
+                      option-attribute="name"
+                      v-model="userStory.member_id"
+                      @change="updateUserStory(userStory)"
                     />
                   </td>
                   <td class="p-2">
@@ -170,6 +215,7 @@ const selected = ref("");
                       :padded="false"
                       variant="ghost"
                       color="sc-orange"
+                      @click="deleteUserStory(userStory)"
                       :ui="{
                         rounded: 'rounded-full',
                         icon: { size: { sm: 'size-6' } },
@@ -183,10 +229,11 @@ const selected = ref("");
           </table>
           <button
             class="absolute bottom-4 right-4 flex size-8 justify-center rounded-lg bg-sc-orange text-3xl font-bold transition-colors hover:bg-sc-orange-700"
+            @click="addUserStory"
           >
             <UIcon name="ic:round-plus" class="size-8" />
             <InfoPopover
-              v-if="true"
+              v-if="userStories.length === 0 && isFirstSprint"
               step="3"
               position="left"
               :text="$t('planning.write_user_story')"
@@ -194,15 +241,20 @@ const selected = ref("");
           </button>
         </div>
       </div>
-      <div class="flex w-0 flex-[3] flex-col justify-end">
+      <div
+        class="pointer-events-auto flex w-0 flex-[3] flex-col justify-end self-end"
+      >
         <div
-          class="flex h-72 flex-col gap-2 rounded-2xl border-2 border-sc-black-400 bg-sc-white p-5"
+          class="flex h-auto flex-col gap-2 rounded-2xl border-2 border-sc-black-400 bg-sc-white p-5 xl:h-72"
         >
-          <h3 class="text-xl font-semibold">{Teamname}</h3>
+          <h3 class="text-xl font-semibold">{{ game.team!.name }}</h3>
           <hr class="border-sc-black-300" />
           <p class="text-lg leading-9 *:font-semibold">
             <span>{{
-              $t("planning.sprint_out_of_n", { current: 1, total: 4 })
+              $t("planning.sprint_out_of_n", {
+                current: game.team!.room.current_sprint,
+                total: game.team!.room.number_of_sprints,
+              })
             }}</span
             ><br />
             <span>{{ $t("planning.next_phase") }}</span>
@@ -219,24 +271,41 @@ const selected = ref("");
                 <UIcon name="lucide:list-todo" class="size-6"> </UIcon>
 
                 <span class="text-lg font-bold">
-                  37<span class="text-xs">{{
+                  {{ currentStoryPoints
+                  }}<span class="text-xs">{{
                     $t("planning.story_points_abbreviation")
                   }}</span>
                 </span>
               </div>
             </UTooltip>
-            <UTooltip :text="$t('planning.velocity_to_date')" v-if="true">
+            <UTooltip
+              :text="$t('planning.velocity_to_date')"
+              v-if="
+                game.currentSprint &&
+                game.currentSprint?.sprint_number > 1 &&
+                game.currentSprint?.velocity !== undefined
+              "
+            >
               <div
                 class="flex h-8 w-20 items-center justify-between rounded-md p-1.5"
-                :class="true ? 'bg-sc-green-100' : 'bg-sc-orange-100'"
+                :class="
+                  currentStoryPoints <= game.currentSprint.velocity
+                    ? 'bg-sc-green-100'
+                    : 'bg-sc-orange-100'
+                "
               >
                 <UIcon
                   name="mingcute:chart-bar-line"
                   class="size-6"
-                  :class="true ? 'text-sc-green-500' : 'text-sc-orange-500'"
+                  :class="
+                    currentStoryPoints <= game.currentSprint.velocity
+                      ? 'text-sc-green-500'
+                      : 'text-sc-orange-500'
+                  "
                 />
                 <span class="text-lg font-bold">
-                  37<span class="text-xs">{{
+                  {{ game.currentSprint.velocity
+                  }}<span class="text-xs">{{
                     $t("planning.story_points_abbreviation")
                   }}</span>
                 </span>
@@ -247,9 +316,11 @@ const selected = ref("");
       </div>
     </div>
     <Timer
-      :total-seconds="120"
-      class="absolute right-2 top-0 z-0 h-52 w-auto lg:h-60 xl:right-24 xl:h-[clamp(13rem,calc(100vh-35rem),20rem)]"
-      :remainingSeconds
+      :total-seconds="game.timerTotalSeconds ?? 0"
+      :is-paused="game.timerState === 'paused'"
+      :is-disabled="game.timerState === 'stopped'"
+      class="absolute right-2 top-0 z-10 h-52 w-auto lg:h-60 xl:right-24 xl:h-[clamp(13rem,calc(100vh-35rem),20rem)]"
+      :remaining-seconds="game.timerRemainingSeconds ?? 0"
     ></Timer>
     <SvgMeetingScreenTrees
       :font-controlled="false"
@@ -257,7 +328,7 @@ const selected = ref("");
       class="absolute bottom-0 z-0 h-auto w-[100vw]"
     ></SvgMeetingScreenTrees>
     <Infobox
-      class="relative z-20"
+      class="relative z-30"
       :text="[
         {
           title: $t('planning.infobox.sprint_names.title'),

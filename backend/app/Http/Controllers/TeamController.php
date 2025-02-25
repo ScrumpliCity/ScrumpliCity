@@ -17,7 +17,7 @@ class TeamController extends Controller
         $room = Room::where('roomcode', $roomcode)->firstOrFail();
         $team = $room->teams()->create();
         $team->save();
-        $request->session()->put('team', $team->id);
+        session()->put('team', $team->id);
         return response()->json($team);
     }
 
@@ -37,13 +37,13 @@ class TeamController extends Controller
 
     public function show(Request $request): JsonResponse
     {
-        $teamId = $request->session()->get('team');
+        $teamId = session()->get('team');
         return response()->json(Team::findOrFail($teamId));
     }
 
     public function update(Request $request, Team $team): JsonResponse
     {
-        if ($request->session()->get('team') != $team->id) {
+        if (session()->get('team') != $team->id) {
             return response()->json(null, 403);
         }
 

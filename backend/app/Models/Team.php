@@ -36,7 +36,7 @@ class Team extends Model
      *
      * @var array
      */
-    protected $with = ['room:id,roomcode,number_of_sprints,sprint_duration,planning_duration,review_duration,user_id'];
+    protected $with = ['room:id,roomcode,number_of_sprints,sprint_duration,planning_duration,review_duration,user_id,current_sprint,current_phase,is_playing', 'sprints.user_stories', 'members'];
 
     /**
      * Get the room that the team is in.
@@ -46,10 +46,14 @@ class Team extends Model
         return $this->belongsTo(Room::class);
     }
 
-
     public function members()
     {
         return $this->hasMany(Member::class);
+    }
+
+    public function sprints()
+    {
+        return $this->hasMany(Sprint::class);
     }
 
     /**

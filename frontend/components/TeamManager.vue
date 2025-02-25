@@ -16,9 +16,8 @@ const props = defineProps({
 
 const emit = defineEmits(["update", "isReadyChanged"]);
 const client = useSanctumClient();
-const teamMembers = ref(props.team?.members ?? []);
+const teamMembers = computed(() => props.team?.members ?? []);
 const newMember = ref("");
-const focusOnInput = ref(false);
 const toast = useToast();
 const { t } = useI18n();
 const showInput = ref(false);
@@ -48,12 +47,6 @@ const preventInteraction = computed(() => {
 // Emit the isReady state to the parent component
 onMounted(() => {
   emit("isReadyChanged", isReady.value, props.team.id);
-});
-
-watch(focusOnInput, (newVal) => {
-  if (!newVal) {
-    showInput.value = false;
-  }
 });
 
 // If the team doesn't include all roles, propagate the information to the parent
@@ -207,6 +200,7 @@ function deleteTeam() {
               title: t("team_manager.delete.success"),
               icon: "mdi:success",
             });
+            emit("isReadyChanged", true, props.team.id); // tell the parent we're ready so we don't block the game start
             emit("update");
           } catch {
             toast.add({
