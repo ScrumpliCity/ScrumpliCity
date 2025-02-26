@@ -15,7 +15,7 @@ services:
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt:ro # mount ssl keys
     restart: unless-stopped
-    # depends_on: # commented out due to increadibly slow deployment times on our VM
+    # depends_on: # commented out due to incredibly slow deployment times on our VM
     # - diplomarbeit
     # - frontend
     # - backend
