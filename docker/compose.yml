@@ -15,10 +15,10 @@ services:
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt:ro # mount ssl keys
     restart: unless-stopped
-    depends_on:
-      - diplomarbeit
-      - frontend
-      - backend
+    # depends_on: # commented out due to increadibly slow deployment times on our VM
+    # - diplomarbeit
+    # - frontend
+    # - backend
 
   frontend:
     image: ghcr.io/scrumplicity/frontend
@@ -28,7 +28,7 @@ services:
       - NUXT_PUBLIC_ECHO_HOST=${REVERB_HOST}
       - NUXT_PUBLIC_ECHO_PORT=${REVERB_PORT}
       - NUXT_PUBLIC_ECHO_SCHEME=${REVERB_SCHEME}
-      - NUXT_SITE_URL=${SCRUMPLICITY_FRONTEND_URL}
+      - NUXT_PUBLIC_I18N_BASE_URL=${SCRUMPLICITY_FRONTEND_URL} # for whatever reason, the i18n base url has higher priority than the NUXT_PUBLIC_SITE_URL!
     build:
       context: ../frontend
     restart: unless-stopped
