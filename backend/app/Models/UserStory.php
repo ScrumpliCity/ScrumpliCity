@@ -14,6 +14,11 @@ class UserStory extends Model
         return $this->belongsTo(Sprint::class);
     }
 
+    public function member()
+    {
+        return $this->belongsTo(Member::class);
+    }
+
     protected $fillable = [
         'title',
         'description',

@@ -20,6 +20,12 @@ class Sprint extends Model
         return $this->hasMany(UserStory::class);
     }
 
+    /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = ['user_stories.member'];
 
     protected $fillable = [
         'name',

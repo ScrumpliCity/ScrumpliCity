@@ -100,7 +100,7 @@ export default defineNuxtConfig({
       },
       "play/[sprint]/build_phase": {
         de: "/play/[sprint]/bauphase",
-        en: "/play/[sprint]/build_phase",
+        en: "/play/[sprint]/build-phase",
       },
       // define more pages here
     },
