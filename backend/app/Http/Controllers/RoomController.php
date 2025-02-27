@@ -189,5 +189,7 @@ class RoomController extends Controller
     {
         $timer = new TimerService($room->id);
         $timer->stop();
+        // set all teams to inactive for rejoining room later
+        $room->teams()->update(['active' => false]);
     }
 }
