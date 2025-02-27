@@ -118,6 +118,19 @@ export const useGameStore = defineStore("game", () => {
     },
   );
 
+  /**
+   * Get room before creating a new team automatically
+   */
+  async function getRoomByRoomcode(roomcode: string) {
+    const data: Team = await client(
+      `/api/rooms/${roomcode}/getRoomByRoomcode`,
+      {
+        method: "GET",
+      },
+    );
+    return data;
+  }
+
   async function joinRoom(code: string) {
     const data: Team = await client(`/api/team/join`, {
       body: {
@@ -130,10 +143,22 @@ export const useGameStore = defineStore("game", () => {
     return data;
   }
 
-  async function getExistingTeams() {
-    const data: Team = await client(`/api/rooms/${team.value?.room.id}/teams`, {
+  //same as join room if room has already been started
+  async function getExistingTeams(roomId: string) {
+    const data: Team = await client(`/api/rooms/${roomId}/teams`, {
       method: "GET",
     });
+    return data;
+  }
+
+  async function selectExistingTeam(code: string, teamId: string) {
+    const data: Team = await client(`/api/team/${teamId}/rejoin`, {
+      body: {
+        code,
+      },
+      method: "PATCH",
+    });
+    team.value = data;
     return data;
   }
 
@@ -302,8 +327,10 @@ export const useGameStore = defineStore("game", () => {
   const isInTeam = computed(() => !!team.value);
   return {
     team,
+    getRoomByRoomcode,
     joinRoom,
     getExistingTeams,
+    selectExistingTeam,
     isInTeam,
     refresh,
     changeName,

@@ -20,6 +20,7 @@ definePageMeta({
 });
 
 const localeRoute = useLocaleRoute();
+const route = useRoute();
 
 const game = useGameStore();
 const myGameData = ref(null);
@@ -37,19 +38,20 @@ const activeTeamsToDisplay = computed(() => {
 const { data: joinSuccess } = useAsyncData("team-join", async () => {
   try {
     const game = useGameStore();
-    const route = useRoute();
-    const data = await game.joinRoom(route.params.roomcode);
-    myGameData.value = data;
+    const room = await game.getRoomByRoomcode(route.params.roomcode);
     //check if "last_play_end" is not null => Room hasn't been started yet
-    roomAlreadyPlayed.value = myGameData.value.room.last_play_end;
-    //stopped here bc of confusion if I have to use game store to get all teams of room or if I can make a direct api call
+    roomAlreadyPlayed.value = room.last_play_end;
     if (roomAlreadyPlayed.value) {
       try {
-        roomWithAllExistingTeamsAndMembers.value =
-          await game.getExistingTeams();
+        roomWithAllExistingTeamsAndMembers.value = await game.getExistingTeams(
+          room.id,
+        );
       } catch (error) {
         console.error("Failed to get all teams of room: ", error);
       }
+    } else {
+      const data = await game.joinRoom(route.params.roomcode);
+      myGameData.value = data;
     }
     return "success";
   } catch (error) {
@@ -77,7 +79,9 @@ const teamName = ref("");
 
 async function submit() {
   if (roomAlreadyPlayed.value) {
-    //TODO: await navigateTo(localRoute("ready"));
+    console.log("setting team to active: ", selected);
+    await game.selectExistingTeam(route.params.roomcode, selected.id);
+    await navigateTo(localeRoute("play-ready"));
   } else {
     await game.changeName(teamName.value);
     await navigateTo(localeRoute("play-members"));

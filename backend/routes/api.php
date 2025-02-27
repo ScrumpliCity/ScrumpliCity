@@ -30,6 +30,9 @@ Route::get('/rooms/{room}', [RoomController::class, 'showSingleRoom'])->middlewa
 
 Route::patch('/rooms/{room}/playing-status', [RoomController::class, 'togglePlaying'])->middleware('auth:sanctum');
 
+//get room before creating a new team automatically
+Route::get('/rooms/{roomcode}/getRoomByRoomcode', [RoomController::class, 'getRoomByRoomcode']);
+
 //get all teams and members in one room by roomid for rejoining with existing team
 Route::get('/rooms/{roomID}/teams', [RoomController::class, 'getExistingTeams']);
 

@@ -57,6 +57,15 @@ class RoomController extends Controller
     }
 
     /**
+     * Get room before creating a new team automatically
+     */
+    public function getRoomByRoomcode(Request $request, String $roomcode): Room
+    {
+        $room = Room::where('roomcode', $roomcode)->firstOrFail();
+        return $room;
+    }
+
+    /**
      * Get all teams and members in one room by roomid for rejoining with existing team
      */
     public function getExistingTeams(Request $request, String $roomID): Room

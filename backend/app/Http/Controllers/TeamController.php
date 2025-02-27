@@ -31,7 +31,7 @@ class TeamController extends Controller
         $team = $room->teams()->where('id', $team->id)->firstOrFail();
         $team->active = true;
         $team->save();
-        $request->session()->put('team', $team->id);
+        session()->put('team', $team->id);
         return response()->json($team);
     }
 
