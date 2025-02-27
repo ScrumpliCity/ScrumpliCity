@@ -25,13 +25,11 @@ const route = useRoute();
 const game = useGameStore();
 const myGameData = ref(null);
 const roomAlreadyPlayed = ref(false);
-const roomWithAllExistingTeamsAndMembers = reactive({
-  teams: [],
-});
+const roomWithAllExistingTeamsAndMembers = reactive({});
 
-const activeTeamsToDisplay = computed(() => {
+const inactiveTeamsToDisplay = computed(() => {
   return roomWithAllExistingTeamsAndMembers.value.teams.filter(
-    (team) => team.active,
+    (team) => team.active === 0,
   );
 });
 
@@ -45,6 +43,10 @@ const { data: joinSuccess } = useAsyncData("team-join", async () => {
       try {
         roomWithAllExistingTeamsAndMembers.value = await game.getExistingTeams(
           room.id,
+        );
+        console.log(
+          "roomWithAllExistingTeamsAndMembers: ",
+          roomWithAllExistingTeamsAndMembers,
         );
       } catch (error) {
         console.error("Failed to get all teams of room: ", error);
@@ -145,7 +147,7 @@ const dropdownOpen = ref(false);
       class="relative mt-3 max-h-[30vh] w-[660.2px] cursor-pointer flex-col items-center justify-center overflow-y-auto rounded-lg border-2 border-sc-black-400 bg-sc-white text-center text-5xl font-medium drop-shadow-sc-shadow"
     >
       <div
-        v-for="(team, index) in activeTeamsToDisplay"
+        v-for="(team, index) in inactiveTeamsToDisplay"
         :key="team.id"
         @click="changeSelected(team)"
         class="flex w-full items-center justify-center px-6 hover:bg-sc-black-200"
