@@ -37,9 +37,9 @@ export default defineNuxtConfig({
         ogImageAlt: "Welcome to ScrumpliCity",
         ogImageHeight: 630,
         ogImageWidth: 1200,
-        ogTitle: "ScrumpliCity – Build Your Scrum Knowledge!",
+        ogTitle: "ScrumpliCity – Build Your Scrum Knowledge",
         ogDescription:
-          "Learn the agile project management method Scrum by building a paper city! ScrumpliCity provides a web application, crafting templates and explanations about Scrum—so: Build Your Scrum Knowledge",
+          "Learn the agile project management method Scrum by building a paper city! ScrumpliCity provides a web application, crafting templates and explanations about Scrum—so: Build Your Scrum Knowledge!",
       },
     },
     "/de/**": {
@@ -50,7 +50,7 @@ export default defineNuxtConfig({
         ogImageWidth: 1200,
         // ogTitle stays the same in german
         ogDescription:
-          "Lerne spielerisch die agile Projektmanagementmethode Scrum, indem du eine Papierstadt baust! ScrumpliCity stellt eine Web-Applikation, Bastelvorlagen und Erklärungen zu Scrum zur Verfügung – also: Build Your Scrum Knowledge",
+          "Lerne spielerisch die agile Projektmanagementmethode Scrum, indem du eine Papierstadt baust! ScrumpliCity stellt eine Web-Applikation, Bastelvorlagen und Erklärungen zu Scrum zur Verfügung – also: Build Your Scrum Knowledge!",
       },
     },
   },
