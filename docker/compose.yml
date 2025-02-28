@@ -28,7 +28,11 @@ services:
       - NUXT_PUBLIC_ECHO_HOST=${REVERB_HOST}
       - NUXT_PUBLIC_ECHO_PORT=${REVERB_PORT}
       - NUXT_PUBLIC_ECHO_SCHEME=${REVERB_SCHEME}
-      - NUXT_PUBLIC_I18N_BASE_URL=${SCRUMPLICITY_FRONTEND_URL} # for whatever reason, the i18n base url has higher priority than the NUXT_PUBLIC_SITE_URL!
+      # for whatever reason, both vars must be set
+      # i18n base url seems to be more important for everything but generating og image urls with https
+      # -> without NUXT_PUBLIC_SITE_URL, og image urls would be generated with http:// which is not accepted by eg discord or signal (probably due to hsts)
+      - NUXT_PUBLIC_I18N_BASE_URL=${SCRUMPLICITY_FRONTEND_URL}
+      - NUXT_PUBLIC_SITE_URL=${SCRUMPLICITY_FRONTEND_URL}
     build:
       context: ../frontend
     restart: unless-stopped
