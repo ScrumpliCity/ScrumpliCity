@@ -28,6 +28,7 @@ services:
       - NUXT_PUBLIC_ECHO_HOST=${REVERB_HOST}
       - NUXT_PUBLIC_ECHO_PORT=${REVERB_PORT}
       - NUXT_PUBLIC_ECHO_SCHEME=${REVERB_SCHEME}
+      - NUXT_SITE_URL=${SCRUMPLICITY_FRONTEND_URL}
     build:
       context: ../frontend
     restart: unless-stopped
@@ -60,7 +61,6 @@ services:
       - REVERB_APP_ID=${REVERB_APP_ID}
       - REVERB_APP_KEY=${REVERB_APP_KEY}
       - REVERB_APP_SECRET=${REVERB_APP_SECRET}
-      - NUXT_SITE_URL=${SCRUMPLICITY_FRONTEND_URL}
     depends_on:
       - db
       - websocket

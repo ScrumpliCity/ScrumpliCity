@@ -35,16 +35,16 @@ export default defineNuxtConfig({
       seoMeta: {
         ogImage: "/og-image-en.png",
         ogImageAlt: "Welcome to ScrumpliCity",
-        ogImageHeight: 2625,
-        ogImageWidth: 5001,
+        ogImageHeight: 630,
+        ogImageWidth: 1200,
       },
     },
     "/de/**": {
       seoMeta: {
         ogImage: "/og-image-de.png",
         ogImageAlt: "Willkommen bei ScrumpliCity",
-        ogImageHeight: 2625,
-        ogImageWidth: 5000,
+        ogImageHeight: 630,
+        ogImageWidth: 1200,
       },
     },
   },
@@ -100,7 +100,7 @@ export default defineNuxtConfig({
       },
       "play/[sprint]/build_phase": {
         de: "/play/[sprint]/bauphase",
-        en: "/play/[sprint]/build_phase",
+        en: "/play/[sprint]/build-phase",
       },
       // define more pages here
     },

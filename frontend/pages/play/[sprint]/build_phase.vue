@@ -4,43 +4,9 @@ definePageMeta({
   layout: "in-game",
 });
 
-const sprint = ref({
-  number: 1,
-  name: "Amsterdam",
-  sprint_goal: "Wasserversorgung der Bewohner sichern.",
-  user_stories: [
-    {
-      id: 1,
-      title: "Erstes Haus",
-      description:
-        "Als Bewohner möchte ich ein stabil gebautes Haus haben, um sicher wohnen zu können.",
-      responsible: "Lisa-Marie Hörmann",
-      storyPoints: 13,
-    },
-    {
-      id: 2,
-      title: "Kläranlage",
-      description:
-        "Als Bewohner möchte ich eine funktionierende Kläranlage haben, um die Umwelt nicht zu verschmutzen.",
-      responsible: "Felix Wollmann",
-      storyPoints: 5,
-    },
-    {
-      id: 3,
-      title: "Wasserturm",
-      description:
-        "Als Bewohner möchte ich einen Wasserturm haben, um eine konstante Wasserversorgung zu haben.",
-      responsible: "Sophie Nemecek",
-      storyPoints: 3,
-    },
-  ],
-});
+const game = useGameStore();
 
-const selectedUS = ref(sprint.value.user_stories[0]); // DOD-US: Implement DOD display (including on focusout/etc.)
-
-async function toggleDone(checked) {
-  // implement with backend
-}
+const selectedUS = ref(game.currentSprint.user_stories[0] || {}); // DOD-US: Implement DOD display (including on focusout/etc.)
 </script>
 <template>
   <div class="relative h-full overflow-clip">
@@ -60,12 +26,12 @@ async function toggleDone(checked) {
             <thead>
               <tr class="h-11 rounded-t-2xl bg-sc-orange-100 font-semibold">
                 <th class="py-2 pl-10 text-left text-lg" colspan="1">
-                  {{ sprint.name }}
+                  {{ game.currentSprint.name }}
                 </th>
               </tr>
             </thead>
             <tbody class="divide-y">
-              <template v-for="userStory in sprint.user_stories">
+              <template v-for="userStory in game.currentSprint.user_stories">
                 <tr
                   class="w-full border-b border-sc-black-400 text-lg hover:bg-sc-black-50"
                   @click="selectedUS = userStory"
@@ -77,18 +43,27 @@ async function toggleDone(checked) {
                       <div
                         class="my-2 ml-4 flex w-full min-w-0 items-center gap-8"
                       >
-                        <span class="min-w-fit whitespace-nowrap font-medium">
-                          {{ userStory.title }}
+                        <span
+                          class="min-w-fit whitespace-nowrap font-medium"
+                          :class="{ italic: !userStory.title }"
+                        >
+                          {{ userStory.title || $t("build_phase.no_title") }}
                         </span>
-                        <span class="flex-1 truncate text-sm">
-                          {{ userStory.description }}
+                        <span
+                          class="flex-1 truncate text-sm"
+                          :class="{ italic: !userStory.description }"
+                        >
+                          {{
+                            userStory.description ||
+                            $t("build_phase.no_description")
+                          }}
                         </span>
                       </div>
 
                       <div
                         class="my-2 ml-3 mr-4 size-7 min-w-7 flex-none rounded-full bg-sc-black-100 text-center text-lg font-semibold text-sc-black"
                       >
-                        {{ userStory.storyPoints }}
+                        {{ userStory.story_points || 0 }}
                       </div>
 
                       <div
@@ -101,7 +76,6 @@ async function toggleDone(checked) {
                             :id="'switch-component-' + userStory.id"
                             type="checkbox"
                             class="peer h-5 w-9 cursor-pointer appearance-none rounded-full bg-gray-200 transition-colors duration-300 checked:bg-sc-green-500"
-                            @change="(e) => toggleDone(e.checked)"
                           />
                           <label
                             :for="'switch-component-' + userStory.id"
@@ -121,32 +95,45 @@ async function toggleDone(checked) {
       </div>
       <div class="flex h-full w-0 flex-[3] flex-col justify-between gap-8">
         <Timer
-          :total-seconds="120"
+          :total-seconds="game.timerTotalSeconds ?? 0"
+          :is-paused="game.timerState === 'paused'"
+          :is-disabled="game.timerState === 'stopped'"
+          :remaining-seconds="game.timerRemainingSeconds ?? 0"
           class="z-0 h-fit w-auto max-w-[90%] flex-shrink justify-start self-center pt-0"
-          :remainingSeconds="118"
-        ></Timer>
+        >
+        </Timer>
         <div
           class="flex h-72 flex-grow flex-col gap-2 rounded-2xl border-2 border-sc-black-400 bg-sc-white p-5"
         >
           <div class="flex items-center justify-between">
             <div class="flex flex-col gap-1">
-              <h3 class="text-xl font-semibold">{{ selectedUS.title }}</h3>
+              <h3
+                class="text-xl font-semibold"
+                :class="{ italic: !selectedUS.title }"
+              >
+                {{ selectedUS.title || $t("build_phase.no_title") }}
+              </h3>
               <div class="text-sm">
                 <span class="font-semibold"
                   >{{ $t("build_phase.responsible") }}:
                 </span>
-                <span>{{ selectedUS.responsible }}</span>
+                <span :class="{ italic: !selectedUS.member?.name }">{{
+                  selectedUS.member?.name || $t("build_phase.no_responsible")
+                }}</span>
               </div>
             </div>
             <span
               class="mr-5 size-7 min-w-7 self-start rounded-full bg-sc-black-100 text-center text-lg font-semibold text-sc-black"
-              >{{ selectedUS.storyPoints }}</span
+              >{{ selectedUS.story_points || 0 }}</span
             >
           </div>
           <hr class="border-sc-black-300" />
           <div class="overflow-y-auto pr-1">
-            <p class="text-sm">
-              {{ selectedUS.description }}
+            <p
+              class="whitespace-pre-line text-sm"
+              :class="{ italic: !selectedUS.description }"
+            >
+              {{ selectedUS.description || $t("build_phase.no_description") }}
             </p>
           </div>
         </div>
