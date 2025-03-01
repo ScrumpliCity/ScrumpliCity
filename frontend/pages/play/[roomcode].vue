@@ -1,5 +1,6 @@
 <script setup>
 const { t } = useI18n();
+const echo = useEcho();
 
 useSeoMeta({
   title: t("join_room.page_title"),
@@ -33,10 +34,11 @@ const inactiveTeamsToDisplay = computed(() => {
   );
 });
 
-const { data: joinSuccess } = useAsyncData("team-join", async () => {
+const { data: joinSuccess, refresh } = useAsyncData("team-join", async () => {
   try {
     const game = useGameStore();
     const room = await game.getRoomByRoomcode(route.params.roomcode);
+
     //check if "last_play_end" is not null => Room hasn't been started yet
     roomAlreadyPlayed.value = room.last_play_end;
     if (roomAlreadyPlayed.value) {
@@ -50,6 +52,17 @@ const { data: joinSuccess } = useAsyncData("team-join", async () => {
         );
       } catch (error) {
         console.error("Failed to get all teams of room: ", error);
+      }
+      try {
+        // Subscribe to team updates to only display inactive teams
+        echo
+          .channel(`rooms.${room.id}`)
+          .listen(".TeamUpdated", () => refresh())
+          .error((e) => {
+            console.error("Channel error:", e);
+          });
+      } catch (error) {
+        console.error("Failed to subscribe to team updates: ", error);
       }
     } else {
       const data = await game.joinRoom(route.params.roomcode);
@@ -89,7 +102,6 @@ async function submit() {
     await navigateTo(localeRoute("play-members"));
   }
 }
-//TODO: get existing teams from backend
 let selected = ref();
 
 function changeSelected(team) {
