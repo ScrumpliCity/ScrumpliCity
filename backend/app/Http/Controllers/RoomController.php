@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\DeactivateTeams;
 use App\Models\Room;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -22,7 +23,9 @@ class RoomController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create() {}
+    public function create()
+    {
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -59,7 +62,7 @@ class RoomController extends Controller
     /**
      * Get room before creating a new team automatically
      */
-    public function getRoomByRoomcode(Request $request, String $roomcode): Room
+    public function getRoomByRoomcode(Request $request, string $roomcode): Room
     {
         $room = Room::where('roomcode', $roomcode)->firstOrFail();
         return $room;
@@ -68,7 +71,7 @@ class RoomController extends Controller
     /**
      * Get all teams and members in one room by roomid for rejoining with existing team
      */
-    public function getExistingTeams(Request $request, String $roomID): Room
+    public function getExistingTeams(Request $request, string $roomID): Room
     {
         $room = Room::where('id', $roomID)->with('teams.members')->firstOrFail();
         return $room;
@@ -144,7 +147,7 @@ class RoomController extends Controller
         $room->load(['teams.members']);
         return response()->json($room);
     }
-    
+
 
     /**
      * Toggle the playing status of the room
@@ -198,7 +201,8 @@ class RoomController extends Controller
     {
         $timer = new TimerService($room->id);
         $timer->stop();
-        // set all teams to inactive for rejoining room later
-        $room->teams()->update(['active' => false]);
+        // set all teams to inactive after 10 minutes, so they need to select existing teams when rejoining with new roomcode
+        DeactivateTeams::dispatch($room->id)
+            ->delay(now()->addMinutes(1));
     }
 }
