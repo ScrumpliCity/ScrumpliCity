@@ -253,9 +253,9 @@
       "title": "Sprint Review",
       "content": "Das Sprint Review dient dazu, das fertige Inkrement des Produkts vorzustellen und zu überprüfen. Der Product Owner (PO) prüft demnach, ob alle Anforderungen der User Stories (US) erfüllt wurden. Wenn dies geschehen ist, wird die US als abgenommen definiert. Ziel des Meetings ist es, das Produkt zu inspizieren und gemeinsam mit den Stakeholdern mögliche Anpassungen für die nächsten Sprints zu besprechen."
     },
-    "no_title": "Kein Titel",
-    "no_description": "Keine Beschreibung",
-    "no_responsible": "Niemand verantwortlich"
+    "no_title": "@:build_phase.no_title",
+    "no_description": "@:build_phase.no_description",
+    "no_responsible": "@:build_phase.no_responsible"
   },
   "infobox": {
     "current_of_total": "{current} von {total}"
