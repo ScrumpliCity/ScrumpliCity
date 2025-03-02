@@ -41,14 +41,10 @@ const { data: joinSuccess, refresh } = useAsyncData("team-join", async () => {
 
     //check if "last_play_end" is not null => Room hasn't been started yet
     roomAlreadyPlayed.value = room.last_play_end;
-    if (roomAlreadyPlayed.value) {
+    if (room.last_play_end || room.is_playing) {
       try {
         roomWithAllExistingTeamsAndMembers.value = await game.getExistingTeams(
           room.id,
-        );
-        console.log(
-          "roomWithAllExistingTeamsAndMembers: ",
-          roomWithAllExistingTeamsAndMembers,
         );
       } catch (error) {
         console.error("Failed to get all teams of room: ", error);
@@ -94,7 +90,6 @@ const teamName = ref("");
 
 async function submit() {
   if (roomAlreadyPlayed.value) {
-    console.log("setting team to active: ", selected);
     await game.selectExistingTeam(route.params.roomcode, selected.id);
     await navigateTo(localeRoute("play-ready"));
   } else {
@@ -110,6 +105,10 @@ function changeSelected(team) {
 }
 
 const dropdownOpen = ref(false);
+
+onBeforeUnmount(() => {
+  echo.leaveChannel(`rooms.${game.team.room_id}`);
+});
 </script>
 <template>
   <div class="mt-10 flex h-full w-full flex-col items-center">
