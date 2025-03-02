@@ -4,57 +4,22 @@ definePageMeta({
   layout: "in-game",
 });
 
-const sprint = ref({
-  number: 1,
-  total: 4,
-  name: "Amsterdam",
-  sprint_goal: "Wasserversorgung der Bewohner sichern.",
-  team_name: "Die Besten",
-  velocity: 0,
-  user_stories: [
-    {
-      id: 1,
-      title: "Erstes Haus",
-      description:
-        "Als Bewohner möchte ich ein stabil gebautes Haus haben, um sicher wohnen zu können.",
-      responsible: "Lisa Marie-Hörmann",
-      storyPoints: 13,
-      accepted: false,
-    },
-    {
-      id: 2,
-      title: "Kläranlage",
-      description:
-        "Als Bewohner möchte ich eine funktionierende Kläranlage haben, um die Umwelt nicht zu verschmutzen.",
-      responsible: "Felix Wollmann",
-      storyPoints: 5,
-      accepted: false,
-    },
-    {
-      id: 3,
-      title: "Wasserturm",
-      description:
-        "Als Bewohner möchte ich einen Wasserturm haben, um eine konstante Wasserversorgung zu haben.",
-      responsible: "Sophie Nemecek",
-      storyPoints: 3,
-      accepted: false,
-    },
-  ],
-});
+const game = useGameStore();
 
 const selectedContent = ref({});
 const acceptedSP = computed(() =>
-  sprint.value.user_stories
-    .filter((us) => us.accepted)
-    .reduce((acc, us) => acc + us.storyPoints, 0),
+  game.currentSprint.user_stories
+    .filter((us) => us.completed)
+    .reduce((acc, us) => acc + us.story_points, 0),
 );
 
 const plannedSP = computed(() =>
-  sprint.value.user_stories.reduce((acc, us) => acc + us.storyPoints, 0),
+  game.currentSprint.user_stories.reduce((acc, us) => acc + us.story_points, 0),
 );
 
-async function toggleAccepted(checked) {
-  // implement with backend
+async function toggleAccepted(userStory, accepted) {
+  await game.toggleCompletedUserStory(userStory, accepted);
+  game.refresh();
 }
 </script>
 <template>
@@ -66,14 +31,14 @@ async function toggleAccepted(checked) {
         <h1
           class="h-12 gap-3 font-heading text-4xl font-bold text-sc-orange xl:h-14 xl:text-5xl"
         >
-          {{ $t("review.review") }} — {{ sprint.name }}
+          {{ $t("review.review") }} — {{ game.currentSprint.name }}
         </h1>
         <div class="w-full">
           <span
             class="pointer-events-none flex w-full items-center gap-2 px-2.5 text-base"
           >
             <UIcon name="octicon:goal-16" class="size-5" />
-            {{ sprint.sprint_goal }}
+            {{ game.currentSprint.goal }}
           </span>
         </div>
         <div
@@ -96,32 +61,38 @@ async function toggleAccepted(checked) {
               </tr>
             </thead>
             <tbody class="w-full divide-y">
-              <template v-for="userStory in sprint.user_stories">
+              <template v-for="userStory in game.currentSprint.user_stories">
                 <tr
                   class="h-14 w-full border-b border-sc-black-400 text-lg hover:bg-sc-black-50"
                   @click="selectedContent = userStory"
                 >
-                  <td class="truncate p-4 pr-6 font-medium">
-                    {{ userStory.title }}
+                  <td
+                    class="truncate p-4 pr-6 font-medium"
+                    :class="{ italic: !userStory.title }"
+                  >
+                    {{ userStory.title || $t("review.no_title") }}
                   </td>
-                  <td class="truncate text-sm">
-                    {{ userStory.description }}
+                  <td
+                    class="truncate text-sm"
+                    :class="{ italic: !userStory.description }"
+                  >
+                    {{ userStory.description || $t("review.no_description") }}
                   </td>
                   <td class="text-center">
                     <div
                       class="mx-auto size-7 rounded-full bg-sc-black-100 text-center text-lg font-semibold text-sc-black"
                     >
-                      {{ userStory.storyPoints }}
+                      {{ userStory.story_points || 0 }}
                     </div>
                   </td>
                   <td
                     class="flex h-14 items-center justify-center pr-16 text-center"
                   >
                     <UCheckbox
-                      v-model="userStory.accepted"
                       class="size-4 rounded-[4px]"
                       color="green"
-                      @change="(e) => toggleAccepted(e.checked)"
+                      :modelValue="!!userStory.completed"
+                      @change="(val) => toggleAccepted(userStory, val)"
                       @click.stop
                     />
                   </td>
@@ -134,33 +105,46 @@ async function toggleAccepted(checked) {
       </div>
       <div class="flex h-full w-0 flex-[3] flex-col justify-between gap-8">
         <Timer
-          :total-seconds="120"
+          :total-seconds="game.timerTotalSeconds ?? 0"
+          :is-paused="game.timerState === 'paused'"
+          :is-disabled="game.timerState === 'stopped'"
+          :remaining-seconds="game.timerRemainingSeconds ?? 0"
           class="z-0 h-fit w-auto max-w-[90%] flex-shrink justify-start self-center pt-0"
-          :remainingSeconds="118"
-        ></Timer>
+        >
+        </Timer>
         <div
-          class="flex h-72 flex-grow flex-col gap-2 rounded-2xl border-2 border-sc-black-400 bg-sc-white p-5"
+          class="flex h-72 flex-col gap-2 rounded-2xl border-2 border-sc-black-400 bg-sc-white p-5"
           v-if="selectedContent.id"
         >
           <div class="flex items-center justify-between">
             <div class="flex flex-col gap-1">
-              <h3 class="text-xl font-semibold">{{ selectedContent.title }}</h3>
+              <h3
+                class="text-xl font-semibold"
+                :class="{ italic: !selectedContent.title }"
+              >
+                {{ selectedContent.title || $t("review.no_title") }}
+              </h3>
               <div class="text-sm">
                 <span class="font-semibold"
                   >{{ $t("review.responsible") }}:
                 </span>
-                <span>{{ selectedContent.responsible }}</span>
+                <span :class="{ italic: !selectedContent.member?.name }">{{
+                  selectedContent.member?.name || $t("review.no_responsible")
+                }}</span>
               </div>
             </div>
             <span
               class="mr-5 size-7 min-w-7 self-start rounded-full bg-sc-black-100 text-center text-lg font-semibold text-sc-black"
-              >{{ selectedContent.storyPoints }}</span
+              >{{ selectedContent.story_points || 0 }}</span
             >
           </div>
           <hr class="border-sc-black-300" />
           <div class="overflow-y-auto pr-1">
-            <p class="text-sm">
-              {{ selectedContent.description }}
+            <p
+              class="whitespace-pre-line text-sm"
+              :class="{ italic: !selectedContent.description }"
+            >
+              {{ selectedContent.description || $t("review.no_description") }}
             </p>
           </div>
         </div>
@@ -168,13 +152,13 @@ async function toggleAccepted(checked) {
           class="flex h-72 flex-col gap-2 rounded-2xl border-2 border-sc-black-400 bg-sc-white p-5"
           v-else
         >
-          <h3 class="text-xl font-semibold">{{ sprint.team_name }}</h3>
+          <h3 class="text-xl font-semibold">{{ game.team.name }}</h3>
           <hr class="border-sc-black-300" />
           <p class="text-lg leading-9 *:font-semibold">
             <span>{{
               $t("review.sprint_out_of_n", {
-                current: sprint.number,
-                total: sprint.total,
+                current: game.team.room.current_sprint,
+                total: game.team.room.number_of_sprints,
               })
             }}</span
             ><br />
@@ -221,10 +205,12 @@ async function toggleAccepted(checked) {
                 class="flex h-8 w-20 items-center justify-between rounded-md p-1.5"
                 :class="{
                   'bg-sc-green-100':
-                    plannedSP < sprint.velocity && sprint.number !== 1,
+                    plannedSP < game.currentSprint.velocity &&
+                    game.currentSprint.number !== 1,
                   'bg-sc-orange-100':
-                    plannedSP >= sprint.velocity && sprint.number !== 1,
-                  'bg-sc-black-100': sprint.number === 1,
+                    plannedSP >= game.currentSprint.velocity &&
+                    game.currentSprint.number !== 1,
+                  'bg-sc-black-100': game.currentSprint.sprint_number === 1,
                 }"
               >
                 <UIcon
@@ -232,13 +218,18 @@ async function toggleAccepted(checked) {
                   class="size-6"
                   :class="{
                     'text-sc-green-500':
-                      plannedSP < sprint.velocity && sprint.number !== 1,
+                      plannedSP < game.currentSprint.velocity &&
+                      game.currentSprint.sprint_number !== 1,
                     'text-sc-orange-500':
-                      plannedSP >= sprint.velocity && sprint.number !== 1,
+                      plannedSP >= game.currentSprint.velocity &&
+                      game.currentSprint.number !== 1,
                   }"
                 />
                 <span class="text-lg font-bold">
-                  {{ sprint.number === 1 ? acceptedSP : sprint.velocity
+                  {{
+                    game.currentSprint.sprint_number === 1
+                      ? acceptedSP
+                      : game.currentSprint.velocity
                   }}<span class="text-xs">{{
                     $t("review.story_points_abbreviation")
                   }}</span>

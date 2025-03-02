@@ -58,7 +58,7 @@ Route::patch('/team/{team}/sprints/{sprintNumber}', [SprintController::class, 'u
 Route::post('/team/{team}/sprints/{sprintNumber}/stories', [UserStoryController::class, 'store']); // create user story
 Route::patch('/team/{team}/sprints/{sprintNumber}/stories/{userStoryId}', [UserStoryController::class, 'update']); // update user story
 Route::delete('/team/{team}/sprints/{sprintNumber}/stories/{userStoryId}', [UserStoryController::class, 'delete']);  // delete user story
-
+Route::patch('/team/{team}/sprints/{sprintNumber}/stories/{userStoryId}/completed', [UserStoryController::class, 'toggleCompleted']);  // toggle the completed status of a user story
 
 
 // Team members:
