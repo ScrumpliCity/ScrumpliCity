@@ -103,7 +103,7 @@ const selectedUS = ref(game.currentSprint.user_stories[0] || {}); // DOD-US: Imp
         >
         </Timer>
         <div
-          class="flex h-72 flex-grow flex-col gap-2 rounded-2xl border-2 border-sc-black-400 bg-sc-white p-5"
+          class="flex h-72 flex-col gap-2 rounded-2xl border-2 border-sc-black-400 bg-sc-white p-5"
         >
           <div class="flex items-center justify-between">
             <div class="flex flex-col gap-1">

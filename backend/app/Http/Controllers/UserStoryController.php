@@ -61,4 +61,22 @@ class UserStoryController extends Controller
 
         return response()->noContent();
     }
+
+    public function toggleCompleted(string $requestTeamId, string $sprintNumber, string $storyId, Request $request) {
+        $teamId = session()->get('team');
+        $team = Team::findOrFail($teamId);
+        $story = UserStory::find($storyId);
+
+        if ($sprintNumber != $team->room->current_sprint) return response(null, 403);
+        if ($story->sprint->team_id != $team->id) return response(null, 403);
+
+        $validated = $request->validate([
+            'completed' => 'required|boolean',
+        ]);
+
+        $story->completed = $validated['completed'];
+        $story->save();
+
+        return response()->json($story);
+    }
 }
