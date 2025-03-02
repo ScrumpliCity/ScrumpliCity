@@ -127,8 +127,12 @@ onMounted(() => {
   echo
     .channel(`rooms.${manageRoom.value.id}`)
     .listen(".TeamCreated", () => refresh())
-    .listen(".TeamUpdated", () => refresh())
+    .listen(".TeamUpdated", (updatedTeam) => {
+      //get rejoined team to display in toast
+      refresh();
+    })
     .listen(".MemberCreated", () => refresh())
+    .listen("TeamsDeactivated", () => refresh())
     .error((e) => {
       console.error("Channel error:", e);
     });
@@ -406,7 +410,7 @@ function copyRoomCode() {
               @isReadyChanged="
                 (isReady, teamId) => (teamReadyStates[teamId] = isReady)
               "
-              :isDisabled="!!manageRoom.completed_at"
+              :isDisabled="!!manageRoom.completed_at || !team.active"
             />
             <p
               v-if="manageRoom.teams.length <= 0"

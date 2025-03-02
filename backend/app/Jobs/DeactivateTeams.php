@@ -7,6 +7,7 @@ use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use App\Models\Room;
+use App\Events\TeamsDeactivated;
 
 class DeactivateTeams implements ShouldQueue
 {
@@ -42,7 +43,8 @@ class DeactivateTeams implements ShouldQueue
                 // Remove roomcode to prevent rejoining
                 $room->roomcode = null;
                 $room->save();
-                return;
+
+                broadcast(new TeamsDeactivated($this->roomId));
             }
         } catch (\Exception $e) {
             error_log("Deactivate Teams error: " . $e->getMessage());

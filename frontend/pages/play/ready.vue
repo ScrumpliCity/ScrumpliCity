@@ -15,6 +15,19 @@ const game = useGameStore();
 const { data: teamMembers } = await useAsyncData("teamMembers", () =>
   game.getMembers(),
 );
+
+onMounted(() => {
+  const echo = useEcho();
+  //TODO: navigate to roomcode input page
+  echo
+    .channel(`rooms.${game.team.room_id}`)
+    .listen("TeamsDeactivated", () =>
+      console.log("TODO: navigate to roomcode input page"),
+    )
+    .error((e) => {
+      console.error("Channel error:", e);
+    });
+});
 </script>
 
 <template>
