@@ -3,6 +3,8 @@ definePageMeta({
   layout: "play",
 });
 
+const localeRoute = useLocaleRoute();
+
 const roomCode = ref("");
 
 const roomCodeIsValid = computed(() =>
@@ -10,7 +12,7 @@ const roomCodeIsValid = computed(() =>
 );
 
 async function navigateToTeamname() {
-  await navigateTo({ path: `/play/${roomCode.value}` });
+  await navigateTo(localeRoute({ path: `/play/${roomCode.value}` }));
 }
 </script>
 
