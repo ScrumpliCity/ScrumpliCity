@@ -24,8 +24,7 @@ const localeRoute = useLocaleRoute();
 const route = useRoute();
 
 const game = useGameStore();
-const myGameData = ref(null);
-const roomAlreadyPlayed = ref(false);
+const ableToSelectExistingTeams = ref(false);
 const roomWithAllExistingTeamsAndMembers = reactive({});
 
 const inactiveTeamsToDisplay = computed(() => {
@@ -40,8 +39,8 @@ const { data: joinSuccess, refresh } = useAsyncData("team-join", async () => {
     const room = await game.getRoomByRoomcode(route.params.roomcode);
 
     //check if "last_play_end" is not null => Room hasn't been started yet
-    roomAlreadyPlayed.value = room.last_play_end;
-    if (room.last_play_end || room.is_playing) {
+    ableToSelectExistingTeams.value = room.last_play_end || room.is_playing;
+    if (ableToSelectExistingTeams.value) {
       try {
         roomWithAllExistingTeamsAndMembers.value = await game.getExistingTeams(
           room.id,
@@ -61,8 +60,7 @@ const { data: joinSuccess, refresh } = useAsyncData("team-join", async () => {
         console.error("Failed to subscribe to team updates: ", error);
       }
     } else {
-      const data = await game.joinRoom(route.params.roomcode);
-      myGameData.value = data;
+      await game.joinRoom(route.params.roomcode);
     }
     return "success";
   } catch (error) {
@@ -89,7 +87,7 @@ watch(
 const teamName = ref("");
 
 async function submit() {
-  if (roomAlreadyPlayed.value) {
+  if (ableToSelectExistingTeams.value) {
     await game.selectExistingTeam(route.params.roomcode, selected.id);
     await navigateTo(localeRoute("play-ready"));
   } else {
@@ -113,7 +111,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="mt-10 flex h-full w-full flex-col items-center">
     <h1
-      v-if="!roomAlreadyPlayed"
+      v-if="!ableToSelectExistingTeams"
       class="font-heading text-6xl font-bold text-sc-orange"
     >
       {{ $t("join_room.team_title") }}
@@ -122,7 +120,7 @@ onBeforeUnmount(() => {
       {{ $t("join_room.choose_existing_team") }}
     </h1>
     <input
-      v-if="!roomAlreadyPlayed"
+      v-if="!ableToSelectExistingTeams"
       @keydown.enter="submit"
       class="mt-16 rounded-lg border-2 border-sc-black-400 py-8 text-center text-5xl font-medium drop-shadow-sc-shadow"
       :placeholder="$t('join_room.team_name')"
