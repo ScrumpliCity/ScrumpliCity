@@ -43,7 +43,7 @@ class DeactivateTeams implements ShouldQueue
                 // Remove roomcode to prevent rejoining
                 $room->roomcode = null;
                 $room->save();
-
+                // Broadcast on room channel through event TeamsDeactivated
                 broadcast(new TeamsDeactivated($this->roomId));
             }
         } catch (\Exception $e) {

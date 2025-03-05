@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Jobs\DeactivateTeams;
 use App\Models\Room;
-use App\Services\RoomService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -203,8 +202,8 @@ class RoomController extends Controller
         $timer = new TimerService($room->id);
         $timer->stop();
 
-        // set all teams to inactive after 10 minutes, so they need to select existing teams when rejoining with new roomcode
-        $deactivate = new RoomService($room->id);
-        $deactivate->deactivateTeamsAndRoomcode();
+        // set all teams to inactive after 10 minutes, so they need to select existing teams when rejoining
+        DeactivateTeams::dispatch($room->id)
+            ->delay(now()->addMinutes(10));
     }
 }

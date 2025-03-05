@@ -38,8 +38,8 @@ const { data: joinSuccess, refresh } = useAsyncData("team-join", async () => {
     const game = useGameStore();
     const room = await game.getRoomByRoomcode(route.params.roomcode);
 
-    //check if "last_play_end" is not null => Room hasn't been started yet
-    ableToSelectExistingTeams.value = room.last_play_end || room.is_playing;
+    //check if "last_play_end" is set => Room has been started and existing teams have to be used to join
+    ableToSelectExistingTeams.value = room.last_play_end;
     if (ableToSelectExistingTeams.value) {
       try {
         roomWithAllExistingTeamsAndMembers.value = await game.getExistingTeams(
