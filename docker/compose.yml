@@ -15,10 +15,10 @@ services:
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt:ro # mount ssl keys
     restart: unless-stopped
-    depends_on:
-      - diplomarbeit
-      - frontend
-      - backend
+    # depends_on: # commented out due to incredibly slow deployment times on our VM
+    # - diplomarbeit
+    # - frontend
+    # - backend
 
   frontend:
     image: ghcr.io/scrumplicity/frontend
@@ -28,7 +28,11 @@ services:
       - NUXT_PUBLIC_ECHO_HOST=${REVERB_HOST}
       - NUXT_PUBLIC_ECHO_PORT=${REVERB_PORT}
       - NUXT_PUBLIC_ECHO_SCHEME=${REVERB_SCHEME}
-      - NUXT_SITE_URL=${SCRUMPLICITY_FRONTEND_URL}
+      # for whatever reason, both vars must be set
+      # i18n base url seems to be more important for everything but generating og image urls with https
+      # -> without NUXT_PUBLIC_SITE_URL, og image urls would be generated with http:// which is not accepted by eg discord or signal (probably due to hsts)
+      - NUXT_PUBLIC_I18N_BASE_URL=${SCRUMPLICITY_FRONTEND_URL}
+      - NUXT_PUBLIC_SITE_URL=${SCRUMPLICITY_FRONTEND_URL}
     build:
       context: ../frontend
     restart: unless-stopped
@@ -49,7 +53,7 @@ services:
       - DB_USERNAME=${MYSQL_USER}
       - DB_PASSWORD=${MYSQL_PASSWORD}
       - SESSION_DOMAIN=${SESSION_DOMAIN}
-      - CACHE_STORE=file
+      - CACHE_STORE=database
       - MICROSOFT_CLIENT_ID=${MICROSOFT_CLIENT_ID}
       - MICROSOFT_CLIENT_SECRET=${MICROSOFT_CLIENT_SECRET}
       - MICROSOFT_REDIRECT_URI=${MICROSOFT_REDIRECT_URI}
@@ -78,7 +82,6 @@ services:
       - DB_DATABASE=${MYSQL_DATABASE}
       - DB_USERNAME=${MYSQL_USER}
       - DB_PASSWORD=${MYSQL_PASSWORD}
-      - CACHE_STORE=file
       - QUEUE_CONNECTION=sync
       - REVERB_APP_ID=${REVERB_APP_ID}
       - REVERB_APP_KEY=${REVERB_APP_KEY}
@@ -98,7 +101,7 @@ services:
       - DB_DATABASE=${MYSQL_DATABASE}
       - DB_USERNAME=${MYSQL_USER}
       - DB_PASSWORD=${MYSQL_PASSWORD}
-      - CACHE_STORE=file
+      - CACHE_STORE=database
       - REVERB_HOST=websocket
       - REVERB_PORT=8888
       - REVERB_SCHEME=http

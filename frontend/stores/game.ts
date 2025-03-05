@@ -228,6 +228,21 @@ export const useGameStore = defineStore("game", () => {
     );
   }
 
+  async function toggleCompletedUserStory(
+    userStory: UserStory,
+    completed: boolean,
+  ): Promise<void> {
+    await client(
+      `/api/team/${team.value!.id}/sprints/${team.value!.room.current_sprint}/stories/${userStory.id}/completed`,
+      {
+        method: "PATCH",
+        body: {
+          completed,
+        },
+      },
+    );
+  }
+
   async function refresh(supressHandlingPhaseUpdate = false) {
     const data = await client(`/api/team/me`);
     team.value = data;
@@ -341,6 +356,7 @@ export const useGameStore = defineStore("game", () => {
     createUserStory,
     updateUserStory,
     deleteUserStory,
+    toggleCompletedUserStory,
     currentSprint,
     _handlePhaseUpdate,
     timerRemainingSeconds,

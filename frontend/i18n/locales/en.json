@@ -257,7 +257,10 @@
     "infobox": {
       "title": "Sprint Review",
       "content": "The sprint review is used to present and review the finished increment of the product. The product owner (PO) therefore checks whether all user story (US) requirements have been met. If this has been done, the US is defined as accepted. The aim of the meeting is to inspect the product and discuss possible adjustments for the next sprints together with the stakeholders."
-    }
+    },
+    "no_title": "@:build_phase.no_title",
+    "no_description": "@:build_phase.no_description",
+    "no_responsible": "@:build_phase.no_responsible"
   },
   "infobox": {
     "current_of_total": "{current} of {total}"
