@@ -59,26 +59,14 @@ class UserController extends Controller
     {
         $user = $request->user();
 
-        $cacheKey = "user_profile_picture_{$user->id}";
-
-        // Check if the profile picture is cached
-        if (Cache::has($cacheKey)) {
-            $cachedImage = Cache::get($cacheKey);
-            return response($cachedImage, 200)
-                ->header('Content-Type', 'image/jpeg');
-        }
-
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $user->microsoft_token,
         ])->get('https://graph.microsoft.com/v1.0/me/photos/48x48/$value');
 
         if ($response->successful()) {
-            $imageData = $response->body();
-            Cache::put($cacheKey, $imageData, 86400); // Cache for 24 hours
-
             return response($response->body(), 200)
                 ->header('Content-Type', 'image/jpeg')
-                ->header('Cache-Control', 'max-age=86400'); // Tell browser to cache for 24h as well
+                ->header('Cache-Control', 'max-age=1209600'); // tell the browser to cache for 14 days / 2 weeks
         } else {
             return response()->noContent(500);
         }
