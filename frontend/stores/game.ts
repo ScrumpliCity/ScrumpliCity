@@ -123,7 +123,7 @@ export const useGameStore = defineStore("game", () => {
    */
   async function getRoomByRoomcode(roomcode: string) {
     const data: Team = await client(
-      `/api/rooms/${roomcode}/getRoomByRoomcode`,
+      `/api/rooms/${roomcode}/get-room-by-roomcode`,
       {
         method: "GET",
       },
@@ -156,7 +156,7 @@ export const useGameStore = defineStore("game", () => {
       body: {
         code,
       },
-      method: "PATCH",
+      method: "POST",
     });
     team.value = data;
     return data;

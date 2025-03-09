@@ -19,7 +19,6 @@ const { data: teamMembers } = await useAsyncData("teamMembers", () =>
 
 onMounted(() => {
   const echo = useEcho();
-  //TODO: navigate to roomcode input page
   echo
     .channel(`rooms.${game.team.room_id}`)
     .listen("TeamsDeactivated", () => navigateTo(localeRoute("play")))

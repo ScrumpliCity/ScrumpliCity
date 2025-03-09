@@ -23,7 +23,7 @@
     "teams": "{n} Team | {n} Teams",
     "no_teams_yet": "Es sind noch keine Teams vorhanden..",
     "teams_deactivated": "Teams deaktiviert",
-    "teams_deactivated_description": "Aufgrund von 10-minütiger Inaktivität wurden alle Teams und der Raum-Code deaktiviert. Bitte generiere einen neuen Code um mit den bestehenden Teams weiterzuspielen.",
+    "teams_deactivated_description": "Aufgrund von 10-minütiger Inaktivität wurden alle Teams und der Raum-Code deaktiviert. Bitte generiere einen neuen Code, um mit den bestehenden Teams weiterzuspielen.",
     "team_rejoined": "Ein Team ist wieder zurück!",
     "team_rejoined_description": "Folgendes Team ist dem Raum wieder beigetreten: ",
     "room_code": "Raumcode",

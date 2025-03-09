@@ -27,25 +27,23 @@ class DeactivateTeams implements ShouldQueue
     public function handle(): void
     {
         try {
-            // Return if the room doesn't exist anymore
-            if (!$room = Room::find($this->roomId)) {
+            $room = Room::find($this->roomId);
+            // Return if the room doesn't exist anymore or if the room is currently running and the roomcode already exists
+            if (
+                !$room || ($room->completed_at !== null &&
+                    $room->is_playing == true && $room->roomcode = null)
+            ) {
                 return;
             }
-            $room = Room::find($this->roomId);
 
-            // make sure the room is not currently running and the roomcode already exists
-            if (
-                $room->completed_at == null &&
-                $room->is_playing == false && $room->roomcode != null
-            ) {
-                // Deactivate all teams in the room
-                $room->teams()->update(['active' => false]);
-                // Remove roomcode to prevent rejoining
-                $room->roomcode = null;
-                $room->save();
-                // Broadcast on room channel through event TeamsDeactivated
-                broadcast(new TeamsDeactivated($this->roomId));
-            }
+            // Deactivate all teams in the room
+            $room->teams()->update(['active' => false]);
+            // Remove roomcode to prevent rejoining
+            $room->roomcode = null;
+            $room->save();
+            // Broadcast on room channel through event TeamsDeactivated
+            broadcast(new TeamsDeactivated($this->roomId));
+
         } catch (\Exception $e) {
             error_log("Deactivate Teams error: " . $e->getMessage());
         }
