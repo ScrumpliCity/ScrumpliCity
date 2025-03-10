@@ -237,18 +237,18 @@
   },
   "review": {
     "review": "@:common.phases.review",
-    "title": "Titel",
-    "description": "Beschreibung",
-    "story_points": "Story Points",
+    "title": "@:planning.title",
+    "description": "@:planning.description",
+    "story_points": "@:planning.story_points",
     "approved": "Abgenommen",
-    "sprint_out_of_n": "Sprint {current}/{total}",
-    "next_phase": "Nächste Phase:",
+    "sprint_out_of_n": "@:planning.sprint_out_of_n",
+    "next_phase": "@:planning.next_phase",
     "responsible": "Verantwortliche*r",
-    "story_points_abbreviation": "SP.",
-    "planning": "Sprint Planning",
-    "story_points_of_planned_user_stories": "Story Points der geplanten User Stories",
+    "story_points_abbreviation": "@:planning.story_points_abbreviation",
+    "backlog_refinement": "Sprint-Abschluss",
+    "story_points_of_planned_user_stories": "@:planning.story_points_of_planned_user_stories",
     "accepted_story_points": "Story Points der abgenommenen User Stories",
-    "velocity_to_date": "Bisherige Velocity",
+    "velocity_to_date": "@:planning.velocity_to_date",
     "infobox": {
       "title": "Sprint Review",
       "content": "Das Sprint Review dient dazu, das fertige Inkrement des Produkts vorzustellen und zu überprüfen. Der Product Owner (PO) prüft demnach, ob alle Anforderungen der User Stories (US) erfüllt wurden. Wenn dies geschehen ist, wird die US als abgenommen definiert. Ziel des Meetings ist es, das Produkt zu inspizieren und gemeinsam mit den Stakeholdern mögliche Anpassungen für die nächsten Sprints zu besprechen."
@@ -256,6 +256,35 @@
     "no_title": "@:build_phase.no_title",
     "no_description": "@:build_phase.no_description",
     "no_responsible": "@:build_phase.no_responsible"
+  },
+  "backlog_refinement": {
+    "backlog_refinement": "Abschluss des Sprints {sprint_name}",
+    "title": "@:planning.title",
+    "description": "@:planning.description",
+    "story_points": "@:planning.story_points",
+    "responsible": "@:planning.responsible",
+    "sprint_out_of_n": "@:planning.sprint_out_of_n",
+    "next_phase": "@:planning.next_phase",
+    "story_points_abbreviation": "@:planning.story_points_abbreviation",
+    "story_points_of_planned_user_stories": "@:planning.story_points_of_planned_user_stories",
+    "velocity_to_date": "@:planning.velocity_to_date",
+    "no_title": "@:build_phase.no_title",
+    "no_description": "@:build_phase.no_description",
+    "no_responsible": "@:build_phase.no_responsible",
+    "not_accepted_user_stories": "Nicht abgenommene User Stories: {accepted} von {planned}",
+    "accepted_story_points": "Story Points der abgenommenen User Stories",
+    "planning": "Sprint Planning",
+    "modal": {
+      "question": "Sollen die nicht abgenommenen User Stories in den nächsten Sprint übernommen werden?",
+      "accept": "Ja, übernehmen",
+      "reject": "Nein, verwerfen",
+      "note": "Übernommene US können im Sprint Planning einzeln gelöscht werden!"
+    },
+    "infobox": {
+      "title": "Velocity",
+      "content": "Die Velocity beschreibt die durchschnittlich erledigten Story Points eines Sprints und berechnet sich durch die Summe der geschafften Story Points pro Sprint dividiert durch die Anzahl an Sprints."
+    },
+    "all_user_stories_accepted": "Alle User Stories dieses Sprints wurden abgenommen – gut gemacht!"
   },
   "infobox": {
     "current_of_total": "{current} von {total}"
