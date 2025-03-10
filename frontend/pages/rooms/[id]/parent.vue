@@ -127,8 +127,34 @@ onMounted(() => {
   echo
     .channel(`rooms.${manageRoom.value.id}`)
     .listen(".TeamCreated", () => refresh())
-    .listen(".TeamUpdated", () => refresh())
+    .listen(".TeamUpdated", (updatedTeam) => {
+      //get rejoined team to display in toast
+      for (const team in manageRoom.value.teams) {
+        if (manageRoom.value.teams[team].id === updatedTeam.model.id) {
+          if (
+            !manageRoom.value.teams[team].active &&
+            updatedTeam.model.active
+          ) {
+            toast.add({
+              title: t("rooms.team_rejoined"),
+              description:
+                t("rooms.team_rejoined_description") + updatedTeam.model.name,
+              variant: "success",
+            });
+          }
+        }
+      }
+
+      refresh();
+    })
     .listen(".MemberCreated", () => refresh())
+    .listen("TeamsDeactivated", () => {
+      toast.add({
+        title: t("rooms.teams_deactivated"),
+        description: t("rooms.teams_deactivated_description"),
+      });
+      refresh();
+    })
     .error((e) => {
       console.error("Channel error:", e);
     });
@@ -406,7 +432,7 @@ function copyRoomCode() {
               @isReadyChanged="
                 (isReady, teamId) => (teamReadyStates[teamId] = isReady)
               "
-              :isDisabled="!!manageRoom.completed_at"
+              :isDisabled="!!manageRoom.completed_at || !team.active"
             />
             <p
               v-if="manageRoom.teams.length <= 0"

@@ -1,5 +1,6 @@
 <script setup>
 const { t } = useI18n();
+const echo = useEcho();
 
 useSeoMeta({
   title: t("join_room.page_title"),
@@ -20,14 +21,47 @@ definePageMeta({
 });
 
 const localeRoute = useLocaleRoute();
+const route = useRoute();
 
 const game = useGameStore();
+const ableToSelectExistingTeams = ref(false);
+const roomWithAllExistingTeamsAndMembers = reactive({});
 
-const { data: joinSuccess } = useAsyncData("team-join", async () => {
+const inactiveTeamsToDisplay = computed(() => {
+  return roomWithAllExistingTeamsAndMembers.value.teams.filter(
+    (team) => !team.active,
+  );
+});
+
+const { data: joinSuccess, refresh } = useAsyncData("team-join", async () => {
   try {
     const game = useGameStore();
-    const route = useRoute();
-    await game.joinRoom(route.params.roomcode);
+    const room = await game.getRoomByRoomcode(route.params.roomcode);
+
+    //check if "last_play_end" is set => Room has been started and existing teams have to be used to join
+    ableToSelectExistingTeams.value = room.last_play_end;
+    if (ableToSelectExistingTeams.value) {
+      try {
+        roomWithAllExistingTeamsAndMembers.value = await game.getExistingTeams(
+          room.id,
+        );
+      } catch (error) {
+        console.error("Failed to get all teams of room: ", error);
+      }
+      try {
+        // Subscribe to team updates to only display inactive teams
+        echo
+          .channel(`rooms.${room.id}`)
+          .listen(".TeamUpdated", () => refresh())
+          .error((e) => {
+            console.error("Channel error:", e);
+          });
+      } catch (error) {
+        console.error("Failed to subscribe to team updates: ", error);
+      }
+    } else {
+      await game.joinRoom(route.params.roomcode);
+    }
     return "success";
   } catch (error) {
     return "failure";
@@ -42,6 +76,7 @@ watch(
         replace: true,
         redirectCode: 404,
       });
+      console.error("Failed to join room");
     }
   },
   {
@@ -49,40 +84,17 @@ watch(
   },
 );
 
-const localRoute = useLocaleRoute();
-
 const teamName = ref("");
 
 async function submit() {
-  if (roomAlreadyPlayed.value) {
-    //TODO: await navigateTo(localRoute("ready"));
+  if (ableToSelectExistingTeams.value) {
+    await game.selectExistingTeam(route.params.roomcode, selected.id);
+    await navigateTo(localeRoute("play-ready"));
   } else {
     await game.changeName(teamName.value);
-    await navigateTo(localRoute("play-members"));
+    await navigateTo(localeRoute("play-members"));
   }
 }
-
-//TODO: check if "last_play_start" is not null => Room hasn't been started
-const roomAlreadyPlayed = ref(false);
-//TODO: get existing teams from backend
-const existingTeams = [
-  {
-    name: "ScrumpliCity",
-    members: ["Felix", "Marco", "Lisa-Marie", "Sophie"],
-  },
-  {
-    name: "JourneyPlanner",
-    members: ["Raven", "Severin", "Stefania", "Roman"],
-  },
-  {
-    name: "LinguExplorer",
-    members: ["Tien", "Alexander", "Helena", "Benjamin", "Britta"],
-  },
-  {
-    name: "Specialbond",
-    members: ["Anil", "Arlon", "Paula", "Jovana"],
-  },
-];
 let selected = ref();
 
 function changeSelected(team) {
@@ -91,11 +103,15 @@ function changeSelected(team) {
 }
 
 const dropdownOpen = ref(false);
+
+onBeforeUnmount(() => {
+  echo.leaveChannel(`rooms.${game.team.room_id}`);
+});
 </script>
 <template>
   <div class="mt-10 flex h-full w-full flex-col items-center">
     <h1
-      v-if="!roomAlreadyPlayed"
+      v-if="!ableToSelectExistingTeams"
       class="font-heading text-6xl font-bold text-sc-orange"
     >
       {{ $t("join_room.team_title") }}
@@ -104,7 +120,7 @@ const dropdownOpen = ref(false);
       {{ $t("join_room.choose_existing_team") }}
     </h1>
     <input
-      v-if="!roomAlreadyPlayed"
+      v-if="!ableToSelectExistingTeams"
       @keydown.enter="submit"
       class="mt-16 rounded-lg border-2 border-sc-black-400 py-8 text-center text-5xl font-medium drop-shadow-sc-shadow"
       :placeholder="$t('join_room.team_name')"
@@ -137,24 +153,19 @@ const dropdownOpen = ref(false);
     </div>
     <div
       v-if="dropdownOpen"
-      class="relative mt-3 max-h-[30vh] w-[660.2px] cursor-pointer flex-col items-center justify-center overflow-y-auto rounded-lg border-2 border-sc-black-400 bg-sc-white text-center text-5xl font-medium drop-shadow-sc-shadow"
+      class="relative mt-3 max-h-[30vh] w-[660.2px] cursor-pointer flex-col items-center justify-center divide-y-2 divide-sc-black overflow-y-auto rounded-lg border-2 border-sc-black-400 bg-sc-white px-6 text-center text-5xl font-medium drop-shadow-sc-shadow"
     >
       <div
-        v-for="team in existingTeams"
-        :key="team.name"
+        v-for="(team, index) in inactiveTeamsToDisplay"
+        :key="team.id"
         @click="changeSelected(team)"
-        class="flex w-full items-center justify-center px-6 hover:bg-sc-black-200"
+        class="flex w-full items-center justify-center py-10 hover:bg-sc-black-200"
       >
-        <button
-          class="flex w-full flex-col items-center py-10"
-          :class="[
-            {
-              'border-t-2 border-sc-black': team !== existingTeams[0],
-            },
-          ]"
-        >
+        <button class="flex w-full flex-col items-center">
           <p class="mb-1 text-3xl font-bold">{{ team.name }}</p>
-          <p class="text-xs">{{ team.members.join(", ") }}</p>
+          <p class="text-xs">
+            {{ team.members.map((member) => member.name).join(", ") }}
+          </p>
         </button>
       </div>
     </div>

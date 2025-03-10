@@ -30,6 +30,12 @@ Route::get('/rooms/{room}', [RoomController::class, 'showSingleRoom'])->middlewa
 
 Route::patch('/rooms/{room}/playing-status', [RoomController::class, 'togglePlaying'])->middleware('auth:sanctum');
 
+//get room before creating a new team automatically
+Route::get('/rooms/{roomcode}/get-room-by-roomcode', [RoomController::class, 'getRoomByRoomcode']);
+
+//get all teams and members in one room by roomid for rejoining with existing team
+Route::get('/rooms/{roomID}/teams', [RoomController::class, 'getExistingTeams']);
+
 
 
 // Timer:
@@ -59,6 +65,10 @@ Route::post('/team/{team}/sprints/{sprintNumber}/stories', [UserStoryController:
 Route::patch('/team/{team}/sprints/{sprintNumber}/stories/{userStoryId}', [UserStoryController::class, 'update']); // update user story
 Route::delete('/team/{team}/sprints/{sprintNumber}/stories/{userStoryId}', [UserStoryController::class, 'delete']);  // delete user story
 Route::patch('/team/{team}/sprints/{sprintNumber}/stories/{userStoryId}/completed', [UserStoryController::class, 'toggleCompleted']);  // toggle the completed status of a user story
+
+// patch teamid to join existing team and set active field to true
+Route::post('/team/{team}/rejoin', [TeamController::class, 'selectExistingTeam']);
+
 
 
 // Team members:
