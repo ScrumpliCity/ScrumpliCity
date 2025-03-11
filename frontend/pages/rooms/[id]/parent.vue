@@ -129,22 +129,17 @@ onMounted(() => {
     .listen(".TeamCreated", () => refresh())
     .listen(".TeamUpdated", (updatedTeam) => {
       //get rejoined team to display in toast
-      for (const team in manageRoom.value.teams) {
-        if (manageRoom.value.teams[team].id === updatedTeam.model.id) {
-          if (
-            !manageRoom.value.teams[team].active &&
-            updatedTeam.model.active
-          ) {
-            toast.add({
-              title: t("rooms.team_rejoined"),
-              description:
-                t("rooms.team_rejoined_description") + updatedTeam.model.name,
-              variant: "success",
-            });
-          }
-        }
+      const team = manageRoom.value.teams.find(
+        (t) => t.id === updatedTeam.model.id,
+      );
+      if (team && !team.active && updatedTeam.model.active) {
+        toast.add({
+          title: t("rooms.team_rejoined"),
+          description:
+            t("rooms.team_rejoined_description") + updatedTeam.model.name,
+          variant: "success",
+        });
       }
-
       refresh();
     })
     .listen(".MemberCreated", () => refresh())
