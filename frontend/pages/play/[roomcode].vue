@@ -24,55 +24,47 @@ const localeRoute = useLocaleRoute();
 const route = useRoute();
 
 const game = useGameStore();
-const ableToSelectExistingTeams = ref(false);
-const roomWithAllExistingTeamsAndMembers = reactive({});
+
+const { data: roomWithAllExistingTeamsAndMembers, refresh } =
+  await useAsyncData("team-join", async () =>
+    game.getRoomByRoomcode(route.params.roomcode),
+  );
+
+const ableToSelectExistingTeams = computed(() => {
+  return roomWithAllExistingTeamsAndMembers.value.last_play_end;
+});
 
 const inactiveTeamsToDisplay = computed(() => {
-  return roomWithAllExistingTeamsAndMembers.value.teams.filter(
+  return roomWithAllExistingTeamsAndMembers.value.teams?.filter(
     (team) => !team.active,
   );
 });
 
-const { data: joinSuccess, refresh } = useAsyncData("team-join", async () => {
-  try {
-    const game = useGameStore();
-    roomWithAllExistingTeamsAndMembers.value = await game.getRoomByRoomcode(
-      route.params.roomcode,
-    );
-    console.log(roomWithAllExistingTeamsAndMembers.value);
-    //check if "last_play_end" is set => Room has been started and existing teams have to be used to join
-    ableToSelectExistingTeams.value =
-      roomWithAllExistingTeamsAndMembers.value.last_play_end;
-    if (ableToSelectExistingTeams.value) {
-      try {
-        // Subscribe to team updates to only display inactive teams
-        echo
-          .channel(`rooms.${roomWithAllExistingTeamsAndMembers.id}`)
-          .listen(".TeamUpdated", () => refresh())
-          .error((e) => {
-            console.error("Channel error:", e);
-          });
-      } catch (error) {
-        console.error("Failed to subscribe to team updates: ", error);
-      }
-    } else {
-      await game.joinRoom(route.params.roomcode);
-    }
-    return "success";
-  } catch (error) {
-    return "failure";
-  }
-});
-
 watch(
-  joinSuccess,
+  roomWithAllExistingTeamsAndMembers,
   async () => {
-    if (joinSuccess.value === "failure") {
+    try {
+      if (ableToSelectExistingTeams.value) {
+        try {
+          // Subscribe to team updates to only display inactive teams
+          echo
+            .channel(`rooms.${roomWithAllExistingTeamsAndMembers.value.id}`)
+            .listen(".TeamUpdated", () => refresh())
+            .error((e) => {
+              console.error("Channel error:", e);
+            });
+        } catch (error) {
+          console.error("Failed to subscribe to team updates: ", error);
+        }
+      } else {
+        await game.joinRoom(route.params.roomcode);
+      }
+    } catch (error) {
       await navigateTo(localeRoute("play"), {
         replace: true,
         redirectCode: 404,
       });
-      console.error("Failed to join room");
+      console.error("Failed to join room: ", error);
     }
   },
   {
@@ -101,7 +93,7 @@ function changeSelected(team) {
 const dropdownOpen = ref(false);
 
 onBeforeUnmount(() => {
-  echo.leaveChannel(`rooms.${roomWithAllExistingTeamsAndMembers.id}`);
+  echo.leaveChannel(`rooms.${roomWithAllExistingTeamsAndMembers.value.id}`);
 });
 </script>
 <template>
