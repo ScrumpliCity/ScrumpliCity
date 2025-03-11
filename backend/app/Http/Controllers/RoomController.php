@@ -64,16 +64,7 @@ class RoomController extends Controller
      */
     public function getRoomByRoomcode(Request $request, string $roomcode): Room
     {
-        $room = Room::where('roomcode', $roomcode)->firstOrFail();
-        return $room;
-    }
-
-    /**
-     * Get all teams and members in one room by roomid for rejoining with existing team
-     */
-    public function getExistingTeams(Request $request, string $roomID): Room
-    {
-        $room = Room::where('id', $roomID)->with('teams.members')->firstOrFail();
+        $room = Room::where('roomcode', $roomcode)->firstOrFail()->with('teams.members')->firstOrFail();
         return $room;
     }
 
@@ -147,7 +138,6 @@ class RoomController extends Controller
         $room->load(['teams.members']);
         return response()->json($room);
     }
-
 
     /**
      * Toggle the playing status of the room

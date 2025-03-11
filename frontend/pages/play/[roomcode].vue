@@ -36,22 +36,18 @@ const inactiveTeamsToDisplay = computed(() => {
 const { data: joinSuccess, refresh } = useAsyncData("team-join", async () => {
   try {
     const game = useGameStore();
-    const room = await game.getRoomByRoomcode(route.params.roomcode);
-
+    roomWithAllExistingTeamsAndMembers.value = await game.getRoomByRoomcode(
+      route.params.roomcode,
+    );
+    console.log(roomWithAllExistingTeamsAndMembers.value);
     //check if "last_play_end" is set => Room has been started and existing teams have to be used to join
-    ableToSelectExistingTeams.value = room.last_play_end;
+    ableToSelectExistingTeams.value =
+      roomWithAllExistingTeamsAndMembers.value.last_play_end;
     if (ableToSelectExistingTeams.value) {
-      try {
-        roomWithAllExistingTeamsAndMembers.value = await game.getExistingTeams(
-          room.id,
-        );
-      } catch (error) {
-        console.error("Failed to get all teams of room: ", error);
-      }
       try {
         // Subscribe to team updates to only display inactive teams
         echo
-          .channel(`rooms.${room.id}`)
+          .channel(`rooms.${roomWithAllExistingTeamsAndMembers.id}`)
           .listen(".TeamUpdated", () => refresh())
           .error((e) => {
             console.error("Channel error:", e);
@@ -105,7 +101,7 @@ function changeSelected(team) {
 const dropdownOpen = ref(false);
 
 onBeforeUnmount(() => {
-  echo.leaveChannel(`rooms.${game.team.room_id}`);
+  echo.leaveChannel(`rooms.${roomWithAllExistingTeamsAndMembers.id}`);
 });
 </script>
 <template>

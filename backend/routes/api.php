@@ -33,9 +33,6 @@ Route::patch('/rooms/{room}/playing-status', [RoomController::class, 'togglePlay
 //get room before creating a new team automatically
 Route::get('/rooms/{roomcode}/get-room-by-roomcode', [RoomController::class, 'getRoomByRoomcode']);
 
-//get all teams and members in one room by roomid for rejoining with existing team
-Route::get('/rooms/{roomID}/teams', [RoomController::class, 'getExistingTeams']);
-
 
 
 // Timer:

@@ -143,14 +143,6 @@ export const useGameStore = defineStore("game", () => {
     return data;
   }
 
-  //same as join room if room has already been started
-  async function getExistingTeams(roomId: string) {
-    const data: Team = await client(`/api/rooms/${roomId}/teams`, {
-      method: "GET",
-    });
-    return data;
-  }
-
   async function selectExistingTeam(code: string, teamId: string) {
     const data: Team = await client(`/api/team/${teamId}/rejoin`, {
       body: {
@@ -344,7 +336,6 @@ export const useGameStore = defineStore("game", () => {
     team,
     getRoomByRoomcode,
     joinRoom,
-    getExistingTeams,
     selectExistingTeam,
     isInTeam,
     refresh,
