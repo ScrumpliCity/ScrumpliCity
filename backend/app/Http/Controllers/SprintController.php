@@ -16,7 +16,7 @@ class SprintController extends Controller
         $teamId = session()->get('team');
         $team = Team::findOrFail($teamId);
 
-        if ($sprintNumber != $team->room->current_sprint && $sprintNumber != ($team->room->current_sprint + 1)) {
+        if ($sprintNumber != $team->room->current_sprint && $sprintNumber != ($team->room->current_sprint + 1) || $sprintNumber > $team->room->number_of_sprints) {
             return response(null, 403);
         }
 
@@ -66,15 +66,17 @@ class SprintController extends Controller
             ->where('completed', false)
             ->get();
 
-        foreach ($incompleteStories as $story) {
-            $targetSprint->user_stories()->create([
-                'title' => $story->title,
-                'description' => $story->description,
-                'story_points' => $story->story_points,
-                'member_id' => $story->member_id,
-                'completed' => false
-            ]);
-        }
+        $targetSprint->user_stories()->createMany(
+            $incompleteStories->map(function ($story) {
+                return [
+                    'title' => $story->title,
+                    'description' => $story->description,
+                    'story_points' => $story->story_points,
+                    'member_id' => $story->member_id,
+                    'completed' => false
+                ];
+            })->toArray()
+        );
     }
 
 

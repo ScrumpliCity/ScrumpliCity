@@ -250,7 +250,7 @@
     "accepted_story_points": "Story points of the accepted user stories",
     "velocity_to_date": "@:planning.velocity_to_date",
     "infobox": {
-      "title": "Sprint Wrap-Up",
+      "title": "Sprint Review",
       "content": "The sprint review is used to present and review the finished increment of the product. The product owner (PO) therefore checks whether all user story (US) requirements have been met. If this has been done, the US is defined as accepted. The aim of the meeting is to inspect the product and discuss possible adjustments for the next sprints together with the stakeholders."
     },
     "no_title": "@:build_phase.no_title",

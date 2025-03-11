@@ -51,7 +51,8 @@ const totalDuration = computed(() => {
   return sprintCount.value > 0 &&
     buildPhaseDuration.value > 0 &&
     meetingDuration.value > 0
-    ? sprintCount.value * (buildPhaseDuration.value + 2 * meetingDuration.value)
+    ? sprintCount.value *
+        (buildPhaseDuration.value + 2 * meetingDuration.value + 1) // 1 min for backlog refinement
     : 0;
 });
 

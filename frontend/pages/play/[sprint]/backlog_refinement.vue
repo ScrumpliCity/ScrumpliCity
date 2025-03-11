@@ -70,29 +70,29 @@ async function manageUS(preserveUS) {
           class="relative mt-1.5 max-w-[64vw] flex-1 overflow-clip rounded-2xl border-2 border-sc-black-400 bg-sc-white"
           @click.stop
         >
-          <table class="w-full table-fixed divide-y-2 divide-sc-black-400">
+          <table class="w-full table-fixed divide-y-2 divide-sc-black-400 pr-2">
             <thead>
               <tr
-                class="h-11 rounded-t-2xl border-b-2 border-sc-black-400 bg-sc-orange-100 pl-2 pr-16 font-semibold"
+                class="h-11 rounded-t-2xl border-b-2 border-sc-black-400 bg-sc-orange-100 font-semibold"
               >
-                <th class="w-1/3 p-2 px-4 text-left">
+                <th class="pl-4 text-left">
                   {{ $t("backlog_refinement.title") }}
                 </th>
-                <th class="w-2/3 p-2 pl-0 pr-4 text-left">
+                <th class="py-2 text-left">
                   {{ $t("backlog_refinement.description") }}
                 </th>
-                <th class="w-28">
+                <th class="">
                   {{ $t("backlog_refinement.story_points") }}
                 </th>
-                <th class="w-48 pr-16">
+                <th class="text-left">
                   {{ $t("backlog_refinement.responsible") }}
                 </th>
               </tr>
             </thead>
           </table>
-          <div class="h-full max-h-[22rem] overflow-y-auto">
+          <div class="h-full max-h-[55vh] overflow-y-auto xl:max-h-[50vh]">
             <table class="w-full table-fixed divide-y-2 divide-sc-black-400">
-              <tbody class="w-full divide-y">
+              <tbody class="h-full w-full divide-y">
                 <template
                   v-for="userStory in game.currentSprint.user_stories.filter(
                     (us) => !us.completed,
@@ -124,9 +124,7 @@ async function manageUS(preserveUS) {
                         {{ userStory.story_points || 0 }}
                       </div>
                     </td>
-                    <td
-                      class="flex h-14 items-center justify-center pr-16 text-center"
-                    >
+                    <td class="flex h-14 items-center text-left">
                       {{
                         userStory.member?.name ||
                         $t("backlog_refinement.no_responsible")
@@ -152,7 +150,7 @@ async function manageUS(preserveUS) {
                   v-else
                   class="border-t border-sc-black-400"
                   :class="{
-                    'h-52': isModalOpen,
+                    'h-56 xl:h-52': isModalOpen,
                   }"
                 ></tr>
               </tbody>
