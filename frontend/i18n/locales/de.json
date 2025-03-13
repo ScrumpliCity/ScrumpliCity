@@ -366,7 +366,10 @@
   "timer": {
     "paused_by_tutor": "Timer wurde von Tutor*in pausiert",
     "resume_timer": "Timer fortsetzen",
-    "pause_timer": "Timer pausieren"
+    "pause_timer": "Timer pausieren",
+    "back": "30 Sekunden zurück",
+    "forward": "30 Sekunden vor",
+    "next_phase": "Nächste Phase"
   },
   "scrumplicity_guide": {
     "title": "Willkommen beim ScrumpliCity-Guide!",
