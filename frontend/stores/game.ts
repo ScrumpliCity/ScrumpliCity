@@ -166,20 +166,6 @@ export const useGameStore = defineStore("game", () => {
     return story as UserStory;
   }
 
-  async function manageUserStories(preserve_user_stories: boolean) {
-    try {
-      await client(
-        `/api/team/${team.value!.id}/sprints/${team.value!.room.current_sprint + 1}`,
-        {
-          method: "POST",
-          body: { preserve_user_stories },
-        },
-      );
-    } catch (e) {
-      console.error("Failed to preserve user stories", e);
-    }
-  }
-
   async function updateUserStory(userStory: UserStory): Promise<UserStory> {
     const story = await client(
       `/api/team/${team.value!.id}/sprints/${team.value!.room.current_sprint}/stories/${userStory.id}`,
@@ -251,7 +237,6 @@ export const useGameStore = defineStore("game", () => {
       planning: "play-sprint-planning",
       build_phase: "play-sprint-build_phase",
       review: "play-sprint-review",
-      backlog_refinement: "play-sprint-backlog_refinement",
     };
 
     const currentPhase = team.value.room.current_phase;
@@ -332,7 +317,6 @@ export const useGameStore = defineStore("game", () => {
     setSprintGoal,
     setSprintName,
     createUserStory,
-    manageUserStories,
     updateUserStory,
     deleteUserStory,
     toggleCompletedUserStory,

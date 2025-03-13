@@ -89,7 +89,6 @@ const selectedUS = ref(game.currentSprint.user_stories[0] || {}); // DOD-US: Imp
                   </td>
                 </tr>
               </template>
-              <tr class="border-t border-sc-black-400"></tr>
             </tbody>
           </table>
         </div>

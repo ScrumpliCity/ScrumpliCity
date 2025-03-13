@@ -22,8 +22,6 @@ class UserStory extends Model
     protected $fillable = [
         'title',
         'description',
-        'story_points',
-        'member_id',
-        'completed'
+        'story_points'
     ];
 }

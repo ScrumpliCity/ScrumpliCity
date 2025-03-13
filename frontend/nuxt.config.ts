@@ -108,10 +108,6 @@ export default defineNuxtConfig({
         de: "/play/[sprint]/bauphase",
         en: "/play/[sprint]/build-phase",
       },
-      "play/[sprint]/backlog_refinement": {
-        de: "/play/[sprint]/backlog-refinement",
-        en: "/play/[sprint]/backlog-refinement",
-      },
       // define more pages here
     },
   },
