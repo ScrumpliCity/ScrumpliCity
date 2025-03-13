@@ -67,7 +67,7 @@ async function manageUS(preserveUS) {
           </h2>
         </div>
         <div
-          class="relative mt-1.5 max-w-[64vw] flex-1 overflow-clip rounded-2xl border-2 border-sc-black-400 bg-sc-white"
+          class="relative mt-1.5 h-0 max-w-[64vw] flex-1 basis-0 overflow-clip rounded-2xl border-2 border-sc-black-400 bg-sc-white"
           @click.stop
         >
           <table class="w-full table-fixed divide-y-2 divide-sc-black-400 pr-2">
@@ -90,7 +90,7 @@ async function manageUS(preserveUS) {
               </tr>
             </thead>
           </table>
-          <div class="h-full max-h-[55vh] overflow-y-auto xl:max-h-[50vh]">
+          <div class="h-full overflow-y-auto">
             <table class="w-full table-fixed divide-y-2 divide-sc-black-400">
               <tbody class="h-full w-full divide-y">
                 <template
@@ -150,11 +150,46 @@ async function manageUS(preserveUS) {
                   v-else
                   class="border-t border-sc-black-400"
                   :class="{
-                    'h-56 xl:h-52': isModalOpen,
+                    'h-60 xl:h-56': isModalOpen,
                   }"
                 ></tr>
               </tbody>
             </table>
+          </div>
+          <div
+            v-if="isModalOpen"
+            class="absolute bottom-5 right-5 z-30 max-w-[452px] transform drop-shadow-sc-shadow"
+          >
+            <div
+              class="flex flex-col gap-2 rounded-lg border border-sc-black-400 bg-sc-black-50 px-8 py-4 text-center"
+            >
+              <p>{{ $t("backlog_refinement.modal.question") }}</p>
+              <div
+                class="mt-1 flex justify-center gap-10 text-sc-white *:text-base *:font-bold"
+              >
+                <UButton
+                  @click="manageUS(true)"
+                  class="bg-sc-green-500 p-[10px] hover:bg-sc-green-600"
+                  :ui="{
+                    rounded: 'rounded-[10px]',
+                    variant: 'solid',
+                  }"
+                >
+                  {{ $t("backlog_refinement.modal.accept") }}
+                </UButton>
+                <UButton
+                  @click="manageUS(false)"
+                  class="bg-[#EF4444] p-[10px] hover:bg-[#BC1010]"
+                  :ui="{
+                    rounded: 'rounded-[10px]',
+                    variant: 'solid',
+                  }"
+                >
+                  {{ $t("backlog_refinement.modal.reject") }}
+                </UButton>
+              </div>
+              <p class="text-xs">{{ $t("backlog_refinement.modal.note") }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -307,41 +342,6 @@ async function manageUS(preserveUS) {
             </UTooltip>
           </div>
         </div>
-      </div>
-    </div>
-    <div
-      v-if="isModalOpen"
-      class="absolute bottom-[10vh] left-1/2 z-30 max-w-[452px] -translate-x-1/2 transform drop-shadow-sc-shadow"
-    >
-      <div
-        class="flex flex-col gap-2 rounded-lg border border-sc-black-400 bg-sc-black-50 px-8 py-4 text-center"
-      >
-        <p>{{ $t("backlog_refinement.modal.question") }}</p>
-        <div
-          class="mt-1 flex justify-center gap-10 text-sc-white *:text-base *:font-bold"
-        >
-          <UButton
-            @click="manageUS(true)"
-            class="bg-sc-green-500 p-[10px] hover:bg-sc-green-600"
-            :ui="{
-              rounded: 'rounded-[10px]',
-              variant: 'solid',
-            }"
-          >
-            {{ $t("backlog_refinement.modal.accept") }}
-          </UButton>
-          <UButton
-            @click="manageUS(false)"
-            class="bg-[#EF4444] p-[10px] hover:bg-[#BC1010]"
-            :ui="{
-              rounded: 'rounded-[10px]',
-              variant: 'solid',
-            }"
-          >
-            {{ $t("backlog_refinement.modal.reject") }}
-          </UButton>
-        </div>
-        <p class="text-xs">{{ $t("backlog_refinement.modal.note") }}</p>
       </div>
     </div>
 
