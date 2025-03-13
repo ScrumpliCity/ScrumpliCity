@@ -51,7 +51,7 @@ class TeamController extends Controller
     public function setMembers(Request $request, Team $team): JsonResponse
     {
         if ($request->session()->get('team') != $team->id) {
-            return response()->noContent(403);
+            return response()->json(['error' => 'Forbidden'], 403);
         }
 
         $validated = $request->validate([
