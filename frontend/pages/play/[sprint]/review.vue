@@ -163,7 +163,7 @@ async function toggleAccepted(userStory, accepted) {
             }}</span
             ><br />
             <span>{{ $t("review.next_phase") }}</span>
-            {{ $t("review.planning") }}
+            {{ $t("review.backlog_refinement") }}
           </p>
           <hr class="border-sc-black-300" />
           <div class="flex w-44 flex-wrap items-start gap-x-3 gap-y-1.5 pt-1">
