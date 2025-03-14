@@ -366,7 +366,10 @@
   "timer": {
     "paused_by_tutor": "Timer was paused by the tutor",
     "resume_timer": "Resume timer",
-    "pause_timer": "Pause timer"
+    "pause_timer": "Pause timer",
+    "back": "30 seconds back",
+    "forward": "30 seconds forward",
+    "next_phase": "Next phase"
   },
   "scrumplicity_guide": {
     "title": "Welcome to the ScrumpliCity Guide!",
