@@ -169,7 +169,7 @@ onBeforeUnmount(() => {
           </p>
         </button>
       </div>
-      <p v-if="!inactiveTeamsToDisplay.value" class="m-4 text-base">
+      <p v-if="inactiveTeamsToDisplay.length === 0" class="m-4 text-base">
         {{ $t("join_room.no_teams_available") }}
       </p>
     </div>

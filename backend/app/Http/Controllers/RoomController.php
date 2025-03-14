@@ -64,7 +64,7 @@ class RoomController extends Controller
      */
     public function getRoomByRoomcode(Request $request, string $roomcode): Room
     {
-        $room = Room::where('roomcode', $roomcode)->firstOrFail()->with('teams.members')->firstOrFail();
+        $room = Room::where('roomcode', $roomcode)->with('teams.members')->firstOrFail();
         return $room;
     }
 
