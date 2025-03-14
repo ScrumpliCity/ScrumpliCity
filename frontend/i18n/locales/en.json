@@ -239,21 +239,20 @@
     "no_description": "No description set",
     "no_responsible": "No responsible person set"
   },
-
   "review": {
     "review": "@:common.phases.review",
-    "title": "Title",
-    "description": "Description",
-    "story_points": "Story Points",
+    "title": "@:planning.title",
+    "description": "@:planning.description",
+    "story_points": "@:planning.story_points",
     "approved": "Approved",
-    "sprint_out_of_n": "Sprint {current}/{total}",
-    "next_phase": "Next phase:",
+    "sprint_out_of_n": "@:planning.sprint_out_of_n",
+    "next_phase": "@:planning.next_phase",
     "responsible": "Responsible",
-    "story_points_abbreviation": "SP.",
-    "planning": "Sprint Planning",
-    "story_points_of_planned_user_stories": "Story points of the planned user stories",
+    "story_points_abbreviation": "@:planning.story_points_abbreviation",
+    "backlog_refinement": "Sprint Conclusion",
+    "story_points_of_planned_user_stories": "@:planning.story_points_of_planned_user_stories",
     "accepted_story_points": "Story points of the accepted user stories",
-    "velocity_to_date": "Velocity to date",
+    "velocity_to_date": "@:planning.velocity_to_date",
     "infobox": {
       "title": "Sprint Review",
       "content": "The sprint review is used to present and review the finished increment of the product. The product owner (PO) therefore checks whether all user story (US) requirements have been met. If this has been done, the US is defined as accepted. The aim of the meeting is to inspect the product and discuss possible adjustments for the next sprints together with the stakeholders."
@@ -264,6 +263,35 @@
   },
   "infobox": {
     "current_of_total": "{current} of {total}"
+  },
+  "backlog_refinement": {
+    "backlog_refinement": "Sprint Conclusion – {sprint_name}",
+    "title": "@:planning.title",
+    "description": "@:planning.description",
+    "story_points": "@:planning.story_points",
+    "responsible": "@:planning.responsible",
+    "sprint_out_of_n": "@:planning.sprint_out_of_n",
+    "next_phase": "@:planning.next_phase",
+    "story_points_abbreviation": "@:planning.story_points_abbreviation",
+    "story_points_of_planned_user_stories": "@:planning.story_points_of_planned_user_stories",
+    "accepted_story_points": "Story points of the accepted user stories",
+    "velocity_to_date": "@:planning.velocity_to_date",
+    "no_title": "@:build_phase.no_title",
+    "no_description": "@:build_phase.no_description",
+    "no_responsible": "@:build_phase.no_responsible",
+    "not_accepted_user_stories": "Not approved user stories: {accepted} of {planned}",
+    "planning": "Sprint Planning",
+    "modal": {
+      "question": "Should the user stories that have not been approved be transferred to the next sprint?",
+      "accept": "Yes, transfer",
+      "reject": "No, discard",
+      "note": "Transferred US can be deleted individually in Sprint Planning!"
+    },
+    "infobox": {
+      "title": "Velocity",
+      "content": "Velocity describes the average number of story points completed in a sprint and is calculated by dividing the total number of story points completed per sprint by the number of sprints."
+    },
+    "all_user_stories_accepted": "All user stories of this sprint have been accepted – well done!"
   },
   "team_manager": {
     "missing_roles": "Not all roles are assigned! Please assign the role {roles} to continue.",
