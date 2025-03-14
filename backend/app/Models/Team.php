@@ -36,7 +36,7 @@ class Team extends Model
      *
      * @var array
      */
-    protected $with = ['room:id,roomcode,number_of_sprints,sprint_duration,planning_duration,review_duration,user_id,current_sprint,current_phase,is_playing', 'sprints.user_stories', 'members'];
+    protected $with = ['room:id,roomcode,number_of_sprints,sprint_duration,planning_duration,review_duration,user_id,current_sprint,current_phase,is_playing,completed_at', 'sprints.user_stories', 'members'];
 
     /**
      * Get the room that the team is in.

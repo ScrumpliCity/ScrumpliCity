@@ -286,6 +286,19 @@
     },
     "all_user_stories_accepted": "Alle User Stories dieses Sprints wurden abgenommen – gut gemacht!"
   },
+  "congratulations": {
+    "title": "Gratulation!",
+    "subheading": "Euer ScrumpliCity-Projekt ist abgeschlossen – hier eine kleine Zusammenfassung:",
+    "sprint": "{sprints} Sprint | {sprints} Sprints",
+    "completed_us": "{user_stories} abgeschlossene User Story | {user_stories} abgeschlossene User Storys",
+    "completed_sp": "{story_points} Story Point abgeschlossen | {story_points} Story Points abgeschlossen",
+    "velocity": "Velocity von {velocity}",
+    "annotation": {
+      "text": "Danke, dass ihr mit ScrumpliCity gespielt habt! Da sich die Website in stetiger Entwicklung befindet, freut sich das ScrumpliCity-Team sehr über Feedback, Anregungen oder Wünsche -- schreibt uns dafür gerne eine {email_link}!",
+      "email": "E-Mail"
+    },
+    "copy_tooltip": "Zusammenfassung in die Zwischenablage kopieren"
+  },
   "infobox": {
     "current_of_total": "{current} von {total}"
   },

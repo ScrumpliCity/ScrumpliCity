@@ -112,6 +112,10 @@ export default defineNuxtConfig({
         de: "/play/[sprint]/backlog-refinement",
         en: "/play/[sprint]/backlog-refinement",
       },
+      "play/congratulations": {
+        de: "/play/gratulation",
+        en: "/play/congratulations",
+      },
       // define more pages here
     },
   },

@@ -302,7 +302,7 @@ function copyRoomCode() {
                 }),
               )
             "
-            :disabled="isPlaying || manageRoom.completed_at"
+            :disabled="isPlaying || !!manageRoom.completed_at"
           />
         </div>
         <div
