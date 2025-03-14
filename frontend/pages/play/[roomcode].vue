@@ -49,7 +49,20 @@ watch(
           // Subscribe to team updates to only display inactive teams
           echo
             .channel(`rooms.${roomWithAllExistingTeamsAndMembers.value.id}`)
-            .listen(".TeamUpdated", () => refresh())
+            .listen(".TeamUpdated", (data) => {
+              console.log("Team updated: ", data);
+              //set data.model.id in roomWithAllExistingTeamsAndMembers.value.teams to active if data.model.active is 1 so the team is not available in inactiveTeamsToDisplay
+              const team = roomWithAllExistingTeamsAndMembers.value.teams.find(
+                (team) => team.id === data.model.id,
+              );
+              if (team && data.model.active === 1) {
+                team.active = true;
+              }
+              console.log(
+                "inactiveTeamsToDisplay: ",
+                inactiveTeamsToDisplay.value,
+              );
+            })
             .error((e) => {
               console.error("Channel error:", e);
             });
@@ -156,6 +169,9 @@ onBeforeUnmount(() => {
           </p>
         </button>
       </div>
+      <p v-if="!inactiveTeamsToDisplay.value" class="m-4 text-base">
+        {{ $t("join_room.no_teams_available") }}
+      </p>
     </div>
     <button
       v-if="!dropdownOpen"

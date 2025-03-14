@@ -92,6 +92,7 @@
     "join": "Beitreten",
     "team_title": "Gebt eurem Team einen Namen!",
     "choose_existing_team": "Wählt euer Team aus!",
+    "no_teams_available": "Alle Teams in Raum wurden bereits vergeben!",
     "team_name": "Teamname",
     "team_ready": "Bereit",
     "team_join": "Los geht's!",
