@@ -51,5 +51,10 @@
     "*": [
       "prettier --write --ignore-unknown"
     ]
+  },
+  "overrides": {
+    "@nuxt/ui": {
+      "ohash": "1.1.4"
+    }
   }
 }
