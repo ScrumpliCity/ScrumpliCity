@@ -25,7 +25,7 @@
     "teams_deactivated": "Teams deaktiviert",
     "teams_deactivated_description": "Aufgrund von 10-minütiger Inaktivität wurden alle Teams und der Raum-Code deaktiviert. Bitte generiere einen neuen Code, um mit den bestehenden Teams weiterzuspielen.",
     "team_rejoined": "Ein Team ist wieder zurück!",
-    "team_rejoined_description": "Folgendes Team ist dem Raum wieder beigetreten: ",
+    "team_rejoined_description": "Folgendes Team ist dem Raum wieder beigetreten: {team}",
     "room_code": "Raumcode",
     "copy_room_code": "Raumcode kopieren",
     "room_code_copied": "Raumcode kopiert!",

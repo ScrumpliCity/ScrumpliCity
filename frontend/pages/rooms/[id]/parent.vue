@@ -135,8 +135,9 @@ onMounted(() => {
       if (team && !team.active && updatedTeam.model.active) {
         toast.add({
           title: t("rooms.team_rejoined"),
-          description:
-            t("rooms.team_rejoined_description") + updatedTeam.model.name,
+          description: t("rooms.team_rejoined_description", {
+            team: updatedTeam.model.name,
+          }),
           variant: "success",
         });
       }
