@@ -41,6 +41,12 @@ Route::post('/rooms/{room}/timer/resume', [TimerController::class, 'resume'])->m
 
 Route::post('/rooms/{room}/timer/stop', [TimerController::class, 'stop'])->middleware('auth:sanctum');
 
+Route::post('/rooms/{room}/timer/forward', [TimerController::class, 'skipForward'])->middleware('auth:sanctum');
+
+Route::post('/rooms/{room}/timer/back', [TimerController::class, 'skipBackward'])->middleware('auth:sanctum');
+
+Route::post('/rooms/{room}/timer/skip', [TimerController::class, 'skipToEnd'])->middleware('auth:sanctum');
+
 
 
 // Teams:

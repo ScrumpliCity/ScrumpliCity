@@ -38,6 +38,7 @@
     },
     "product_owner_or_scrum_master_required": "You need a Product Owner and a Scrum Master in every team to continue.",
     "toggle_playing_error": "Error {status} the room!",
+    "skip_timer_error": "Error updating the timer!",
     "start": "starting",
     "pause": "pausing",
     "profile": {
