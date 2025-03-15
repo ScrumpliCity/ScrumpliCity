@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Services\TimerService;
 use Illuminate\Http\Request;
 use App\Models\Room;
-use Closure;
 use Illuminate\Support\Facades\Gate;
 
 
