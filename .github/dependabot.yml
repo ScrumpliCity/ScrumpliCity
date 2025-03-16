@@ -13,11 +13,11 @@ updates:
 
   - package-ecosystem: "docker"
     directories:
-      - "docker"
-      - "frontend"
-      - "backend"
-      - "diplomarbeit"
-      - "docker/nginx"
+      - "/docker/compose.yml"
+      - "/frontend/Dockerfile"
+      - "/backend/Dockerfile"
+      - "/diplomarbeit/Dockerfile"
+      - "/docker/nginx/Dockerfile"
     schedule:
       interval: weekly
 
