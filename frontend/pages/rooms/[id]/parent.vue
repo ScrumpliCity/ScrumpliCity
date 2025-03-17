@@ -139,15 +139,18 @@ onMounted(() => {
   // Subscribe to channels for real-time updates: timer
   echo
     .channel(`timer.${manageRoom.value.id}`)
-    .listen("TimerUpdate", (data: { remainingSeconds: number }) => {
-      if (data.remainingSeconds !== remainingSeconds.value)
-        remainingSeconds.value = data.remainingSeconds;
-      timerPaused.value = false; // if we received an update, it can't be paused
-    })
+    .listen(
+      "TimerUpdate",
+      (data: { roomId: string; remainingSeconds: number }) => {
+        if (data.remainingSeconds !== remainingSeconds.value)
+          remainingSeconds.value = data.remainingSeconds;
+      },
+    )
     .listen(
       "TimerStateChange",
       (data: {
-        state: string;
+        roomId: string;
+        state: "running" | "stopped" | "paused";
         remainingSeconds: number;
         totalSeconds: number;
       }) => {

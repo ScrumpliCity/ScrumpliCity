@@ -146,14 +146,14 @@ const offset = computed(() => {
         v-if="isControllable && !isDisabled"
         class="absolute bottom-3 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1.5 pl-[1.625rem]"
       >
-        <button class="flex" @click="emit('back')">
-          <UTooltip :text="$t('timer.back')">
+        <UTooltip :text="$t('timer.back')">
+          <button @click="emit('back')">
             <SvgIconBack
               :font-controlled="false"
               class="w-5 text-sc-black-500"
             ></SvgIconBack>
-          </UTooltip>
-        </button>
+          </button>
+        </UTooltip>
 
         <UTooltip
           :text="isPaused ? $t('timer.resume_timer') : $t('timer.pause_timer')"
@@ -178,22 +178,22 @@ const offset = computed(() => {
           ></UButton>
         </UTooltip>
 
-        <button class="flex" @click="emit('forward')">
-          <UTooltip :text="$t('timer.forward')">
+        <UTooltip :text="$t('timer.forward')">
+          <button @click="emit('forward')">
             <SvgIconForward
               :font-controlled="false"
               class="w-5 text-sc-black-500"
             ></SvgIconForward>
-          </UTooltip>
-        </button>
-        <button class="flex" @click="emit('skipToEnd')">
-          <UTooltip :text="$t('timer.next_phase')">
+          </button>
+        </UTooltip>
+        <UTooltip :text="$t('timer.next_phase')">
+          <button @click="emit('skipToEnd')">
             <SvgIconSkip
               :font-controlled="false"
               class="w-5 text-sc-black-500"
             ></SvgIconSkip>
-          </UTooltip>
-        </button>
+          </button>
+        </UTooltip>
       </div>
       <!-- Student view: if the timer is paused, display a small icon with an explanatory tooltip -->
       <UTooltip
