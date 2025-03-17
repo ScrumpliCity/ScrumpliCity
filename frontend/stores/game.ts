@@ -3,6 +3,7 @@ type Team = {
   created_at: string;
   updated_at: string;
   name: string | null;
+  active: boolean;
   room: {
     id: string;
     roomcode: string;
@@ -13,6 +14,7 @@ type Team = {
     current_sprint: number;
     current_phase: string;
     is_playing: boolean;
+    last_play_start: Date | null;
   };
   members: Array<Member>;
   sprints: Array<Sprint>;
@@ -115,6 +117,19 @@ export const useGameStore = defineStore("game", () => {
     },
   );
 
+  /**
+   * Get room before creating a new team automatically
+   */
+  async function getRoomByRoomcode(roomcode: string) {
+    const data: Team = await client(
+      `/api/rooms/${roomcode}/get-room-by-roomcode`,
+      {
+        method: "GET",
+      },
+    );
+    return data;
+  }
+
   async function joinRoom(code: string) {
     const data: Team = await client(`/api/team/join`, {
       body: {
@@ -123,6 +138,17 @@ export const useGameStore = defineStore("game", () => {
       method: "POST",
     });
 
+    team.value = data;
+    return data;
+  }
+
+  async function selectExistingTeam(code: string, teamId: string) {
+    const data: Team = await client(`/api/team/${teamId}/rejoin`, {
+      body: {
+        code,
+      },
+      method: "POST",
+    });
     team.value = data;
     return data;
   }
@@ -322,7 +348,9 @@ export const useGameStore = defineStore("game", () => {
   const isInTeam = computed(() => !!team.value);
   return {
     team,
+    getRoomByRoomcode,
     joinRoom,
+    selectExistingTeam,
     isInTeam,
     refresh,
     changeName,

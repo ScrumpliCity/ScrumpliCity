@@ -5,6 +5,7 @@ definePageMeta({
 });
 
 const { t } = useI18n();
+const localeRoute = useLocaleRoute();
 
 useSeoMeta({
   title: t("join_room.ready.page_title"),
@@ -15,6 +16,16 @@ const game = useGameStore();
 const { data: teamMembers } = await useAsyncData("teamMembers", () =>
   game.getMembers(),
 );
+
+onMounted(() => {
+  const echo = useEcho();
+  echo
+    .channel(`rooms.${game.team.room_id}`)
+    .listen("TeamsDeactivated", () => navigateTo(localeRoute("play")))
+    .error((e) => {
+      console.error("Channel error:", e);
+    });
+});
 </script>
 
 <template>
