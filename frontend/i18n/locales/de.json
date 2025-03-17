@@ -22,6 +22,10 @@
     "new": "Neu +",
     "teams": "{n} Team | {n} Teams",
     "no_teams_yet": "Es sind noch keine Teams vorhanden..",
+    "teams_deactivated": "Teams deaktiviert",
+    "teams_deactivated_description": "Aufgrund von 10-minütiger Inaktivität wurden alle Teams und der Raum-Code deaktiviert. Bitte generiere einen neuen Code, um mit den bestehenden Teams weiterzuspielen.",
+    "team_rejoined": "Ein Team ist wieder zurück!",
+    "team_rejoined_description": "Folgendes Team ist dem Raum wieder beigetreten: {team}",
     "room_code": "Raumcode",
     "copy_room_code": "Raumcode kopieren",
     "room_code_copied": "Raumcode kopiert!",
@@ -38,6 +42,7 @@
     },
     "product_owner_or_scrum_master_required": "Du brauchst einen Product Owner und einen Scrum Master in jedem Team, um weiterzumachen.",
     "toggle_playing_error": "Fehler beim {status} des Raums!",
+    "skip_timer_error": "Fehler beim Aktualisieren vom Timer!",
     "start": "Starten",
     "pause": "Pausieren",
     "profile": {
@@ -88,6 +93,7 @@
     "join": "Beitreten",
     "team_title": "Gebt eurem Team einen Namen!",
     "choose_existing_team": "Wählt euer Team aus!",
+    "no_teams_available": "Alle Teams im Raum wurden bereits vergeben!",
     "team_name": "Teamname",
     "team_ready": "Bereit",
     "team_join": "Los geht's!",
@@ -379,7 +385,10 @@
   "timer": {
     "paused_by_tutor": "Timer wurde von Tutor*in pausiert",
     "resume_timer": "Timer fortsetzen",
-    "pause_timer": "Timer pausieren"
+    "pause_timer": "Timer pausieren",
+    "back": "30 Sekunden zurück",
+    "forward": "30 Sekunden vor",
+    "next_phase": "Nächste Phase"
   },
   "scrumplicity_guide": {
     "title": "Willkommen beim ScrumpliCity-Guide!",

@@ -127,6 +127,27 @@ class TimerService
         });
     }
 
+    public function skip(float $timeToSkip): void
+    {
+        $this->withLock(function () use ($timeToSkip) {
+            $timer = Cache::get("timer." . $this->roomId);
+            if (!$timer || ($timer['state'] !== 'paused' && $timer['state'] !== 'running')) return;
+            $timer['remaining'] = $timer['remaining'] - $timeToSkip;
+            Cache::put("timer." . $this->roomId, $timer);
+        });
+        RunTimer::dispatch($this->roomId, true);
+    }
+
+    public function skipToEnd(): void {
+        $this->withLock(function () {
+            $timer = Cache::get("timer." . $this->roomId);
+            if (!$timer || ($timer['state'] !== 'paused' && $timer['state'] !== 'running')) return;
+            $timer['remaining'] = 0;
+            Cache::put("timer." . $this->roomId, $timer);
+        });
+        RunTimer::dispatch($this->roomId, true);
+    }
+
     private function withLock(callable $callback)
     {
         $lock = Cache::lock("timer_lock." . $this->roomId, 5);

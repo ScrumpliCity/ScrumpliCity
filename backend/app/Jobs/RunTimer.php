@@ -22,7 +22,8 @@ class RunTimer implements ShouldQueue
      * Create a new job instance.
      */
     public function __construct(
-        private string $roomId
+        private string $roomId,
+        private bool $forceBroadcast = false
     ) {}
 
     /**
@@ -44,7 +45,7 @@ class RunTimer implements ShouldQueue
                 }
 
                 // Return if the timer is not running
-                if ($timer['state'] !== 'running') {
+                if ($timer['state'] !== 'running' && !$this->forceBroadcast) {
                     return;
                 }
 
@@ -55,7 +56,7 @@ class RunTimer implements ShouldQueue
 
 
                 $currentTime = now();
-                $remaining = max(0, $timer['remaining'] - ($currentTime->timestamp - $timer['last_broadcast']));
+                $remaining = max(0, $timer['remaining'] - ($timer['state'] == 'running' ? ($currentTime->timestamp - $timer['last_broadcast']) : 0));
 
 
                 // When the timer is over
@@ -105,7 +106,7 @@ class RunTimer implements ShouldQueue
                     ]));
                     broadcast(new TimerUpdate($this->roomId, $remaining));
 
-                    static::dispatch($this->roomId)
+                    if ($timer['state'] == 'running') static::dispatch($this->roomId)
                         ->delay($currentTime->addSeconds(min(self::BROADCAST_INTERVAL, $remaining)));
                 }
             } finally {

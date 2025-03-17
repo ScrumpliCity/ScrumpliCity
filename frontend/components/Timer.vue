@@ -57,7 +57,7 @@ function decrementTime() {
   }, 1000);
 }
 
-const emit = defineEmits(["toggle"]);
+const emit = defineEmits(["toggle", "forward", "back", "skipToEnd"]);
 
 const pathLength = 890; // see path element
 
@@ -127,9 +127,12 @@ const offset = computed(() => {
           x="50%"
           text-anchor="middle"
           y="240px"
-          class="fill-sc-orange font-sans text-[5.625rem] font-extrabold tabular-nums tracking-tighter"
+          class="fill-sc-orange font-sans text-[5.625rem] font-extrabold tabular-nums"
         >
-          {{ text }}
+          <!-- wow letter spacing is absolute bs, it's applied at the end of a letter and leads to breaking layouts like this one! That's why we don't apply it to the last letter -->
+          <!-- read more here: https://css-tricks.com/letter-spacing-is-broken-and-theres-nothing-we-can-do-about-it-maybe/ -->
+          <tspan class="tracking-tighter">{{ text.slice(0, -1) }}</tspan>
+          <tspan>{{ text.slice(-1) }}</tspan>
         </text>
         <!-- the hook -->
         <path
@@ -138,31 +141,60 @@ const offset = computed(() => {
           stroke="#888888"
         />
       </svg>
-      <!-- Tutor view: button for pausing & resume -->
-      <UTooltip
+      <!-- Tutor view: button for back, pausing/resume, forward, skipping to end of phase -->
+      <div
         v-if="isControllable && !isDisabled"
-        class="absolute bottom-3 right-3 z-20"
-        :text="isPaused ? $t('timer.resume_timer') : $t('timer.pause_timer')"
-        :prevent="disableAction"
+        class="absolute bottom-3 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1.5 pl-[1.625rem]"
       >
-        <UButton
-          variant="ghost"
-          class="text-sc-black-500 hover:bg-transparent disabled:opacity-100"
-          :padded="false"
-          @click="emit('toggle')"
-          :class="{
-            'animate-spin': disableAction,
-          }"
-          :icon="
-            disableAction
-              ? 'i-heroicons-arrow-path-16-solid'
-              : isPaused
-                ? 'material-symbols:play-arrow-outline-rounded'
-                : 'humbleicons:pause'
-          "
-          :disabled="disableAction"
-        ></UButton>
-      </UTooltip>
+        <UTooltip :text="$t('timer.back')">
+          <button @click="emit('back')">
+            <SvgIconBack
+              :font-controlled="false"
+              class="w-5 text-sc-black-500"
+            ></SvgIconBack>
+          </button>
+        </UTooltip>
+
+        <UTooltip
+          :text="isPaused ? $t('timer.resume_timer') : $t('timer.pause_timer')"
+          :prevent="disableAction"
+        >
+          <UButton
+            variant="ghost"
+            class="text-sc-black-500 *:size-6 hover:bg-transparent disabled:opacity-100"
+            :padded="false"
+            @click="emit('toggle')"
+            :class="{
+              'animate-spin': disableAction,
+            }"
+            :icon="
+              disableAction
+                ? 'i-heroicons-arrow-path-16-solid'
+                : isPaused
+                  ? 'material-symbols:play-arrow-outline-rounded'
+                  : 'humbleicons:pause'
+            "
+            :disabled="disableAction"
+          ></UButton>
+        </UTooltip>
+
+        <UTooltip :text="$t('timer.forward')">
+          <button @click="emit('forward')">
+            <SvgIconForward
+              :font-controlled="false"
+              class="w-5 text-sc-black-500"
+            ></SvgIconForward>
+          </button>
+        </UTooltip>
+        <UTooltip :text="$t('timer.next_phase')">
+          <button @click="emit('skipToEnd')">
+            <SvgIconSkip
+              :font-controlled="false"
+              class="w-5 text-sc-black-500"
+            ></SvgIconSkip>
+          </button>
+        </UTooltip>
+      </div>
       <!-- Student view: if the timer is paused, display a small icon with an explanatory tooltip -->
       <UTooltip
         class="absolute bottom-3 right-3"

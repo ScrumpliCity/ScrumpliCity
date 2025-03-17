@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 definePageMeta({
   middleware: ["auth"],
 });
@@ -25,9 +25,9 @@ useSeoMeta({
 });
 
 const isOpen = ref(false);
-const timerPaused = ref(false);
+const timerPaused = ref(true); // in the current timer implementation, true is necessary as the client might not know that the timer is paused (which would mean it never receives an update)
 
-const teamReadyStates = ref({});
+const teamReadyStates: Ref<any> = ref({});
 
 const remainingSeconds = ref(0);
 const totalSeconds = ref(0);
@@ -37,7 +37,9 @@ const now = useNow();
 
 // DEV: The active field in teams should indicate an active connection to a team that at some point joined has this room
 const activeTeams = computed(
-  () => manageRoom.value.teams.filter((team) => team.active).length,
+  () =>
+    manageRoom.value.teams.filter((team: { active: any }) => team.active)
+      .length,
 );
 
 // For the created/playing/completed/... status text
@@ -64,6 +66,7 @@ const lastPlayedAgoMinutes = computed(() => {
   const lastPlayStart = manageRoom.value?.last_play_start;
   if (lastPlayStart) {
     return Math.floor(
+      // @ts-expect-error
       (new Date(now.value) - new Date(lastPlayStart + "Z").getTime()) /
         1000 /
         60,
@@ -127,25 +130,59 @@ onMounted(() => {
   echo
     .channel(`rooms.${manageRoom.value.id}`)
     .listen(".TeamCreated", () => refresh())
-    .listen(".TeamUpdated", () => refresh())
+    .listen(".TeamUpdated", (updatedTeam) => {
+      //get rejoined team to display in toast
+      const team = manageRoom.value.teams.find(
+        (t) => t.id === updatedTeam.model.id,
+      );
+      if (team && !team.active && updatedTeam.model.active) {
+        toast.add({
+          title: t("rooms.team_rejoined"),
+          description: t("rooms.team_rejoined_description", {
+            team: updatedTeam.model.name,
+          }),
+          variant: "success",
+        });
+      }
+      refresh();
+    })
     .listen(".MemberCreated", () => refresh())
-    .error((e) => {
+    .listen("TeamsDeactivated", () => {
+      toast.add({
+        title: t("rooms.teams_deactivated"),
+        description: t("rooms.teams_deactivated_description"),
+      });
+      refresh();
+    })
+    .error((e: any) => {
       console.error("Channel error:", e);
     });
 
   // Subscribe to channels for real-time updates: timer
   echo
     .channel(`timer.${manageRoom.value.id}`)
-    .listen("TimerUpdate", (data) => {
-      if (data.remainingSeconds !== remainingSeconds.value)
+    .listen(
+      "TimerUpdate",
+      (data: { roomId: string; remainingSeconds: number }) => {
+        if (data.remainingSeconds !== remainingSeconds.value)
+          remainingSeconds.value = data.remainingSeconds;
+      },
+    )
+    .listen(
+      "TimerStateChange",
+      (data: {
+        roomId: string;
+        state: "running" | "stopped" | "paused";
+        remainingSeconds: number;
+        totalSeconds: number;
+      }) => {
         remainingSeconds.value = data.remainingSeconds;
-    })
-    .listen("TimerStateChange", (data) => {
-      remainingSeconds.value = data.remainingSeconds;
-      totalSeconds.value = data.totalSeconds;
-      refresh();
-    })
-    .error((e) => {
+        totalSeconds.value = data.totalSeconds;
+        timerPaused.value = data.state !== "running";
+        refresh();
+      },
+    )
+    .error((e: any) => {
       console.error("Channel error:", e);
     });
 });
@@ -159,7 +196,7 @@ function openRoomCode() {
   navigateTo(
     localeRoute({
       name: "rooms-id-roomcode",
-      params: { id: manageRoom.id },
+      params: { id: manageRoom.value.id },
     }),
     {
       open: {
@@ -179,12 +216,12 @@ async function togglePlaying() {
       method: "PATCH",
     });
     refresh();
-    timerPaused.value = false;
   } catch (error) {
     toast.add({
       title: t("rooms.toggle_playing_error", {
         status: isPlaying ? t("rooms.pause") : t("rooms.start"),
       }),
+      // @ts-expect-error
       variant: "error",
     });
     return;
@@ -201,15 +238,33 @@ async function toggleTimer() {
       },
     );
     await refresh();
-    timerPaused.value = !timerPaused.value;
     disableTimerActionForRequest.value = false;
   } catch (error) {
     toast.add({
       title: t("rooms.toggle_playing_error", {
         status: isPlaying ? t("rooms.pause") : t("rooms.start"),
       }),
+      // @ts-expect-error
       variant: "error",
     });
+  }
+}
+
+async function skipTimer(whatToDo: "forward" | "back" | "skip") {
+  if (!["forward", "back", "skip"].includes(whatToDo))
+    throw new Error(`Invalid argument ${whatToDo}.`);
+
+  disableTimerActionForRequest.value = true;
+  try {
+    await client(`/api/rooms/${manageRoom.value.id}/timer/${whatToDo}`, {
+      method: "POST",
+    });
+  } catch (error) {
+    toast.add({
+      title: t("rooms.skip_timer_error"),
+    });
+  } finally {
+    disableTimerActionForRequest.value = false;
   }
 }
 
@@ -217,6 +272,7 @@ function copyRoomCode() {
   navigator.clipboard.writeText(manageRoom.value.roomcode);
   toast.add({
     title: t("rooms.room_code_copied"),
+    // @ts-expect-error
     variant: "success",
   });
 }
@@ -238,6 +294,9 @@ function copyRoomCode() {
         :isDisabled="!isPlaying"
         v-if="manageRoom.roomcode && !manageRoom.completed_at"
         @toggle="toggleTimer"
+        @skip-to-end="skipTimer('skip')"
+        @forward="skipTimer('forward')"
+        @back="skipTimer('back')"
         :disableAction="disableTimerActionForRequest"
       />
 
@@ -313,6 +372,7 @@ function copyRoomCode() {
             >{{ $t("rooms.room_code") }}:
           </strong>
           <UTooltip :text="$t('rooms.copy_room_code')" class="flex-none">
+            <!-- @vue-expect-error -->
             <UButton
               variant="ghost"
               icon="ic:baseline-content-copy"
@@ -335,7 +395,11 @@ function copyRoomCode() {
             name="material-symbols:calendar-today-outline-rounded"
             class="size-9 text-sc-orange"
           />
-          <p v-if="isPlaying">
+          <!-- data-allow-mismatch removes hydration error notice, as it is not relevant here -->
+          <p
+            v-if="isPlaying && lastPlayedAgoMinutes != undefined"
+            data-allow-mismatch
+          >
             {{
               $t("rooms.running_for", [
                 lastPlayedAgoMinutes >= 60
@@ -406,7 +470,7 @@ function copyRoomCode() {
               @isReadyChanged="
                 (isReady, teamId) => (teamReadyStates[teamId] = isReady)
               "
-              :isDisabled="!!manageRoom.completed_at"
+              :isDisabled="!!manageRoom.completed_at || !team.active"
             />
             <p
               v-if="manageRoom.teams.length <= 0"

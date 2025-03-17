@@ -21,6 +21,20 @@ class TeamController extends Controller
         return response()->json($team);
     }
 
+    /**
+     * rejoin with existing team by setting active field to true
+     */
+    public function selectExistingTeam(Request $request, Team $team): JsonResponse
+    {
+        $roomcode = $request->input('code');
+        $room = Room::where('roomcode', $roomcode)->firstOrFail();
+        $team = $room->teams()->where('id', $team->id)->firstOrFail();
+        $team->active = true;
+        $team->save();
+        session()->put('team', $team->id);
+        return response()->json($team);
+    }
+
     public function show(Request $request): JsonResponse
     {
         $teamId = session()->get('team');

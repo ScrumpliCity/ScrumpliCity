@@ -22,6 +22,10 @@
     "new": "New +",
     "teams": "{n} Team | {n} Teams",
     "no_teams_yet": "There are no teams yet..",
+    "teams_deactivated": "Teams deactivated",
+    "teams_deactivated_description": "Due to 10 minutes of inactivity, all teams and the room code were deactivated. Please generate a new room code to continue playing with the existing teams.",
+    "team_rejoined": "A team is back!",
+    "team_rejoined_description": "Following team has rejoined the room: {team}",
     "room_code": "Room code",
     "copy_room_code": "Copy room code",
     "room_code_copied": "Room code copied!",
@@ -38,6 +42,7 @@
     },
     "product_owner_or_scrum_master_required": "You need a Product Owner and a Scrum Master in every team to continue.",
     "toggle_playing_error": "Error {status} the room!",
+    "skip_timer_error": "Error updating the timer!",
     "start": "starting",
     "pause": "pausing",
     "profile": {
@@ -88,6 +93,7 @@
     "join": "Join",
     "team_title": "Name your team!",
     "choose_existing_team": "Select your team!",
+    "no_teams_available": "All teams in the room have already been allocated!",
     "team_name": "Team name",
     "team_join": "Let's go!",
     "team_ready": "Ready",
@@ -379,7 +385,10 @@
   "timer": {
     "paused_by_tutor": "Timer was paused by the tutor",
     "resume_timer": "Resume timer",
-    "pause_timer": "Pause timer"
+    "pause_timer": "Pause timer",
+    "back": "30 seconds back",
+    "forward": "30 seconds forward",
+    "next_phase": "Next phase"
   },
   "scrumplicity_guide": {
     "title": "Welcome to the ScrumpliCity Guide!",
