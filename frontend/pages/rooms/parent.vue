@@ -85,7 +85,14 @@ const readyRooms = computed(() => {
   );
 });
 const completedRooms = computed(() => {
-  return data.value.filter((room: Room) => room.completed_at);
+  return data.value
+    .filter((room: Room) => room.completed_at)
+    .toSorted(
+      (
+        a: Room,
+        b: Room, // timestamps are in 2025-03-15 22:27:15 format so they can be ordered alphabetically
+      ) => (a.completed_at! > b.completed_at! ? -1 : 1),
+    );
 });
 </script>
 

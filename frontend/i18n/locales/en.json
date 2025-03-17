@@ -42,6 +42,7 @@
     },
     "product_owner_or_scrum_master_required": "You need a Product Owner and a Scrum Master in every team to continue.",
     "toggle_playing_error": "Error {status} the room!",
+    "skip_timer_error": "Error updating the timer!",
     "start": "starting",
     "pause": "pausing",
     "profile": {
@@ -371,7 +372,10 @@
   "timer": {
     "paused_by_tutor": "Timer was paused by the tutor",
     "resume_timer": "Resume timer",
-    "pause_timer": "Pause timer"
+    "pause_timer": "Pause timer",
+    "back": "30 seconds back",
+    "forward": "30 seconds forward",
+    "next_phase": "Next phase"
   },
   "scrumplicity_guide": {
     "title": "Welcome to the ScrumpliCity Guide!",

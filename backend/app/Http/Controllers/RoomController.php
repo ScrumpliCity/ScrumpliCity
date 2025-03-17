@@ -174,6 +174,8 @@ class RoomController extends Controller
      */
     private function startRoom(Room $room): void
     {
+        Gate::authorize('update', $room);
+
         if ($room->current_phase === null) {
             $room->current_phase = 'planning';
             $room->current_sprint = 1;
@@ -189,6 +191,8 @@ class RoomController extends Controller
      */
     private function stopRoom(Room $room): void
     {
+        Gate::authorize('update', $room);
+
         $timer = new TimerService($room->id);
         $timer->stop();
 

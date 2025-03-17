@@ -5,14 +5,18 @@ namespace App\Http\Controllers;
 use App\Services\TimerService;
 use Illuminate\Http\Request;
 use App\Models\Room;
+use Illuminate\Support\Facades\Gate;
 
-class TimerController extends Controller
+
+class TimerController extends Controller 
 {
     /**
-     * Start a timer for a room
+     * Pause a timer for a room
      */
     public function pause(Request $request, Room $room)
     {
+        Gate::authorize('update', $room);
+
         try {
             $timer = new TimerService($room->id);
             $timer->pause();
@@ -23,10 +27,12 @@ class TimerController extends Controller
     }
 
     /**
-     * Stop a timer for a room
+     * Resume a timer for a room
      */
     public function resume(Request $request, Room $room)
     {
+        Gate::authorize('update', $room);
+
         try {
             $timer = new TimerService($room->id);
             $timer->resume();
@@ -35,6 +41,44 @@ class TimerController extends Controller
             return response()->json(['message' => 'Error resuming timer', 'error' => $e->getMessage()], 500);
         }
     }
+
+    public function skipForward(Room $room)
+    {
+        Gate::authorize('update', $room);
+
+        try {
+            $timer = new TimerService($room->id);
+            $timer->skip(30);
+            return response()->json(['message' => 'Timer forwarded', 'status' => 'success']);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error resuming timer', 'error' => $e->getMessage()], 500);
+        }
+    }
+
+    public function skipBackward(Room $room)
+    {
+        Gate::authorize('update', $room);
+
+        try {
+            $timer = new TimerService($room->id);
+            $timer->skip(-30);
+            return response()->json(['message' => 'Timer turned back', 'status' => 'success']);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error resuming timer', 'error' => $e->getMessage()], 500);
+        }
+    }
+
+    public function skipToEnd(Room $room)
+    {
+        Gate::authorize('update', $room);
+
+        try {
+            $timer = new TimerService($room->id);
+            $timer->skipToEnd();
+            return response()->json(['message' => 'Timer skipped', 'status' => 'success']);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error resuming timer', 'error' => $e->getMessage()], 500);
+        }
+    }
+
 }
-
-
