@@ -8,7 +8,7 @@ useSeoMeta({
 
 definePageMeta({
   layout: "play",
-  middleware: (to, from) => {
+  middleware: (to) => {
     const code = to.params.roomcode;
     if (!isRoomCodeCheckDigitValid(code)) {
       const localeRoute = useLocaleRoute();
@@ -25,10 +25,10 @@ const route = useRoute();
 
 const game = useGameStore();
 
-const { data: roomWithAllExistingTeamsAndMembers, refresh } =
-  await useAsyncData("team-join", async () =>
-    game.getRoomByRoomcode(route.params.roomcode),
-  );
+const { data: roomWithAllExistingTeamsAndMembers } = await useAsyncData(
+  "team-join",
+  async () => game.getRoomByRoomcode(route.params.roomcode),
+);
 
 const ableToSelectExistingTeams = computed(() => {
   return roomWithAllExistingTeamsAndMembers.value.last_play_end;
@@ -40,50 +40,39 @@ const inactiveTeamsToDisplay = computed(() => {
   );
 });
 
-watch(
-  roomWithAllExistingTeamsAndMembers,
-  async () => {
-    try {
-      if (ableToSelectExistingTeams.value) {
-        try {
-          // Subscribe to team updates to only display inactive teams
-          echo
-            .channel(`rooms.${roomWithAllExistingTeamsAndMembers.value.id}`)
-            .listen(".TeamUpdated", (data) => {
-              console.log("Team updated: ", data);
-              //set data.model.id in roomWithAllExistingTeamsAndMembers.value.teams to active if data.model.active is 1 so the team is not available in inactiveTeamsToDisplay
-              const team = roomWithAllExistingTeamsAndMembers.value.teams.find(
-                (team) => team.id === data.model.id,
-              );
-              if (team && data.model.active === 1) {
-                team.active = true;
-              }
-              console.log(
-                "inactiveTeamsToDisplay: ",
-                inactiveTeamsToDisplay.value,
-              );
-            })
-            .error((e) => {
-              console.error("Channel error:", e);
-            });
-        } catch (error) {
-          console.error("Failed to subscribe to team updates: ", error);
-        }
-      } else {
-        await game.joinRoom(route.params.roomcode);
+onMounted(async () => {
+  try {
+    if (ableToSelectExistingTeams.value) {
+      try {
+        // Subscribe to team updates to only display inactive teams
+        echo
+          .channel(`rooms.${roomWithAllExistingTeamsAndMembers.value.id}`)
+          .listen(".TeamUpdated", (data) => {
+            //set data.model.id in roomWithAllExistingTeamsAndMembers.value.teams to active if data.model.active is 1 so the team is not available in inactiveTeamsToDisplay
+            const team = roomWithAllExistingTeamsAndMembers.value.teams.find(
+              (team) => team.id === data.model.id,
+            );
+            if (team && data.model.active) {
+              team.active = true;
+            }
+          })
+          .error((e) => {
+            console.error("Channel error:", e);
+          });
+      } catch (error) {
+        console.error("Failed to subscribe to team updates: ", error);
       }
-    } catch (error) {
-      await navigateTo(localeRoute("play"), {
-        replace: true,
-        redirectCode: 404,
-      });
-      console.error("Failed to join room: ", error);
+    } else {
+      await game.joinRoom(route.params.roomcode);
     }
-  },
-  {
-    immediate: true,
-  },
-);
+  } catch (error) {
+    await navigateTo(localeRoute("play"), {
+      replace: true,
+      redirectCode: 404,
+    });
+    console.error("Failed to join room: ", error);
+  }
+});
 
 const teamName = ref("");
 
