@@ -383,15 +383,15 @@
     "link": "scrum.org",
     "introduction": {
       "title": "Introduction",
-      "description": "ScrumpliCity is an ideal first project to better understand and practically apply the Scrum process. Learners build a paper city from prefabricated crafting-templates, while the website guides them step by step through the various phases. Work is carried out in teams that are organised together in a room. A room therefore brings together several project teams—for example, a school class divided into four teams."
+      "description": "ScrumpliCity is an ideal first project to better understand and practically apply the Scrum process. Learners build a paper city from prefabricated crafting templates, while the website guides them step by step through the various phases. Work is carried out in teams that are organised together in a room. A room therefore brings together several project teams—for example, a school class divided into four teams."
     },
     "prerequisites": {
       "title": "Prerequisites",
-      "description": "Each team needs a laptop for the game. The learners use this to join the room and manage their user stories. As ScrumpliCity does not include a product backlog, teams will need to manage this externally—for example in an online tool or in the traditional way using sticky notes. The teams don't need glue to build the paper city, but they do need scissors and optional coloured pencils to customise the result. You can find more information about the crafting-templates in the instructions in the downloadable .zip folder."
+      "description": "Each team needs a laptop for the game. The learners use this to join the room and manage their user stories. As ScrumpliCity does not include a product backlog, teams will need to manage this externally—for example in an online tool or in the traditional way using sticky notes. The teams don't need glue to build the paper city, but they do need scissors and optional coloured pencils to customise the result. You can find more information about the crafting templates in the instructions in the downloadable .zip folder."
     },
     "scrum_content": {
       "title": "Scrum content",
-      "description": "The game starts with the first sprint planning. Firstly, the teams determine a name for the sprint, then define a sprint goal and finally their user stories. These are estimated with story points by the learners, assigned to a team member and expanded with acceptance criteria in the description. During the construction phase, learners can view their user stories by clicking on them in the detail box and marking them as ‘completed’. In the sprint review, the product owner checks the completed tasks—the velocity is updated automatically. The sprint completion is the transition phase between two sprints. This is where the learners decide whether user stories that have not been accepted should be discarded or carried over to the next sprint. Accepted stories are automatically archived. Finally, the learners should update the physical burn-down chart, which you can download together with the crafting-templates!"
+      "description": "The game starts with the first sprint planning. Firstly, the teams determine a name for the sprint, then define a sprint goal and finally their user stories. These are estimated with story points by the learners, assigned to a team member and expanded with acceptance criteria in the description. During the construction phase, learners can view their user stories by clicking on them in the detail box and marking them as ‘completed’. In the sprint review, the product owner checks the completed tasks—the velocity is updated automatically. The sprint completion is the transition phase between two sprints. This is where the learners decide whether user stories that have not been accepted should be discarded or carried over to the next sprint. Accepted stories are automatically archived. Finally, the learners should update the physical burn-down chart, which you can download together with the crafting templates!"
     },
     "step_by_step": {
       "title": "Step-by-step guide for tutors",
@@ -404,9 +404,9 @@
       "description3": "You can configure numerous settings when creating a room. You can change these again later on. The name of the room is only displayed in the room overview to make the room identifiable. You can also set the duration of the various phases, either with suggestions or your own input (up to 99 minutes). The total duration of the game is also displayed at the bottom right to make it easier to plan.",
       "caption3": "Step 3: Create room with name, number of sprints and phase duration",
       "alt3": "Create room overlay",
-      "description4": "Now that a room has been prepared for playing, we recommend downloading the crafting-templates by clicking on the centre button in the top right-hand corner. In the .zip folder you will find template sheets, a template for a burn-down chart and instructions with useful information, such as the required number of printed sheets per team.",
-      "caption4": "Step 4: Download crafting-templates via the icon",
-      "alt4": "Download crafting-templates in the room overview",
+      "description4": "Now that a room has been prepared for playing, we recommend downloading the crafting templates by clicking on the centre button in the top right-hand corner. In the .zip folder you will find template sheets, a template for a burn-down chart and instructions with useful information, such as the required number of printed sheets per team.",
+      "caption4": "Step 4: Download crafting templates via the icon",
+      "alt4": "Download crafting templates in the room overview",
       "description5": "Click on the room to go to it's management page. This is where you are as a tutor while the game is running. You can adjust the room settings at the top right. Before the game can be started, you must generate a room code at the bottom right. The code will open in a new window so that you can easily project it onto another screen. Using this code, learners can join the room on scrumplicity.app/play.",
       "caption5": "Step 5: Manage your room on the management page",
       "alt5": "Room management page",
