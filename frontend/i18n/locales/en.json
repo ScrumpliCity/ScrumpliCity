@@ -298,15 +298,16 @@
   "congratulations": {
     "title": "Congratulations!",
     "subheading": "Your ScrumpliCity project is finished – here is a short summary:",
-    "sprint": "{sprints} Sprint | {sprints} Sprints",
-    "completed_us": "{user_stories} completed User Story | {user_stories} completed User Stories",
-    "completed_sp": "{story_points} Story Point completed | {story_points} Story Points completed",
+    "sprint": "{n} Sprint | {n} Sprints",
+    "completed_us": "{n} completed User Story | {n} completed User Stories",
+    "completed_sp": "{count} Story Point completed | {count} Story Points completed",
     "velocity": "Velocity of {velocity}",
     "annotation": {
       "text": "Thank you for playing with ScrumpliCity! As the website is in constant development, the ScrumpliCity team is always happy to receive feedback, suggestions or requests - just send us an {email_link}!",
       "email": "email"
     },
-    "copy_tooltip": "Copy summary to clipboard"
+    "copy_tooltip": "Copy summary to clipboard",
+    "copy_success": "Summary copied to clipboard!"
   },
   "team_manager": {
     "missing_roles": "Not all roles are assigned! Please assign the role {roles} to continue.",

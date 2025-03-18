@@ -5,6 +5,8 @@ definePageMeta({
 });
 import confetti from "canvas-confetti";
 const game = useGameStore();
+const { t, n } = useI18n();
+const toast = useToast();
 
 // Calculate completed user stories across all sprints
 const completedUserStories = game.team.sprints
@@ -23,39 +25,55 @@ onMounted(() => {
 });
 
 function confettiRain() {
-  var duration = 15 * 1000;
-  var animationEnd = Date.now() + duration;
-  var skew = 1;
+  const duration = 8000;
+  const endTime = Date.now() + duration;
+  const delay = 15;
+  const headerOffset = 64 / window.innerHeight;
+  const colorOptions = [["#CE6326"], ["#8CDBA4"], ["#E0AD49"]];
 
-  function randomInRange(min, max) {
-    return Math.random() * (max - min) + min;
-  }
+  const randomInRange = (min, max) => Math.random() * (max - min) + min;
 
-  (function frame() {
-    var timeLeft = animationEnd - Date.now();
-    var ticks = Math.max(200, 500 * (timeLeft / duration));
-    skew = Math.max(0.8, skew - 0.001);
+  const frame = () => {
+    const timeLeft = endTime - Date.now();
+    if (timeLeft <= 0) return;
+
+    const ticks = Math.max(50, 500 * (timeLeft / duration));
+    const colors =
+      colorOptions[Math.floor(Math.random() * colorOptions.length)];
 
     confetti({
       particleCount: 1,
       startVelocity: 0,
       ticks: ticks,
+      decay: 0.8,
       origin: {
         x: Math.random(),
-        // since particles fall down, skew start toward the top
-        y: Math.random() * skew - 0.2,
+        y: randomInRange(headerOffset, 0.6),
       },
-      colors: ["#ffffff"],
-      shapes: ["circle"],
-      gravity: randomInRange(0.4, 0.6),
-      scalar: randomInRange(0.4, 1),
+      colors: colors,
+      gravity: randomInRange(0.3, 0.5),
+      scalar: randomInRange(0.4, 1.5),
       drift: randomInRange(-0.4, 0.4),
     });
+    setTimeout(frame, delay);
+  };
 
-    if (timeLeft > 0) {
-      requestAnimationFrame(frame);
-    }
-  })();
+  frame();
+}
+
+function copyToClipboard() {
+  const text = `
+    # ${game.team.name}
+    - ${t("congratulations.sprint", { n: game.team.room.number_of_sprints })}
+    - ${t("congratulations.completed_us", { n: completedUserStoryCount })}
+    - ${t("congratulations.completed_sp", { count: completedStoryPoints })}
+    - ${t("congratulations.velocity", { velocity: n(Number(velocity.toFixed(2))) })}
+  `.trim();
+  navigator.clipboard.writeText(text);
+  toast.add({
+    title: t("congratulations.copy_success"),
+    variant: "success",
+  });
 }
 </script>
 <template>
@@ -66,74 +84,88 @@ function confettiRain() {
     <h2 class="w-2/5 text-center text-2xl">
       {{ $t("congratulations.subheading") }}
     </h2>
-    <div
-      class="flex w-[36vw] flex-col gap-3 rounded-[1.25rem] border-2 border-sc-black-400 px-6 pb-5 pt-[1.875rem]"
-    >
-      <h3 class="text-xl font-semibold">{{ game.team.name }}</h3>
-      <UTooltip
-        :text="$t('congratulations.copy_tooltip')"
-        class="absolute right-5 top-5"
+    <div class="flex flex-col items-center gap-4">
+      <div
+        class="relative z-10 flex w-[36vw] flex-col gap-3 rounded-[1.25rem] border-2 border-sc-black-400 px-6 py-5"
       >
-        <UButton icon="ic:baseline-content-copy"></UButton>
-      </UTooltip>
-      <hr class="mt-[2px] border border-sc-black-300" />
+        <h3 class="text-xl font-semibold">{{ game.team.name }}</h3>
+        <UTooltip
+          :text="$t('congratulations.copy_tooltip')"
+          class="absolute right-5 top-5"
+        >
+          <UButton
+            icon="ic:baseline-content-copy"
+            @click="copyToClipboard"
+            class="text-sc-black-300"
+            :ui="{ variant: 'icon', size: 'sm' }"
+          ></UButton>
+        </UTooltip>
+        <hr class="mt-[2px] border border-sc-black-300" />
 
-      <div class="ml-1.5 flex flex-col gap-4 text-xl">
-        <div class="flex items-center gap-6">
-          <SvgScrumProcessSM filled :fontControlled="false" class="size-6" />
-          {{
-            $t("congratulations.sprint", {
-              sprints: game.team.room.number_of_sprints,
-            })
-          }}
-        </div>
-        <div class="flex items-center gap-6">
-          <p class="text-base font-bold text-sc-orange">US.</p>
-          {{
-            $t("congratulations.completed_us", {
-              user_stories: completedUserStoryCount,
-            })
-          }}
-        </div>
-        <div class="flex items-center gap-6">
-          <SvgUserStoriesAccepted
-            class="size-6 text-sc-orange"
-            :font-controlled="false"
-            filled
-          />
-          {{
-            $t("congratulations.completed_sp", {
-              story_points: completedStoryPoints,
-            })
-          }}
-        </div>
-        <div class="flex items-center gap-6">
-          <UIcon name="mingcute:chart-bar-line" class="text-sc-orange" />
-          {{
-            $t("congratulations.velocity", {
-              velocity: velocity,
-            })
-          }}
+        <div class="ml-1.5 flex flex-col gap-4 text-xl">
+          <div class="flex items-center gap-6">
+            <SvgScrumProcessSMOrange :fontControlled="false" class="size-6" />
+            {{
+              $t("congratulations.sprint", {
+                n: game.team.room.number_of_sprints,
+              })
+            }}
+          </div>
+          <div class="flex items-center gap-6">
+            <p class="text-base font-bold text-sc-orange">US.</p>
+            {{
+              $t("congratulations.completed_us", {
+                n: completedUserStoryCount,
+              })
+            }}
+          </div>
+          <div class="flex items-center gap-6">
+            <SvgUserStoriesAcceptedOrange
+              class="size-6"
+              :font-controlled="false"
+            />
+            {{
+              $t("congratulations.completed_sp", {
+                count: completedStoryPoints,
+              })
+            }}
+          </div>
+          <div class="flex items-center gap-6">
+            <UIcon
+              name="mingcute:chart-bar-line"
+              class="size-6 text-sc-orange"
+            />
+            {{
+              $t("congratulations.velocity", {
+                velocity: $n(Number(velocity.toFixed(2))),
+              })
+            }}
+          </div>
         </div>
       </div>
+      <small class="w-3/5">
+        <ClientOnly>
+          <i18n-t
+            keypath="congratulations.annotation.text"
+            tag="p"
+            class="text-center"
+            scope="global"
+          >
+            <template #email_link>
+              <a
+                href="mailto:lisa-marie.hoermann@scrumplicity.app"
+                class="text-sc-orange underline"
+                >{{ $t("congratulations.annotation.email") }}</a
+              >
+            </template>
+          </i18n-t>
+        </ClientOnly>
+      </small>
     </div>
-    <small class="w-2/5">
-      <ClientOnly>
-        <i18n-t
-          keypath="congratulations.annotation.text"
-          tag="p"
-          class="text-center"
-          scope="global"
-        >
-          <template #email_link>
-            <a
-              href="mailto:lisa-marie.hoermann@scrumplicity.app"
-              class="text-sc-orange underline"
-              >{{ $t("congratulations.annotation.email") }}</a
-            >
-          </template>
-        </i18n-t>
-      </ClientOnly>
-    </small>
   </div>
+  <SvgCongratulationsBackground
+    filled
+    :fontControlled="false"
+    class="absolute bottom-0 right-0 z-0"
+  />
 </template>

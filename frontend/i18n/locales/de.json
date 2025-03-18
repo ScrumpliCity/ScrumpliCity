@@ -295,15 +295,16 @@
   "congratulations": {
     "title": "Gratulation!",
     "subheading": "Euer ScrumpliCity-Projekt ist abgeschlossen – hier eine kleine Zusammenfassung:",
-    "sprint": "{sprints} Sprint | {sprints} Sprints",
-    "completed_us": "{user_stories} abgeschlossene User Story | {user_stories} abgeschlossene User Storys",
-    "completed_sp": "{story_points} Story Point abgeschlossen | {story_points} Story Points abgeschlossen",
+    "sprint": "{n} Sprint | {n} Sprints",
+    "completed_us": "{n} abgeschlossene User Story | {n} abgeschlossene User Storys",
+    "completed_sp": "{count} Story Point abgeschlossen | {count} Story Points abgeschlossen",
     "velocity": "Velocity von {velocity}",
     "annotation": {
       "text": "Danke, dass ihr mit ScrumpliCity gespielt habt! Da sich die Website in stetiger Entwicklung befindet, freut sich das ScrumpliCity-Team sehr über Feedback, Anregungen oder Wünsche -- schreibt uns dafür gerne eine {email_link}!",
       "email": "E-Mail"
     },
-    "copy_tooltip": "Zusammenfassung in die Zwischenablage kopieren"
+    "copy_tooltip": "Zusammenfassung in die Zwischenablage kopieren",
+    "copy_success": "Zusammenfassung kopiert!"
   },
   "infobox": {
     "current_of_total": "{current} von {total}"
