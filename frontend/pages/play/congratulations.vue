@@ -144,7 +144,7 @@ function copyToClipboard() {
           </div>
         </div>
       </div>
-      <small class="w-3/5">
+      <small class="z-10 w-3/5 justify-self-end">
         <ClientOnly>
           <i18n-t
             keypath="congratulations.annotation.text"
