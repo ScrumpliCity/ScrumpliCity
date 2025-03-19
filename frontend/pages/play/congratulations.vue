@@ -29,7 +29,7 @@ function confettiRain() {
   const endTime = Date.now() + duration;
   const delay = 15;
   const headerOffset = 64 / window.innerHeight;
-  const colorOptions = [["#CE6326"], ["#8CDBA4"], ["#E0AD49"]];
+  const colorOptions = [["#CE6326"], ["#8CDBA4"], ["#E0AD49"]]; // ScrumpliCity colors: orange, green & yellow, respectively
 
   const randomInRange = (min, max) => Math.random() * (max - min) + min;
 
