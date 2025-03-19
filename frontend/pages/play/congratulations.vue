@@ -54,6 +54,7 @@ function confettiRain() {
       gravity: randomInRange(0.3, 0.5),
       scalar: randomInRange(0.4, 1.5),
       drift: randomInRange(-0.4, 0.4),
+      disableForReducedMotion: true,
     });
     setTimeout(frame, delay);
   };
