@@ -78,20 +78,22 @@ function copyToClipboard() {
 }
 </script>
 <template>
-  <div class="mb-9 mt-12 flex flex-col items-center justify-center gap-6">
+  <div
+    class="mb-9 mt-12 flex h-[calc(100vh-150px)] flex-col items-center justify-center gap-6"
+  >
     <h1 class="font-heading text-8xl font-bold">
-      {{ $t("congratulations.title") }}
+      {{ t("congratulations.title") }}
     </h1>
     <h2 class="w-2/5 text-center text-2xl">
-      {{ $t("congratulations.subheading") }}
+      {{ t("congratulations.subheading") }}
     </h2>
-    <div class="flex flex-col items-center gap-4">
+    <div class="mb-7 flex h-full flex-col items-center justify-between gap-4">
       <div
         class="relative z-10 flex w-[36vw] flex-col gap-3 rounded-[1.25rem] border-2 border-sc-black-400 px-6 py-5"
       >
         <h3 class="text-xl font-semibold">{{ game.team.name }}</h3>
         <UTooltip
-          :text="$t('congratulations.copy_tooltip')"
+          :text="t('congratulations.copy_tooltip')"
           class="absolute right-5 top-5"
         >
           <UButton
