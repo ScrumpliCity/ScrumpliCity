@@ -7,6 +7,9 @@ import confetti from "canvas-confetti";
 const game = useGameStore();
 const { t, n } = useI18n();
 const toast = useToast();
+const isMounted = useMounted();
+const runtimeConfig = useRuntimeConfig();
+const mail = runtimeConfig.public.contactMail;
 
 // Calculate completed user stories across all sprints
 const completedUserStories = game.team.sprints
@@ -40,6 +43,8 @@ function confettiRain() {
     const ticks = Math.max(50, 500 * (timeLeft / duration));
     const colors =
       colorOptions[Math.floor(Math.random() * colorOptions.length)];
+
+    if (!isMounted.value) return;
 
     confetti({
       particleCount: 1,
@@ -87,7 +92,9 @@ function copyToClipboard() {
     <h2 class="w-2/5 text-center text-2xl">
       {{ t("congratulations.subheading") }}
     </h2>
-    <div class="mb-7 flex h-full flex-col items-center justify-between gap-4">
+    <div
+      class="mb-[3vw] flex h-full flex-col items-center justify-between gap-4"
+    >
       <div
         class="relative z-10 flex w-[36vw] flex-col gap-3 rounded-[1.25rem] border-2 border-sc-black-400 px-6 py-5"
       >
@@ -115,7 +122,9 @@ function copyToClipboard() {
             }}
           </div>
           <div class="flex items-center gap-6">
-            <p class="text-base font-bold text-sc-orange">US.</p>
+            <p class="text-base font-bold text-sc-orange">
+              {{ $t("congratulations.user_story_abbreviation") }}
+            </p>
             {{
               $t("congratulations.completed_us", {
                 n: completedUserStoryCount,
@@ -147,22 +156,18 @@ function copyToClipboard() {
         </div>
       </div>
       <small class="z-10 w-3/5 justify-self-end">
-        <ClientOnly>
-          <i18n-t
-            keypath="congratulations.annotation.text"
-            tag="p"
-            class="text-center"
-            scope="global"
-          >
-            <template #email_link>
-              <a
-                href="mailto:lisa-marie.hoermann@scrumplicity.app"
-                class="text-sc-orange underline"
-                >{{ $t("congratulations.annotation.email") }}</a
-              >
-            </template>
-          </i18n-t>
-        </ClientOnly>
+        <i18n-t
+          keypath="congratulations.annotation.text"
+          tag="p"
+          class="text-center"
+          scope="global"
+        >
+          <template #email_link>
+            <a :href="`mailto:${mail}`" class="text-sc-orange underline">{{
+              $t("congratulations.annotation.email")
+            }}</a>
+          </template>
+        </i18n-t>
       </small>
     </div>
   </div>

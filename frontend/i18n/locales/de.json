@@ -299,6 +299,7 @@
     "completed_us": "{n} abgeschlossene User Story | {n} abgeschlossene User Storys",
     "completed_sp": "{count} Story Point abgeschlossen | {count} Story Points abgeschlossen",
     "velocity": "Velocity von {velocity}",
+    "user_story_abbreviation": "US.",
     "annotation": {
       "text": "Danke, dass ihr mit ScrumpliCity gespielt habt! Da sich die Website in stetiger Entwicklung befindet, freut sich das ScrumpliCity-Team sehr über Feedback, Anregungen oder Wünsche -- schreibt uns dafür gerne eine {email_link}!",
       "email": "E-Mail"

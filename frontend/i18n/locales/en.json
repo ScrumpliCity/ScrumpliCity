@@ -302,6 +302,7 @@
     "completed_us": "{n} completed User Story | {n} completed User Stories",
     "completed_sp": "{count} Story Point completed | {count} Story Points completed",
     "velocity": "Velocity of {velocity}",
+    "user_story_abbreviation": "US.",
     "annotation": {
       "text": "Thank you for playing with ScrumpliCity! As the website is in constant development, the ScrumpliCity team is always happy to receive feedback, suggestions or requests—just send us an {email_link}!",
       "email": "email"
