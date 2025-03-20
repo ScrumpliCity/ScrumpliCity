@@ -5,6 +5,7 @@ type Team = {
   name: string | null;
   active: boolean;
   room: {
+    completed_at: Date | null;
     id: string;
     roomcode: string;
     number_of_sprints: number;
@@ -265,6 +266,11 @@ export const useGameStore = defineStore("game", () => {
     }
     if (team.value.members.length === 0) {
       return localeRoute("play-members");
+    }
+
+    const roomIsFinished = !!team.value.room.completed_at;
+    if (roomIsFinished) {
+      return localeRoute("play-congratulations");
     }
 
     const roomIsPaused = !team.value.room.is_playing;
