@@ -139,7 +139,7 @@
       },
       "scrum_roles": {
         "title": "Scrum Roles",
-        "content": "There are three main roles in a Scrum team:\n {roles} The Product Owner defines requirements and prioritises tasks. The Scrum Master ensures compliance with the Scrum process and removes obstacles. The development team implements the requirements and delivers functional products in sprints.",
+        "content": "There are three main roles in a Scrum team:\n {roles} The Product Owner defines requirements and prioritizes tasks. The Scrum Master ensures compliance with the Scrum process and removes obstacles. The development team implements the requirements and delivers functional products in sprints.",
         "roles": {
           "product_owner": "Product Owner",
           "scrum_master": "Scrum Master",
