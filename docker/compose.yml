@@ -53,6 +53,7 @@ services:
       - DB_USERNAME=${MYSQL_USER}
       - DB_PASSWORD=${MYSQL_PASSWORD}
       - SESSION_DOMAIN=${SESSION_DOMAIN}
+      - SESSION_LIFETIME=360 # 6 * 60 minutes = 6 hours to accommodate even the longest playing session
       - CACHE_STORE=database
       - MICROSOFT_CLIENT_ID=${MICROSOFT_CLIENT_ID}
       - MICROSOFT_CLIENT_SECRET=${MICROSOFT_CLIENT_SECRET}
