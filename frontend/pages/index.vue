@@ -100,7 +100,7 @@ const mail = runtimeConfig.public.contactMail;
             >{{ $t("homepage.get_started") }}</UButton
           ></NuxtLink
         >
-        <NuxtLink :to="localeRoute('scrumplicity_guide')">
+        <NuxtLink :to="localeRoute('scrumplicity-guide')">
           <UButton
             class="!opacity-100 drop-shadow-sc-shadow hover:bg-sc-orange-700 min-[354px]:text-base lg:hidden"
             >{{ $t("homepage.scrumplicity_guide") }}</UButton
