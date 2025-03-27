@@ -158,7 +158,7 @@ const manageRoomFunction = async () => {
             }}</label>
             <Chooser
               :chosen-num="buildPhaseDuration"
-              :choices="[3, 5, 8, 10, 15]"
+              :choices="[5, 8, 10, 15, 20]"
               @update:chosen-num="(n) => (buildPhaseDuration = n)"
               :max="60"
             />
