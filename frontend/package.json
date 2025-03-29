@@ -22,7 +22,7 @@
     "@vueuse/nuxt": "^12.8.2",
     "canvas-confetti": "^1.9.3",
     "concurrently": "^9.1.2",
-    "nuxt": "^3.15.4",
+    "nuxt": "^3.16.1",
     "nuxt-auth-sanctum": "^0.5.5",
     "nuxt-laravel-echo": "^0.2.2",
     "nuxt-svgo": "^4.0.15",
