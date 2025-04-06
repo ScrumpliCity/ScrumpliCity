@@ -103,6 +103,9 @@
     "room_settings": "Room settings",
     "add_team_member": "Add team member",
     "add_members_ready": "Ready",
+    "scrum_master": "Scrum Master",
+    "product_owner": "Product Owner",
+    "developer": "Developer",
     "add_members_error": {
       "title": "Error adding members!",
       "description": "Please try again."
