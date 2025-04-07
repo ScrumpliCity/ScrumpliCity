@@ -23,7 +23,7 @@
     "canvas-confetti": "^1.9.3",
     "concurrently": "^9.1.2",
     "nuxt": "^3.15.4",
-    "nuxt-auth-sanctum": "^0.5.5",
+    "nuxt-auth-sanctum": "^0.6.3",
     "nuxt-laravel-echo": "^0.2.2",
     "nuxt-svgo": "^4.0.15",
     "pinia": "^3.0.1",
