@@ -115,7 +115,7 @@ services:
       - db
 
   db:
-    image: mariadb:11@sha256:310d29fbb58169dcddb384b0ff138edb081e2773d6e2eceb976b3668089f2f84
+    image: mariadb:12@sha256:b30cc65b57a11a2e791ad5c06284e599fe9f1bf3fe9081a88d85bcf36389be4a
     pull_policy: always
     restart: unless-stopped
     volumes:
