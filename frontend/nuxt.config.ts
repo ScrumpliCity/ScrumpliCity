@@ -92,7 +92,7 @@ export default defineNuxtConfig({
       "rooms/[id]/roomcode": {
         de: "/räume/[id]/raumcode",
         en: "/rooms/[id]/roomcode",
-        vie: "/zimmer/[id]/raumzoi",
+        vie: "/zimmer/[id]/zimmercode",
       },
       play: {
         de: "/play",
@@ -102,7 +102,7 @@ export default defineNuxtConfig({
       "play/members": {
         de: "/play/mitglieder",
         en: "/play/members",
-        vie: "/spün/mitspiela",
+        vie: "/spün/hawara",
       },
       "play/ready": {
         de: "/play/bereit",
@@ -127,12 +127,15 @@ export default defineNuxtConfig({
       "play/[sprint]/backlog_refinement": {
         de: "/play/[sprint]/backlog-refinement",
         en: "/play/[sprint]/backlog-refinement",
-        vie: "/spün/[sprint]/ausmistn-im-auftragsbuch",
+        vie: "/spün/[sprint]/ausmistn-im-backlog",
       },
       "play/congratulations": {
         de: "/play/gratulation",
         en: "/play/congratulations",
         vie: "/spün/guade-oabeit",
+      },
+      "scrumplicity-guide": {
+        vie: "/scrumplicity-onleitung",
       },
       // define more pages here
     },

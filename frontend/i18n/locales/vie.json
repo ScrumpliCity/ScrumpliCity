@@ -333,7 +333,7 @@
     }
   },
   "homepage": {
-    "project_description": "Lern de agile Projektmanagement\u00ADmethode Scrum, indemst a Papiastodt zsamschustast! ScrumpliCity liefat da a Web-App, Bastelvualogn und gscheide Erklärungen zu Scrum – oiso: ",
+    "project_description": "Lean de agile Projektmanagement\u00ADmethode Scrum, indemst a Papiastodt zsamschustast! ScrumpliCity liefat da a Web-App, Bastelvualogn und gscheide Erklärungen zu Scrum – oiso: ",
     "build_your_scrum_knowledge": "Build Your Scrum Knowledge",
     "get_started": "Gemma!",
     "scrumplicity_guide": "ScrumpliCity-Onleitung",
@@ -343,7 +343,7 @@
     "about_us": "Üba uns",
     "features": {
       "learn_scrum": {
-        "title": "Lern Scrum",
+        "title": "Lean Scrum",
         "description": "Entdeck de Grundlagen von Scrum und start dei erstes agiles Projekt – praxisnah, interaktiv und easy zum Checkn!"
       },
       "craft_your_city": {
@@ -357,7 +357,7 @@
     },
     "learning_materials": "Spüoanleitung",
     "all_you_need_to_know": "Ois, wosd wissen musst!",
-    "scrumplicity_guide_description": "Neigierig gwordn? Schau in unsere ScrumpliCity-Onleitung. Da sigst wos des Spü ois draufhot! Dort findest alle Scrum-Inhalte, a Schritt-fia-Schritt-Onleitung fia Tutor*innen und a Beitrittsanleitung fia Lernende. Wos wartst no – leg los und start dei erstes Spü!",
+    "scrumplicity_guide_description": "Neigierig gwurdn? Schau in unsere ScrumpliCity-Onleitung. Da sigst wos des Spü ois draufhot! Dort findest alle Scrum-Inhalte, a Schritt-fia-Schritt-Onleitung fia Tutor*innen und a Beitrittsanleitung fia Lernende. Wos woatst no – leg los und start dei erstes Spü!",
     "questions": "No Fragen?",
     "here_to_help": "Mir san do, um da zu höfen! Schreib uns ollewei a E-Mail:",
     "contact_us": "Kontaktier uns!",
@@ -397,15 +397,15 @@
   },
   "scrumplicity_guide": {
     "title": "Servas bei da ScrumpliCity-Onleitung!",
-    "overview": "De ScrumpliCity-Onleitung gibt da ois Wichtige zum Spü: wia des Ganze rennt, a gscheide Schritt-fia-Schritt-Onleitung fia di ois Tutor*in und a kuaze Erklärung, wia Lernende dazua kumman. Mehr Tiefgang zum Scrum-Prozess, den ma do ned extra ausbreiten, findest auf {link}.",
+    "overview": "De ScrumpliCity-Onleitung gibt da ois Wichtige zum Spü: wia des Ganze rennt, a gscheide Schritt-fia-Schritt-Onleitung fia di ois Tutor*in und a kuaze Erklärung, wia Lernende dazua kumman. Mea Tiefgang zum Scrum-Prozess, den ma do ned extra ausbreiten, findest auf {link}.",
     "link": "scrum.org",
     "introduction": {
-      "title": "Einführung",
-      "description": "ScrumpliCity is a super Einstieg, um den Scrum-Schmäh zu checken und glei praktisch umzusetzen. De Lernenden baun dabei a Papiastodt aus featigen Bastelbögen, während de Website sie Schritt fia Schritt durch die anzelnen Phosen lotst. G'hacklt wird in Teams, de gemeinsam in am Zimmer san. A Zimmer sammelt oiso mehrere Projektteams – zum Beispiel a Schulklassn mit vier Partien."
+      "title": "Eiführung",
+      "description": "ScrumpliCity is a super Einstieg, um den Scrum-Schmäh zu checken und glei praktisch umzusetzen. De Lernenden baun dabei a Papiastodt aus featigen Bastelbögen, während de Website sie Schritt fia Schritt durch die anzelnen Phosen lotst. G'hacklt wird in Teams, de gemeinsam in am Zimmer san. A Zimmer sammelt oiso mearere Projektteams – zum Beispiel a Schulklassn mit vier Partien."
     },
     "prerequisites": {
       "title": "Voraussetzungen",
-      "description": "Fias Spü braucht a jedes Team an Laptop. Üba den treten de Lernenden dem Zimmer bei und verwoiten eana User Stories. Weu ScrumpliCity kan Product Backlog drin hat, müssn de Teams den extern führen – zum Beispiel in am Online-Tool oda ganz oldschool mit Pickerln. Fias Basteln brauchst kan Kleber, oba Scheren und optional Foabstiftln, damit's a bisserl fesch ausschaut. Mehr Infos zu de Bastelvualogn findest in da Anleitung im runterladbaren .zip-Ordner."
+      "description": "Fias Spü braucht a jedes Team an Laptop. Üba den treten de Lernenden dem Zimmer bei und verwoiten eana User Stories. Weu ScrumpliCity kan Product Backlog drin hat, müssn de Teams den extern führen – zum Beispiel in am Online-Tool oda ganz oldschool mit Pickerln. Fias Basteln brauchst kan Kleber, oba Scheren und optional Foabstiftln, damit's a bisserl fesch ausschaut. Mea Infos zu de Bastelvualogn findest in da Anleitung im runterladbaren .zip-Ordner."
     },
     "scrum_content": {
       "title": "Scrum-Inhoite",
