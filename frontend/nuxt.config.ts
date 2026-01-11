@@ -77,7 +77,7 @@ export default defineNuxtConfig({
       "rooms/parent/create": {
         de: "/räume/erstellen",
         en: "/rooms/create",
-        vie: "/zimmer/erzeugn",
+        vie: "/zimmer/zsamstelln",
       },
       "rooms/[id]/parent": {
         de: "/räume/[id]",
@@ -102,12 +102,12 @@ export default defineNuxtConfig({
       "play/members": {
         de: "/play/mitglieder",
         en: "/play/members",
-        vie: "/spün/partie-leit",
+        vie: "/spün/mitspiela",
       },
       "play/ready": {
         de: "/play/bereit",
         en: "/play/ready",
-        vie: "/spün/featig",
+        vie: "/spün/passt",
       },
       legal_notice: {
         de: "/impressum",
@@ -117,7 +117,7 @@ export default defineNuxtConfig({
       role: {
         de: "/rolle",
         en: "/role",
-        vie: "/roin",
+        vie: "/hackn",
       },
       "play/[sprint]/build_phase": {
         de: "/play/[sprint]/bauphase",
