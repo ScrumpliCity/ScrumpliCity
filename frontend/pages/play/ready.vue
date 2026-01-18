@@ -4,8 +4,14 @@ definePageMeta({
   middleware: "ensure-playing",
 });
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 const localeRoute = useLocaleRoute();
+
+function getTranslatedRole(role) {
+  return locale.value === "vie"
+    ? t(`join_room.${role.toLowerCase().replace(" ", "_")}`)
+    : role;
+}
 
 useSeoMeta({
   title: t("join_room.ready.page_title"),
@@ -65,7 +71,7 @@ onMounted(() => {
               <strong class="font-semibold text-gray-800"
                 >{{ member.name }}:
               </strong>
-              {{ member.role }}
+              {{ getTranslatedRole(member.role) }}
             </li>
           </ul>
         </div>

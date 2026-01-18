@@ -59,6 +59,7 @@ export default defineNuxtConfig({
     locales: [
       { code: "de", file: "de.json", language: "de-AT" },
       { code: "en", file: "en.json", language: "en-US" },
+      { code: "vie", file: "vie.json", language: "de-VIE" },
     ],
     lazy: true,
     langDir: "locales/",
@@ -70,51 +71,71 @@ export default defineNuxtConfig({
       "rooms/parent": {
         de: "/räume",
         en: "/rooms",
+        vie: "/zimmer",
       },
       //route for create room modal
       "rooms/parent/create": {
         de: "/räume/erstellen",
         en: "/rooms/create",
+        vie: "/zimmer/zsamstelln",
       },
       "rooms/[id]/parent": {
         de: "/räume/[id]",
         en: "/rooms/[id]",
+        vie: "/zimmer/[id]",
       },
       "rooms/[id]/parent/edit": {
         de: "/räume/[id]/bearbeiten",
         en: "/rooms/[id]/edit",
+        vie: "/zimmer/[id]/umbaun",
       },
       "rooms/[id]/roomcode": {
         de: "/räume/[id]/raumcode",
         en: "/rooms/[id]/roomcode",
+        vie: "/zimmer/[id]/zimmercode",
+      },
+      play: {
+        de: "/play",
+        en: "/play",
+        vie: "/spün",
       },
       "play/members": {
         de: "/play/mitglieder",
         en: "/play/members",
+        vie: "/spün/hawara",
       },
       "play/ready": {
         de: "/play/bereit",
         en: "/play/ready",
+        vie: "/spün/passt",
       },
       legal_notice: {
         de: "/impressum",
         en: "/legal-notice",
+        vie: "/impressum",
       },
       role: {
         de: "/rolle",
         en: "/role",
+        vie: "/hackn",
       },
       "play/[sprint]/build_phase": {
         de: "/play/[sprint]/bauphase",
         en: "/play/[sprint]/build-phase",
+        vie: "/spün/[sprint]/hackl-phase",
       },
       "play/[sprint]/backlog_refinement": {
         de: "/play/[sprint]/backlog-refinement",
         en: "/play/[sprint]/backlog-refinement",
+        vie: "/spün/[sprint]/sprint-abschluss",
       },
       "play/congratulations": {
         de: "/play/gratulation",
         en: "/play/congratulations",
+        vie: "/spün/guade-oabeit",
+      },
+      "scrumplicity-guide": {
+        vie: "/scrumplicity-onleitung",
       },
       // define more pages here
     },

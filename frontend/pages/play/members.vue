@@ -7,6 +7,7 @@ definePageMeta({
 const toast = useToast();
 const { t } = useI18n();
 const localRoute = useLocaleRoute();
+const { locale } = useI18n();
 
 useSeoMeta({
   title: t("join_room.members.page_title"),
@@ -25,6 +26,16 @@ const roles = [
   { label: "Scrum Master" },
   { label: "Product Owner" },
 ];
+
+const translatedRoles = computed(() => {
+  return roles.map((r) => ({
+    value: r.label, // wird an das Backend übermittelt
+    label:
+      locale.value === "vie"
+        ? t(`join_room.${r.label.toLowerCase().replace(" ", "_")}`)
+        : r.label,
+  }));
+});
 
 function deleteMember(memberId) {
   teamMembers.value = teamMembers.value.filter(
@@ -205,9 +216,9 @@ onMounted(() => {
                     @change="updateRole(member.id, $event.target.value)"
                   >
                     <option
-                      v-for="role in roles"
-                      :key="role.label"
-                      :value="role.label"
+                      v-for="role in translatedRoles"
+                      :key="role.value"
+                      :value="role.value"
                     >
                       {{ role.label }}
                     </option>

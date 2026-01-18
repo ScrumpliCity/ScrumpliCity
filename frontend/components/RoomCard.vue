@@ -173,8 +173,8 @@ const lastPlayedAgoMinutes = computed(() => {
           {{
             $t("rooms.running_for", [
               lastPlayedAgoMinutes! >= 60
-                ? `${Math.floor(lastPlayedAgoMinutes! / 60)}h`
-                : `${lastPlayedAgoMinutes}min`,
+                ? `${Math.floor(lastPlayedAgoMinutes! / 60)} h`
+                : `${lastPlayedAgoMinutes} min`,
             ])
           }}
         </p>

@@ -403,8 +403,8 @@ function copyRoomCode() {
             {{
               $t("rooms.running_for", [
                 lastPlayedAgoMinutes >= 60
-                  ? `${Math.floor(lastPlayedAgoMinutes / 60)}h`
-                  : `${lastPlayedAgoMinutes < 1 ? "< 1" : lastPlayedAgoMinutes}min`,
+                  ? `${Math.floor(lastPlayedAgoMinutes / 60)} h`
+                  : `${lastPlayedAgoMinutes < 1 ? "< 1" : lastPlayedAgoMinutes} min`,
               ])
             }}
           </p>
