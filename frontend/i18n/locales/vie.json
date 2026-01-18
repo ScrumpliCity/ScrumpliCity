@@ -1,6 +1,6 @@
 {
   "welcome": "Servas Oida",
-  "join": "Runde einsteign",
+  "join": "In a Runde eisteign",
   "welcome_message": "Servas, gemma spün",
   "rooms": {
     "started": "Lauft scho",
@@ -8,18 +8,18 @@
     "completed": "Abghakt",
     "currently_playing": "Is grad im Gang",
     "delete": {
-      "are_you_sure": "Heast, bist da sicher, dassd den Zimmer {name} wirklich wegschmeißn wüst?",
+      "are_you_sure": "Heast, bist da sicher, dassd des Zimmer {name} wirklich wegschmeißn wüst?",
       "success": "Passt, is weg",
       "error": "Oida, do is wos schiefganga",
-      "delete_room": "Diesn Zimmer wegdan",
+      "delete_room": "Dieses Zimmer wegdan",
       "delete_forever": "Fia immer kübeln"
     },
     "sprint_display": "{current_sprint}/{number_of_sprints} Sprints",
     "running_for": "lauft scho seit: {0}",
     "last_played": "zletzt gwerkt am: {0}",
     "created_on": "zammgschustert am {0}",
-    "completed_on": "feraig wordn am: {0}",
-    "new": "Neich her",
+    "completed_on": "featig gwordn am: {0}",
+    "new": "Neichs Zimmer",
     "teams": "{n} Partie | {n} Partien",
     "no_teams_yet": "No ka Sau do..",
     "teams_deactivated": "Teams san eingschlofn",
@@ -51,19 +51,19 @@
       "signed_out_successfully": "Du bist jetzt draußen",
       "sign_out_error": "Ausloggn hat ned hinhaut"
     },
-    "page_title": "Deine Zimmern"
+    "page_title": "Deine Zimmer"
   },
   "create_room": {
-    "heading": "Neue Zimmer aufmachn",
+    "heading": "Neiche Zimmer aufmachn",
     "room_name": "Zimmername",
     "sprint_count": "Wie vü Sprints",
     "build_phase_duration": "Hackl-Zeit (min)",
-    "meeting_duration": "Planungs- & G'schaudauer",
+    "meeting_duration": "Planungs- & Onschaudauer",
     "total_duration": "Ois zam",
     "minute": "Minute | Minutn",
     "create": "Aufmachn",
     "room_created": "Zimmer steht!",
-    "creation_error": "Host Pech ghabt – is nix wordn",
+    "creation_error": "Host Pech ghabt – is nix gwordn",
     "page_title": "Neiche Zimmer"
   },
   "edit_room": {
