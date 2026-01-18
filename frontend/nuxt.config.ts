@@ -122,12 +122,12 @@ export default defineNuxtConfig({
       "play/[sprint]/build_phase": {
         de: "/play/[sprint]/bauphase",
         en: "/play/[sprint]/build-phase",
-        vie: "/spün/[sprint]/bau-pfusch",
+        vie: "/spün/[sprint]/hackl-phase",
       },
       "play/[sprint]/backlog_refinement": {
         de: "/play/[sprint]/backlog-refinement",
         en: "/play/[sprint]/backlog-refinement",
-        vie: "/spün/[sprint]/ausmistn-im-backlog",
+        vie: "/spün/[sprint]/sprint-abschluss",
       },
       "play/congratulations": {
         de: "/play/gratulation",

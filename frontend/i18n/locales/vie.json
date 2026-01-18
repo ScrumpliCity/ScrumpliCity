@@ -4,26 +4,26 @@
   "welcome_message": "Servas, gemma spün",
   "rooms": {
     "started": "Lauft scho",
-    "ready": "Mia sans",
-    "completed": "Abghakt",
+    "ready": "Bereit",
+    "completed": "Abg'hakt",
     "currently_playing": "Is grad im Gang",
     "delete": {
-      "are_you_sure": "Heast, bist da sicher, dassd des Zimmer {name} wirklich wegschmeißn wüst?",
+      "are_you_sure": "Heast, bist da sicher, dass'd des Zimmer {name} wiaklich wegschmeißn wüst?",
       "success": "Passt, is weg",
       "error": "Oida, do is wos schiefganga",
       "delete_room": "Dieses Zimmer wegdan",
       "delete_forever": "Fia immer kübeln"
     },
     "sprint_display": "{current_sprint}/{number_of_sprints} Sprints",
-    "running_for": "lauft scho seit: {0}",
-    "last_played": "zletzt gwerkt am: {0}",
-    "created_on": "zammgschustert am {0}",
-    "completed_on": "featig gwordn am: {0}",
-    "new": "Neichs Zimmer",
+    "running_for": "lauft scho seit: {0} ",
+    "last_played": "z'letzt gwerkt am: {0}",
+    "created_on": "z'sammgschuastat am {0}",
+    "completed_on": "featig g'wordn am: {0}",
+    "new": "Neich",
     "teams": "{n} Partie | {n} Partien",
     "no_teams_yet": "No ka Sau do..",
-    "teams_deactivated": "Teams san eingschlofn",
-    "teams_deactivated_description": "Weu 10 Minutn nix gangn is, san alle Teams und da Zimmer-Code eig'schlofn wordn. Mach an neichn Code, sunst geht goa nix.",
+    "teams_deactivated": "Teams san ei'gschlofn",
+    "teams_deactivated_description": "Weu 10 Minutn nix gangn is, san alle Teams und da Zimmer-Code ei'gschlofn. Mach an neichn Code, sunst geht goa nix.",
     "team_rejoined": "A Partie is wieda do!",
     "team_rejoined_description": "De Partie {team} is wieda einigschneit",
     "room_code": "Zimmercode",
@@ -31,14 +31,14 @@
     "room_code_copied": "Zimmercode kopiert!",
     "phase_box": {
       "default": "Gemma, erster Sprint!",
-      "planning": "Sprint G'scheit-Rederei",
+      "planning": "Sprint Planning",
       "build_phase": "Hackl-Phase",
-      "review": "Drüberschaun",
-      "retrospective": "Nocha sudern",
-      "backlog_refinement": "Backlog auframen",
+      "review": "Sprint Review",
+      "retrospective": "Sprint Retro",
+      "backlog_refinement": "Backlog Refinement",
       "next_phase": "nägste G'schicht",
       "sprint": "Sprint",
-      "end_of_sprint": "Sprint finito:"
+      "end_of_sprint": "Sprint finito um:"
     },
     "product_owner_or_scrum_master_required": "Ohne Product Owner und Scrum Master geht genau goa nix.",
     "toggle_playing_error": "Fehla beim Zimmer {status}!",
@@ -56,22 +56,22 @@
   "create_room": {
     "heading": "Neiche Zimmer aufmachn",
     "room_name": "Zimmername",
-    "sprint_count": "Wie vü Sprints",
+    "sprint_count": "Wie vü Sprint?s",
     "build_phase_duration": "Hackl-Zeit (min)",
-    "meeting_duration": "Planungs- & Onschaudauer",
+    "meeting_duration": "Planning- & Review-Zeit",
     "total_duration": "Ois zam",
     "minute": "Minute | Minutn",
     "create": "Aufmachn",
     "room_created": "Zimmer steht!",
-    "creation_error": "Host Pech ghabt – is nix gwordn",
+    "creation_error": "Host Pech g'habt – is nix g'wordn",
     "page_title": "Neiche Zimmer"
   },
   "edit_room": {
     "heading": "Zimmer umbaun",
     "room_name": "Zimmername",
-    "sprint_count": "Sprintanzahl",
+    "sprint_count": "Sprintanzoi",
     "build_phase_duration": "Hackl-Zeit (min)",
-    "meeting_duration": "Planungs- & Onschaudauer",
+    "meeting_duration": "Planning- & Review-Zeit",
     "total_duration": "Ois zam",
     "minute": "Minute | Minutn",
     "save": "Sichern",
@@ -83,74 +83,74 @@
   },
   "generate_room_code": {
     "generate_code": "Neichn Code ausspuckn",
-    "title": "Kumm eina zum ScrumpliCity-Zirkus!",
-    "description": "Geh auf {url} und tipp den Code ein:",
+    "title": "Kumm eine zum ScrumpliCity-Zirkus!",
+    "description": "Geh auf {url} und tipp den Code ei:",
     "url": "www.scrumplicity.app/play"
   },
   "join_room": {
-    "title": "In a Zimmer eisteign",
+    "title": "In a Zimmer ei'steign",
     "code": "Zimmercode",
     "join": "Eini da",
-    "team_title": "Gebts eich an gscheitn Namen!",
+    "team_title": "Gebts eich an g'scheitn Namen!",
     "choose_existing_team": "Suchts eich a Partie aus!",
-    "no_teams_available": "Ois scho vui, Pech ghabt!",
+    "no_teams_available": "Ois scho vui, Pech g'habt!",
     "team_name": "Partiename",
     "team_ready": "Passt",
     "team_join": "Gemma gemma",
-    "product_owner_or_scrum_master_required": "Ohne PO und Scrum Master laft da Schmäh ned.",
+    "product_owner_or_scrum_master_required": "Ohne PO und Scrum Master lauft da Schmäh ned.",
     "waiting": "Hockt und wart...",
-    "team_members": "Leit",
-    "room_settings": "Astellungen",
+    "team_members": "Dei Partie-Hawara",
+    "room_settings": "Eistellungen",
     "add_team_member": "No an Hawara dazua",
     "add_members_ready": "Featig",
     "scrum_master": "Scrum Master",
     "product_owner": "Product Owner",
-    "developer": "Hackler",
+    "developer": "Developer",
     "add_members_error": {
-      "title": "Leit dazua haut ned hin!",
+      "title": "Hawara dazua tan haut ned hin!",
       "description": "Probier's no amoi, Oida."
     },
     "role_taken": {
       "title": "Rolle is scho weg!",
-      "description": "{member} hacklt jetzt wieda normal."
+      "description": "{member} hacklt jetzt wieda noamal."
     },
     "confirmation_modal": {
-      "are_you_sure": "Sicha, dassd des wirklich wüst?",
+      "are_you_sure": "Sicha, dass'd des wiaklich wüst?",
       "description": "Noch dem Schritt is Schluss mit lustig!",
-      "yes": "Jo eh",
-      "cancel": "Na doch ned"
+      "yes": "Passt scho",
+      "cancel": "Na, doch ned"
     },
     "ready": {
       "waiting_for_start": "Wartn bis da Anpfiff kummt",
-      "team_members": "Leit",
-      "room_settings": "Einstellungen",
-      "sprint_count": "Wievü Sprints",
+      "team_members": "Dei Partie-Hawara",
+      "room_settings": "Eistellungen",
+      "sprint_count": "Wie vü Sprints?",
       "sprint_duration": "Sprint-Zeit",
-      "planning_duration": "Planungs-Zeit",
-      "review_duration": "Drüberschaun-Zeit",
+      "planning_duration": "Planning-Zeit",
+      "review_duration": "Review-Zeit",
       "minutes": "min",
       "page_title": "Glei geht's los, Oida"
     },
     "members": {
-      "page_title": "Leit einsommeln"
+      "page_title": "Hawara eisammeln"
     },
     "infobox": {
       "welcome": {
         "title": "Heast, i bin a Infokastl!",
-        "content": "In de Infokastln krigst immer den Schmäh zur aktuelln Projektphase serviert. Du findest's immer rechts untn in da Eckn – aufklappboa mit'm i.",
+        "content": "In de Infokastln kriegst immer den Schmäh zur aktuelln Projektphase serviert. Du findest's immer rechts untn in da Eckn – aufklappboa mit'm i.",
         "button": "Passt, hobs kapiert!"
       },
       "scrum_roles": {
         "title": "Scrum-Rollen",
-        "content": "In am Scrum-Team gibt's drei wichtige Rollen:\n {roles} Da Product Owner dirigiert, wos gmocht ghört, und sortiat die Aufgabn. Da Scrum Master schaut, dass da Scrum-Schmäh gscheit lauft und räumt Hindernisse aus'm Weg. De Hackler-Partie (Development Team) setzt des Gonze um und liefat in de Sprints brauchbare Ergebnisse.",
+        "content": "In am Scrum-Team gibt's drei wichtige Rollen:\n {roles} Da Product Owner dirigiert, wos g'mocht ghört, und sortiat de Aufgabn. Da Scrum Master schaut, dass da Scrum-Zirkus g'scheit lauft und räumt Hindernisse aus'm Weg. Des Development Team setzt des Gonze um und liefat in de Sprints brauchbare Ergebnisse.",
         "roles": {
           "product_owner": "Product Owner",
           "scrum_master": "Scrum Master",
-          "development_team": "Hackler-Partie (Development Team)"
+          "development_team": "Development Team"
         }
       }
     },
-    "page_title": "In an Zimmer eisteign"
+    "page_title": "In a Zimmer eisteign"
   },
   "role": {
     "title": "Wos bist'n du?",
@@ -202,11 +202,11 @@
     "sprint_planning": "@:common.phases.sprint_planning",
     "build_phase": "@:common.phases.build_phase",
     "sprint_name": "Sprintnome",
-    "set_a_sprint_name": "Setzt z'erst an gscheitn Sprintnomen!",
-    "define_sprint_goal": "Definiert dann euer Sprint-Zü!",
-    "write_user_story": "Und dann schreibt's eure erste User Story!",
-    "title": "Titel",
-    "description": "Erklärung",
+    "set_a_sprint_name": "Setzts z'erst an gscheitn Sprintnomen!",
+    "define_sprint_goal": "Definierts dann eicher Sprint-Zü!",
+    "write_user_story": "Und dann schreibts eicha easte User Story!",
+    "title": "Titl",
+    "description": "Eaklärung",
     "story_points": "Story Points",
     "responsible": "Zuständigkeit",
     "sprint_out_of_n": "Sprint {current}/{total}",
@@ -214,24 +214,24 @@
     "story_points_abbreviation": "SP.",
     "story_points_of_planned_user_stories": "Story Points von de geplantn User Stories",
     "velocity_to_date": "Vagangene Velocity",
-    "description_of_us": "Erklärung von da US",
-    "title_of_us": "Titel von da US",
+    "description_of_us": "Eaklärung von da US",
+    "title_of_us": "Titl von da US",
     "infobox": {
       "sprint_names": {
         "title": "Sprintnomen",
-        "content": "Sprintnomen höfen, dass ma de Sprints eindeutig erkennt und gscheit einurdnen ko. Des ko nummeriert sein (z. B. \"Sprint 1\", \"Sprint 2\"), nach Schwerpunkt (z. B. \"Sprint Häuserbau\") oda alphabetisch (z. B. \"Amsterdam\", \"Berlin\")."
+        "content": "Sprintnomen höfen, dass ma de Sprints eideutig eakennt und g'scheit einurdnen ko. Des ko nummeriert sein (z.B. \"Sprint 1\", \"Sprint 2\"), nach Schwerpunkt (z.B. \"Sprint Häuserbau\") oda alphabetisch (z.B. \"Amsterdam\", \"Berlin\")."
       },
       "sprint_goal": {
         "title": "Sprint-Zü",
-        "content": "Des Sprint-Zü is des Hauptzü, des des Team im aktuellen Sprint erreichn wü. Es gibt a klare Richtung voa und hüft, dass ma während dem gonzn Sprint beim Wesentlichn bleibt. A guats Sprint-Zü is kurz, realistisch und fia's ganze Team vaständlich, z. B. \"Grundriss von da Stodt skizzieren.\""
+        "content": "Des Sprint-Zü is des Hauptzü, wos des Team im aktuellen Sprint erreichn wü. Es gibt a klare Richtung voa und hüft, dass ma während dem gonzn Sprint beim Wesentlichn bleibt. A guats Sprint-Zü is kurz, realistisch und fia de ganze Partie vaständlich, z.B. \"Grundriss von da Stodt skizzieren.\""
       },
       "user_stories": {
         "title": "User Stories",
-        "content": "User Stories soin klar und knackig foamuliat sein und de Sicht vom Nutzer widerspiegeln. Format: \"Ois [Rolle] möcht i [Zü], um [Nutzen].\" (z. B. \"Ois Bewohner möcht i a Straße haben, um von meinem Haus in d'Hockn zu kommen.\") Zusätzlich brauchts Akzeptanzkriterien – des san Bedingungen, wann a Aufgabe wiaklich featig is (z. B. \"Die Straße hot 2 Fahrstreifen.\")."
+        "content": "User Stories soin klar und knackig foamuliat sein und de Sicht vom Nutzer widaspiegeln. Foamat: \"Ois [Rolle] möcht i [Zü], um [Nutzn].\" (z.B. \"Ois Bewohner möcht i a Straßn habn, um von meinem Haus in d'Hockn zu kommen.\") Zusätzlich brauchts Akzeptanzkriterien – des san Bedingungen, wann a Aufgabn wiaklich featig is (z.B. \"De Straße hot 2 Foastreifn.\")."
       },
       "story_points": {
         "title": "Story Points",
-        "content": "Story Points gebn o, wie kompliziert a User Story is. Oft nimmt ma de Fibonacci-Reihe (1, 2, 3, 5, 8, 13 …), um relative Unterschiede zwischn Stories abzuschätzen. Oiternativ gibt's a T-Shirt-Greßn (S, M, L, XL) oda zeitbasierte Schätzungn."
+        "content": "Story Points gebn o, wie kompliziat a User Story is. Oft nimmt ma de Fibonacci-Reihe (1, 1, 2, 3, 5, 8, 13 …), um relative Unterschiede zwischn Stories abzuschätzn. Oiternativ gibt's a T-Shirt-Greßn (S, M, L, XL) oda zeitbasiate Schätzungn."
       }
     }
   },
@@ -241,7 +241,7 @@
     "done": "Featig",
     "responsible": "Zuständige*r",
     "no_title": "Ka Titel",
-    "no_description": "Ka Erklärung",
+    "no_description": "Ka Eaklärung",
     "no_responsible": "Niemand zuständig"
   },
   "review": {
@@ -249,7 +249,7 @@
     "title": "@:planning.title",
     "description": "@:planning.description",
     "story_points": "@:planning.story_points",
-    "approved": "Obgnomman",
+    "approved": "Obgnumman",
     "sprint_out_of_n": "@:planning.sprint_out_of_n",
     "next_phase": "@:planning.next_phase",
     "responsible": "Zuständige*r",
@@ -260,7 +260,7 @@
     "velocity_to_date": "@:planning.velocity_to_date",
     "infobox": {
       "title": "Sprint Review",
-      "content": "Im Sprint Review wird des featige Inkrement vom Produkt herzagt und übaprüft. Da Product Owner (PO) schaut, ob alle Anforderungen von de User Stories (US) erfüt san. Is des der Foi, güt die US als abgnommen. Zü vom Meeting is, des Produkt zu inspizieren und gemeinsam mit Stakeholdern mögliche Anpassungen fia die nägsten Sprints zu besprechn."
+      "content": "Im Sprint Review wiat des featige Inkrement vom Produkt heazagt und übaprüft. Da Product Owner (PO) schaut, ob alle Anfoadarungen von de User Stories (US) eafüt san. Is des der Foi, güt de US ois obgnumman. Zü vom Meeting is, des Produkt zu inspizieren und z'sammen mit de Stakeholdern mögliche Anpassungen fia die nägsten Sprints zu besprechn."
     },
     "no_title": "@:build_phase.no_title",
     "no_description": "@:build_phase.no_description",
@@ -280,60 +280,60 @@
     "no_title": "@:build_phase.no_title",
     "no_description": "@:build_phase.no_description",
     "no_responsible": "@:build_phase.no_responsible",
-    "not_accepted_user_stories": "Ned abgenommene User Stories: {accepted} von {planned}",
-    "accepted_story_points": "Story Points von de abgnummanen User Stories",
+    "not_accepted_user_stories": "Ned obgnummane User Stories: {accepted} von {planned}",
+    "accepted_story_points": "Story Points von de obgnummanen User Stories",
     "planning": "Sprint Planning",
     "modal": {
-      "question": "Soin de ned abgnummanen User Stories in den nägsten Sprint mitgnumman weaden?",
+      "question": "Soin de ned obgnummanen User Stories in den nägsten Sprint mitgnumman weaden?",
       "accept": "Ja, übanehmen",
-      "reject": "Na, weg damit",
-      "note": "Übernummane US kennan im Sprint Planning anzeln glöscht weaden!"
+      "reject": "Na, schmeiß weg",
+      "note": "Übernummane US kennan im Sprint Planning anzeln g'löscht weaden!"
     },
     "infobox": {
       "title": "Velocity",
-      "content": "De Velocity erkläat, wie vü Story Points a Partie im Schnitt pro Sprint schafft. Berechnet wird's aus da Summe dea erledigtn Story Points geteilt durch die Anzahl von de Sprints."
+      "content": "De Velocity eakläat, wie vü Story Points a Partie im Schnitt pro Sprint schafft. Berechnet wiat's aus da Summe dea ealedigtn Story Points dividiat duach de Anzoi von de Sprints."
     },
-    "all_user_stories_accepted": "Alle User Stories in dem Sprint san abgnumman woadn – leiwand g'mocht!"
+    "all_user_stories_accepted": "Alle User Stories in dem Sprint san obgnumman woadn – Habe d'Ehre!"
   },
   "congratulations": {
     "title": "Na servas, spitze!",
-    "subheading": "Euer ScrumpliCity-Projekt is erledigt – do a kurze Zsammenfassung:",
+    "subheading": "Eicher ScrumpliCity-Projekt is ealedigt – do a kurze Z'sammenfassung:",
     "sprint": "{n} Sprint | {n} Sprints",
     "completed_us": "{n} obgschlossene User Story | {n} obgschlossene User Storys",
     "completed_sp": "{count} Story Point obgschlossen | {count} Story Points obgschlossen",
     "velocity": "Velocity von {velocity}",
     "user_story_abbreviation": "US.",
     "annotation": {
-      "text": "Danke, dass's mit ScrumpliCity gspüt habts! Weu die Website ständig weiterentwickelt wiat, gfreit si des ScrumpliCity-Team über Feedback, Ideen oda Wünsche – schreibt's uns afach an {email_link}!",
+      "text": "Dankesehr fia's ScrumpliCity-Spün! Weu die Website ständig weitaentwicklt wiat, gfreit si des ScrumpliCity-Team über Feedback, Ideen oda Wünsche – schreibt's uns afoch ane E-mail an: {email_link}!",
       "email": "E-Mail"
     },
-    "copy_tooltip": "Zsammenfassung in die Zwischenablage kopiern",
-    "copy_success": "Zsammenfassung kopiert!"
+    "copy_tooltip": "Zsammenfassung in de Zwischenablage kopiern",
+    "copy_success": "Zsammenfassung kopiat!"
   },
   "infobox": {
     "current_of_total": "{current} von {total}"
   },
   "team_manager": {
-    "missing_roles": "Ned alle Rollen san vergeben!\nVergib no die Rolle {roles}, sunst rennt da Schmäh ned weiter",
+    "missing_roles": "Ned alle Rollen san vergeben!\nVergib no de Rolle {roles}, sunst rennt da Zirkus ned weiter",
     "and": "und",
-    "add_member_error": "Fehla beim Dazuatun von Mitgliedan!",
-    "delete_member_error": "Fehla beim Aussehaun von Mitgliedan!",
+    "add_member_error": "Fehla beim Dazuatuan von de Hawara!",
+    "delete_member_error": "Fehla beim Aussehaun von de Hawara!",
     "update_role_error": "Fehla beim Aktualisieren von da Rolle!",
-    "member_deleted": "Mitglied ausse g'haut!",
+    "member_deleted": "Hawara ausse g'haut!",
     "role_taken": {
       "title": "Rolle woa scho vageben!",
-      "description": "{member} is wieda Developer wordn."
+      "description": "{member} is wieda Developer g'wordn."
     },
     "delete": {
-      "are_you_sure": "Bist da sicher, dassd des Team {name} wirklich ausse haun wüst?",
-      "success": "Erfolgreich ausse g'haut",
+      "are_you_sure": "Bist da sicher, dass'd des Team {name} wiaklich ausse haun wüst?",
+      "success": "Erfuigreich ausse g'haut",
       "error": "Do is wos schiefganga",
       "delete_room": "Des Team ausse haun",
-      "delete_forever": "Füa imma kübeln"
+      "delete_forever": "Fia imma kübeln"
     }
   },
   "homepage": {
-    "project_description": "Lean de agile Projektmanagement\u00ADmethode Scrum, indemst a Papiastodt zsamschustast! ScrumpliCity liefat da a Web-App, Bastelvualogn und gscheide Erklärungen zu Scrum – oiso: ",
+    "project_description": "Lean de agile Projektmanagementmethode Scrum, indemst a Papiastodt z'samschustast! ScrumpliCity liefat da a Web-App, Bastelvualogn und gscheide Eaklärungen zu Scrum – oiso: ",
     "build_your_scrum_knowledge": "Build Your Scrum Knowledge",
     "get_started": "Gemma!",
     "scrumplicity_guide": "ScrumpliCity-Onleitung",
@@ -344,26 +344,26 @@
     "features": {
       "learn_scrum": {
         "title": "Lean Scrum",
-        "description": "Entdeck de Grundlagen von Scrum und start dei erstes agiles Projekt – praxisnah, interaktiv und easy zum Checkn!"
+        "description": "Entdeck de Grundlagen von Scrum und start dei erstes agiles Projekt – praxisnah, intaaktiv und easy zum Checkn!"
       },
       "craft_your_city": {
         "title": "Bastl dei Stodt",
-        "description": "Gestalt dei eigene Papiastodt und bring Schritt fia Schritt dei Projekt zum Lebn!"
+        "description": "Gestoite dei eigene Papiastodt und bring Schritt fia Schritt dei Projekt zum Lebn!"
       },
       "solidify_teamwork": {
         "title": "Teamwork festign",
-        "description": "Stärk den Teamgeist und schau, wie guade Zssammenoabeit dei Projekte zum Eafuig bringt!"
+        "description": "Stärk den Teamgeist und schau, wie guade Z'sammenoabeit dei Projekte zum Eafuig bringt!"
       }
     },
-    "learning_materials": "Spüoanleitung",
-    "all_you_need_to_know": "Ois, wosd wissen musst!",
-    "scrumplicity_guide_description": "Neigierig gwurdn? Schau in unsere ScrumpliCity-Onleitung. Da sigst wos des Spü ois draufhot! Dort findest alle Scrum-Inhalte, a Schritt-fia-Schritt-Onleitung fia Tutor*innen und a Beitrittsanleitung fia Lernende. Wos woatst no – leg los und start dei erstes Spü!",
+    "learning_materials": "Spüonleitung",
+    "all_you_need_to_know": "Ois, wosd kapian musst!",
+    "scrumplicity_guide_description": "Neigierig gwurdn? Schau in unsere ScrumpliCity-Onleitung. Da sigst wos des Spü ois draufhot! Dort findest alle Scrum-Inhoite, a Schritt-fia-Schritt-Onleitung fia Tutor*innen und a Beitrittsonleitung fia Lernende. Wos woatst no – leg los und start dei erstes Spü!",
     "questions": "No Fragen?",
-    "here_to_help": "Mir san do, um da zu höfen! Schreib uns ollewei a E-Mail:",
+    "here_to_help": "Mia san do, um da zu höfen! Schreib uns ollewei a E-Mail:",
     "contact_us": "Kontaktier uns!",
     "notification": {
       "title": "Am Laptop rennts am elegantesten",
-      "description": "Damit ScrumpliCity gscheit rennt, mach's gfälligst am Laptop auf!"
+      "description": "Damit ScrumpliCity g'scheit rennt, mach's g'fälligst am Laptop auf!"
     },
     "socials": {
       "social_media": "Soziale Medien",
@@ -375,70 +375,70 @@
     }
   },
   "error": {
-    "do_not_enter": "Da hast nix verloren!",
+    "do_not_enter": "Da hast nix valoren!",
     "plan_missing": "Bauplan? Fehlanzeige!",
     "error": "Fehla: ",
-    "description": "De Seit is im Baustellenchaos untergangen!",
-    "404_description": "Entweder falsche URL oda komplett weg.",
-    "do_now": "Wosd jetzt mochn konnst:",
-    "back_homepage": "Zruck zur Startseitn",
+    "description": "De Seit is im Baustellenchaos untagangen!",
+    "404_description": "Entweda foische URL oda komplett pfutsch.",
+    "do_now": "Wos'd jetzt mochn konnst:",
+    "back_homepage": "Z'ruck zua Startseitn",
     "scrumplicity_guide": "Schau da de ScrumpliCity-Onleitung an",
-    "get_started": "Gemma mit ScrumpliCity",
+    "get_started": "Los geht's mit ScrumpliCity",
     "contact_us": "Meld di bei uns",
     "we_help": "Unsre Bauleiter richten des scho"
   },
   "timer": {
-    "paused_by_tutor": "Timer vom Tutor eingschlofn",
+    "paused_by_tutor": "Timer vom Tutor eigschlofn",
     "resume_timer": "Timer wieda rennan lossn",
-    "pause_timer": "Timer auf Eis legn",
-    "back": "30 Sekunden zruck",
+    "pause_timer": "Timer pausian",
+    "back": "30 Sekunden z'ruck",
     "forward": "30 Sekunden nach vuan",
     "next_phase": "Nägste G'schicht"
   },
   "scrumplicity_guide": {
     "title": "Servas bei da ScrumpliCity-Onleitung!",
-    "overview": "De ScrumpliCity-Onleitung gibt da ois Wichtige zum Spü: wia des Ganze rennt, a gscheide Schritt-fia-Schritt-Onleitung fia di ois Tutor*in und a kuaze Erklärung, wia Lernende dazua kumman. Mea Tiefgang zum Scrum-Prozess, den ma do ned extra ausbreiten, findest auf {link}.",
+    "overview": "De ScrumpliCity-Onleitung gibt da ois Wichtige zum Spü: wia des Ganze rennt, a g'scheite Schritt-fia-Schritt-Onleitung fia di ois Tutor*in und a kuaze Erklärung, wie Lernende dazua kumman. Mea Tiefgang zum Scrum-Prozess, den ma do ned extra auftischn, findest auf {link}.",
     "link": "scrum.org",
     "introduction": {
       "title": "Eiführung",
-      "description": "ScrumpliCity is a super Einstieg, um den Scrum-Schmäh zu checken und glei praktisch umzusetzen. De Lernenden baun dabei a Papiastodt aus featigen Bastelbögen, während de Website sie Schritt fia Schritt durch die anzelnen Phosen lotst. G'hacklt wird in Teams, de gemeinsam in am Zimmer san. A Zimmer sammelt oiso mearere Projektteams – zum Beispiel a Schulklassn mit vier Partien."
+      "description": "ScrumpliCity is a supa Eistieg, um den Scrum-Zirkus zu checken und glei praktisch umzusetzen. De Lernenden baun dabei a Papiastodt aus featigen Bastelbögn, während de Website sie Schritt fia Schritt duach de anzelnen Phasen lotst. G'hacklt wiat in Partien (Teams), de gemeinsam in am Zimmer san. A Zimmer sammelt oiso mearere Projektteams – zum Beispü a Schulklassn mit via Partien."
     },
     "prerequisites": {
       "title": "Voraussetzungen",
-      "description": "Fias Spü braucht a jedes Team an Laptop. Üba den treten de Lernenden dem Zimmer bei und verwoiten eana User Stories. Weu ScrumpliCity kan Product Backlog drin hat, müssn de Teams den extern führen – zum Beispiel in am Online-Tool oda ganz oldschool mit Pickerln. Fias Basteln brauchst kan Kleber, oba Scheren und optional Foabstiftln, damit's a bisserl fesch ausschaut. Mea Infos zu de Bastelvualogn findest in da Anleitung im runterladbaren .zip-Ordner."
+      "description": "Fias Spü braucht a jedes Team an Laptop. Üba den treten de Lernenden dem Zimmer bei und vawoiten eanare User Stories. Weu ScrumpliCity kan Product Backlog drin hat, müssn den de Teams extern füan – zum Beispü in am Online-Tool oda ganz oldschool mit Post-It-Pickaln. Fias Basteln brauchst kan Kleber, oba Schean und optional Foabstiftln, damit's a bisserl fescha ausschaut. Mea Infos zu de Bastelvualogn findest in da Onleitung im runterladbaren .zip-Oadner."
     },
     "scrum_content": {
       "title": "Scrum-Inhoite",
-      "description": "Los geht's mit'm ersten Sprint Planning. Do gebn de Teams dem Sprint an Nomen, legn a Sprint Zü fest und definiern eana User Stories. De werden von de Lernenden mit Story Points g'schätzt, am Hawara zuteilt und mit Akzeptanzkriterien aufgmotzt. In da Bauphase kennan de Lernenden eana User Stories anklickn, im Detail anschaun und als „erledigt“ markiern. Im Sprint Review schaut da Product Owner üba de featigen Aufgaben drüber – de Velocity aktualisiert si dabei automatisch. Da Sprint-Abschluss is de Übergangsphase zwischen zwa Sprints. Do entscheidn de Lernenden, ob ned abgenummane User Stories wegghaut oda in den nägsten Sprint mitgnumma werden. Abgnummane Stories landen automatisch im Archiv. Zum Schluss solln de Lernenden no des physische Burn-down-Chart aktualisieren, desd gemeinsam mit de Bastelvualogn runterladn könnst!"
+      "description": "Los geht's mit'm easten Sprint Planning. Do gebn de Teams dem Sprint an Nomen, legn a Sprint-Zü fest und definian eanare User Stories. Diese weaden von de Lernenden mit Story Points g'schätzt, anem Hawara zuteilt und mit Akzeptanzkriterien aufgmotzt. In da Bauphase kennan de Lernenden eana User Stories anklickn, im Detail anschaun und ois „erledigt“ markiern. Im Sprint Review schaut da Product Owner üba de featigen Aufgaben drüber – de Velocity aktualisiert si dabei automatisch. Da Sprint-Abschluss is de Übagangsphase zwischen zwa Sprints. Do entscheidn de Lernenden, ob ned obgnummane User Stories wegghaut oda in den nägsten Sprint mitgnumma weaden soin. Obgnummane Stories landen automatisch im Archiv. Zum Schluss soin de Lernenden no des physische Burn-down-Chart aktualisieren, wos'd gemeinsam mit de Bastelvualogn runterladn konnst!"
     },
     "step_by_step": {
       "title": "Schritt-fia-Schritt-Onleitung fia Tutor*innen",
-      "description1": "Von da Startseitn kummst über de „Gemma!“-Buttons zur Auswahlsseitn. Mit da Rolle „Tutor*in“ wirst weiter zum Login gschickt, dea aktuell nur mit am bestehendn Microsoft-Konto geht. Wählst „Lernende*r“, geht's direkt zur Zimmercode-Eingabe, damit ma glei als Partie losspün kann.",
-      "caption1": "Schritt 1: Rollenauswahl als Tutor*in",
-      "alt1": "Rollenauswahl-Seitn",
+      "description1": "Von da Startseitn kummst über de „Gemma!“-Buttons zur Auswoiseitn. Mit da Rolle „Tutor*in“ wirst weiter zum Login gschickt, dea aktuell nua mit am bestehendn Microsoft-Konto geht. Wöst „Lernende*r“, geht's direkt zur Zimmercode-Eigabe, damit ma glei ois Partie losspün kann.",
+      "caption1": "Schritt 1: Rollenauswoi ois Tutor*in",
+      "alt1": "Rollenauswoi-Seitn",
       "description2": "Wennst erfuigreich eingloggt bist, bringt di de Website automatisch in de Zimmerüberblick. Im Header konnst die Sproch umstön, de Bastelvualogn runterladn oda de Profileinstellungen aufklappn. Um ScrumpliCity spün zu kennan, musst unten rechts a neichs Zimmer d'astellen.",
-      "caption2": "Schritt 2: Zimmerüberblick vom Tutor",
+      "caption2": "Schritt 2: Zimmerüberblick vom/von da Tutor*in",
       "alt2": "Zimmerüberblick-Seite",
-      "description3": "Beim Zimmer-Erstön konnst haufenweise Einstellungen machn, de später a no änderbar san. Da Zimmername dient nur a'm Überblick. Ebenso stöst de Dauer von de einzelnen Phosen ein – entweder mit Vuaschlägn oda per Eigeneingabe (bis zu 99 Minutn). Unten rechts siegst außerdem die Gesamtdauer vom Spü, damit gscheit planen konnst.",
-      "caption3": "Schritt 3: Zimmer mit Nomen, Sprintanzahl und Phosendauer eastön",
+      "description3": "Beim Zimmer-Eastön konnst haufenweise Eistellungen machn, de später a no ändabar san. Da Zimmername dient nua a'm Überblick. Ebenso stöst da de Dauer von de einzelnen Phosen ein – entweda mit Vuaschlägn oda per Eigeneigabe (bis zu 99 Minutn). Unten rechts sigst außadem de Gesamtdauer vom Spü, damitst g'scheit planen konnst.",
+      "caption3": "Schritt 3: Zimmer mit Nomen, Sprintanzoi und Phasendauer eastön",
       "alt3": "Zimmer-Eastön-Overlay",
-      "description4": "Sobald dei Zimmer vorbereitet is, empfehlen ma, de Bastelvualogn üba den mittleren Button oben rechts obezuloden. Im .zip-Ordner findest Vualognbögen, a Burn-down-Chart-Vualoge und a Onleitung mit brauchbaren Infos, zum Beispü wie vü Bögen pro Partie d'brauchst.",
-      "caption4": "Schritt 4: Bastelvualogn über s'Icon obeloden",
-      "alt4": "Bastelvualogn in da Zimmerüberblick obeloden",
-      "description5": "Mit am Klick auf's Zimmer kummst in die Spielablaufvawoitung. Do bist ois Tutor*in während dem laufenden Spü untawegs. Oben rechts konnst de Zimmereinstellungen opassen. Bevor's losgeht, musst unten rechts an Zimmercode generieren. Dea geht in am neichen Fenster auf, damitst'n gscheit projizieren konnst. Mit dem Code kennan de Lernenden über scrumplicity.app/spün ins Zimmer eisteigen.",
+      "description4": "Soboid dei Zimmer vuabereitet is, empfehl'ma, de Bastelvualogn üba den mittlaren Button oben rechts obezuloden. Im .zip-Oadner findest Vualognbögen, a Burn-down-Chart-Vualoge und a Onleitung mit brauchbaren Infos, zum Beispü wie vü Bögen pro Partie du brauchst.",
+      "caption4": "Schritt 4: Bastelvualogn über's Icon obeloden",
+      "alt4": "Bastelvualogn beim Zimmerüberblick obeloden",
+      "description5": "Mit am Klick auf's Zimmer kummst in de Spielablaufvawoitung. Da bist ois Tutor*in untawegs, während des Spü lauft. Oben rechts konnst de Zimmereistellungen opassen. Bevor's losgeht, musst unten rechts an Zimmercode generieren. Dea geht in am neichen Fenster auf, damitst'n g'scheit projizieren konnst. Mit dem Code kennan de Lernenden über scrumplicity.app/spün ins Zimmer eisteigen.",
       "caption5": "Schritt 5: Zimmer in da Spielablaufvawoitung managen",
       "alt5": "Spielablaufvawoitungs-Seite",
-      "description6": "Sobald da Zimmercode da is, konnst'n unterm Zimmernamen in de Zwischenablage kopieren. Außerdem siegst an laaren Timer und de Onzeige von aktueller Phase und Sprintnummer. Wann mindestens a Partie drin is, konnst mit'm „Play“-Button unten rechts stoaten. Als Tutor*in konnst a Partien ausse haun oda Hawara rausnehman bzw. dazua gebn – vergiss oba jo ned, vuahea des Zimmer zu pausieren.",
-      "caption6": "Schritt 6: Partien vawuiten und Spü starten!",
-      "alt6": "Teams vawuiten und Spü starten!"
+      "description6": "Soboid da Zimmercode da is, konnst'n unterm Zimmernamen in de Zwischenablage kopian. Außadem sigst an lean Timer und de Onzeige von aktueller Phase und Sprintzoi. Wann mindestens a Partie drinnan is, konnst mit'm „Play“-Button unten rechts starten. Ois Tutor*in konnst a Partien ausse haun oda Hawara rausnehman bzw. dazua gebn – vergiss oba jo ned, vuahea des Zimmer zu pausieren.",
+      "caption6": "Schritt 6: Partien vawoiten und Spü starten!",
+      "alt6": "Teams vawoiten und Spü starten!"
     },
     "learners_title": "Spübeitritt fia Lernende",
-    "learners_description": "Fia Lernende is da Ablauf ziemlich selbsterklärend, drum spar ma uns de Details. Sobald a Zimmercode do is, kennan de Lernenden über scrumplicity.app/spün eisteigen:\n {join_steps} In anzelne Phosen vom Spü tauchn sogenannte „Infokästchen“ auf. De erklärn kurz, wos grad abgeht, und höfen, anzelne Scrum-G'schichten besser zu checkn.",
+    "learners_description": "Fia Lernende is da Ablauf ziemlich söbsteaklärend, drum spar ma uns de Details. Soboid a Zimmercode do is, kennan de Lernenden über scrumplicity.app/spün eisteigen:\n {join_steps} In anzelne Phosen vom Spü tauchn sogenannte „Infokästchen“ auf. De erklärn kurz, wos grad abgeht, und höfen, anzelne Scrum-G'schichten besser zu checkn.",
     "join_steps": {
       "step1": "Zimmercode eifügn",
-      "step2": "Partienomen niedaschreibn",
-      "step3": "Hawara dazua und Rollen vateiln",
-      "step4": "Beitritt oschließen und woatn, bis da Tutor/die Tutorin des Spü startet!"
+      "step2": "Partienomen einetippsln",
+      "step3": "Hawara dazua gebn und Rollen vateiln",
+      "step4": "Beitritt abschließen und woatn, bis da Tutor/die Tutorin des Spü startet!"
     },
     "get_started": "Aba schnö mit ScrumpliCity loslegen!"
   }
