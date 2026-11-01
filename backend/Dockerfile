@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.7-labs
 
-FROM dunglas/frankenphp@sha256:fe24f036eb12f799c4f782224d05483f843b1af75a37b18f956e0adbef463ead
+FROM dunglas/frankenphp@sha256:6f86f003f1478bafa7befe6ec26db5575e703882171f785189de1e222df0e38e
 
 # install php dependencies
 RUN install-php-extensions \
